@@ -1,0 +1,149 @@
+{
+  "seeds": [0],
+  "exp_name": "cnn_subject_3label",
+
+  "dataset_args": {
+    "data_name": "SWELLDataset",
+    "train_dataset": {
+      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL_1280_320",
+      "include_labels": true,
+      "data_views": {
+        "x1": {
+          "apply_transform": true
+        },
+        "x2": {
+          "apply_transform": true
+        }
+      },
+        "transform_dict_core": {
+        "ConstantAmplitudeScalingStochastic": {
+          "scale_min": 0.25,
+          "scale_max": 2.0
+        },
+        "GaussianNoiseStochastic": {
+          "sigma_scale_min": 0.0,
+          "sigma_scale_max": 0.5
+        },
+        "TimeWarpingStochastic": {
+          "sigma_min": 0.01,
+          "sigma_max": 0.5,
+          "knot_min": 1,
+          "knot_max": 4
+        },
+        "TimeShiftStochastic": {
+          "shift_len_min": 120,
+          "shift_len_max": 240
+        },
+        "PermuteStochastic": {
+          "n_splits_max": 4
+        }
+      },
+      "transform_dict_artifact": {
+        "Identity": {},
+        "JumpArtifactStochastic": {
+          "shift_factor_min": 0.01,
+          "shift_factor_max": 0.10
+        },
+        "LooseSensorArtifactStochastic": {
+          "width_min": 10,
+          "width_max": 30
+        },
+        "TemporalCutoutStochastic": {
+          "cutout_size_min": 10,
+          "cutout_size_max": 40
+        },
+        "HighFrequencyNoiseStochastic": {
+          "sigma_scale_min": 0.1,
+          "sigma_scale_max": 1.0
+        },
+        "Flip": {},
+          "AmplitudeWarpingStochastic": {
+          "sigma_min": 0.01,
+          "sigma_max": 0.05,
+          "knot_min": 0,
+          "knot_max": 4
+        },
+        "BandpassFilterStochastic": {
+          "lowcut_hz_min": 0.5,
+          "lowcut_hz_max": 1.5,
+          "highcut_hz_min": 40.0,
+          "highcut_hz_max": 100.0
+        },
+        "BandstopFilterStochastic": {
+          "remove_freq_min": 0.75,
+          "remove_freq_max": 1.0
+        },
+        "LowPassFilterStochastic": {
+          "highcut_hz_min": 20.0,
+          "highcut_hz_max": 40.0
+        },
+        "HighPassFilterStochastic": {
+          "lowcut_hz_min": 0.05,
+          "lowcut_hz_max": 0.25
+        }
+      },
+      "transform_global_core": {
+          "apply_probabilities": {
+            "AmplitudeWarpingStochastic": 0.5,
+            "BandpassFilterStochastic": 0.7,
+            "BandstopFilterStochastic": 0.4,
+            "ConstantAmplitudeScalingStochastic": 0.5,
+            "GaussianNoiseStochastic": 0.5,
+            "LowPassFilterStochastic": 0.4,
+            "HighPassFilterStochastic": 0.4,
+            "TimeWarpingStochastic": 0.4,
+            "TimeShiftStochastic": 0.5,
+            "PermuteStochastic": 0.2
+          }
+        },
+      "transform_global_artifact": {
+        "n_transforms": 2,
+        "stochastic_choice": true
+      }
+    }
+  },
+
+  "model_args": {
+    "base_encoder": "cnn",
+    "base_encoder_args": {
+      "input_dim": 1280,
+      "kernel_size": 10,
+      "stride": 1,
+      "dropout_prob": 0.1,
+      "output_dim": 64
+    },
+    "model_type": "subject_specific",
+    "projection_output": 32
+  },
+ "loss":{
+  "name": "NCE",
+  "loss_args": {
+    "temperature": 0.1,
+    "maximize_loss": false
+    }
+  },
+  "optim_args": {
+    "lr": 0.001,
+    "min_lr": 0.0001,
+    "batch_size": 512,
+    "num_workers": 8,
+    "epochs": 400,
+    "weight_decay": 0.01,
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.999,
+    "adam_epsilon": 1e-08,
+    "use_lr_scheduler": true,
+    "warm_up": 50,
+    "apply_early_stopping": false,
+    "early_stopping_is_higher": false,
+    "min_delta": 0,
+    "patience": 15
+  },
+
+  "logging_args": {
+    "base_output_dir": "./save/pretrain/subject_specific",
+    "results_file": "./save/pretrain_results.csv",
+    "save_freq": 40,
+    "print_freq": 1
+  }
+}

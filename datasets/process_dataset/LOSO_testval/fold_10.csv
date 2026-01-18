@@ -1,0 +1,17 @@
+subject_id,split
+S10,train
+S11,train
+S13,train
+S14,train
+S15,train
+S16,train
+S17,train
+S2,train
+S3,train
+S4,train
+S6,train
+S7,train
+S8,train
+S9,train
+S5,val
+S5,test
