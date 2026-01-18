@@ -1,0 +1,10 @@
+python3 main_simsiam.py --load_data /home/s223149341/SSL-invariance-Subject_Project_model/sim/mitdb.pkl --encoder vit1d --batch_size 128  --epochs 200  --lr 0.0001  --print_freq 50  --workers 4 --seed 42 --subject True
+& python main_lincls.py --data /home/s223149341/SSL-invariance-Subject_Project_model/data/wesad --method loso --test_size 4 --encoder vit1d --pretrained /home/s223149341/SSL-invariance-Subject_Project_model/sim/vit1d_checkpoint_200_True.pth.tar --epochs 60 --batch-size 256 --lr 0.001 --workers 5
+python3 main_simsiam.py --load_data /home/s223149341/SSL-invariance-Subject_Project_model/sim/mitdb.pkl --encoder vit1d --batch_size 128  --epochs 200  --lr 0.0001  --print_freq 50  --workers 4 --seed 42 --subject False
+& python main_lincls.py --data /home/s223149341/SSL-invariance-Subject_Project_model/data/wesad --method loso --test_size 4 --encoder vit1d --pretrained /home/s223149341/SSL-invariance-Subject_Project_model/sim/vit1d_checkpoint_200_False.pth.tar --epochs 60 --batch-size 256 --lr 0.001 --workers 5
+
+& python3 main_simsiam.py --load_data /home/s223149341/SSL-invariance-Subject_Project_model/sim/mitdb.pkl --encoder cnn --batch_size 128  --epochs 200  --lr 0.0001  --print_freq 50  --workers 4 --seed 42 --subject True
+& python main_lincls.py --data /home/s223149341/SSL-invariance-Subject_Project_model/data/wesad --method loso --test_size 4 --encoder cnn --pretrained /home/s223149341/SSL-invariance-Subject_Project_model/sim/cnn_checkpoint_200_True.pth.tar --epochs 60 --batch-size 256 --lr 0.001 --workers 5
+& python3 main_simsiam.py --load_data /home/s223149341/SSL-invariance-Subject_Project_model/sim/mitdb.pkl --encoder cnn --batch_size 128  --epochs 200  --lr 0.0001  --print_freq 50  --workers 4 --seed 42 --subject False
+& python main_lincls.py --data /home/s223149341/SSL-invariance-Subject_Project_model/data/wesad --method loso --test_size 4 --encoder cnn --pretrained /home/s223149341/SSL-invariance-Subject_Project_model/sim/cnn_checkpoint_200_False.pth.tar --epochs 60 --batch-size 256 --lr 0.001 --workers 5# subject_aware_contrastive_learning
+# subject_aware_contrastive_learning
