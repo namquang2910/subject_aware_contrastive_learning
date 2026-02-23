@@ -18,7 +18,7 @@ class GradReverse(Function):
 def grad_reverse(x, lambd=1.0):
     return GradReverse.apply(x, lambd)
 
-class InvariantContrastiveModel(Model):
+class SubjectInvariantContrastiveModel(Model):
     """
     Contrastive model with adversarial subject classifier
     to encourage subject-invariant representations.
@@ -91,6 +91,9 @@ class InvariantContrastiveModel(Model):
         adversarial_loss = self.subject_criterion(subj_logits, subject_ids)
 
         total_loss = contrastive_loss + self.grl_lambda * adversarial_loss  # GRL makes this adversarial for the encoder
-        if return_loss:
-            return total_loss, adversarial_loss, contrastive_loss, self.grl_lambda * adversarial_loss
-        return total_loss, adversarial_loss
+        result = {
+            'total_loss': total_loss,
+            'contrastive_loss': contrastive_loss,
+            'adversarial_loss': adversarial_loss
+        }
+        return result

@@ -82,17 +82,24 @@ class EncoderClassifierModel(Model):
         fc_params = list(self.classifier.parameters())
         return fc_params, encoder_params
 
-    def forward(self, x, y, return_preds=False):
+    def forward(self, data):
         self._check_loss_fn()  # confirm that loss function has been set
 
+        x = data['x'].to(self.device, non_blocking=True).float()
+        y = data['y'].to(self.device, non_blocking=True).float()
+
         x = x.unsqueeze(1).float()  # add channel dim
+
         h = self.encoder(x)
         y_hat = self.classifier(h)
         y = self._prepare_targets(y)
         loss = self.loss_fn(y_hat, y)
-        if return_preds:
-            return loss, y_hat
-        return loss
+        
+        result = {
+            'total_loss': loss,
+            'y_hat': y_hat
+        }
+        return result
     
     def check_grad_status(self):
         """

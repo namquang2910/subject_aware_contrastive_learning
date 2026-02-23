@@ -1,23 +1,17 @@
-"""
-Utility functions to support model training
-"""
-import json
-import time
 import random
 import os 
-from subject_aware_contrastive_learning.models import contrastive_model, subject_invariant_model, subject_specific_model
+from subject_aware_contrastive_learning.models import contrastive_model, finetune_builder, subject_invariant_model, subject_specific_model
 import torch
 import numpy as np
 import logging
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
 from models.utils import get_base_encoder
-from models import subject
 import random
-from torch.utils.data import Sampler
 from datasets.wesad_dataset import WESADDataset
 from datasets.psy_dataset import PsyDataset
 from datasets.swell_dataset import SWELLDataset
 from collections import defaultdict
+from loss.cl_loss import NCELoss
 
 class EarlyStopping:
     """Early-stopper on a scalar metric (lower is better)."""
@@ -55,72 +49,32 @@ class EarlyStopping:
             return True
         return False
 
-def set_seed(seed):
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
 
-def create_experiment(base_dir, model_type, exp_name="", dataset= None, mode=None):
-    tag = f"{model_type}_{dataset}"
-    out = os.path.join(base_dir, exp_name, mode, tag)
-    os.makedirs(out, exist_ok=True)
-    
-    if os.path.exists(out):
-        print(f"Warning: path {out} already exists. Overwriting.")
-        exit(1)
-    else:
-        os.makedirs(out, exist_ok=True)
-    return out
+class LossMeter:
+    def __init__(self):
+        self.totals = defaultdict(float)
+        self.count = 0
 
-def save_config_file(config_dict, output_dir):
-    with open(os.path.join(output_dir, "config.json"), "w") as f:
-        json.dump(config_dict, f, indent=4)
+    def update(self, loss_dict):
+        for k, v in loss_dict.items():
+            if v is not None:
+                self.totals[k] += v.detach()
+        self.count += 1
 
-def setup_logger(output_dir):
-    """Logs to both console and file: output_dir/train.log"""
-    log_path = os.path.join(output_dir, "train.log")
-    logger = logging.getLogger("train")
-    logger.setLevel(logging.INFO)
-    logger.handlers.clear()
+    def average(self):
+        return {k: v / max(1, self.count) for k, v in self.totals.items()}
 
-    fmt = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s", "%Y-%m-%d %H:%M:%S")
+class DummyLogger:
+    """Logger that does nothing on non-zero ranks."""
 
-    # File
-    fh = logging.FileHandler(log_path)
-    fh.setLevel(logging.INFO)
-    fh.setFormatter(fmt)
-    logger.addHandler(fh)
+    def info(self, *args, **kwargs):
+        pass
 
-    # Console
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.INFO)
-    ch.setFormatter(fmt)
-    logger.addHandler(ch)
-
-    # Make sure 3rd-party libs don’t spam DEBUG
-    logging.getLogger().setLevel(logging.WARNING)
-    return logger
-
+    def warning(self, *args, **kwargs):
+        pass
 
 
 def compute_metrics(y_true, y_hat):
-    """
-    Compute accuracy, precision, recall, F1-score, and confusion matrix.
-
-    Args:
-        y_true (Tensor or np.ndarray): Ground-truth labels.
-        y_hat  (Tensor or np.ndarray): Predicted labels (class indices).
-
-    Returns:
-        dict: {
-            'acc': float,
-            'precision': float,
-            'recall': float,
-            'f1': float,
-            'conf_mat': np.ndarray
-        }
-    """
     # --- Ensure CPU numpy arrays ---
     if isinstance(y_true, torch.Tensor):
         y_true = y_true.detach().cpu().numpy()
@@ -161,7 +115,7 @@ def create_model(cfg, device):
     elif model_type == "subject_invariant":
         num_subjects = cfg["model_args"].get("num_subjects", )
         grl_lambda = cfg["model_args"].get("grl_lambda", 1.0)
-        model = subject_invariant_model.AdversarialContrastiveModel(
+        model = subject_invariant_model.SubjectInvariantContrastiveModel(
             encoder,
             projection_output=projection_output,
             num_subjects=num_subjects,
@@ -172,6 +126,14 @@ def create_model(cfg, device):
         model = subject_specific_model.SubjectSpecificContrastiveModel(
             encoder, projection_output=projection_output,
             device=device
+        )
+    elif model_type == "finetune":
+        model = finetune_builder.EncoderClassifierModel(
+            base_encoder=encoder,
+            num_class=cfg["dataset"]["num_class"],
+            model_path=cfg["model_args"]["model_path"],
+            device=device,
+            freeze_encoder=cfg["model_args"].get("freeze_encoder", False),
         )
     else:
         raise ValueError(f"Unknown model_type: {model_type}")
@@ -185,25 +147,40 @@ def get_dataset(data_name, ds_args):
         return SWELLDataset(**ds_args)
 
 
-class LossMeter:
-    def __init__(self):
-        self.totals = defaultdict(float)
-        self.count = 0
+def get_loss(name: str, loss_args: dict):
+    if name == "NCE":
+        return NCELoss(**loss_args)
+    elif name == "BCE":
+        return torch.nn.BCEWithLogitsLoss()
+    raise ValueError(f"Unknown loss: {name}")
 
-    def update(self, loss_dict):
-        for k, v in loss_dict.items():
-            if v is not None:
-                self.totals[k] += v.detach()
-        self.count += 1
+def set_seed(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
 
-    def average(self):
-        return {k: v / max(1, self.count) for k, v in self.totals.items()}
+def setup_logger(output_dir):
+    """Logs to both console and file: output_dir/train.log"""
+    log_path = os.path.join(output_dir, "train.log")
+    logger = logging.getLogger("train")
+    logger.setLevel(logging.INFO)
+    logger.handlers.clear()
 
-class DummyLogger:
-    """Logger that does nothing on non-zero ranks."""
+    fmt = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s", "%Y-%m-%d %H:%M:%S")
 
-    def info(self, *args, **kwargs):
-        pass
+    # File
+    fh = logging.FileHandler(log_path)
+    fh.setLevel(logging.INFO)
+    fh.setFormatter(fmt)
+    logger.addHandler(fh)
 
-    def warning(self, *args, **kwargs):
-        pass
+    # Console
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.INFO)
+    ch.setFormatter(fmt)
+    logger.addHandler(ch)
+
+    # Make sure 3rd-party libs don’t spam DEBUG
+    logging.getLogger().setLevel(logging.WARNING)
+    return logger
