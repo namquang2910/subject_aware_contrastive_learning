@@ -55,7 +55,7 @@ class SubjectInvariantContrastiveModel(Model):
         )
         self.subject_criterion = nn.CrossEntropyLoss()
 
-    def forward(self, batch, return_loss = False):
+    def forward(self, batch):
         """
         view1, view2: dicts with 'x'
         subject_ids: tensor [B] with subject indices

@@ -1,6 +1,7 @@
 import random
 import os 
-from subject_aware_contrastive_learning.models import contrastive_model, finetune_builder, subject_invariant_model, subject_specific_model
+import json
+from models import contrastive_model, finetune_builder, subject_invariant_model, subject_specific_model
 import torch
 import numpy as np
 import logging
@@ -130,14 +131,15 @@ def create_model(cfg, device):
     elif model_type == "finetune":
         model = finetune_builder.EncoderClassifierModel(
             base_encoder=encoder,
-            num_class=cfg["dataset"]["num_class"],
+            num_class=1,
             model_path=cfg["model_args"]["model_path"],
             device=device,
             freeze_encoder=cfg["model_args"].get("freeze_encoder", False),
         )
     else:
         raise ValueError(f"Unknown model_type: {model_type}")
-    
+    return model
+
 def get_dataset(data_name, ds_args):
     if data_name =="WESADDataset":
         return WESADDataset(**ds_args)
@@ -184,3 +186,8 @@ def setup_logger(output_dir):
     # Make sure 3rd-party libs don’t spam DEBUG
     logging.getLogger().setLevel(logging.WARNING)
     return logger
+
+def save_config_file(config_dict, output_dir):
+    with open(os.path.join(output_dir, "config.json"), "w") as f:
+        json.dump(config_dict, f, indent=4)
+

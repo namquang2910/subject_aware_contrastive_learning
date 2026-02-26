@@ -1195,6 +1195,7 @@ class Composer:
         for i in range(self.n_transforms):
             trf = np.random.choice(self.transform_dict_artifact) if self.stochastic_choice else self.transform_dict_artifact[i]
             out['x'] = trf(out).copy()
+
         return out
 
 

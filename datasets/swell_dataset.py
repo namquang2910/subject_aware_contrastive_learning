@@ -46,7 +46,6 @@ class SWELLDataset(DatasetWrapper):
         for col in ['x', 'x_left_buffer', 'x_right_buffer']:
             if col in data_df.columns:
                 data_df[col] = data_df[col].apply(lambda x: np.array(x))
-        print(data_df["subject_id"])
         data_df["subject_id_int"] = data_df["subject_id"].apply(lambda x: int(x[1:])-1) #Remove the columns so it starts from 1 
         data_df['subject_id_int'] = self.label_encoder(data_df['subject_id_int'].values)
         self.num_subjects = len(data_df['subject_id_int'].unique())

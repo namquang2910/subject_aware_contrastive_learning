@@ -1,77 +1,107 @@
-import os
-import csv
-import copy
-import json
 import time
 import inspect
-import argparse
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.distributed as dist
 from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader
 from torch.utils.data.distributed import DistributedSampler
-from torch.optim.lr_scheduler import CosineAnnealingLR
 
-from utils import (
+from trainer.utils import (
     LossMeter, EarlyStopping, 
-    create_model, get_dataset, get_loss,
-    set_seed, save_config_file,
+    create_model, get_loss,
+    set_seed, save_config_file, get_dataset
 )
 
 class Trainer:
-    def __init__(self, cfg, logger, device, rank: int = 0, world_size: int = 1):
+    def __init__(self, cfg, logger, device, rank: int = 0, world_size: int = 1, seed:int = 1, fold: int = None):
         self.cfg = cfg
         self.logger = logger
         self.rank = rank
         self.world_size = world_size
         self.distributed = world_size > 1
+        self.fold = fold
         self.device = device
-        self.output_dir = cfg["output_dir"]
-        set_seed(cfg["seed"])
+        self.optim_args = None
+        self.output_dir = cfg["logging_args"]["output_dir"]
+        set_seed(seed)
         
         self.output = {"best_path": None,
                        "best_loss": None,
                        "best_epoch": None}
-        self.output_dir = self.cfg["logging_args"]["results_file"]
+        self.results_file = self.cfg["logging_args"]["results_file"]
         self.print_freq = int(cfg["logging_args"]["print_freq"])
         self.save_freq = int(cfg["logging_args"]["save_freq"])
 
         save_config_file(cfg, self.output_dir)
 
-    def _build_model(self):
-        loss_fn = get_loss(self.cfg["loss"]["name"], self.cfg["loss"]["loss_args"])
-        self.model = create_model(self.cfg, self.device)
+    def _build_model(self, training_cfg):
+        """
+        training_cfg: specific the training config by passing the pretrain_args or the finetune_args
+        """
+        loss_fn = get_loss(training_cfg["loss"]["name"], training_cfg["loss"]["loss_args"])
+        self.model = create_model(training_cfg, self.device)
         self.model.set_loss_fn(loss_fn)
         self.model.to(self.device)
 
-        if self.distributed:
+    def _wrap_ddp(self):
+        """
+        Wrap self.model with DistributedDataParallel safely.
+        Assumes torch.distributed is already initialized.
+        """
+
+        if not self.distributed:
+            return
+
+        # Ensure model is on the correct device BEFORE wrapping
+        self.model.to(self.device)
+
+        # Convert BatchNorm → SyncBatchNorm (only for multi-GPU training)
+        if self.device.type == "cuda":
             self.model = nn.SyncBatchNorm.convert_sync_batchnorm(self.model)
-            self.model = nn.parallel.DistributedDataParallel(
-                self.model,
-                device_ids=[self.device.index] if self.device.type == "cuda" else None,
-                output_device=self.device.index if self.device.type == "cuda" else None,
-            )
 
-        if self.rank == 0:
-            inner = self.model.module if hasattr(self.model, "module") else self.model
-            self.logger.info(f"Model.forward signature: {inspect.signature(inner.forward)}")
-
-    def _build_early_stopper(self):
-        opt = self.cfg["optim_args"]
-        self.early_stopper = EarlyStopping(
-            min_delta=opt.get("min_delta", 1e-4),
-            patience=opt.get("patience", 10),
-            enabled=opt.get("apply_early_stopping", True) if self.rank == 0 else False,
-            is_higher=self.cfg.get("early_stopping_higher_better", False),
+        # Wrap with DDP
+        self.model = nn.parallel.DistributedDataParallel(
+            self.model,
+            device_ids=[self.device.index] if self.device.type == "cuda" else None,
+            output_device=self.device.index if self.device.type == "cuda" else None,
+            find_unused_parameters=False,   # change to True only if needed
+            broadcast_buffers=True,
         )
+    def _build_early_stopper(self):
+        self.early_stopper = EarlyStopping(
+            min_delta=self.optim_args.get("min_delta", 1e-4),
+            patience=self.optim_args.get("patience", 10),
+            enabled=self.optim_args.get("apply_early_stopping", True) if self.rank == 0 else False,
+            is_higher=self.optim_args.get("early_stopping_higher_better", False),
+        )
+    
+    def _build_dataloader(self, finetune: bool = False):
+        ds_args = self.cfg["dataset_args"].copy()
+        ds_args["train_dataset_args"]['data_views'] = None if finetune else ds_args["train_dataset_args"]['data_views']
+        train_ds = get_dataset(self.cfg["dataset_args"]["data_name"], ds_args["train_dataset_args"])
+        val_ds = get_dataset(self.cfg["dataset_args"]["data_name"], ds_args["val_dataset_args"])
+        test_ds = get_dataset(self.cfg["dataset_args"]["data_name"], ds_args["test_dataset_args"])
+        self.cfg["pretrain_args"]["num_class"] = self.cfg["finetune_args"]["num_class"]= train_ds.num_subjects
 
+        self.train_sampler = DistributedSampler(
+            train_ds, num_replicas=self.world_size, rank=self.rank,
+            shuffle=True, drop_last=True)
+        
+        self.train_loader = self._make_loader(train_ds, shuffle=False, drop_last=True, sampler=self.train_sampler)
+        self.val_loader = self._make_loader(val_ds, shuffle=False, drop_last=False)
+        self.test_loader = self._make_loader(test_ds, shuffle=False, drop_last=False)
+    
     def _make_loader(self, dataset, shuffle: bool, drop_last: bool = False,sampler=None) -> DataLoader:
         return DataLoader(
-            dataset, batch_size=self.cfg["dataset_args"]["batch_size"],
-            shuffle=shuffle, drop_last=drop_last, sampler=sampler,
-            num_workers=self.cfg["dataset_args"].get("num_workers", 0)
+            dataset,
+            batch_size=self.optim_args["batch_size"],
+            shuffle=shuffle,
+            sampler=sampler,
+            num_workers=self.optim_args["num_workers"],
+            pin_memory=True,
+            drop_last=drop_last,
         )
     # ------------------------------------------------------------------
     # Persistence
@@ -87,25 +117,27 @@ class Trainer:
 
     def train_one_epoch(self, epoch: int) -> dict:
         self.model.train()
-        self.train_sampler.set_epoch(epoch)
+        if self.train_sampler is not None:
+            self.train_sampler.set_epoch(epoch)
 
         meter = LossMeter()
         start = time.time()
 
         for _, data in enumerate(self.train_loader):
             self.optimizer.zero_grad()
-            result = self.model(data, return_loss=True)
-            result["loss"].backward()
+            result = self.model(data)
+            result["total_loss"].backward()
             self.optimizer.step()
+            result.pop("y_hat", None) #remove y_hat
             meter.update(result)
 
         avg_losses = meter.average()
 
         # Sync total loss across ranks
         if self.distributed:
-            t = avg_losses["loss"].clone().to(self.device)
+            t = avg_losses["total_loss"].clone().to(self.device)
             dist.all_reduce(t, op=dist.ReduceOp.SUM)
-            avg_losses["loss"] = (t / self.world_size).item()
+            avg_losses["total_loss"] = (t / self.world_size).item()
 
         if self.scheduler is not None and (self.warm_up_epochs is None or epoch >= self.warm_up_epochs):
             self.scheduler.step()

@@ -1,16 +1,22 @@
 {
-  "exp_name": "cnn_subject_loso",
+  "exp_name": "cnn_subject_no_lap",
   "mode": "pretrain_finetune",
-  "split_path": "./splits/physionet/",
-  "output_dir": "./output_eval/cnn_ssl/cnn_ssl_Dec_07_2025_00-43-06",
   "seeds": [0],
-
+  "split_path": "./datasets/process_dataset/LOSO_testval",
+  "logging_args": {
+      "base_output_dir": "./save",
+      "output_dir": null,
+      "pretrain_output_dir": null,
+      "finetune_output_dir": null,
+      "results_file": "./save/result.csv",
+      "print_freq": 1,
+      "save_freq": 40
+  },
   "dataset_args": {
-    "data_name": "SWELLDataset",
+    "data_name": "WESADDataset",
     "train_dataset_args": {
-      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL_1280_320",
+      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_no_lap",
       "include_labels": true,
-      "split":"train",
       "sub_sample_frac": 1.0,
       "data_views": {
         "x1": {
@@ -107,21 +113,50 @@
       }
     },
     "val_dataset_args": {
-      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
+      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_no_lap",
       "include_labels": "true",
-      "split": "val",
-      "sub_sample_frac": 1.0,
-      "split_file": null
+      "sub_sample_frac": 1.0
     },
     "test_dataset_args": {
-      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
+      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_no_lap",
       "include_labels": "true",
-      "sub_sample_frac": 1.0,
-      "split": "test",
-      "split_file": null
+      "sub_sample_frac": 1.0
     }
   },
+  "pretrain_args": {
   "model_args": {        
+      "base_encoder": "cnn",
+      "base_encoder_args": {
+          "input_dim": 1280,
+          "kernel_size": 10,
+          "dropout_prob": 0.0,
+          "stride": 1,
+          "output_dim": 64
+      },
+      "num_class": 1,
+      "projection_output": 32,
+      "model_type": "contrastive"
+  },
+    "loss": { 
+      "name": "NCE", 
+      "loss_args": { "temperature": 0.1 } 
+     },
+    "optim_args": {
+      "lr": 0.001,
+      "min_lr": 0.0001,
+      "epochs": 400,
+      "batch_size": 256,
+      "num_workers": 8,
+      "weight_decay": 0.001,
+      "use_lr_scheduler": true,
+      "warm_up": 10,
+      "apply_early_stopping": false,
+      "patience": 15
+    }
+  },
+
+  "finetune_args": {
+    "model_args": {        
     "base_encoder": "cnn",
     "base_encoder_args": {
         "input_dim": 1280,
@@ -130,38 +165,14 @@
         "stride": 1,
         "output_dim": 64
     },
+    "model_type": "finetune",
     "num_class": 1,
     "freeze_encoder": false,
     "model_path": null
-},
-  "pretrain_args": {
-    "loss": { 
-      "name": "NCE", 
-      "loss_args": { "temperature": 0.1 } 
-     },
-    "optim_args": {
-      "lr": 0.001,
-      "min_lr": 0.0001,
-      "epochs": 800,
-      "batch_size": 256,
-      "num_workers": 8,
-      "weight_decay": 0.001,
-      "use_lr_scheduler": true,
-      "warm_up": 10,
-      "apply_early_stopping": false,
-      "patience": 15
-    },
-    "logging_args": {
-      "base_output_dir": "./save/pretrain",
-      "results_file": "./save/pretrain_results.csv",
-      "print_freq": 1,
-      "save_freq": 40
-    }
   },
-
-  "finetune_args": {
     "loss": { 
-      "name": "BCE"
+      "name": "BCE",
+      "loss_args":{}
     },
     "optim_args": {
       "lr": 0.0001,
@@ -175,12 +186,6 @@
       "apply_early_stopping": true,
       "early_stopping_is_higher": true,
       "patience": 20
-    },
-    "logging_args": {
-      "base_output_dir": "./save/finetune",
-      "results_file": "./save/finetune_results.csv",
-      "print_freq": 1,
-      "save_freq": 10
     }
   }
 }

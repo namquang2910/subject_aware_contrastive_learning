@@ -34,7 +34,7 @@ class ContrastiveModel(Model):
                                 nn.BatchNorm1d(self.projection_output),
                                 )
 
-    def forward(self, batch, return_loss=True):
+    def forward(self, batch):
         self._check_loss_fn()
         x1 = batch['x1']['x']
         x2 = batch['x2']['x']

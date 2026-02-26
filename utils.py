@@ -4,67 +4,82 @@ Utility functions to support model training
 import json
 import time
 import random
+import csv
 import os 
-from subject_aware_contrastive_learning.models import contrastive_model, subject_invariant_model, subject_specific_model
+from models import contrastive_model, subject_invariant_model, subject_specific_model
 import torch
 import numpy as np
 import logging
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
 from models.utils import get_base_encoder
-from models import subject
 import random
 from torch.utils.data import Sampler
 from datasets.wesad_dataset import WESADDataset
 from datasets.psy_dataset import PsyDataset
 from datasets.swell_dataset import SWELLDataset
 from collections import defaultdict
+import torch.distributed as dist
 
-class EarlyStopping:
-    """Early-stopper on a scalar metric (lower is better)."""
-    def __init__(self, min_delta=1e-3, patience=15, is_higher = True,enabled=True):
-        self.enabled = bool(enabled)
-        self.is_higher = bool(is_higher)
-        self.min_delta = float(min_delta)
-        self.patience = int(patience)
-        self.best = None
-        self.patience_counter = 0
+def broadcast_rank(obj, rank):
+    """
+    Broadcast a Python object from rank 0 to all ranks.
 
-    def step(self, value: float):
-        """Update with latest value; return (should_stop: bool, improved: bool)."""
-        improved = False
-        if self.best is None:
-            self.best = value
-            return (False, True)
+    Args:
+        obj: Object to broadcast (only required on rank 0, others can pass None)
+        rank: Current process rank
 
-        if (self.best - value) > self.min_delta if not self.is_higher else (value - self.best) > self.min_delta:
-            self.best = value
-            self.patience_counter = 0
-            improved = True
-        else:
-            self.patience_counter += 1
+    Returns:
+        The broadcasted object (same on all ranks)
+    """
+    if not dist.is_available() or not dist.is_initialized():
+        return obj  # single-process fallback
 
-        if not self.enabled:
-            return (False, improved)
+    obj_list = [obj if rank == 0 else None]
+    dist.broadcast_object_list(obj_list, src=0)
+    return obj_list[0]
+
+def setup_distributed():
+    """Initialize distributed training if WORLD_SIZE is set, else run single-process."""
+    world_size = int(os.environ.get("WORLD_SIZE", 1))
+
+    if world_size > 1:
+        rank = int(os.environ["RANK"])
+        local_rank = int(os.environ["LOCAL_RANK"])
+        torch.cuda.set_device(local_rank)
+        device = torch.device(f"cuda:{local_rank}")
+        dist.init_process_group(backend="nccl")
+        print(f"Distributed: rank {rank}/{world_size}, local_rank {local_rank}", flush=True)
+    else:
+        rank, local_rank = 0, 0
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print("Single-process mode.", flush=True)
+
+    return rank, world_size, device
+
+
+def resolve_seeds(cfg: dict) -> list:
+    if isinstance(cfg.get("seeds"), list) and cfg["seeds"]:
+        return cfg["seeds"]
+    if isinstance(cfg.get("seed"), int):
+        return [cfg["seed"]]
+    return [42]
+
+
+def save_results(results: dict, file_path):
+    headers, rows = [], []
+    for k,v in results.items():
+        headers.append(k)
+        rows.append(v)        
+    file_exists = os.path.isfile(file_path)
+    with open(file_path, "a", newline="") as f:
+        writer = csv.writer(f)
+        if not file_exists:
+            writer.writerow(headers)
+        writer.writerow(rows)
         
-        return (self.patience_counter >= self.patience, improved)
-
-    def _best_loss_update(self, loss):
-        if loss < self.best_loss:
-            self.patience_counter = 0
-            self.best_loss = loss
-            return True
-        return False
-
-def set_seed(seed):
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-
-def create_experiment(base_dir, model_type, exp_name="", dataset= None, mode=None):
-    tag = f"{model_type}_{dataset}"
-    out = os.path.join(base_dir, exp_name, mode, tag)
-    os.makedirs(out, exist_ok=True)
+def create_experiment(base_dir, model_type = "", exp_name="", dataset="", mode=""):
+    tag = f"{model_type}_{dataset}" if model_type != "" or dataset != "" else ""
+    out = os.path.join(base_dir, exp_name,tag, mode)
     
     if os.path.exists(out):
         print(f"Warning: path {out} already exists. Overwriting.")
@@ -72,10 +87,6 @@ def create_experiment(base_dir, model_type, exp_name="", dataset= None, mode=Non
     else:
         os.makedirs(out, exist_ok=True)
     return out
-
-def save_config_file(config_dict, output_dir):
-    with open(os.path.join(output_dir, "config.json"), "w") as f:
-        json.dump(config_dict, f, indent=4)
 
 def setup_logger(output_dir):
     """Logs to both console and file: output_dir/train.log"""
@@ -103,107 +114,3 @@ def setup_logger(output_dir):
     return logger
 
 
-
-def compute_metrics(y_true, y_hat):
-    """
-    Compute accuracy, precision, recall, F1-score, and confusion matrix.
-
-    Args:
-        y_true (Tensor or np.ndarray): Ground-truth labels.
-        y_hat  (Tensor or np.ndarray): Predicted labels (class indices).
-
-    Returns:
-        dict: {
-            'acc': float,
-            'precision': float,
-            'recall': float,
-            'f1': float,
-            'conf_mat': np.ndarray
-        }
-    """
-    # --- Ensure CPU numpy arrays ---
-    if isinstance(y_true, torch.Tensor):
-        y_true = y_true.detach().cpu().numpy()
-    if isinstance(y_hat, torch.Tensor):
-        y_hat = y_hat.detach().cpu().numpy()
-
-    # --- Compute metrics ---
-    acc = accuracy_score(y_true, y_hat)
-    precision = precision_score(y_true, y_hat, average='macro', zero_division=0)
-    recall = recall_score(y_true, y_hat, average='macro', zero_division=0)
-    f1 = f1_score(y_true, y_hat, average='macro', zero_division=0)
-
-    # --- Confusion matrix ---
-    conf_mat = confusion_matrix(y_true, y_hat)
-
-    return {
-        'acc': round(acc, 4),
-        'precision': round(precision, 4),
-        'recall': round(recall, 4),
-        'f1': round(f1, 4),
-        'conf_mat': conf_mat
-    }
-
-def create_model(cfg, device):
-    # --- Model ---
-    enc_name = cfg["model_args"]["base_encoder"]
-    enc_args = cfg["model_args"]["base_encoder_args"]
-    encoder = get_base_encoder(enc_name, enc_args)
-
-    projection_output = cfg["model_args"].get("projection_output", 32)
-    model_type = cfg["model_args"].get("model_type", "contrastive")
-
-    if model_type == "contrastive":
-        model = contrastive_model.ContrastiveModel(
-            encoder, projection_output=projection_output,
-            device=device
-        )
-    elif model_type == "subject_invariant":
-        num_subjects = cfg["model_args"].get("num_subjects", )
-        grl_lambda = cfg["model_args"].get("grl_lambda", 1.0)
-        model = subject_invariant_model.AdversarialContrastiveModel(
-            encoder,
-            projection_output=projection_output,
-            num_subjects=num_subjects,
-            grl_lambda=grl_lambda,
-            device=device
-        )
-    elif model_type == "subject_specific":
-        model = subject_specific_model.SubjectSpecificContrastiveModel(
-            encoder, projection_output=projection_output,
-            device=device
-        )
-    else:
-        raise ValueError(f"Unknown model_type: {model_type}")
-    
-def get_dataset(data_name, ds_args):
-    if data_name =="WESADDataset":
-        return WESADDataset(**ds_args)
-    elif data_name == "PsychioNet":
-        return PsyDataset(**ds_args)
-    elif data_name == "SWELLDataset":
-        return SWELLDataset(**ds_args)
-
-
-class LossMeter:
-    def __init__(self):
-        self.totals = defaultdict(float)
-        self.count = 0
-
-    def update(self, loss_dict):
-        for k, v in loss_dict.items():
-            if v is not None:
-                self.totals[k] += v.detach()
-        self.count += 1
-
-    def average(self):
-        return {k: v / max(1, self.count) for k, v in self.totals.items()}
-
-class DummyLogger:
-    """Logger that does nothing on non-zero ranks."""
-
-    def info(self, *args, **kwargs):
-        pass
-
-    def warning(self, *args, **kwargs):
-        pass
