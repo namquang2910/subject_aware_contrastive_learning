@@ -118,7 +118,6 @@ class DatasetWrapper(Dataset):
         # loop through subfolders
         for sub_dir in sorted(os.listdir(self.dataset_path)):
             if sub_dir.startswith('.'):
-                # hidden file
                 continue
             subject_id = self._sub_dir_to_sub_id(sub_dir)
             if self.split_key is not None and self.split_key == "subject_id" and subject_id not in self.keep_ids:

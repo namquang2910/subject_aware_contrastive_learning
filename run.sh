@@ -1,2 +1,0 @@
-python loso.py --config_path /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/pretrain_loso_wesad.json
-python loso.py --config_path /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/finetune_loso_swell.json

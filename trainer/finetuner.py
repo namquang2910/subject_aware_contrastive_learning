@@ -5,9 +5,10 @@ import torch.optim as optim
 import torch.distributed as dist
 from torch.utils.data import DataLoader
 from torch.optim.lr_scheduler import CosineAnnealingLR
+from torch.utils.data.distributed import DistributedSampler
 
 from trainer.trainer import Trainer
-from trainer.utils import ( compute_metrics, get_dataset, set_seed, save_config_file,)
+from trainer.utils import ( compute_metrics, get_dataset, set_seed, save_config_file, get_dataset)
 
 class Finetuner(Trainer):
     def __init__(self, cfg: dict, logger, device, rank: int = 0, world_size: int = 1, seed: int=1, fold:int = 1):
@@ -20,7 +21,7 @@ class Finetuner(Trainer):
         self.print_freq = int(log_cfg["print_freq"])
         self.save_freq = int(log_cfg["save_freq"])
         
-        self._build_dataloader(finetune=True)
+        self._build_dataloader()
         self._build_model(cfg['finetune_args'])
         self._build_optimizer()
         self._wrap_ddp()
@@ -36,7 +37,6 @@ class Finetuner(Trainer):
 
     def _build_optimizer(self):
         self.epochs = int(self.optim_args["epochs"])
-        print(self.model)
         encoder_params, classifier_params = self.model.get_parameters()
         self.optimizer = optim.AdamW(
             [
@@ -62,6 +62,20 @@ class Finetuner(Trainer):
         else:
             self.scheduler = None
 
+    def _build_dataloader(self):
+        ds_args = self.cfg['finetune_args']["dataset_args"]
+        train_ds = get_dataset(ds_args["train_dataset_args"])
+        val_ds = get_dataset(ds_args["val_dataset_args"])
+        test_ds = get_dataset(ds_args["test_dataset_args"])
+
+        self.train_sampler = DistributedSampler(
+            train_ds, num_replicas=self.world_size, rank=self.rank,
+            shuffle=True, drop_last=True)
+        
+        self.train_loader = self._make_loader(train_ds, shuffle=False, drop_last=True, sampler=self.train_sampler)
+        self.val_loader = self._make_loader(val_ds, shuffle=False, drop_last=False)
+        self.test_loader = self._make_loader(test_ds, shuffle=False, drop_last=False)
+    
     # ------------------------------------------------------------------
     # Training
     # ------------------------------------------------------------------
@@ -93,9 +107,9 @@ class Finetuner(Trainer):
                 self.output['best_epoch'] = epoch
                 self.output['best_path'] = os.path.join(self.finetune_output_dir, f"finetuned_best_{self.fold}.pt")
                 self._save_checkpoint(self.output['best_path'])
-
-            if should_stop and self.rank == 0:
-                self.logger.info(f"Early stopping at epoch {epoch}. Best: {self.early_stopper.best:.6f}")
+            if should_stop:
+                if self.rank == 0:
+                    self.logger.info(f"Early stopping at epoch {epoch}. Best: {self.early_stopper.best:.6f}")
                 break
 
         if self.rank == 0:

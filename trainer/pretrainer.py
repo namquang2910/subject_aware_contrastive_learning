@@ -4,9 +4,10 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.distributed as dist
 from torch.optim.lr_scheduler import CosineAnnealingLR
+from torch.utils.data.distributed import DistributedSampler
 
 from trainer.trainer import Trainer
-from trainer.utils import  save_config_file
+from trainer.utils import  save_config_file, get_dataset, set_seed
 
 class PreTrainer(Trainer):
     def __init__(self, cfg: dict, logger, device, rank: int = 0, world_size: int = 1, seed: int = 1, fold:int = 1):
@@ -26,6 +27,15 @@ class PreTrainer(Trainer):
         if self.rank == 0:
             save_config_file(cfg, self.pretrain_output_dir)
 
+    def _build_dataloader(self):
+            ds_args = self.cfg['pretrain_args']["dataset_args"].copy()
+            train_ds = get_dataset( ds_args["train_dataset_args"])
+            self.cfg['pretrain_args']["dataset_args"]['num_subjects'] = train_ds.num_subjects
+            self.train_sampler = DistributedSampler(
+                train_ds, num_replicas=self.world_size, rank=self.rank,
+                shuffle=True, drop_last=True)
+            
+            self.train_loader = self._make_loader(train_ds, shuffle=False, drop_last=True, sampler=self.train_sampler)
     # ------------------------------------------------------------------
     # Setup helpers
     # ------------------------------------------------------------------

@@ -77,13 +77,16 @@ def save_results(results: dict, file_path):
             writer.writerow(headers)
         writer.writerow(rows)
         
-def create_experiment(base_dir, model_type = "", exp_name="", dataset="", mode=""):
+def create_experiment(base_dir, model_type = "", exp_name="", dataset="", mode="", allow_exist=False):
     tag = f"{model_type}_{dataset}" if model_type != "" or dataset != "" else ""
     out = os.path.join(base_dir, exp_name,tag, mode)
     
     if os.path.exists(out):
-        print(f"Warning: path {out} already exists. Overwriting.")
-        exit(1)
+        if allow_exist:
+            print(f"Warning: path {out} already exists. Reusing.")
+        else:
+            print(f"Warning: path {out} already exists. Overwriting.")
+            exit(1)
     else:
         os.makedirs(out, exist_ok=True)
     return out

@@ -114,7 +114,7 @@ def create_model(cfg, device):
             device=device
         )
     elif model_type == "subject_invariant":
-        num_subjects = cfg["model_args"].get("num_subjects", )
+        num_subjects = cfg["dataset_args"]['num_subjects']
         grl_lambda = cfg["model_args"].get("grl_lambda", 1.0)
         model = subject_invariant_model.SubjectInvariantContrastiveModel(
             encoder,
@@ -123,6 +123,7 @@ def create_model(cfg, device):
             grl_lambda=grl_lambda,
             device=device
         )
+        print(f"Created SubjectInvariantContrastiveModel with {num_subjects} subjects and GRL lambda {grl_lambda}")
     elif model_type == "subject_specific":
         model = subject_specific_model.SubjectSpecificContrastiveModel(
             encoder, projection_output=projection_output,
@@ -140,7 +141,8 @@ def create_model(cfg, device):
         raise ValueError(f"Unknown model_type: {model_type}")
     return model
 
-def get_dataset(data_name, ds_args):
+def get_dataset(ds_args):
+    data_name = ds_args.pop("data_name", None)
     if data_name =="WESADDataset":
         return WESADDataset(**ds_args)
     elif data_name == "PsychioNet":

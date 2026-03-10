@@ -21,25 +21,36 @@ BASE_OUTPUT = "./save"
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config_path", type=str, required=True)
+    parser.add_argument("--resume_finetune", type=int, default=-1 , help="continue to finetune from a previous pretrain run")
+    parser.add_argument("--model_type", type=str, required=True, choices=["contrastive", "subject_specific", "subject_invariant"], help="model type for pretraining, contrastive or subject_specific")
     args = parser.parse_args()
 
     with open(args.config_path) as f:
         cfg = json.load(f)
-
+    allow_exit = False
     results = {'f1': [], 'acc': []}
     exp_name = cfg.get("exp_name", "exp")
+
+    if cfg['pretrain_args']['dataset_args']['train_dataset_args']['split'] is not None:
+            raise ValueError("This is the cross dataset setting. Please set 'split' to None for full dataset training.")
 
     rank, world_size, device = setup_distributed()
     seeds = resolve_seeds(cfg)
     cfg_run = copy.deepcopy(cfg)
     output_dir = None  # track for cleanup
 
+    #Update the model type for pretraining
+    cfg_run['pretrain_args']["model_args"]["model_type"] = args.model_type
+    if rank == 0: print(f"Runs: {len(seeds)}, seeds: {seeds}, model_type: {args.model_type}")
     try:
         for seed in seeds:
+            if args.resume_finetune >= 0:
+                allow_exit = True
+                print(f"Resuming finetune from pretrain run with seed {seed} and fold {args.resume_finetune}")
             output_dir = (
-                create_experiment(cfg["logging_args"]["base_output_dir"],
-                                  model_type=cfg['pretrain_args']['model_args']['model_type'],
-                                  exp_name=exp_name, mode="", dataset=cfg["dataset_args"]["data_name"])
+                create_experiment(cfg_run["logging_args"]["base_output_dir"],
+                                  model_type=cfg_run['pretrain_args']['model_args']['model_type'],
+                                  exp_name=exp_name, mode="", dataset=cfg_run['pretrain_args']["dataset_args"]['train_dataset_args']['data_name'], allow_exist=allow_exit)
                 if rank == 0 else None
             )
 
@@ -53,28 +64,36 @@ def main():
             cfg_run["logging_args"]["finetune_output_dir"] = output_dir
 
             logger = setup_logger(output_dir)
-
-            pretrain_out = PreTrainer(cfg_run, logger=logger, device=device, rank=rank, world_size=world_size, fold="").train()
-            best_path = broadcast_rank(pretrain_out['best_path'] if rank == 0 else None, rank)
-            cfg_run['finetune_args']["model_args"]["model_path"] = best_path
-            save_results(pretrain_out, os.path.join(output_dir, "results.csv")) if rank == 0 else None
+            if args.resume_finetune >= 0:
+                logger.info(f"Resuming finetune from pretrain run with seed {seed} and fold {args.resume_finetune}")                
+                cfg_run['finetune_args']["model_args"]["model_path"] = os.path.join(output_dir, "encoder_best_.pt")
+            else:
+                logger.info(f"Starting new run with seed {seed}")
+                pretrain_out = PreTrainer(cfg_run, logger=logger, device=device, rank=rank, world_size=world_size, fold="").train()
+                best_path = broadcast_rank(pretrain_out['best_path'] if rank == 0 else None, rank)
+                cfg_run['finetune_args']["model_args"]["model_path"] = best_path
+                save_results(pretrain_out, os.path.join(output_dir, "results.csv")) if rank == 0 else None
 
             split_fold = cfg["split_path"]
             folds = sorted(p for p in os.listdir(split_fold) if p.endswith(".csv"))
 
             for run_id, _ in enumerate(folds):
-                split_file = os.path.join(split_fold, folds[run_id])
-                for split, split_type in zip(
-                    ("train_dataset_args", "val_dataset_args", "test_dataset_args"),
-                    ("train", "val", "test")
-                ):
-                    cfg_run["dataset_args"][split]["split"] = split_type
-                    cfg_run["dataset_args"][split]["split_file"] = split_file
+                finetune_cfg = copy.deepcopy(cfg_run)
+                if args.resume_finetune >= 0 and run_id < args.resume_finetune:
+                    logger.info(f"Skipping fold {run_id} as per resume_finetune={args.resume_finetune}")
+                    continue
 
-                finetune_out = Finetuner(cfg_run, logger=logger, device=device, rank=rank, world_size=world_size, fold=run_id).train()
+                #Update the split file for finetuning
+                split_file = os.path.join(split_fold, folds[run_id])
+                for split in ["train_dataset_args", "val_dataset_args", "test_dataset_args"]:
+                    print(f"Updating split file for fold {run_id}: {split_file}")
+                    finetune_cfg['finetune_args']["dataset_args"][split]["split_file"] = split_file
+
+                finetune_out = Finetuner(finetune_cfg, logger=logger, device=device, rank=rank, world_size=world_size, fold=run_id).train()
                 finetune_out = broadcast_rank(finetune_out if rank == 0 else None, rank)
                 results['f1'].append(finetune_out['best_f1'])
                 results['acc'].append(finetune_out['best_acc'])
+                if rank == 0: print (f"Fold {run_id} - F1: {finetune_out['best_f1']:.4f}, Acc: {finetune_out['best_acc']:.4f} Saving finetune results for fold {run_id} in to {output_dir}")
                 save_results(finetune_out, os.path.join(output_dir, "results.csv")) if rank == 0 else None
 
         all_result = {
@@ -89,7 +108,6 @@ def main():
     except Exception as e:
         if rank == 0 and output_dir is not None and os.path.exists(output_dir):
             print(f"Error occurred: {e}. Removing output directory: {output_dir}")
-            shutil.rmtree(output_dir)
         raise  # re-raise so DDP workers still get the traceback
 
     finally:

@@ -12,11 +12,13 @@
       "print_freq": 1,
       "save_freq": 40
   },
-  "dataset_args": {
-    "data_name": "WESADDataset",
+  "pretrain_args": {
+    "dataset_args": {
     "train_dataset_args": {
+      "data_name": "WESADDataset",
       "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_no_lap",
       "include_labels": true,
+      "split": null,
       "sub_sample_frac": 1.0,
       "data_views": {
         "x1": {
@@ -111,19 +113,8 @@
         "n_transforms": 2,
         "stochastic_choice": true
       }
-    },
-    "val_dataset_args": {
-      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_no_lap",
-      "include_labels": "true",
-      "sub_sample_frac": 1.0
-    },
-    "test_dataset_args": {
-      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_no_lap",
-      "include_labels": "true",
-      "sub_sample_frac": 1.0
     }
   },
-  "pretrain_args": {
   "model_args": {        
       "base_encoder": "cnn",
       "base_encoder_args": {
@@ -135,7 +126,7 @@
       },
       "num_class": 1,
       "projection_output": 32,
-      "model_type": "contrastive"
+      "model_type": "subject_invariant"
   },
     "loss": { 
       "name": "NCE", 
@@ -156,6 +147,29 @@
   },
 
   "finetune_args": {
+    "dataset_args": {
+      "train_dataset_args": {
+      "data_name": "WESADDataset",
+      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_no_lap",
+      "include_labels": "true",
+      "split": "train",
+      "sub_sample_frac": 1.0
+    },
+     "val_dataset_args": {
+      "data_name": "WESADDataset",
+      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_no_lap",
+      "include_labels": "true",
+      "split": "val",
+      "sub_sample_frac": 1.0
+    },
+    "test_dataset_args": {
+      "data_name": "WESADDataset",
+      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_no_lap",
+      "include_labels": "true",
+      "split": "test",
+      "sub_sample_frac": 1.0
+    }
+    },
     "model_args": {        
     "base_encoder": "cnn",
     "base_encoder_args": {
@@ -168,7 +182,7 @@
     "model_type": "finetune",
     "num_class": 1,
     "freeze_encoder": false,
-    "model_path": null
+    "model_path": ""
   },
     "loss": { 
       "name": "BCE",
@@ -184,7 +198,7 @@
       "use_lr_scheduler": true,
       "warm_up": 5,
       "apply_early_stopping": true,
-      "early_stopping_is_higher": true,
+      "early_stopping_higher_better": true,
       "patience": 20
     }
   }

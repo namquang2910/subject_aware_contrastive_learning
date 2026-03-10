@@ -77,22 +77,7 @@ class Trainer:
             is_higher=self.optim_args.get("early_stopping_higher_better", False),
         )
     
-    def _build_dataloader(self, finetune: bool = False):
-        ds_args = self.cfg["dataset_args"].copy()
-        ds_args["train_dataset_args"]['data_views'] = None if finetune else ds_args["train_dataset_args"]['data_views']
-        train_ds = get_dataset(self.cfg["dataset_args"]["data_name"], ds_args["train_dataset_args"])
-        val_ds = get_dataset(self.cfg["dataset_args"]["data_name"], ds_args["val_dataset_args"])
-        test_ds = get_dataset(self.cfg["dataset_args"]["data_name"], ds_args["test_dataset_args"])
-        self.cfg["pretrain_args"]["num_class"] = self.cfg["finetune_args"]["num_class"]= train_ds.num_subjects
 
-        self.train_sampler = DistributedSampler(
-            train_ds, num_replicas=self.world_size, rank=self.rank,
-            shuffle=True, drop_last=True)
-        
-        self.train_loader = self._make_loader(train_ds, shuffle=False, drop_last=True, sampler=self.train_sampler)
-        self.val_loader = self._make_loader(val_ds, shuffle=False, drop_last=False)
-        self.test_loader = self._make_loader(test_ds, shuffle=False, drop_last=False)
-    
     def _make_loader(self, dataset, shuffle: bool, drop_last: bool = False,sampler=None) -> DataLoader:
         return DataLoader(
             dataset,
