@@ -100,46 +100,97 @@ def compute_metrics(y_true, y_hat):
     }
 
 def create_model(cfg, device):
-    # --- Model ---
-    enc_name = cfg["model_args"]["base_encoder"]
-    enc_args = cfg["model_args"]["base_encoder_args"]
-    encoder = get_base_encoder(enc_name, enc_args)
+    """
+    Factory for all model types.
 
-    projection_output = cfg["model_args"].get("projection_output", 32)
+    New model_type values
+    ─────────────────────
+    "moe_dual_branch"  →  MoEPretrainModel   (pretraining)
+    "moe_finetune"     →  MoEFinetuneModel   (fine-tuning)
+    """
+    from models.moe_dual_branch import (
+        MoEDualBranchEncoder, MoEPretrainModel, MoEFinetuneModel
+    )
+    from models import contrastive_model, finetune_builder, subject_invariant_model, subject_specific_model
+    from models.utils import get_base_encoder
+
     model_type = cfg["model_args"].get("model_type", "contrastive")
 
+    # ── MoE dual-branch pretraining ───────────────────────────────────────
+    if model_type == "moe_dual_branch":
+        enc_args = cfg["model_args"]["encoder_args"]
+        encoder  = MoEDualBranchEncoder(**enc_args)
+
+        # num_subjects is injected by PreTrainer._build_dataloader()
+        num_subjects = cfg["dataset_args"]["num_subjects"]
+
+        model = MoEPretrainModel(
+            encoder        = encoder,
+            num_subjects   = num_subjects,
+            projection_output = cfg["model_args"].get("projection_output", 32),
+            grl_lambda     = cfg["model_args"].get("grl_lambda", 1.0),
+            lambda_inv     = cfg["model_args"].get("lambda_inv",  1.0),
+            lambda_spec    = cfg["model_args"].get("lambda_spec", 1.0),
+            lambda_subj    = cfg["model_args"].get("lambda_subj", 1.0),
+            lambda_adv     = cfg["model_args"].get("lambda_adv",  0.5),
+            lambda_orth    = cfg["model_args"].get("lambda_orth", 0.1),
+            device         = device,
+        )
+        return model
+
+    # ── MoE fine-tuning ───────────────────────────────────────────────────
+    if model_type == "moe_finetune":
+        enc_args = cfg["model_args"]["encoder_args"]
+        encoder  = MoEDualBranchEncoder(**enc_args)
+
+        model = MoEFinetuneModel(
+            encoder        = encoder,
+            num_class      = cfg["model_args"].get("num_class", 1),
+            model_path     = cfg["model_args"].get("model_path", None),
+            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
+            freeze_inv     = cfg["model_args"].get("freeze_inv", False),
+            freeze_spec    = cfg["model_args"].get("freeze_spec", False),
+            device         = device,
+        )
+        return model
+
+    # ── existing model types (unchanged) ─────────────────────────────────
+    enc_name = cfg["model_args"]["base_encoder"]
+    enc_args = cfg["model_args"]["base_encoder_args"]
+    encoder  = get_base_encoder(enc_name, enc_args)
+
+    projection_output = cfg["model_args"].get("projection_output", 32)
+
     if model_type == "contrastive":
-        model = contrastive_model.ContrastiveModel(
-            encoder, projection_output=projection_output,
-            device=device
+        return contrastive_model.ContrastiveModel(
+            encoder, projection_output=projection_output, device=device
         )
     elif model_type == "subject_invariant":
-        num_subjects = cfg["dataset_args"]['num_subjects']
-        grl_lambda = cfg["model_args"].get("grl_lambda", 1.0)
+        num_subjects = cfg["dataset_args"]["num_subjects"]
+        grl_lambda   = cfg["model_args"].get("grl_lambda", 1.0)
         model = subject_invariant_model.SubjectInvariantContrastiveModel(
             encoder,
             projection_output=projection_output,
             num_subjects=num_subjects,
             grl_lambda=grl_lambda,
-            device=device
+            device=device,
         )
-        print(f"Created SubjectInvariantContrastiveModel with {num_subjects} subjects and GRL lambda {grl_lambda}")
+        print(f"Created SubjectInvariantContrastiveModel with {num_subjects} subjects")
+        return model
     elif model_type == "subject_specific":
-        model = subject_specific_model.SubjectSpecificContrastiveModel(
-            encoder, projection_output=projection_output,
-            device=device
+        return subject_specific_model.SubjectSpecificContrastiveModel(
+            encoder, projection_output=projection_output, device=device
         )
     elif model_type == "finetune":
-        model = finetune_builder.EncoderClassifierModel(
-            base_encoder=encoder,
-            num_class=1,
-            model_path=cfg["model_args"]["model_path"],
-            device=device,
-            freeze_encoder=cfg["model_args"].get("freeze_encoder", False),
+        return finetune_builder.EncoderClassifierModel(
+            base_encoder   = encoder,
+            num_class      = 1,
+            model_path     = cfg["model_args"]["model_path"],
+            device         = device,
+            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
         )
     else:
         raise ValueError(f"Unknown model_type: {model_type}")
-    return model
 
 def get_dataset(ds_args):
     data_name = ds_args.pop("data_name", None)

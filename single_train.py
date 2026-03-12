@@ -22,7 +22,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config_path", type=str, required=True)
     parser.add_argument("--resume_finetune", type=int, default=-1 , help="continue to finetune from a previous pretrain run")
-    parser.add_argument("--model_type", type=str, required=True, choices=["contrastive", "subject_specific", "subject_invariant"], help="model type for pretraining, contrastive or subject_specific")
+    parser.add_argument("--model_type", type=str, required=True, choices=["contrastive", "subject_specific", "subject_invariant", "moe_dual_branch"], help="model type for pretraining, contrastive or subject_specific")
     args = parser.parse_args()
 
     with open(args.config_path) as f:
@@ -74,6 +74,8 @@ def main():
                 cfg_run['finetune_args']["model_args"]["model_path"] = best_path
                 save_results(pretrain_out, os.path.join(output_dir, "results.csv")) if rank == 0 else None
 
+            if world_size > 1:
+                dist.barrier()  # ← ADD THIS: ensure both ranks sync before finetuner init
             split_fold = cfg["split_path"]
             folds = sorted(p for p in os.listdir(split_fold) if p.endswith(".csv"))
 

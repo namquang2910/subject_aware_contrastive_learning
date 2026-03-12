@@ -9,7 +9,7 @@ echo "Running Constrative..."
 torchrun \
   --nproc_per_node ${NPROC} \
   --master_port ${PORT} \
-  loso.py \
+  single_train.py \
   --config_path "${CONFIG}" \
   --model_type contrastive
 
@@ -17,7 +17,7 @@ echo "Running subject_specific..."
 torchrun \
   --nproc_per_node ${NPROC} \
   --master_port ${PORT} \
-  loso.py \
+  single_train.py \
   --config_path "${CONFIG}" \
   --model_type subject_specific
 
@@ -25,7 +25,7 @@ echo "Running subject_invariant..."
 torchrun \
   --nproc_per_node ${NPROC} \
   --master_port ${PORT} \
-  loso.py \
+  single_train.py \
   --config_path "${CONFIG}" \
   --model_type subject_invariant
 

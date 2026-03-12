@@ -95,7 +95,6 @@ class Trainer:
     def _save_checkpoint(self, path: str):
         model = self.model.module if hasattr(self.model, "module") else self.model
         torch.save({
-            "model": model,
             "state_dict": model.state_dict(),
             "optimizer": self.optimizer.state_dict(),
         }, path)

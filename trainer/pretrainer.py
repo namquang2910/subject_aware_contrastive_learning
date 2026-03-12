@@ -101,7 +101,6 @@ class PreTrainer(Trainer):
         if self.rank == 0:
             self.logger.info("Training complete.")
             self.logger.info(f"Best checkpoint: {self.output['best_path']}")
-        if self.distributed:
-            dist.barrier()
+
         return self.output
     
