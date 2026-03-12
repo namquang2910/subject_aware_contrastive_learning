@@ -7,7 +7,7 @@ import argparse
 import torch
 import torch.distributed as dist
 import numpy as np
-from utils import (
+from subject_aware_contrastive_learning.trainer.utils import (
     create_experiment, setup_logger, setup_distributed, save_results, resolve_seeds,broadcast_rank
 )
 

@@ -1,0 +1,11 @@
+best_path,best_loss,best_epoch
+./save/loso_5fold/subject_specific_WESADDataset/pretrain/encoder_best_0.pt,3.1800179481506348,394
+,,
+./save/loso_5fold/subject_specific_WESADDataset/pretrain/encoder_best_1.pt,3.174870491027832,368
+,,
+./save/loso_5fold/subject_specific_WESADDataset/pretrain/encoder_best_2.pt,3.1731202602386475,388
+,,
+./save/loso_5fold/subject_specific_WESADDataset/pretrain/encoder_best_3.pt,3.1721267700195312,388
+,,
+./save/loso_5fold/subject_specific_WESADDataset/pretrain/encoder_best_4.pt,3.173508644104004,378
+,,

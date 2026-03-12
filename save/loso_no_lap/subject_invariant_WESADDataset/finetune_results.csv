@@ -1,0 +1,16 @@
+best_path,best_loss,best_epoch,best_f1,best_acc
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_0.pt,1.6163127422332764,0,0.462,0.4688
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_1.pt,0.02684680186212063,15,0.5009,0.6912
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_2.pt,0.6836053133010864,1,0.4916,0.7281
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_3.pt,0.005600777454674244,29,0.8198,0.8732
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_4.pt,0.06660758703947067,5,0.5321,0.5342
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_5.pt,0.007834598422050476,16,0.7733,0.8182
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_6.pt,0.1595982015132904,3,0.9695,0.9732
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_7.pt,0.5294186472892761,0,0.9239,0.9318
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_8.pt,0.7839627265930176,1,0.7643,0.8404
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_9.pt,0.003592228051275015,29,1.0,1.0
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_10.pt,0.003644003998488188,34,0.8313,0.8807
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_11.pt,3.286931276321411,0,0.8648,0.8995
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_12.pt,0.10244904458522797,6,0.885,0.9028
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_13.pt,0.03475276380777359,10,0.7014,0.8028
+./save/loso_no_lap/subject_invariant_WESADDataset/finetune/finetuned_best_14.pt,0.5231513381004333,0,1.0,1.0

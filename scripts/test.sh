@@ -11,7 +11,6 @@ torchrun \
   --master_port ${PORT} \
   single_train.py \
   --config_path "${CONFIG}" \
-  --resume_finetune 0 \
   --model_type moe_dual_branch
 
 echo "All runs completed."

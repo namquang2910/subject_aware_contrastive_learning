@@ -2,7 +2,7 @@
   "exp_name": "cnn_overlap",
   "mode": "pretrain_finetune",
   "seeds": [0],
-  "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO",
+  "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval",
   "logging_args": {
       "base_output_dir": "./save",
       "output_dir": null,
@@ -120,7 +120,7 @@
       "base_encoder_args": {
           "input_dim": 1280,
           "kernel_size": 10,
-          "dropout_prob": 0.0,
+          "dropout_prob": 0.1,
           "stride": 1,
           "output_dim": 64
       },
@@ -138,7 +138,7 @@
       "epochs": 400,
       "batch_size": 256,
       "num_workers": 8,
-      "weight_decay": 0.001,
+      "weight_decay": 0.01,
       "use_lr_scheduler": true,
       "warm_up": 10,
       "apply_early_stopping": false,
@@ -190,13 +190,13 @@
     },
     "optim_args": {
       "lr": 0.0001,
-      "min_lr": 0.00001,
+      "min_lr": 1e-06,
       "epochs": 100,
       "batch_size": 64,
-      "num_workers": 8,
-      "weight_decay": 0.0001,
+      "num_workers": 4,
+      "weight_decay": 0.01,
       "use_lr_scheduler": true,
-      "warm_up": 5,
+      "warm_up": 0,
       "apply_early_stopping": true,
       "early_stopping_higher_better": true,
       "patience": 20

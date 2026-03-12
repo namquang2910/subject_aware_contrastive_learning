@@ -2,7 +2,7 @@
   "exp_name": "moe_dual_branch",
   "mode": "pretrain_finetune",
   "seeds": [0],
-  "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO",
+  "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval",
 
   "logging_args": {
     "base_output_dir": "./save",
@@ -103,6 +103,7 @@
       "use_lr_scheduler": true,
       "warm_up": 10,
       "apply_early_stopping": false,
+      "early_stopping_higher_better": false,
       "patience": 15
     }
   },
@@ -155,16 +156,16 @@
 
     "optim_args": {
       "lr": 0.0001,
-      "min_lr": 0.0001,
+      "min_lr": 0.00001,
       "epochs": 100,
       "batch_size": 64,
       "num_workers": 8,
-      "weight_decay": 0.0001,
+      "weight_decay": 0.01,
       "use_lr_scheduler": true,
       "warm_up": 5,
       "apply_early_stopping": true,
-      "early_stopping_higher_better": true,
-      "patience": 20
+      "early_stopping_higher_better": false,
+      "patience": 25
     }
   }
 }

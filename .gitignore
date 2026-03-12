@@ -2,6 +2,5 @@
 *.pkl
 *.pth.tar
 *.pt
-save/
 **/__pycache__/
 demo/

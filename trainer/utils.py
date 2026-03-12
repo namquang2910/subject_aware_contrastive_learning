@@ -243,4 +243,3 @@ def setup_logger(output_dir):
 def save_config_file(config_dict, output_dir):
     with open(os.path.join(output_dir, "config.json"), "w") as f:
         json.dump(config_dict, f, indent=4)
-

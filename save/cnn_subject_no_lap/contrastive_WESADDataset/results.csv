@@ -1,0 +1,17 @@
+best_path,best_loss,best_epoch
+./save/cnn_subject_no_lap/contrastive_WESADDataset/encoder_best_.pt,2.0459353923797607,392
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_0.pt,0.045634184032678604,4,0.6268,0.6295
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_1.pt,0.34493526816368103,0,0.4151,0.7097
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_2.pt,0.004485386423766613,16,0.5534,0.7419
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_3.pt,0.0009928005747497082,32,0.8656,0.9014
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_4.pt,0.0015046809567138553,26,0.6428,0.6804
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_5.pt,0.0007077922346070409,34,0.8449,0.8804
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_6.pt,0.015380583703517914,9,0.9897,0.9911
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_7.pt,0.0355641171336174,5,0.9385,0.9455
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_8.pt,0.35335302352905273,0,0.7464,0.831
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_9.pt,0.3836449384689331,0,1.0,1.0
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_10.pt,0.38152390718460083,0,0.8157,0.8716
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_11.pt,0.04187718778848648,4,0.6296,0.6301
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_12.pt,0.17816326022148132,1,0.8593,0.8843
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_13.pt,0.39959484338760376,0,0.8452,0.8853
+./save/cnn_subject_no_lap/contrastive_WESADDataset/finetuned_best_14.pt,0.006933796219527721,12,0.9946,0.9954

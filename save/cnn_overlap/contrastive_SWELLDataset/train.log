@@ -1,0 +1,172 @@
+2026-03-13 03:29:38 | INFO | Starting new run with seed 0
+2026-03-13 03:29:38 | INFO | Starting new run with seed 0
+2026-03-13 03:31:32 | INFO | [Epoch 000] total_loss=7.100327, lr=0.001000, time=77.57s
+2026-03-13 03:31:32 | INFO | Best model logged 7.100327491760254
+2026-03-13 03:32:40 | INFO | [Epoch 001] total_loss=5.954260, lr=0.001000, time=67.80s
+2026-03-13 03:32:40 | INFO | Best model logged 5.954259872436523
+2026-03-13 03:33:48 | INFO | [Epoch 002] total_loss=5.657384, lr=0.001000, time=68.25s
+2026-03-13 03:33:48 | INFO | Best model logged 5.657384395599365
+2026-03-13 03:34:56 | INFO | [Epoch 003] total_loss=5.550906, lr=0.001000, time=67.55s
+2026-03-13 03:34:56 | INFO | Best model logged 5.550906181335449
+2026-03-13 03:36:04 | INFO | [Epoch 004] total_loss=5.471002, lr=0.001000, time=68.24s
+2026-03-13 03:36:04 | INFO | Best model logged 5.471002101898193
+2026-03-13 03:37:12 | INFO | [Epoch 005] total_loss=5.370609, lr=0.001000, time=67.40s
+2026-03-13 03:37:12 | INFO | Best model logged 5.370609283447266
+2026-03-13 03:38:20 | INFO | [Epoch 006] total_loss=5.263522, lr=0.001000, time=68.11s
+2026-03-13 03:38:20 | INFO | Best model logged 5.263522148132324
+2026-03-13 03:39:27 | INFO | [Epoch 007] total_loss=5.180326, lr=0.001000, time=67.44s
+2026-03-13 03:39:27 | INFO | Best model logged 5.180325508117676
+2026-03-13 03:40:36 | INFO | [Epoch 008] total_loss=5.141255, lr=0.001000, time=68.60s
+2026-03-13 03:40:36 | INFO | Best model logged 5.1412553787231445
+2026-03-13 03:41:44 | INFO | [Epoch 009] total_loss=5.098499, lr=0.001000, time=67.91s
+2026-03-13 03:41:44 | INFO | Best model logged 5.098498821258545
+2026-03-13 03:42:53 | INFO | [Epoch 010] total_loss=5.043440, lr=0.001000, time=68.60s
+2026-03-13 03:42:53 | INFO | Best model logged 5.043440341949463
+2026-03-13 03:44:01 | INFO | [Epoch 011] total_loss=4.965468, lr=0.001000, time=67.63s
+2026-03-13 03:44:01 | INFO | Best model logged 4.965468406677246
+2026-03-13 03:45:09 | INFO | [Epoch 012] total_loss=4.664291, lr=0.001000, time=68.42s
+2026-03-13 03:45:09 | INFO | Best model logged 4.664290904998779
+2026-03-13 03:46:17 | INFO | [Epoch 013] total_loss=4.461474, lr=0.001000, time=67.90s
+2026-03-13 03:46:17 | INFO | Best model logged 4.461474418640137
+2026-03-13 03:47:26 | INFO | [Epoch 014] total_loss=4.300507, lr=0.001000, time=68.62s
+2026-03-13 03:47:26 | INFO | Best model logged 4.300506591796875
+2026-03-13 03:48:34 | INFO | [Epoch 015] total_loss=4.171898, lr=0.000999, time=67.55s
+2026-03-13 03:48:34 | INFO | Best model logged 4.171897888183594
+2026-03-13 03:49:42 | INFO | [Epoch 016] total_loss=4.054942, lr=0.000999, time=68.26s
+2026-03-13 03:49:42 | INFO | Best model logged 4.0549421310424805
+2026-03-13 03:50:50 | INFO | [Epoch 017] total_loss=3.967817, lr=0.000999, time=67.94s
+2026-03-13 03:50:50 | INFO | Best model logged 3.9678168296813965
+2026-03-13 03:51:59 | INFO | [Epoch 018] total_loss=3.905428, lr=0.000999, time=68.20s
+2026-03-13 03:51:59 | INFO | Best model logged 3.905428409576416
+2026-03-13 03:53:05 | INFO | [Epoch 019] total_loss=3.841608, lr=0.000999, time=66.45s
+2026-03-13 03:53:05 | INFO | Best model logged 3.8416082859039307
+2026-03-13 03:54:01 | INFO | [Epoch 020] total_loss=3.810177, lr=0.000998, time=55.76s
+2026-03-13 03:54:01 | INFO | Best model logged 3.8101773262023926
+2026-03-13 03:54:57 | INFO | [Epoch 021] total_loss=3.752096, lr=0.000998, time=55.64s
+2026-03-13 03:54:57 | INFO | Best model logged 3.7520956993103027
+2026-03-13 03:55:53 | INFO | [Epoch 022] total_loss=3.751871, lr=0.000998, time=55.78s
+2026-03-13 03:55:53 | INFO | Best model logged 3.751871109008789
+2026-03-13 03:56:49 | INFO | [Epoch 023] total_loss=3.708439, lr=0.000997, time=55.90s
+2026-03-13 03:56:49 | INFO | Best model logged 3.7084388732910156
+2026-03-13 03:57:45 | INFO | [Epoch 024] total_loss=3.709907, lr=0.000997, time=55.60s
+2026-03-13 03:58:41 | INFO | [Epoch 025] total_loss=3.688606, lr=0.000996, time=55.65s
+2026-03-13 03:58:41 | INFO | Best model logged 3.688605785369873
+2026-03-13 03:59:36 | INFO | [Epoch 026] total_loss=3.683383, lr=0.000996, time=55.76s
+2026-03-13 03:59:36 | INFO | Best model logged 3.6833832263946533
+2026-03-13 04:00:32 | INFO | [Epoch 027] total_loss=3.609217, lr=0.000995, time=55.73s
+2026-03-13 04:00:32 | INFO | Best model logged 3.6092171669006348
+2026-03-13 04:01:28 | INFO | [Epoch 028] total_loss=3.641638, lr=0.000995, time=55.75s
+2026-03-13 04:02:24 | INFO | [Epoch 029] total_loss=3.619311, lr=0.000994, time=55.79s
+2026-03-13 04:03:20 | INFO | [Epoch 030] total_loss=3.597424, lr=0.000994, time=55.87s
+2026-03-13 04:03:20 | INFO | Best model logged 3.597423553466797
+2026-03-13 04:04:16 | INFO | [Epoch 031] total_loss=3.583388, lr=0.000993, time=55.82s
+2026-03-13 04:04:16 | INFO | Best model logged 3.583387851715088
+2026-03-13 04:05:12 | INFO | [Epoch 032] total_loss=3.563600, lr=0.000992, time=55.82s
+2026-03-13 04:05:12 | INFO | Best model logged 3.5636000633239746
+2026-03-13 04:06:08 | INFO | [Epoch 033] total_loss=3.574065, lr=0.000992, time=55.68s
+2026-03-13 04:07:04 | INFO | [Epoch 034] total_loss=3.591526, lr=0.000991, time=55.85s
+2026-03-13 04:08:00 | INFO | [Epoch 035] total_loss=3.596183, lr=0.000990, time=55.75s
+2026-03-13 04:08:56 | INFO | [Epoch 036] total_loss=3.589745, lr=0.000989, time=56.06s
+2026-03-13 04:09:51 | INFO | [Epoch 037] total_loss=3.536918, lr=0.000989, time=55.84s
+2026-03-13 04:09:51 | INFO | Best model logged 3.5369176864624023
+2026-03-13 04:10:47 | INFO | [Epoch 038] total_loss=3.525799, lr=0.000988, time=55.82s
+2026-03-13 04:10:47 | INFO | Best model logged 3.52579927444458
+2026-03-13 04:11:43 | INFO | [Epoch 039] total_loss=3.520278, lr=0.000987, time=55.86s
+2026-03-13 04:11:43 | INFO | Best model logged 3.520277738571167
+2026-03-13 04:12:39 | INFO | [Epoch 040] total_loss=3.524178, lr=0.000986, time=55.86s
+2026-03-13 04:13:35 | INFO | [Epoch 041] total_loss=3.534572, lr=0.000985, time=55.89s
+2026-03-13 04:14:31 | INFO | [Epoch 042] total_loss=3.527434, lr=0.000984, time=55.83s
+2026-03-13 04:15:27 | INFO | [Epoch 043] total_loss=3.491848, lr=0.000983, time=55.85s
+2026-03-13 04:15:27 | INFO | Best model logged 3.4918482303619385
+2026-03-13 04:16:23 | INFO | [Epoch 044] total_loss=3.539095, lr=0.000982, time=55.92s
+2026-03-13 04:17:19 | INFO | [Epoch 045] total_loss=3.488797, lr=0.000981, time=56.08s
+2026-03-13 04:17:19 | INFO | Best model logged 3.488797426223755
+2026-03-13 04:18:15 | INFO | [Epoch 046] total_loss=3.513411, lr=0.000980, time=55.82s
+2026-03-13 04:19:11 | INFO | [Epoch 047] total_loss=3.523434, lr=0.000979, time=55.74s
+2026-03-13 04:20:07 | INFO | [Epoch 048] total_loss=3.502889, lr=0.000978, time=56.15s
+2026-03-13 04:21:03 | INFO | [Epoch 049] total_loss=3.467103, lr=0.000977, time=55.90s
+2026-03-13 04:21:03 | INFO | Best model logged 3.467102527618408
+2026-03-13 04:21:59 | INFO | [Epoch 050] total_loss=3.477651, lr=0.000976, time=55.79s
+2026-03-13 04:22:55 | INFO | [Epoch 051] total_loss=3.479048, lr=0.000974, time=55.76s
+2026-03-13 04:23:50 | INFO | [Epoch 052] total_loss=3.487022, lr=0.000973, time=55.79s
+2026-03-13 04:24:46 | INFO | [Epoch 053] total_loss=3.469721, lr=0.000972, time=55.87s
+2026-03-13 04:25:42 | INFO | [Epoch 054] total_loss=3.479253, lr=0.000971, time=55.87s
+2026-03-13 04:26:38 | INFO | [Epoch 055] total_loss=3.458170, lr=0.000969, time=55.73s
+2026-03-13 04:26:38 | INFO | Best model logged 3.4581704139709473
+2026-03-13 04:27:34 | INFO | [Epoch 056] total_loss=3.484812, lr=0.000968, time=55.75s
+2026-03-13 04:28:30 | INFO | [Epoch 057] total_loss=3.465659, lr=0.000967, time=56.13s
+2026-03-13 04:29:26 | INFO | [Epoch 058] total_loss=3.466590, lr=0.000965, time=55.71s
+2026-03-13 04:30:21 | INFO | [Epoch 059] total_loss=3.532703, lr=0.000964, time=55.93s
+2026-03-13 04:31:18 | INFO | [Epoch 060] total_loss=3.486724, lr=0.000963, time=56.04s
+2026-03-13 04:32:13 | INFO | [Epoch 061] total_loss=3.473179, lr=0.000961, time=55.84s
+2026-03-13 04:33:09 | INFO | [Epoch 062] total_loss=3.459379, lr=0.000960, time=55.89s
+2026-03-13 04:34:05 | INFO | [Epoch 063] total_loss=3.460213, lr=0.000958, time=55.87s
+2026-03-13 04:35:01 | INFO | [Epoch 064] total_loss=3.462132, lr=0.000957, time=56.09s
+2026-03-13 04:35:57 | INFO | [Epoch 065] total_loss=3.461473, lr=0.000955, time=55.90s
+2026-03-13 04:36:53 | INFO | [Epoch 066] total_loss=3.484712, lr=0.000953, time=55.91s
+2026-03-13 04:37:49 | INFO | [Epoch 067] total_loss=3.477592, lr=0.000952, time=55.71s
+2026-03-13 04:38:45 | INFO | [Epoch 068] total_loss=3.459288, lr=0.000950, time=55.97s
+2026-03-13 04:39:41 | INFO | [Epoch 069] total_loss=3.470131, lr=0.000948, time=56.08s
+2026-03-13 04:40:37 | INFO | [Epoch 070] total_loss=3.529662, lr=0.000947, time=55.82s
+2026-03-13 04:41:32 | INFO | [Epoch 071] total_loss=3.435622, lr=0.000945, time=55.72s
+2026-03-13 04:41:32 | INFO | Best model logged 3.435622215270996
+2026-03-13 04:42:28 | INFO | [Epoch 072] total_loss=3.487715, lr=0.000943, time=55.86s
+2026-03-13 04:43:24 | INFO | [Epoch 073] total_loss=3.448497, lr=0.000942, time=55.91s
+2026-03-13 04:44:20 | INFO | [Epoch 074] total_loss=3.439751, lr=0.000940, time=55.88s
+2026-03-13 04:45:16 | INFO | [Epoch 075] total_loss=3.462199, lr=0.000938, time=55.90s
+2026-03-13 04:46:12 | INFO | [Epoch 076] total_loss=3.435391, lr=0.000936, time=55.84s
+2026-03-13 04:46:12 | INFO | Best model logged 3.4353911876678467
+2026-03-13 04:47:08 | INFO | [Epoch 077] total_loss=3.442698, lr=0.000934, time=55.80s
+2026-03-13 04:48:04 | INFO | [Epoch 078] total_loss=3.447935, lr=0.000932, time=55.94s
+2026-03-13 04:49:00 | INFO | [Epoch 079] total_loss=3.450391, lr=0.000930, time=56.04s
+2026-03-13 04:49:56 | INFO | [Epoch 080] total_loss=3.441816, lr=0.000928, time=55.75s
+2026-03-13 04:50:51 | INFO | [Epoch 081] total_loss=3.455481, lr=0.000926, time=55.72s
+2026-03-13 04:51:47 | INFO | [Epoch 082] total_loss=3.430724, lr=0.000924, time=55.75s
+2026-03-13 04:51:47 | INFO | Best model logged 3.4307241439819336
+2026-03-13 04:52:43 | INFO | [Epoch 083] total_loss=3.446550, lr=0.000922, time=55.74s
+2026-03-13 04:53:39 | INFO | [Epoch 084] total_loss=3.449990, lr=0.000920, time=55.93s
+2026-03-13 04:54:35 | INFO | [Epoch 085] total_loss=3.422098, lr=0.000918, time=55.85s
+2026-03-13 04:54:35 | INFO | Best model logged 3.422098159790039
+2026-03-13 04:55:31 | INFO | [Epoch 086] total_loss=3.467539, lr=0.000916, time=55.86s
+2026-03-13 04:56:26 | INFO | [Epoch 087] total_loss=3.423717, lr=0.000914, time=55.75s
+2026-03-13 04:57:22 | INFO | [Epoch 088] total_loss=3.431048, lr=0.000912, time=55.86s
+2026-03-13 04:58:18 | INFO | [Epoch 089] total_loss=3.420168, lr=0.000910, time=55.83s
+2026-03-13 04:58:18 | INFO | Best model logged 3.420168161392212
+2026-03-13 04:59:14 | INFO | [Epoch 090] total_loss=3.426748, lr=0.000908, time=55.82s
+2026-03-13 05:00:10 | INFO | [Epoch 091] total_loss=3.417994, lr=0.000905, time=55.88s
+2026-03-13 05:00:10 | INFO | Best model logged 3.417994499206543
+2026-03-13 05:01:06 | INFO | [Epoch 092] total_loss=3.460071, lr=0.000903, time=55.88s
+2026-03-13 05:02:02 | INFO | [Epoch 093] total_loss=3.418595, lr=0.000901, time=56.23s
+2026-03-13 05:02:58 | INFO | [Epoch 094] total_loss=3.432597, lr=0.000899, time=55.81s
+2026-03-13 05:03:54 | INFO | [Epoch 095] total_loss=3.418794, lr=0.000896, time=55.86s
+2026-03-13 05:04:49 | INFO | [Epoch 096] total_loss=3.420394, lr=0.000894, time=55.75s
+2026-03-13 05:05:46 | INFO | [Epoch 097] total_loss=3.424962, lr=0.000892, time=56.01s
+2026-03-13 05:06:41 | INFO | [Epoch 098] total_loss=3.419136, lr=0.000889, time=55.96s
+2026-03-13 05:07:37 | INFO | [Epoch 099] total_loss=3.422489, lr=0.000887, time=55.79s
+2026-03-13 05:08:33 | INFO | [Epoch 100] total_loss=3.404624, lr=0.000884, time=55.82s
+2026-03-13 05:08:33 | INFO | Best model logged 3.404623508453369
+2026-03-13 05:09:29 | INFO | [Epoch 101] total_loss=3.424694, lr=0.000882, time=55.75s
+2026-03-13 05:10:25 | INFO | [Epoch 102] total_loss=3.404404, lr=0.000880, time=55.70s
+2026-03-13 05:10:25 | INFO | Best model logged 3.404404401779175
+2026-03-13 05:11:21 | INFO | [Epoch 103] total_loss=3.457342, lr=0.000877, time=55.91s
+2026-03-13 05:12:17 | INFO | [Epoch 104] total_loss=3.425583, lr=0.000875, time=55.84s
+2026-03-13 05:13:13 | INFO | [Epoch 105] total_loss=3.405874, lr=0.000872, time=55.86s
+2026-03-13 05:14:09 | INFO | [Epoch 106] total_loss=3.400164, lr=0.000869, time=55.86s
+2026-03-13 05:14:09 | INFO | Best model logged 3.4001636505126953
+2026-03-13 05:15:05 | INFO | [Epoch 107] total_loss=3.398634, lr=0.000867, time=55.79s
+2026-03-13 05:15:05 | INFO | Best model logged 3.398634433746338
+2026-03-13 05:16:01 | INFO | [Epoch 108] total_loss=3.425605, lr=0.000864, time=55.89s
+2026-03-13 05:16:57 | INFO | [Epoch 109] total_loss=3.411235, lr=0.000862, time=56.04s
+2026-03-13 05:17:53 | INFO | [Epoch 110] total_loss=3.444450, lr=0.000859, time=56.72s
+2026-03-13 05:18:50 | INFO | [Epoch 111] total_loss=3.416819, lr=0.000856, time=56.56s
+2026-03-13 05:19:46 | INFO | [Epoch 112] total_loss=3.403486, lr=0.000854, time=56.47s
+2026-03-13 05:20:42 | INFO | [Epoch 113] total_loss=3.428302, lr=0.000851, time=56.01s
+2026-03-13 05:21:39 | INFO | [Epoch 114] total_loss=3.400301, lr=0.000848, time=56.59s
+2026-03-13 05:22:35 | INFO | [Epoch 115] total_loss=3.383391, lr=0.000846, time=56.34s
+2026-03-13 05:22:35 | INFO | Best model logged 3.3833913803100586
+2026-03-13 05:23:32 | INFO | [Epoch 116] total_loss=3.398947, lr=0.000843, time=56.45s
+2026-03-13 05:24:28 | INFO | [Epoch 117] total_loss=3.391622, lr=0.000840, time=56.18s
+2026-03-13 05:25:25 | INFO | [Epoch 118] total_loss=3.473804, lr=0.000837, time=56.38s
+2026-03-13 05:26:21 | INFO | [Epoch 119] total_loss=3.405519, lr=0.000835, time=56.25s
+2026-03-13 05:27:17 | INFO | [Epoch 120] total_loss=3.389259, lr=0.000832, time=56.34s
+2026-03-13 05:28:13 | INFO | [Epoch 121] total_loss=3.408220, lr=0.000829, time=56.16s

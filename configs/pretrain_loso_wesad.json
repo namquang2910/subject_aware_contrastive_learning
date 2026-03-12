@@ -199,7 +199,7 @@
       "warm_up": 5,
       "apply_early_stopping": true,
       "early_stopping_higher_better": true,
-      "patience": 20
+      "patience": 30
     }
   }
 }

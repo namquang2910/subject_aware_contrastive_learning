@@ -1,28 +1,29 @@
 {
     "seed": 0,
     "exp_name": "cnn_ssl",
-    "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/Subject-aware_SSL/datasets/process_dataset/LOSO_testval",
+    "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval",
     "dataset_args": {
         "evaluation_type": "loso",
         "train_dataset_args": {
             "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
             "include_labels": "true",
             "split": "train",
-            "sub_sample_frac": 1.0,
-            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/Subject-aware_SSL/datasets/process_dataset/LOSO_testval/fold_14.csv"
+            "sub_sample_frac": 0.01,
+            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv"
         },
         "val_dataset_args": {
             "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
             "include_labels": "true",
             "split": "val",
             "sub_sample_frac": 1.0,
-            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/Subject-aware_SSL/datasets/process_dataset/LOSO_testval/fold_14.csv"
+            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv"
         },
         "test_dataset_args": {
             "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
             "include_labels": "true",
             "split": "test",
-            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/Subject-aware_SSL/datasets/process_dataset/LOSO_testval/fold_14.csv"
+            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv",
+            "sub_sample_frac": 1.0
         }
     },
     "model_args": {        
@@ -36,10 +37,10 @@
         },
         "num_class": 1,
         "freeze_encoder": false,
-        "model_path": "/home/s223149341/SSL-invariance-Subject_Project_model/Subject-aware_SSL/save/pretrain/invariant_model/cnn_subject_3label/ok_cnn_subject_3label_SWELLDataset_Jan_18_2026_05-08-59/encoder_best.pt"
+        "model_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/save/pretrain/contrastive/cnn_subject_3label/cnn_subject_3label_SWELLDataset_Mar_12_2026_23-24-18/encoder_best.pt"
     },
     "optim_args": {
-        "lr": 0.0001,
+        "lr": 0.001,
         "min_lr": 1e-06,
         "batch_size": 64,
         "num_workers": 4,

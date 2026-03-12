@@ -1,0 +1,2 @@
+F1_score,Accuracy,Pretraining_model_path,Finetuned_model_path
+0.7740333333333334,0.8541066666666667,/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/save/cnn_nolap_5fold/contrastive_SWELLDataset/encoder_best_.pt,./output_eval/cnn_ssl/cnn_ssl_Dec_07_2025_00-43-06

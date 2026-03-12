@@ -1,0 +1,9 @@
+f1_scores,accuracy,split_fold
+0.694,0.6953,fold_00.csv
+0.7327,0.7938,fold_01.csv
+0.454,0.6681,fold_02.csv
+0.6952,0.8076,fold_03.csv
+0.599,0.6012,fold_04.csv
+0.5065,0.7371,fold_05.csv
+0.9499,0.9551,fold_06.csv
+0.9898,0.9913,fold_07.csv
