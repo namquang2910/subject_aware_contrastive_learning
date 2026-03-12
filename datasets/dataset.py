@@ -107,11 +107,10 @@ class DatasetWrapper(Dataset):
         return data_df
 
     def maybe_sub_sample_data(self):
-        if self.is_main_process():
-            print(f"sub sample frac is {self.sub_sample_frac}")
-            if self.sub_sample_frac is not None:
-                self.data_df = self.data_df.sample(frac=self.sub_sample_frac)
-                print(f"Sampled {len(self.data_df)} examples")
+        print(f"sub sample frac is {self.sub_sample_frac}")
+        if self.sub_sample_frac is not None:
+            self.data_df = self.data_df.sample(frac=self.sub_sample_frac)
+            print(f"Sampled {len(self.data_df)} examples")
      
     def get_data_df(self):
         df_list = []
@@ -122,8 +121,7 @@ class DatasetWrapper(Dataset):
             subject_id = self._sub_dir_to_sub_id(sub_dir)
             if self.split_key is not None and self.split_key == "subject_id" and subject_id not in self.keep_ids:
                 continue
-            if self.is_main_process():
-                print(f"reading data for subject {subject_id}")
+            print(f"reading data for subject {subject_id}")
             subject_dir = os.path.join(self.dataset_path, sub_dir)
             subject_df = self.read_subject_data(subject_dir)
             subject_df["subject_id"] = [subject_id] * len(subject_df)
@@ -153,8 +151,7 @@ class DatasetWrapper(Dataset):
     def print_label_stats(self):
         vals, counts = np.unique(self.data_df['y'], return_counts=True)
         for val, count in zip(vals, counts):
-            if self.is_main_process():
-                print(f"Label {val} count: {count} = {count * 100 / len(self.data_df)}%")
+            print(f"Label {val} count: {count} = {count * 100 / len(self.data_df)}%")
 
     def _create_data_view(self, item, view_name, apply_transform):
         x_trf = copy.deepcopy(item['x_base'])
@@ -174,5 +171,3 @@ class DatasetWrapper(Dataset):
     def _prep_data_for_transforms(self):
         pass
     
-    def is_main_process(self):
-        return not dist.is_available() or not dist.is_initialized() or dist.get_rank() == 0
