@@ -69,7 +69,7 @@ def main():
                 cfg_run['finetune_args']["model_args"]["model_path"] = os.path.join(output_dir, "encoder_best_.pt")
             else:
                 logger.info(f"Starting new run with seed {seed}")
-                pretrain_out = PreTrainer(cfg_run, logger=logger, device=device, rank=rank, world_size=world_size, fold="").train()
+                pretrain_out = PreTrainer(cfg_run, logger=logger, device=device, rank=rank, world_size=world_size, fold="", seed = seed).train()
                 best_path = broadcast_rank(pretrain_out['best_path'] if rank == 0 else None, rank)
                 cfg_run['finetune_args']["model_args"]["model_path"] = best_path
                 save_results(pretrain_out, os.path.join(output_dir, "results.csv")) if rank == 0 else None
@@ -89,7 +89,7 @@ def main():
                     print(f"Updating split file for fold {run_id}: {split_file}")
                     finetune_cfg['finetune_args']["dataset_args"][split]["split_file"] = split_file
 
-                finetune_out = Finetuner(finetune_cfg, logger=logger, device=device, rank=rank, world_size=world_size, fold=run_id).train()
+                finetune_out = Finetuner(finetune_cfg, logger=logger, device=device, rank=rank, world_size=world_size, fold=run_id, seed = seed).train()
                 finetune_out = broadcast_rank(finetune_out if rank == 0 else None, rank)
                 results['f1'].append(finetune_out['best_f1'])
                 results['acc'].append(finetune_out['best_acc'])

@@ -109,7 +109,7 @@ class Trainer:
         start = time.time()
 
         for _, data in enumerate(self.train_loader):
-            self.optimizer.zero_grad()
+            self.model.zero_grad()
             result = self.model(data)
             result["total_loss"].backward()
             self.optimizer.step()
