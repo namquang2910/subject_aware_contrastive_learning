@@ -1,0 +1,1177 @@
+2026-03-15 00:36:03 | INFO | === Run 1/1 | seed=0 | fold=fold_00.csv ===
+2026-03-15 00:36:03 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_00.csv
+2026-03-15 00:36:07 | INFO | Model.forward signature: (data)
+2026-03-15 00:36:19 | INFO | [LOSO] Train size: 609, Val size: 4496, Test size: 4496
+2026-03-15 00:36:19 | INFO | Train batches per epoch: 9
+2026-03-15 00:36:25 | INFO | [Epoch 000] loss=0.647385 lr=0.000100 time=6.40s
+2026-03-15 00:36:26 | INFO | Validation — loss: 0.6702 - Accuracy: 0.6819 - F1score: 0.4054 - Recall: 0.5 - Precision 0.341
+2026-03-15 00:36:26 | INFO | ---------- New best model found at epoch 0 with F1=0.405400------------
+2026-03-15 00:36:27 | INFO | [Epoch 001] loss=0.496835 lr=0.000100 time=0.69s
+2026-03-15 00:36:28 | INFO | Validation — loss: 1.0357 - Accuracy: 0.6819 - F1score: 0.4054 - Recall: 0.5 - Precision 0.341
+2026-03-15 00:36:28 | INFO | [Epoch 002] loss=0.353082 lr=0.000100 time=0.53s
+2026-03-15 00:36:29 | INFO | Validation — loss: 1.3677 - Accuracy: 0.6819 - F1score: 0.4054 - Recall: 0.5 - Precision 0.341
+2026-03-15 00:36:30 | INFO | [Epoch 003] loss=0.241831 lr=0.000100 time=0.55s
+2026-03-15 00:36:30 | INFO | Validation — loss: 1.4858 - Accuracy: 0.6819 - F1score: 0.4054 - Recall: 0.5 - Precision 0.341
+2026-03-15 00:36:31 | INFO | [Epoch 004] loss=0.180564 lr=0.000099 time=0.51s
+2026-03-15 00:36:32 | INFO | Validation — loss: 8.0737 - Accuracy: 0.6819 - F1score: 0.4054 - Recall: 0.5 - Precision 0.341
+2026-03-15 00:36:32 | INFO | [Epoch 005] loss=0.160570 lr=0.000099 time=0.48s
+2026-03-15 00:36:33 | INFO | Validation — loss: 0.6650 - Accuracy: 0.6819 - F1score: 0.4054 - Recall: 0.5 - Precision 0.341
+2026-03-15 00:36:34 | INFO | [Epoch 006] loss=0.092406 lr=0.000099 time=0.49s
+2026-03-15 00:36:34 | INFO | Validation — loss: 0.6833 - Accuracy: 0.6819 - F1score: 0.4054 - Recall: 0.5 - Precision 0.341
+2026-03-15 00:36:35 | INFO | [Epoch 007] loss=0.071623 lr=0.000098 time=0.47s
+2026-03-15 00:36:36 | INFO | Validation — loss: 1.2232 - Accuracy: 0.6819 - F1score: 0.4054 - Recall: 0.5 - Precision 0.341
+2026-03-15 00:36:36 | INFO | [Epoch 008] loss=0.055066 lr=0.000098 time=0.48s
+2026-03-15 00:36:37 | INFO | Validation — loss: 1.3611 - Accuracy: 0.6819 - F1score: 0.4054 - Recall: 0.5 - Precision 0.341
+2026-03-15 00:36:37 | INFO | [Epoch 009] loss=0.055117 lr=0.000098 time=0.47s
+2026-03-15 00:36:38 | INFO | Validation — loss: 1.1455 - Accuracy: 0.6986 - F1score: 0.4593 - Recall: 0.5262 - Precision 0.8468
+2026-03-15 00:36:38 | INFO | ---------- New best model found at epoch 9 with F1=0.459300------------
+2026-03-15 00:36:39 | INFO | [Epoch 010] loss=0.065899 lr=0.000097 time=0.49s
+2026-03-15 00:36:40 | INFO | Validation — loss: 1.6153 - Accuracy: 0.429 - F1score: 0.4048 - Recall: 0.5791 - Precision 0.667
+2026-03-15 00:36:40 | INFO | [Epoch 011] loss=0.032501 lr=0.000097 time=0.47s
+2026-03-15 00:36:41 | INFO | Validation — loss: 0.9417 - Accuracy: 0.5887 - F1score: 0.5841 - Recall: 0.6341 - Precision 0.6191
+2026-03-15 00:36:41 | INFO | ---------- New best model found at epoch 11 with F1=0.584100------------
+2026-03-15 00:36:41 | INFO | [Epoch 012] loss=0.026418 lr=0.000096 time=0.44s
+2026-03-15 00:36:42 | INFO | Validation — loss: 1.6705 - Accuracy: 0.5022 - F1score: 0.4961 - Recall: 0.625 - Precision 0.6644
+2026-03-15 00:36:43 | INFO | [Epoch 013] loss=0.022907 lr=0.000095 time=0.49s
+2026-03-15 00:36:43 | INFO | Validation — loss: 1.8408 - Accuracy: 0.4542 - F1score: 0.4374 - Recall: 0.5959 - Precision 0.6673
+2026-03-15 00:36:44 | INFO | [Epoch 014] loss=0.042963 lr=0.000095 time=0.49s
+2026-03-15 00:36:45 | INFO | Validation — loss: 1.2431 - Accuracy: 0.5525 - F1score: 0.5509 - Recall: 0.612 - Precision 0.6034
+2026-03-15 00:36:45 | INFO | [Epoch 015] loss=0.035297 lr=0.000094 time=0.48s
+2026-03-15 00:36:46 | INFO | Validation — loss: 2.1124 - Accuracy: 0.4028 - F1score: 0.3684 - Recall: 0.5621 - Precision 0.6738
+2026-03-15 00:36:47 | INFO | [Epoch 016] loss=0.023154 lr=0.000093 time=0.49s
+2026-03-15 00:36:47 | INFO | Validation — loss: 1.4700 - Accuracy: 0.5198 - F1score: 0.5181 - Recall: 0.6237 - Precision 0.6396
+2026-03-15 00:36:48 | INFO | [Epoch 017] loss=0.014474 lr=0.000092 time=0.51s
+2026-03-15 00:36:49 | INFO | Validation — loss: 3.0421 - Accuracy: 0.3238 - F1score: 0.2508 - Recall: 0.5042 - Precision 0.66
+2026-03-15 00:36:49 | INFO | [Epoch 018] loss=0.010890 lr=0.000091 time=0.45s
+2026-03-15 00:36:50 | INFO | Validation — loss: 2.5969 - Accuracy: 0.3552 - F1score: 0.3 - Recall: 0.5272 - Precision 0.6652
+2026-03-15 00:36:51 | INFO | [Epoch 019] loss=0.009001 lr=0.000091 time=0.53s
+2026-03-15 00:36:51 | INFO | Validation — loss: 1.3792 - Accuracy: 0.5841 - F1score: 0.5838 - Recall: 0.6844 - Precision 0.6937
+2026-03-15 00:36:52 | INFO | [Epoch 020] loss=0.012780 lr=0.000090 time=0.46s
+2026-03-15 00:36:53 | INFO | Validation — loss: 1.9829 - Accuracy: 0.456 - F1score: 0.439 - Recall: 0.5985 - Precision 0.6732
+2026-03-15 00:36:53 | INFO | [Epoch 021] loss=0.005260 lr=0.000089 time=0.44s
+2026-03-15 00:36:54 | INFO | Validation — loss: 2.7504 - Accuracy: 0.3681 - F1score: 0.3192 - Recall: 0.5367 - Precision 0.6674
+2026-03-15 00:36:54 | INFO | [Epoch 022] loss=0.002506 lr=0.000088 time=0.47s
+2026-03-15 00:36:55 | INFO | Validation — loss: 2.4339 - Accuracy: 0.4153 - F1score: 0.3853 - Recall: 0.5713 - Precision 0.6762
+2026-03-15 00:36:56 | INFO | [Epoch 023] loss=0.002412 lr=0.000087 time=0.48s
+2026-03-15 00:36:56 | INFO | Validation — loss: 2.4783 - Accuracy: 0.4326 - F1score: 0.4091 - Recall: 0.5823 - Precision 0.6708
+2026-03-15 00:36:57 | INFO | [Epoch 024] loss=0.001449 lr=0.000086 time=0.50s
+2026-03-15 00:36:58 | INFO | Validation — loss: 2.6620 - Accuracy: 0.4315 - F1score: 0.4077 - Recall: 0.5815 - Precision 0.6705
+2026-03-15 00:36:58 | INFO | [Epoch 025] loss=0.001877 lr=0.000084 time=0.50s
+2026-03-15 00:36:59 | INFO | Validation — loss: 2.7259 - Accuracy: 0.4293 - F1score: 0.4048 - Recall: 0.5799 - Precision 0.6699
+2026-03-15 00:37:00 | INFO | [Epoch 026] loss=0.001223 lr=0.000083 time=0.48s
+2026-03-15 00:37:00 | INFO | Validation — loss: 2.8994 - Accuracy: 0.421 - F1score: 0.394 - Recall: 0.5738 - Precision 0.6676
+2026-03-15 00:37:00 | INFO | Early stopping at epoch 26. Best loss: 0.584100
+2026-03-15 00:37:00 | INFO | Training complete.
+2026-03-15 00:37:00 | INFO | Best result: {'acc': 0.5887, 'precision': 0.6191, 'recall': 0.6341, 'f1': 0.5841, 'conf_mat': array([[1562, 1504],
+       [ 345, 1085]])}
+2026-03-15 00:37:00 | INFO | === Run 2/1 | seed=0 | fold=fold_01.csv ===
+2026-03-15 00:37:00 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_01.csv
+2026-03-15 00:37:00 | INFO | Model.forward signature: (data)
+2026-03-15 00:37:07 | INFO | [LOSO] Train size: 611, Val size: 4336, Test size: 4336
+2026-03-15 00:37:07 | INFO | Train batches per epoch: 9
+2026-03-15 00:37:07 | INFO | [Epoch 000] loss=0.639336 lr=0.000100 time=0.67s
+2026-03-15 00:37:08 | INFO | Validation — loss: 0.6761 - Accuracy: 0.7069 - F1score: 0.4141 - Recall: 0.5 - Precision 0.3534
+2026-03-15 00:37:08 | INFO | ---------- New best model found at epoch 0 with F1=0.414100------------
+2026-03-15 00:37:09 | INFO | [Epoch 001] loss=0.456698 lr=0.000100 time=0.55s
+2026-03-15 00:37:10 | INFO | Validation — loss: 0.6492 - Accuracy: 0.7069 - F1score: 0.4141 - Recall: 0.5 - Precision 0.3534
+2026-03-15 00:37:10 | INFO | [Epoch 002] loss=0.303471 lr=0.000100 time=0.60s
+2026-03-15 00:37:11 | INFO | Validation — loss: 0.6700 - Accuracy: 0.7069 - F1score: 0.4141 - Recall: 0.5 - Precision 0.3534
+2026-03-15 00:37:12 | INFO | [Epoch 003] loss=0.212936 lr=0.000100 time=0.58s
+2026-03-15 00:37:13 | INFO | Validation — loss: 1.8321 - Accuracy: 0.7069 - F1score: 0.4141 - Recall: 0.5 - Precision 0.3534
+2026-03-15 00:37:13 | INFO | [Epoch 004] loss=0.149040 lr=0.000099 time=0.55s
+2026-03-15 00:37:14 | INFO | Validation — loss: 1.3099 - Accuracy: 0.7069 - F1score: 0.4141 - Recall: 0.5 - Precision 0.3534
+2026-03-15 00:37:15 | INFO | [Epoch 005] loss=0.111965 lr=0.000099 time=0.51s
+2026-03-15 00:37:15 | INFO | Validation — loss: 0.5935 - Accuracy: 0.7069 - F1score: 0.4141 - Recall: 0.5 - Precision 0.3534
+2026-03-15 00:37:16 | INFO | [Epoch 006] loss=0.073598 lr=0.000099 time=0.52s
+2026-03-15 00:37:17 | INFO | Validation — loss: 2.0008 - Accuracy: 0.7069 - F1score: 0.4141 - Recall: 0.5 - Precision 0.3534
+2026-03-15 00:37:17 | INFO | [Epoch 007] loss=0.047492 lr=0.000098 time=0.55s
+2026-03-15 00:37:18 | INFO | Validation — loss: 3.0897 - Accuracy: 0.7069 - F1score: 0.4141 - Recall: 0.5 - Precision 0.3534
+2026-03-15 00:37:19 | INFO | [Epoch 008] loss=0.096013 lr=0.000098 time=0.51s
+2026-03-15 00:37:20 | INFO | Validation — loss: 1.9846 - Accuracy: 0.7069 - F1score: 0.4141 - Recall: 0.5 - Precision 0.3534
+2026-03-15 00:37:20 | INFO | [Epoch 009] loss=0.075643 lr=0.000098 time=0.54s
+2026-03-15 00:37:21 | INFO | Validation — loss: 0.6058 - Accuracy: 0.744 - F1score: 0.5358 - Recall: 0.5633 - Precision 0.8671
+2026-03-15 00:37:21 | INFO | ---------- New best model found at epoch 9 with F1=0.535800------------
+2026-03-15 00:37:21 | INFO | [Epoch 010] loss=0.051289 lr=0.000097 time=0.48s
+2026-03-15 00:37:22 | INFO | Validation — loss: 1.4777 - Accuracy: 0.7094 - F1score: 0.4233 - Recall: 0.5043 - Precision 0.8543
+2026-03-15 00:37:23 | INFO | [Epoch 011] loss=0.054241 lr=0.000097 time=0.51s
+2026-03-15 00:37:24 | INFO | Validation — loss: 0.5676 - Accuracy: 0.7535 - F1score: 0.6012 - Recall: 0.6006 - Precision 0.7572
+2026-03-15 00:37:24 | INFO | ---------- New best model found at epoch 11 with F1=0.601200------------
+2026-03-15 00:37:24 | INFO | [Epoch 012] loss=0.026251 lr=0.000096 time=0.60s
+2026-03-15 00:37:25 | INFO | Validation — loss: 0.6996 - Accuracy: 0.732 - F1score: 0.5287 - Recall: 0.5553 - Precision 0.7411
+2026-03-15 00:37:26 | INFO | [Epoch 013] loss=0.022316 lr=0.000095 time=0.57s
+2026-03-15 00:37:27 | INFO | Validation — loss: 0.7988 - Accuracy: 0.6308 - F1score: 0.5598 - Recall: 0.5606 - Precision 0.5592
+2026-03-15 00:37:27 | INFO | [Epoch 014] loss=0.012608 lr=0.000095 time=0.52s
+2026-03-15 00:37:28 | INFO | Validation — loss: 1.1437 - Accuracy: 0.6003 - F1score: 0.5929 - Recall: 0.6567 - Precision 0.6326
+2026-03-15 00:37:28 | INFO | [Epoch 015] loss=0.007220 lr=0.000094 time=0.57s
+2026-03-15 00:37:29 | INFO | Validation — loss: 1.3487 - Accuracy: 0.5627 - F1score: 0.5626 - Recall: 0.67 - Precision 0.6643
+2026-03-15 00:37:30 | INFO | [Epoch 016] loss=0.005212 lr=0.000093 time=0.55s
+2026-03-15 00:37:31 | INFO | Validation — loss: 1.2626 - Accuracy: 0.6197 - F1score: 0.6173 - Recall: 0.708 - Precision 0.6843
+2026-03-15 00:37:31 | INFO | ---------- New best model found at epoch 16 with F1=0.617300------------
+2026-03-15 00:37:31 | INFO | [Epoch 017] loss=0.003321 lr=0.000092 time=0.53s
+2026-03-15 00:37:32 | INFO | Validation — loss: 1.1847 - Accuracy: 0.6933 - F1score: 0.671 - Recall: 0.7066 - Precision 0.6732
+2026-03-15 00:37:32 | INFO | ---------- New best model found at epoch 17 with F1=0.671000------------
+2026-03-15 00:37:33 | INFO | [Epoch 018] loss=0.002890 lr=0.000091 time=0.57s
+2026-03-15 00:37:34 | INFO | Validation — loss: 1.6569 - Accuracy: 0.5507 - F1score: 0.5507 - Recall: 0.6599 - Precision 0.6571
+2026-03-15 00:37:34 | INFO | [Epoch 019] loss=0.003171 lr=0.000091 time=0.55s
+2026-03-15 00:37:35 | INFO | Validation — loss: 3.1516 - Accuracy: 0.3079 - F1score: 0.2498 - Recall: 0.5104 - Precision 0.6488
+2026-03-15 00:37:36 | INFO | [Epoch 020] loss=0.004658 lr=0.000090 time=0.48s
+2026-03-15 00:37:36 | INFO | Validation — loss: 1.5309 - Accuracy: 0.6116 - F1score: 0.6011 - Recall: 0.6569 - Precision 0.6311
+2026-03-15 00:37:37 | INFO | [Epoch 021] loss=0.005292 lr=0.000089 time=0.55s
+2026-03-15 00:37:38 | INFO | Validation — loss: 4.2802 - Accuracy: 0.2945 - F1score: 0.2289 - Recall: 0.501 - Precision 0.6468
+2026-03-15 00:37:38 | INFO | [Epoch 022] loss=0.010029 lr=0.000088 time=0.52s
+2026-03-15 00:37:39 | INFO | Validation — loss: 1.4969 - Accuracy: 0.6338 - F1score: 0.6292 - Recall: 0.7092 - Precision 0.68
+2026-03-15 00:37:40 | INFO | [Epoch 023] loss=0.010145 lr=0.000087 time=0.57s
+2026-03-15 00:37:40 | INFO | Validation — loss: 5.9988 - Accuracy: 0.2931 - F1score: 0.2267 - Recall: 0.5 - Precision 0.1466
+2026-03-15 00:37:41 | INFO | [Epoch 024] loss=0.005277 lr=0.000086 time=0.57s
+2026-03-15 00:37:42 | INFO | Validation — loss: 2.0654 - Accuracy: 0.4608 - F1score: 0.4559 - Recall: 0.6034 - Precision 0.6349
+2026-03-15 00:37:42 | INFO | [Epoch 025] loss=0.003823 lr=0.000084 time=0.61s
+2026-03-15 00:37:43 | INFO | Validation — loss: 1.6791 - Accuracy: 0.5699 - F1score: 0.5698 - Recall: 0.681 - Precision 0.6765
+2026-03-15 00:37:44 | INFO | [Epoch 026] loss=0.002135 lr=0.000083 time=0.52s
+2026-03-15 00:37:45 | INFO | Validation — loss: 1.6035 - Accuracy: 0.6227 - F1score: 0.6196 - Recall: 0.7059 - Precision 0.6804
+2026-03-15 00:37:45 | INFO | [Epoch 027] loss=0.001942 lr=0.000082 time=0.51s
+2026-03-15 00:37:46 | INFO | Validation — loss: 2.1324 - Accuracy: 0.5067 - F1score: 0.5055 - Recall: 0.6354 - Precision 0.6517
+2026-03-15 00:37:46 | INFO | [Epoch 028] loss=0.001374 lr=0.000081 time=0.52s
+2026-03-15 00:37:47 | INFO | Validation — loss: 3.1956 - Accuracy: 0.3432 - F1score: 0.3037 - Recall: 0.5329 - Precision 0.6308
+2026-03-15 00:37:48 | INFO | [Epoch 029] loss=0.002060 lr=0.000080 time=0.52s
+2026-03-15 00:37:49 | INFO | Validation — loss: 2.4478 - Accuracy: 0.4613 - F1score: 0.4592 - Recall: 0.5876 - Precision 0.6022
+2026-03-15 00:37:49 | INFO | [Epoch 030] loss=0.002424 lr=0.000078 time=0.70s
+2026-03-15 00:37:51 | INFO | Validation — loss: 2.2280 - Accuracy: 0.5007 - F1score: 0.5 - Recall: 0.6231 - Precision 0.6342
+2026-03-15 00:37:51 | INFO | [Epoch 031] loss=0.004542 lr=0.000077 time=0.62s
+2026-03-15 00:37:52 | INFO | Validation — loss: 4.0306 - Accuracy: 0.3021 - F1score: 0.2408 - Recall: 0.5064 - Precision 0.6479
+2026-03-15 00:37:53 | INFO | [Epoch 032] loss=0.005756 lr=0.000076 time=0.55s
+2026-03-15 00:37:53 | INFO | Validation — loss: 3.2215 - Accuracy: 0.3457 - F1score: 0.307 - Recall: 0.5351 - Precision 0.636
+2026-03-15 00:37:53 | INFO | Early stopping at epoch 32. Best loss: 0.671000
+2026-03-15 00:37:54 | INFO | Training complete.
+2026-03-15 00:37:54 | INFO | Best result: {'acc': 0.6933, 'precision': 0.6732, 'recall': 0.7066, 'f1': 0.671, 'conf_mat': array([[2067,  998],
+       [ 332,  939]])}
+2026-03-15 00:37:54 | INFO | === Run 3/1 | seed=0 | fold=fold_02.csv ===
+2026-03-15 00:37:54 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_02.csv
+2026-03-15 00:37:54 | INFO | Model.forward signature: (data)
+2026-03-15 00:37:59 | INFO | [LOSO] Train size: 611, Val size: 4345, Test size: 4345
+2026-03-15 00:37:59 | INFO | Train batches per epoch: 9
+2026-03-15 00:38:00 | INFO | [Epoch 000] loss=0.647275 lr=0.000100 time=0.52s
+2026-03-15 00:38:01 | INFO | Validation — loss: 0.6756 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:01 | INFO | ---------- New best model found at epoch 0 with F1=0.413600------------
+2026-03-15 00:38:01 | INFO | [Epoch 001] loss=0.497095 lr=0.000100 time=0.54s
+2026-03-15 00:38:02 | INFO | Validation — loss: 0.6080 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:03 | INFO | [Epoch 002] loss=0.343494 lr=0.000100 time=0.54s
+2026-03-15 00:38:03 | INFO | Validation — loss: 0.8315 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:04 | INFO | [Epoch 003] loss=0.246389 lr=0.000100 time=0.54s
+2026-03-15 00:38:05 | INFO | Validation — loss: 4.5436 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:05 | INFO | [Epoch 004] loss=0.182016 lr=0.000099 time=0.53s
+2026-03-15 00:38:06 | INFO | Validation — loss: 2.1599 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:07 | INFO | [Epoch 005] loss=0.143889 lr=0.000099 time=0.54s
+2026-03-15 00:38:08 | INFO | Validation — loss: 1.8167 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:08 | INFO | [Epoch 006] loss=0.090725 lr=0.000099 time=0.58s
+2026-03-15 00:38:09 | INFO | Validation — loss: 3.5827 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:09 | INFO | [Epoch 007] loss=0.070817 lr=0.000098 time=0.53s
+2026-03-15 00:38:10 | INFO | Validation — loss: 2.7514 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:11 | INFO | [Epoch 008] loss=0.050945 lr=0.000098 time=0.54s
+2026-03-15 00:38:12 | INFO | Validation — loss: 1.2699 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:12 | INFO | [Epoch 009] loss=0.042534 lr=0.000098 time=0.56s
+2026-03-15 00:38:13 | INFO | Validation — loss: 1.3424 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:14 | INFO | [Epoch 010] loss=0.074789 lr=0.000097 time=0.52s
+2026-03-15 00:38:14 | INFO | Validation — loss: 1.2725 - Accuracy: 0.371 - F1score: 0.2706 - Recall: 0.263 - Precision 0.2787
+2026-03-15 00:38:15 | INFO | [Epoch 011] loss=0.105442 lr=0.000097 time=0.52s
+2026-03-15 00:38:16 | INFO | Validation — loss: 1.1221 - Accuracy: 0.7128 - F1score: 0.4398 - Recall: 0.5125 - Precision 0.8553
+2026-03-15 00:38:16 | INFO | ---------- New best model found at epoch 11 with F1=0.439800------------
+2026-03-15 00:38:16 | INFO | [Epoch 012] loss=0.070245 lr=0.000096 time=0.53s
+2026-03-15 00:38:17 | INFO | Validation — loss: 2.2084 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:18 | INFO | [Epoch 013] loss=0.071249 lr=0.000095 time=0.57s
+2026-03-15 00:38:19 | INFO | Validation — loss: 2.3545 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:19 | INFO | [Epoch 014] loss=0.041956 lr=0.000095 time=0.51s
+2026-03-15 00:38:20 | INFO | Validation — loss: 1.6653 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:20 | INFO | [Epoch 015] loss=0.022921 lr=0.000094 time=0.49s
+2026-03-15 00:38:21 | INFO | Validation — loss: 1.5097 - Accuracy: 0.7066 - F1score: 0.4178 - Recall: 0.502 - Precision 0.8531
+2026-03-15 00:38:22 | INFO | [Epoch 016] loss=0.022195 lr=0.000093 time=0.51s
+2026-03-15 00:38:23 | INFO | Validation — loss: 1.3246 - Accuracy: 0.707 - F1score: 0.429 - Recall: 0.5057 - Precision 0.6569
+2026-03-15 00:38:23 | INFO | [Epoch 017] loss=0.011755 lr=0.000092 time=0.54s
+2026-03-15 00:38:24 | INFO | Validation — loss: 1.2043 - Accuracy: 0.71 - F1score: 0.4344 - Recall: 0.5092 - Precision 0.7609
+2026-03-15 00:38:25 | INFO | [Epoch 018] loss=0.008875 lr=0.000091 time=0.54s
+2026-03-15 00:38:25 | INFO | Validation — loss: 1.4893 - Accuracy: 0.7061 - F1score: 0.4161 - Recall: 0.5012 - Precision 0.8529
+2026-03-15 00:38:26 | INFO | [Epoch 019] loss=0.006578 lr=0.000091 time=0.61s
+2026-03-15 00:38:27 | INFO | Validation — loss: 1.7272 - Accuracy: 0.7059 - F1score: 0.4153 - Recall: 0.5008 - Precision 0.8529
+2026-03-15 00:38:27 | INFO | [Epoch 020] loss=0.004949 lr=0.000090 time=0.54s
+2026-03-15 00:38:28 | INFO | Validation — loss: 2.0737 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:29 | INFO | [Epoch 021] loss=0.004249 lr=0.000089 time=0.50s
+2026-03-15 00:38:30 | INFO | Validation — loss: 1.7655 - Accuracy: 0.7063 - F1score: 0.417 - Recall: 0.5016 - Precision 0.853
+2026-03-15 00:38:30 | INFO | [Epoch 022] loss=0.003689 lr=0.000088 time=0.53s
+2026-03-15 00:38:31 | INFO | Validation — loss: 1.5867 - Accuracy: 0.7059 - F1score: 0.4153 - Recall: 0.5008 - Precision 0.8529
+2026-03-15 00:38:32 | INFO | [Epoch 023] loss=0.020680 lr=0.000087 time=0.63s
+2026-03-15 00:38:33 | INFO | Validation — loss: 2.2974 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:33 | INFO | [Epoch 024] loss=0.028895 lr=0.000086 time=0.58s
+2026-03-15 00:38:34 | INFO | Validation — loss: 1.7207 - Accuracy: 0.7112 - F1score: 0.4342 - Recall: 0.5098 - Precision 0.8547
+2026-03-15 00:38:35 | INFO | [Epoch 025] loss=0.011094 lr=0.000084 time=0.58s
+2026-03-15 00:38:36 | INFO | Validation — loss: 1.1759 - Accuracy: 0.7098 - F1score: 0.4293 - Recall: 0.5074 - Precision 0.8543
+2026-03-15 00:38:36 | INFO | [Epoch 026] loss=0.006504 lr=0.000083 time=0.56s
+2026-03-15 00:38:37 | INFO | Validation — loss: 2.3032 - Accuracy: 0.7054 - F1score: 0.4136 - Recall: 0.5 - Precision 0.3527
+2026-03-15 00:38:37 | INFO | Early stopping at epoch 26. Best loss: 0.439800
+2026-03-15 00:38:37 | INFO | Training complete.
+2026-03-15 00:38:37 | INFO | Best result: {'acc': 0.7128, 'precision': 0.8553, 'recall': 0.5125, 'f1': 0.4398, 'conf_mat': array([[3065,    0],
+       [1248,   32]])}
+2026-03-15 00:38:37 | INFO | === Run 4/1 | seed=0 | fold=fold_03.csv ===
+2026-03-15 00:38:37 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_03.csv
+2026-03-15 00:38:37 | INFO | Model.forward signature: (data)
+2026-03-15 00:38:44 | INFO | [LOSO] Train size: 612, Val size: 4272, Test size: 4272
+2026-03-15 00:38:44 | INFO | Train batches per epoch: 9
+2026-03-15 00:38:44 | INFO | [Epoch 000] loss=0.643052 lr=0.000100 time=0.56s
+2026-03-15 00:38:45 | INFO | Validation — loss: 0.6750 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:38:45 | INFO | ---------- New best model found at epoch 0 with F1=0.414300------------
+2026-03-15 00:38:46 | INFO | [Epoch 001] loss=0.469346 lr=0.000100 time=0.58s
+2026-03-15 00:38:47 | INFO | Validation — loss: 0.7334 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:38:47 | INFO | [Epoch 002] loss=0.351986 lr=0.000100 time=0.54s
+2026-03-15 00:38:48 | INFO | Validation — loss: 1.3614 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:38:49 | INFO | [Epoch 003] loss=0.314003 lr=0.000100 time=0.58s
+2026-03-15 00:38:50 | INFO | Validation — loss: 5.0383 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:38:50 | INFO | [Epoch 004] loss=0.275407 lr=0.000099 time=0.54s
+2026-03-15 00:38:51 | INFO | Validation — loss: 3.3883 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:38:52 | INFO | [Epoch 005] loss=0.267504 lr=0.000099 time=0.55s
+2026-03-15 00:38:52 | INFO | Validation — loss: 1.3118 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:38:53 | INFO | [Epoch 006] loss=0.255310 lr=0.000099 time=0.54s
+2026-03-15 00:38:54 | INFO | Validation — loss: 3.2959 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:38:54 | INFO | [Epoch 007] loss=0.220859 lr=0.000098 time=0.56s
+2026-03-15 00:38:55 | INFO | Validation — loss: 3.9116 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:38:56 | INFO | [Epoch 008] loss=0.196646 lr=0.000098 time=0.55s
+2026-03-15 00:38:57 | INFO | Validation — loss: 0.9907 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:38:57 | INFO | [Epoch 009] loss=0.168120 lr=0.000098 time=0.54s
+2026-03-15 00:38:58 | INFO | Validation — loss: 0.6184 - Accuracy: 0.7097 - F1score: 0.4228 - Recall: 0.504 - Precision 0.8545
+2026-03-15 00:38:58 | INFO | ---------- New best model found at epoch 9 with F1=0.422800------------
+2026-03-15 00:38:59 | INFO | [Epoch 010] loss=0.142157 lr=0.000097 time=0.54s
+2026-03-15 00:39:00 | INFO | Validation — loss: 0.8064 - Accuracy: 0.7076 - F1score: 0.4152 - Recall: 0.5004 - Precision 0.8538
+2026-03-15 00:39:00 | INFO | [Epoch 011] loss=0.125227 lr=0.000097 time=0.54s
+2026-03-15 00:39:01 | INFO | Validation — loss: 1.5037 - Accuracy: 0.7074 - F1score: 0.4143 - Recall: 0.5 - Precision 0.3537
+2026-03-15 00:39:02 | INFO | [Epoch 012] loss=0.097984 lr=0.000096 time=0.55s
+2026-03-15 00:39:03 | INFO | Validation — loss: 0.4170 - Accuracy: 0.8256 - F1score: 0.7329 - Recall: 0.702 - Precision 0.9011
+2026-03-15 00:39:03 | INFO | ---------- New best model found at epoch 12 with F1=0.732900------------
+2026-03-15 00:39:03 | INFO | [Epoch 013] loss=0.076907 lr=0.000095 time=0.56s
+2026-03-15 00:39:04 | INFO | Validation — loss: 2.4121 - Accuracy: 0.7086 - F1score: 0.4186 - Recall: 0.502 - Precision 0.8541
+2026-03-15 00:39:05 | INFO | [Epoch 014] loss=0.057218 lr=0.000095 time=0.52s
+2026-03-15 00:39:05 | INFO | Validation — loss: 0.6759 - Accuracy: 0.802 - F1score: 0.6829 - Recall: 0.6616 - Precision 0.8906
+2026-03-15 00:39:06 | INFO | [Epoch 015] loss=0.041958 lr=0.000094 time=0.57s
+2026-03-15 00:39:07 | INFO | Validation — loss: 0.5175 - Accuracy: 0.8291 - F1score: 0.7399 - Recall: 0.708 - Precision 0.9027
+2026-03-15 00:39:07 | INFO | ---------- New best model found at epoch 15 with F1=0.739900------------
+2026-03-15 00:39:08 | INFO | [Epoch 016] loss=0.030040 lr=0.000093 time=0.52s
+2026-03-15 00:39:08 | INFO | Validation — loss: 0.5487 - Accuracy: 0.8411 - F1score: 0.7631 - Recall: 0.7284 - Precision 0.9083
+2026-03-15 00:39:08 | INFO | ---------- New best model found at epoch 16 with F1=0.763100------------
+2026-03-15 00:39:09 | INFO | [Epoch 017] loss=0.035900 lr=0.000092 time=0.48s
+2026-03-15 00:39:10 | INFO | Validation — loss: 3.2140 - Accuracy: 0.7081 - F1score: 0.4169 - Recall: 0.5012 - Precision 0.8539
+2026-03-15 00:39:10 | INFO | [Epoch 018] loss=0.049651 lr=0.000091 time=0.46s
+2026-03-15 00:39:11 | INFO | Validation — loss: 1.7829 - Accuracy: 0.7266 - F1score: 0.4806 - Recall: 0.5328 - Precision 0.8606
+2026-03-15 00:39:12 | INFO | [Epoch 019] loss=0.045561 lr=0.000091 time=0.62s
+2026-03-15 00:39:13 | INFO | Validation — loss: 0.1312 - Accuracy: 0.9831 - F1score: 0.98 - Recall: 0.9881 - Precision 0.9728
+2026-03-15 00:39:13 | INFO | ---------- New best model found at epoch 19 with F1=0.980000------------
+2026-03-15 00:39:13 | INFO | [Epoch 020] loss=0.025678 lr=0.000090 time=0.55s
+2026-03-15 00:39:14 | INFO | Validation — loss: 0.6564 - Accuracy: 0.8188 - F1score: 0.719 - Recall: 0.6904 - Precision 0.8981
+2026-03-15 00:39:15 | INFO | [Epoch 021] loss=0.024968 lr=0.000089 time=0.70s
+2026-03-15 00:39:16 | INFO | Validation — loss: 0.2591 - Accuracy: 0.9061 - F1score: 0.8734 - Recall: 0.8396 - Precision 0.9414
+2026-03-15 00:39:17 | INFO | [Epoch 022] loss=0.019981 lr=0.000088 time=0.56s
+2026-03-15 00:39:17 | INFO | Validation — loss: 1.6553 - Accuracy: 0.7542 - F1score: 0.5639 - Recall: 0.58 - Precision 0.8711
+2026-03-15 00:39:18 | INFO | [Epoch 023] loss=0.021955 lr=0.000087 time=0.54s
+2026-03-15 00:39:19 | INFO | Validation — loss: 1.2536 - Accuracy: 0.7542 - F1score: 0.5639 - Recall: 0.58 - Precision 0.8711
+2026-03-15 00:39:19 | INFO | [Epoch 024] loss=0.024221 lr=0.000086 time=0.56s
+2026-03-15 00:39:20 | INFO | Validation — loss: 1.1647 - Accuracy: 0.7729 - F1score: 0.6139 - Recall: 0.612 - Precision 0.8785
+2026-03-15 00:39:21 | INFO | [Epoch 025] loss=0.027091 lr=0.000084 time=0.54s
+2026-03-15 00:39:22 | INFO | Validation — loss: 3.3427 - Accuracy: 0.7118 - F1score: 0.4304 - Recall: 0.5076 - Precision 0.8553
+2026-03-15 00:39:22 | INFO | [Epoch 026] loss=0.018258 lr=0.000083 time=0.55s
+2026-03-15 00:39:23 | INFO | Validation — loss: 1.4685 - Accuracy: 0.7561 - F1score: 0.5691 - Recall: 0.5832 - Precision 0.8718
+2026-03-15 00:39:24 | INFO | [Epoch 027] loss=0.023180 lr=0.000082 time=0.54s
+2026-03-15 00:39:24 | INFO | Validation — loss: 0.8162 - Accuracy: 0.8378 - F1score: 0.7568 - Recall: 0.7228 - Precision 0.9067
+2026-03-15 00:39:25 | INFO | [Epoch 028] loss=0.015266 lr=0.000081 time=0.57s
+2026-03-15 00:39:26 | INFO | Validation — loss: 0.3515 - Accuracy: 0.8912 - F1score: 0.85 - Recall: 0.814 - Precision 0.9333
+2026-03-15 00:39:26 | INFO | [Epoch 029] loss=0.008284 lr=0.000080 time=0.51s
+2026-03-15 00:39:27 | INFO | Validation — loss: 0.7204 - Accuracy: 0.8076 - F1score: 0.6952 - Recall: 0.6712 - Precision 0.8931
+2026-03-15 00:39:28 | INFO | [Epoch 030] loss=0.008759 lr=0.000078 time=0.55s
+2026-03-15 00:39:28 | INFO | Validation — loss: 0.8819 - Accuracy: 0.8003 - F1score: 0.6792 - Recall: 0.6588 - Precision 0.8899
+2026-03-15 00:39:29 | INFO | [Epoch 031] loss=0.005141 lr=0.000077 time=0.54s
+2026-03-15 00:39:30 | INFO | Validation — loss: 0.4697 - Accuracy: 0.8668 - F1score: 0.8096 - Recall: 0.7724 - Precision 0.9208
+2026-03-15 00:39:30 | INFO | [Epoch 032] loss=0.004874 lr=0.000076 time=0.55s
+2026-03-15 00:39:31 | INFO | Validation — loss: 0.7105 - Accuracy: 0.8387 - F1score: 0.7586 - Recall: 0.7244 - Precision 0.9072
+2026-03-15 00:39:32 | INFO | [Epoch 033] loss=0.003774 lr=0.000074 time=0.54s
+2026-03-15 00:39:33 | INFO | Validation — loss: 0.7865 - Accuracy: 0.8237 - F1score: 0.7291 - Recall: 0.6988 - Precision 0.9003
+2026-03-15 00:39:33 | INFO | [Epoch 034] loss=0.003866 lr=0.000073 time=0.63s
+2026-03-15 00:39:34 | INFO | Validation — loss: 0.5957 - Accuracy: 0.8464 - F1score: 0.7732 - Recall: 0.7376 - Precision 0.9108
+2026-03-15 00:39:34 | INFO | Early stopping at epoch 34. Best loss: 0.980000
+2026-03-15 00:39:34 | INFO | Training complete.
+2026-03-15 00:39:34 | INFO | Best result: {'acc': 0.9831, 'precision': 0.9728, 'recall': 0.9881, 'f1': 0.98, 'conf_mat': array([[2950,   72],
+       [   0, 1250]])}
+2026-03-15 00:39:34 | INFO | === Run 5/1 | seed=0 | fold=fold_04.csv ===
+2026-03-15 00:39:34 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_04.csv
+2026-03-15 00:39:34 | INFO | Model.forward signature: (data)
+2026-03-15 00:39:41 | INFO | [LOSO] Train size: 610, Val size: 4408, Test size: 4408
+2026-03-15 00:39:41 | INFO | Train batches per epoch: 9
+2026-03-15 00:39:41 | INFO | [Epoch 000] loss=0.650049 lr=0.000100 time=0.56s
+2026-03-15 00:39:42 | INFO | Validation — loss: 0.6882 - Accuracy: 0.6931 - F1score: 0.4094 - Recall: 0.5 - Precision 0.3465
+2026-03-15 00:39:42 | INFO | ---------- New best model found at epoch 0 with F1=0.409400------------
+2026-03-15 00:39:43 | INFO | [Epoch 001] loss=0.492215 lr=0.000100 time=0.51s
+2026-03-15 00:39:44 | INFO | Validation — loss: 0.6171 - Accuracy: 0.6931 - F1score: 0.4094 - Recall: 0.5 - Precision 0.3465
+2026-03-15 00:39:44 | INFO | [Epoch 002] loss=0.354360 lr=0.000100 time=0.61s
+2026-03-15 00:39:45 | INFO | Validation — loss: 1.3937 - Accuracy: 0.6931 - F1score: 0.4094 - Recall: 0.5 - Precision 0.3465
+2026-03-15 00:39:46 | INFO | [Epoch 003] loss=0.273417 lr=0.000100 time=0.52s
+2026-03-15 00:39:47 | INFO | Validation — loss: 3.8737 - Accuracy: 0.6931 - F1score: 0.4094 - Recall: 0.5 - Precision 0.3465
+2026-03-15 00:39:47 | INFO | [Epoch 004] loss=0.198842 lr=0.000099 time=0.51s
+2026-03-15 00:39:48 | INFO | Validation — loss: 4.9723 - Accuracy: 0.6931 - F1score: 0.4094 - Recall: 0.5 - Precision 0.3465
+2026-03-15 00:39:48 | INFO | [Epoch 005] loss=0.156748 lr=0.000099 time=0.51s
+2026-03-15 00:39:49 | INFO | Validation — loss: 0.7949 - Accuracy: 0.6931 - F1score: 0.4094 - Recall: 0.5 - Precision 0.3465
+2026-03-15 00:39:50 | INFO | [Epoch 006] loss=0.088872 lr=0.000099 time=0.53s
+2026-03-15 00:39:51 | INFO | Validation — loss: 1.4784 - Accuracy: 0.6931 - F1score: 0.4094 - Recall: 0.5 - Precision 0.3465
+2026-03-15 00:39:51 | INFO | [Epoch 007] loss=0.078471 lr=0.000098 time=0.50s
+2026-03-15 00:39:52 | INFO | Validation — loss: 1.4984 - Accuracy: 0.6931 - F1score: 0.4094 - Recall: 0.5 - Precision 0.3465
+2026-03-15 00:39:53 | INFO | [Epoch 008] loss=0.050865 lr=0.000098 time=0.76s
+2026-03-15 00:39:54 | INFO | Validation — loss: 0.5558 - Accuracy: 0.708 - F1score: 0.4595 - Recall: 0.5244 - Precision 0.8518
+2026-03-15 00:39:54 | INFO | ---------- New best model found at epoch 8 with F1=0.459500------------
+2026-03-15 00:39:54 | INFO | [Epoch 009] loss=0.040728 lr=0.000098 time=0.53s
+2026-03-15 00:39:55 | INFO | Validation — loss: 0.6397 - Accuracy: 0.7216 - F1score: 0.5016 - Recall: 0.5466 - Precision 0.8567
+2026-03-15 00:39:55 | INFO | ---------- New best model found at epoch 9 with F1=0.501600------------
+2026-03-15 00:39:56 | INFO | [Epoch 010] loss=0.036698 lr=0.000097 time=0.58s
+2026-03-15 00:39:57 | INFO | Validation — loss: 2.4822 - Accuracy: 0.3069 - F1score: 0.2349 - Recall: 0.5 - Precision 0.1535
+2026-03-15 00:39:58 | INFO | [Epoch 011] loss=0.028683 lr=0.000097 time=0.56s
+2026-03-15 00:39:58 | INFO | Validation — loss: 0.3837 - Accuracy: 0.8249 - F1score: 0.7787 - Recall: 0.7621 - Precision 0.809
+2026-03-15 00:39:58 | INFO | ---------- New best model found at epoch 11 with F1=0.778700------------
+2026-03-15 00:39:59 | INFO | [Epoch 012] loss=0.016246 lr=0.000096 time=0.57s
+2026-03-15 00:40:00 | INFO | Validation — loss: 3.6314 - Accuracy: 0.3069 - F1score: 0.2349 - Recall: 0.5 - Precision 0.1535
+2026-03-15 00:40:00 | INFO | [Epoch 013] loss=0.023795 lr=0.000095 time=0.52s
+2026-03-15 00:40:01 | INFO | Validation — loss: 2.6444 - Accuracy: 0.3072 - F1score: 0.2352 - Recall: 0.5002 - Precision 0.6535
+2026-03-15 00:40:02 | INFO | [Epoch 014] loss=0.045890 lr=0.000095 time=0.53s
+2026-03-15 00:40:03 | INFO | Validation — loss: 0.9577 - Accuracy: 0.6713 - F1score: 0.5956 - Recall: 0.5926 - Precision 0.6023
+2026-03-15 00:40:03 | INFO | [Epoch 015] loss=0.033764 lr=0.000094 time=0.62s
+2026-03-15 00:40:04 | INFO | Validation — loss: 1.3357 - Accuracy: 0.5603 - F1score: 0.5419 - Recall: 0.5675 - Precision 0.5575
+2026-03-15 00:40:05 | INFO | [Epoch 016] loss=0.019929 lr=0.000093 time=0.50s
+2026-03-15 00:40:05 | INFO | Validation — loss: 1.7068 - Accuracy: 0.4308 - F1score: 0.4238 - Recall: 0.5564 - Precision 0.576
+2026-03-15 00:40:06 | INFO | [Epoch 017] loss=0.015977 lr=0.000092 time=0.58s
+2026-03-15 00:40:07 | INFO | Validation — loss: 2.5229 - Accuracy: 0.3491 - F1score: 0.3001 - Recall: 0.5304 - Precision 0.6602
+2026-03-15 00:40:07 | INFO | [Epoch 018] loss=0.020370 lr=0.000091 time=0.52s
+2026-03-15 00:40:08 | INFO | Validation — loss: 1.6608 - Accuracy: 0.449 - F1score: 0.4416 - Recall: 0.5798 - Precision 0.6095
+2026-03-15 00:40:09 | INFO | [Epoch 019] loss=0.015279 lr=0.000091 time=0.52s
+2026-03-15 00:40:10 | INFO | Validation — loss: 1.0459 - Accuracy: 0.6636 - F1score: 0.6174 - Recall: 0.6222 - Precision 0.6149
+2026-03-15 00:40:10 | INFO | [Epoch 020] loss=0.016943 lr=0.000090 time=0.53s
+2026-03-15 00:40:11 | INFO | Validation — loss: 3.0448 - Accuracy: 0.3069 - F1score: 0.2349 - Recall: 0.5 - Precision 0.1535
+2026-03-15 00:40:12 | INFO | [Epoch 021] loss=0.011388 lr=0.000089 time=0.61s
+2026-03-15 00:40:12 | INFO | Validation — loss: 1.7128 - Accuracy: 0.6681 - F1score: 0.4212 - Recall: 0.4888 - Precision 0.4378
+2026-03-15 00:40:13 | INFO | [Epoch 022] loss=0.006505 lr=0.000088 time=0.57s
+2026-03-15 00:40:14 | INFO | Validation — loss: 1.1083 - Accuracy: 0.593 - F1score: 0.5825 - Recall: 0.6251 - Precision 0.6069
+2026-03-15 00:40:14 | INFO | [Epoch 023] loss=0.003045 lr=0.000087 time=0.56s
+2026-03-15 00:40:15 | INFO | Validation — loss: 1.4565 - Accuracy: 0.5136 - F1score: 0.5136 - Recall: 0.5999 - Precision 0.5985
+2026-03-15 00:40:16 | INFO | [Epoch 024] loss=0.003036 lr=0.000086 time=0.58s
+2026-03-15 00:40:17 | INFO | Validation — loss: 1.2679 - Accuracy: 0.5814 - F1score: 0.5711 - Recall: 0.6128 - Precision 0.5965
+2026-03-15 00:40:17 | INFO | [Epoch 025] loss=0.002244 lr=0.000084 time=0.53s
+2026-03-15 00:40:18 | INFO | Validation — loss: 1.9586 - Accuracy: 0.4422 - F1score: 0.4349 - Recall: 0.5712 - Precision 0.5971
+2026-03-15 00:40:18 | INFO | [Epoch 026] loss=0.001292 lr=0.000083 time=0.54s
+2026-03-15 00:40:19 | INFO | Validation — loss: 2.1032 - Accuracy: 0.434 - F1score: 0.4247 - Recall: 0.5676 - Precision 0.5973
+2026-03-15 00:40:19 | INFO | Early stopping at epoch 26. Best loss: 0.778700
+2026-03-15 00:40:19 | INFO | Training complete.
+2026-03-15 00:40:19 | INFO | Best result: {'acc': 0.8249, 'precision': 0.809, 'recall': 0.7621, 'f1': 0.7787, 'conf_mat': array([[2825,  230],
+       [ 542,  811]])}
+2026-03-15 00:40:19 | INFO | === Run 6/1 | seed=0 | fold=fold_05.csv ===
+2026-03-15 00:40:19 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_05.csv
+2026-03-15 00:40:19 | INFO | Model.forward signature: (data)
+2026-03-15 00:40:25 | INFO | [LOSO] Train size: 612, Val size: 4184, Test size: 4184
+2026-03-15 00:40:25 | INFO | Train batches per epoch: 9
+2026-03-15 00:40:26 | INFO | [Epoch 000] loss=0.640448 lr=0.000100 time=0.57s
+2026-03-15 00:40:27 | INFO | Validation — loss: 0.6323 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:27 | INFO | ---------- New best model found at epoch 0 with F1=0.415400------------
+2026-03-15 00:40:27 | INFO | [Epoch 001] loss=0.456459 lr=0.000100 time=0.54s
+2026-03-15 00:40:28 | INFO | Validation — loss: 1.1923 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:29 | INFO | [Epoch 002] loss=0.324984 lr=0.000100 time=0.48s
+2026-03-15 00:40:30 | INFO | Validation — loss: 3.4488 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:30 | INFO | [Epoch 003] loss=0.269117 lr=0.000100 time=0.48s
+2026-03-15 00:40:31 | INFO | Validation — loss: 6.1146 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:31 | INFO | [Epoch 004] loss=0.201918 lr=0.000099 time=0.58s
+2026-03-15 00:40:32 | INFO | Validation — loss: 2.1579 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:33 | INFO | [Epoch 005] loss=0.176506 lr=0.000099 time=0.54s
+2026-03-15 00:40:34 | INFO | Validation — loss: 3.3435 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:34 | INFO | [Epoch 006] loss=0.147836 lr=0.000099 time=0.68s
+2026-03-15 00:40:35 | INFO | Validation — loss: 4.4062 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:36 | INFO | [Epoch 007] loss=0.100138 lr=0.000098 time=0.56s
+2026-03-15 00:40:37 | INFO | Validation — loss: 6.8930 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:37 | INFO | [Epoch 008] loss=0.106937 lr=0.000098 time=0.64s
+2026-03-15 00:40:38 | INFO | Validation — loss: 3.8836 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:39 | INFO | [Epoch 009] loss=0.096444 lr=0.000098 time=0.55s
+2026-03-15 00:40:40 | INFO | Validation — loss: 1.9087 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:40 | INFO | [Epoch 010] loss=0.069209 lr=0.000097 time=0.59s
+2026-03-15 00:40:41 | INFO | Validation — loss: 1.4710 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:42 | INFO | [Epoch 011] loss=0.047983 lr=0.000097 time=0.57s
+2026-03-15 00:40:43 | INFO | Validation — loss: 1.0566 - Accuracy: 0.7158 - F1score: 0.4345 - Recall: 0.5091 - Precision 0.8572
+2026-03-15 00:40:43 | INFO | ---------- New best model found at epoch 11 with F1=0.434500------------
+2026-03-15 00:40:43 | INFO | [Epoch 012] loss=0.035048 lr=0.000096 time=0.58s
+2026-03-15 00:40:44 | INFO | Validation — loss: 1.2575 - Accuracy: 0.7122 - F1score: 0.4216 - Recall: 0.5029 - Precision 0.8559
+2026-03-15 00:40:45 | INFO | [Epoch 013] loss=0.018106 lr=0.000095 time=0.53s
+2026-03-15 00:40:46 | INFO | Validation — loss: 1.5349 - Accuracy: 0.7165 - F1score: 0.4371 - Recall: 0.5103 - Precision 0.8574
+2026-03-15 00:40:46 | INFO | ---------- New best model found at epoch 13 with F1=0.437100------------
+2026-03-15 00:40:46 | INFO | [Epoch 014] loss=0.020588 lr=0.000095 time=0.55s
+2026-03-15 00:40:47 | INFO | Validation — loss: 0.5891 - Accuracy: 0.7165 - F1score: 0.6201 - Recall: 0.6131 - Precision 0.6418
+2026-03-15 00:40:47 | INFO | ---------- New best model found at epoch 14 with F1=0.620100------------
+2026-03-15 00:40:47 | INFO | [Epoch 015] loss=0.025098 lr=0.000094 time=0.49s
+2026-03-15 00:40:48 | INFO | Validation — loss: 1.2671 - Accuracy: 0.7127 - F1score: 0.4547 - Recall: 0.5142 - Precision 0.632
+2026-03-15 00:40:49 | INFO | [Epoch 016] loss=0.027077 lr=0.000093 time=0.52s
+2026-03-15 00:40:50 | INFO | Validation — loss: 1.6798 - Accuracy: 0.7106 - F1score: 0.4154 - Recall: 0.5 - Precision 0.3553
+2026-03-15 00:40:50 | INFO | [Epoch 017] loss=0.026662 lr=0.000092 time=0.53s
+2026-03-15 00:40:51 | INFO | Validation — loss: 1.7873 - Accuracy: 0.7132 - F1score: 0.425 - Recall: 0.5045 - Precision 0.8562
+2026-03-15 00:40:51 | INFO | [Epoch 018] loss=0.011711 lr=0.000091 time=0.57s
+2026-03-15 00:40:52 | INFO | Validation — loss: 1.5745 - Accuracy: 0.7141 - F1score: 0.4285 - Recall: 0.5062 - Precision 0.8566
+2026-03-15 00:40:53 | INFO | [Epoch 019] loss=0.009902 lr=0.000091 time=0.52s
+2026-03-15 00:40:54 | INFO | Validation — loss: 1.3027 - Accuracy: 0.718 - F1score: 0.4458 - Recall: 0.514 - Precision 0.7972
+2026-03-15 00:40:54 | INFO | [Epoch 020] loss=0.008716 lr=0.000090 time=0.55s
+2026-03-15 00:40:55 | INFO | Validation — loss: 0.7622 - Accuracy: 0.7299 - F1score: 0.5175 - Recall: 0.5476 - Precision 0.7184
+2026-03-15 00:40:56 | INFO | [Epoch 021] loss=0.006098 lr=0.000089 time=0.57s
+2026-03-15 00:40:56 | INFO | Validation — loss: 0.6697 - Accuracy: 0.7445 - F1score: 0.5514 - Recall: 0.5692 - Precision 0.776
+2026-03-15 00:40:57 | INFO | [Epoch 022] loss=0.005831 lr=0.000088 time=0.51s
+2026-03-15 00:40:58 | INFO | Validation — loss: 1.4582 - Accuracy: 0.7175 - F1score: 0.4405 - Recall: 0.512 - Precision 0.8578
+2026-03-15 00:40:58 | INFO | [Epoch 023] loss=0.003144 lr=0.000087 time=0.52s
+2026-03-15 00:40:59 | INFO | Validation — loss: 0.9023 - Accuracy: 0.7321 - F1score: 0.4974 - Recall: 0.5401 - Precision 0.8111
+2026-03-15 00:41:00 | INFO | [Epoch 024] loss=0.002638 lr=0.000086 time=0.59s
+2026-03-15 00:41:01 | INFO | Validation — loss: 0.5431 - Accuracy: 0.7761 - F1score: 0.6399 - Recall: 0.6285 - Precision 0.8058
+2026-03-15 00:41:01 | INFO | ---------- New best model found at epoch 24 with F1=0.639900------------
+2026-03-15 00:41:01 | INFO | [Epoch 025] loss=0.001900 lr=0.000084 time=0.50s
+2026-03-15 00:41:02 | INFO | Validation — loss: 0.6980 - Accuracy: 0.767 - F1score: 0.6046 - Recall: 0.6043 - Precision 0.8304
+2026-03-15 00:41:03 | INFO | [Epoch 026] loss=0.002202 lr=0.000083 time=0.56s
+2026-03-15 00:41:03 | INFO | Validation — loss: 0.8076 - Accuracy: 0.7591 - F1score: 0.5791 - Recall: 0.588 - Precision 0.8386
+2026-03-15 00:41:04 | INFO | [Epoch 027] loss=0.002633 lr=0.000082 time=0.54s
+2026-03-15 00:41:05 | INFO | Validation — loss: 0.6743 - Accuracy: 0.771 - F1score: 0.618 - Recall: 0.6133 - Precision 0.8252
+2026-03-15 00:41:05 | INFO | [Epoch 028] loss=0.001636 lr=0.000081 time=0.53s
+2026-03-15 00:41:06 | INFO | Validation — loss: 0.8582 - Accuracy: 0.7459 - F1score: 0.5428 - Recall: 0.5655 - Precision 0.8205
+2026-03-15 00:41:07 | INFO | [Epoch 029] loss=0.001996 lr=0.000080 time=0.59s
+2026-03-15 00:41:08 | INFO | Validation — loss: 0.4292 - Accuracy: 0.8129 - F1score: 0.7335 - Recall: 0.7088 - Precision 0.8118
+2026-03-15 00:41:08 | INFO | ---------- New best model found at epoch 29 with F1=0.733500------------
+2026-03-15 00:41:08 | INFO | [Epoch 030] loss=0.003127 lr=0.000078 time=0.52s
+2026-03-15 00:41:09 | INFO | Validation — loss: 0.8449 - Accuracy: 0.7529 - F1score: 0.5595 - Recall: 0.576 - Precision 0.8419
+2026-03-15 00:41:10 | INFO | [Epoch 031] loss=0.003509 lr=0.000077 time=0.55s
+2026-03-15 00:41:10 | INFO | Validation — loss: 0.9696 - Accuracy: 0.7481 - F1score: 0.5479 - Recall: 0.5687 - Precision 0.8278
+2026-03-15 00:41:11 | INFO | [Epoch 032] loss=0.004044 lr=0.000076 time=0.51s
+2026-03-15 00:41:12 | INFO | Validation — loss: 0.4001 - Accuracy: 0.8212 - F1score: 0.7603 - Recall: 0.7401 - Precision 0.8016
+2026-03-15 00:41:12 | INFO | ---------- New best model found at epoch 32 with F1=0.760300------------
+2026-03-15 00:41:12 | INFO | [Epoch 033] loss=0.003644 lr=0.000074 time=0.49s
+2026-03-15 00:41:13 | INFO | Validation — loss: 0.5205 - Accuracy: 0.7921 - F1score: 0.7011 - Recall: 0.6804 - Precision 0.7776
+2026-03-15 00:41:14 | INFO | [Epoch 034] loss=0.004764 lr=0.000073 time=0.51s
+2026-03-15 00:41:14 | INFO | Validation — loss: 1.2114 - Accuracy: 0.7299 - F1score: 0.4912 - Recall: 0.5366 - Precision 0.8023
+2026-03-15 00:41:15 | INFO | [Epoch 035] loss=0.003018 lr=0.000072 time=0.51s
+2026-03-15 00:41:16 | INFO | Validation — loss: 0.4170 - Accuracy: 0.8152 - F1score: 0.778 - Recall: 0.7814 - Precision 0.775
+2026-03-15 00:41:16 | INFO | ---------- New best model found at epoch 35 with F1=0.778000------------
+2026-03-15 00:41:17 | INFO | [Epoch 036] loss=0.003186 lr=0.000070 time=0.56s
+2026-03-15 00:41:17 | INFO | Validation — loss: 1.3751 - Accuracy: 0.7285 - F1score: 0.4814 - Recall: 0.5322 - Precision 0.8326
+2026-03-15 00:41:18 | INFO | [Epoch 037] loss=0.001461 lr=0.000069 time=0.64s
+2026-03-15 00:41:19 | INFO | Validation — loss: 1.5447 - Accuracy: 0.7175 - F1score: 0.4405 - Recall: 0.512 - Precision 0.8578
+2026-03-15 00:41:20 | INFO | [Epoch 038] loss=0.001153 lr=0.000067 time=0.63s
+2026-03-15 00:41:21 | INFO | Validation — loss: 1.1982 - Accuracy: 0.7297 - F1score: 0.4821 - Recall: 0.533 - Precision 0.8622
+2026-03-15 00:41:21 | INFO | [Epoch 039] loss=0.001050 lr=0.000066 time=0.53s
+2026-03-15 00:41:22 | INFO | Validation — loss: 1.4640 - Accuracy: 0.7206 - F1score: 0.4514 - Recall: 0.5173 - Precision 0.8589
+2026-03-15 00:41:23 | INFO | [Epoch 040] loss=0.000713 lr=0.000064 time=0.56s
+2026-03-15 00:41:23 | INFO | Validation — loss: 1.6673 - Accuracy: 0.7177 - F1score: 0.4413 - Recall: 0.5124 - Precision 0.8578
+2026-03-15 00:41:24 | INFO | [Epoch 041] loss=0.000892 lr=0.000063 time=0.56s
+2026-03-15 00:41:25 | INFO | Validation — loss: 1.5473 - Accuracy: 0.7216 - F1score: 0.4554 - Recall: 0.5192 - Precision 0.8489
+2026-03-15 00:41:25 | INFO | [Epoch 042] loss=0.000609 lr=0.000061 time=0.56s
+2026-03-15 00:41:26 | INFO | Validation — loss: 1.4084 - Accuracy: 0.7249 - F1score: 0.4682 - Recall: 0.5255 - Precision 0.8379
+2026-03-15 00:41:27 | INFO | [Epoch 043] loss=0.000692 lr=0.000060 time=0.52s
+2026-03-15 00:41:27 | INFO | Validation — loss: 1.1778 - Accuracy: 0.7333 - F1score: 0.4969 - Recall: 0.5404 - Precision 0.84
+2026-03-15 00:41:28 | INFO | [Epoch 044] loss=0.000670 lr=0.000058 time=0.54s
+2026-03-15 00:41:29 | INFO | Validation — loss: 1.2362 - Accuracy: 0.7309 - F1score: 0.4873 - Recall: 0.5356 - Precision 0.8515
+2026-03-15 00:41:30 | INFO | [Epoch 045] loss=0.000707 lr=0.000057 time=0.54s
+2026-03-15 00:41:30 | INFO | Validation — loss: 1.1902 - Accuracy: 0.7323 - F1score: 0.4938 - Recall: 0.5388 - Precision 0.8387
+2026-03-15 00:41:31 | INFO | [Epoch 046] loss=0.000566 lr=0.000055 time=0.54s
+2026-03-15 00:41:32 | INFO | Validation — loss: 1.2980 - Accuracy: 0.728 - F1score: 0.4779 - Recall: 0.5306 - Precision 0.8487
+2026-03-15 00:41:32 | INFO | [Epoch 047] loss=0.000562 lr=0.000054 time=0.50s
+2026-03-15 00:41:33 | INFO | Validation — loss: 1.2827 - Accuracy: 0.7292 - F1score: 0.4838 - Recall: 0.5334 - Precision 0.8339
+2026-03-15 00:41:34 | INFO | [Epoch 048] loss=0.000450 lr=0.000052 time=0.50s
+2026-03-15 00:41:34 | INFO | Validation — loss: 1.3081 - Accuracy: 0.7297 - F1score: 0.4853 - Recall: 0.5343 - Precision 0.8347
+2026-03-15 00:41:35 | INFO | [Epoch 049] loss=0.000480 lr=0.000051 time=0.51s
+2026-03-15 00:41:36 | INFO | Validation — loss: 1.3319 - Accuracy: 0.728 - F1score: 0.4798 - Recall: 0.5314 - Precision 0.8317
+2026-03-15 00:41:36 | INFO | [Epoch 050] loss=0.000466 lr=0.000049 time=0.52s
+2026-03-15 00:41:37 | INFO | Validation — loss: 1.2507 - Accuracy: 0.7323 - F1score: 0.4944 - Recall: 0.539 - Precision 0.8344
+2026-03-15 00:41:37 | INFO | Early stopping at epoch 50. Best loss: 0.778000
+2026-03-15 00:41:37 | INFO | Training complete.
+2026-03-15 00:41:37 | INFO | Best result: {'acc': 0.8152, 'precision': 0.775, 'recall': 0.7814, 'f1': 0.778, 'conf_mat': array([[2562,  411],
+       [ 362,  849]])}
+2026-03-15 00:41:37 | INFO | === Run 7/1 | seed=0 | fold=fold_06.csv ===
+2026-03-15 00:41:37 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_06.csv
+2026-03-15 00:41:37 | INFO | Model.forward signature: (data)
+2026-03-15 00:41:43 | INFO | [LOSO] Train size: 609, Val size: 4494, Test size: 4494
+2026-03-15 00:41:43 | INFO | Train batches per epoch: 9
+2026-03-15 00:41:44 | INFO | [Epoch 000] loss=0.647389 lr=0.000100 time=0.52s
+2026-03-15 00:41:45 | INFO | Validation — loss: 0.6733 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:41:45 | INFO | ---------- New best model found at epoch 0 with F1=0.405700------------
+2026-03-15 00:41:45 | INFO | [Epoch 001] loss=0.478585 lr=0.000100 time=0.49s
+2026-03-15 00:41:46 | INFO | Validation — loss: 1.0746 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:41:47 | INFO | [Epoch 002] loss=0.329163 lr=0.000100 time=0.58s
+2026-03-15 00:41:48 | INFO | Validation — loss: 1.0717 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:41:48 | INFO | [Epoch 003] loss=0.258350 lr=0.000100 time=0.52s
+2026-03-15 00:41:49 | INFO | Validation — loss: 1.7651 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:41:50 | INFO | [Epoch 004] loss=0.193979 lr=0.000099 time=0.51s
+2026-03-15 00:41:50 | INFO | Validation — loss: 1.3067 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:41:51 | INFO | [Epoch 005] loss=0.158013 lr=0.000099 time=0.47s
+2026-03-15 00:41:52 | INFO | Validation — loss: 2.9844 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:41:52 | INFO | [Epoch 006] loss=0.117272 lr=0.000099 time=0.52s
+2026-03-15 00:41:53 | INFO | Validation — loss: 1.9867 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:41:54 | INFO | [Epoch 007] loss=0.120991 lr=0.000098 time=0.49s
+2026-03-15 00:41:54 | INFO | Validation — loss: 2.0546 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:41:55 | INFO | [Epoch 008] loss=0.091741 lr=0.000098 time=0.57s
+2026-03-15 00:41:56 | INFO | Validation — loss: 1.3005 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:41:57 | INFO | [Epoch 009] loss=0.069243 lr=0.000098 time=0.61s
+2026-03-15 00:41:58 | INFO | Validation — loss: 0.4475 - Accuracy: 0.7862 - F1score: 0.6782 - Recall: 0.663 - Precision 0.8807
+2026-03-15 00:41:58 | INFO | ---------- New best model found at epoch 9 with F1=0.678200------------
+2026-03-15 00:41:58 | INFO | [Epoch 010] loss=0.044607 lr=0.000097 time=0.57s
+2026-03-15 00:41:59 | INFO | Validation — loss: 0.5742 - Accuracy: 0.7272 - F1score: 0.7161 - Recall: 0.7557 - Precision 0.7218
+2026-03-15 00:41:59 | INFO | ---------- New best model found at epoch 10 with F1=0.716100------------
+2026-03-15 00:42:00 | INFO | [Epoch 011] loss=0.039997 lr=0.000097 time=0.57s
+2026-03-15 00:42:01 | INFO | Validation — loss: 1.1716 - Accuracy: 0.6827 - F1score: 0.4057 - Recall: 0.5 - Precision 0.3413
+2026-03-15 00:42:01 | INFO | [Epoch 012] loss=0.037356 lr=0.000096 time=0.56s
+2026-03-15 00:42:02 | INFO | Validation — loss: 0.7681 - Accuracy: 0.7612 - F1score: 0.624 - Recall: 0.6238 - Precision 0.8704
+2026-03-15 00:42:03 | INFO | [Epoch 013] loss=0.025184 lr=0.000095 time=0.54s
+2026-03-15 00:42:04 | INFO | Validation — loss: 0.0353 - Accuracy: 0.9864 - F1score: 0.9842 - Recall: 0.9797 - Precision 0.989
+2026-03-15 00:42:04 | INFO | ---------- New best model found at epoch 13 with F1=0.984200------------
+2026-03-15 00:42:04 | INFO | [Epoch 014] loss=0.030929 lr=0.000095 time=0.50s
+2026-03-15 00:42:05 | INFO | Validation — loss: 0.4065 - Accuracy: 0.8213 - F1score: 0.7619 - Recall: 0.7372 - Precision 0.8435
+2026-03-15 00:42:05 | INFO | [Epoch 015] loss=0.018530 lr=0.000094 time=0.57s
+2026-03-15 00:42:06 | INFO | Validation — loss: 0.0800 - Accuracy: 0.9733 - F1score: 0.9696 - Recall: 0.9758 - Precision 0.9641
+2026-03-15 00:42:07 | INFO | [Epoch 016] loss=0.017993 lr=0.000093 time=0.60s
+2026-03-15 00:42:08 | INFO | Validation — loss: 0.4559 - Accuracy: 0.7802 - F1score: 0.7495 - Recall: 0.7528 - Precision 0.7466
+2026-03-15 00:42:08 | INFO | [Epoch 017] loss=0.015349 lr=0.000092 time=0.50s
+2026-03-15 00:42:09 | INFO | Validation — loss: 0.2235 - Accuracy: 0.8943 - F1score: 0.8647 - Recall: 0.8348 - Precision 0.9301
+2026-03-15 00:42:10 | INFO | [Epoch 018] loss=0.017237 lr=0.000091 time=0.57s
+2026-03-15 00:42:11 | INFO | Validation — loss: 0.1944 - Accuracy: 0.8901 - F1score: 0.8588 - Recall: 0.8287 - Precision 0.9264
+2026-03-15 00:42:11 | INFO | [Epoch 019] loss=0.012181 lr=0.000091 time=0.53s
+2026-03-15 00:42:12 | INFO | Validation — loss: 0.3812 - Accuracy: 0.8431 - F1score: 0.7865 - Recall: 0.7558 - Precision 0.8973
+2026-03-15 00:42:12 | INFO | [Epoch 020] loss=0.010267 lr=0.000090 time=0.52s
+2026-03-15 00:42:13 | INFO | Validation — loss: 0.3595 - Accuracy: 0.8527 - F1score: 0.8384 - Recall: 0.8587 - Precision 0.8281
+2026-03-15 00:42:14 | INFO | [Epoch 021] loss=0.011433 lr=0.000089 time=0.54s
+2026-03-15 00:42:15 | INFO | Validation — loss: 0.4125 - Accuracy: 0.8494 - F1score: 0.7947 - Recall: 0.7626 - Precision 0.9096
+2026-03-15 00:42:15 | INFO | [Epoch 022] loss=0.015376 lr=0.000088 time=0.53s
+2026-03-15 00:42:16 | INFO | Validation — loss: 0.5620 - Accuracy: 0.7644 - F1score: 0.7473 - Recall: 0.7726 - Precision 0.742
+2026-03-15 00:42:17 | INFO | [Epoch 023] loss=0.004302 lr=0.000087 time=0.59s
+2026-03-15 00:42:18 | INFO | Validation — loss: 0.1134 - Accuracy: 0.9566 - F1score: 0.949 - Recall: 0.9416 - Precision 0.9577
+2026-03-15 00:42:18 | INFO | [Epoch 024] loss=0.005695 lr=0.000086 time=0.57s
+2026-03-15 00:42:19 | INFO | Validation — loss: 0.1379 - Accuracy: 0.9433 - F1score: 0.9324 - Recall: 0.9198 - Precision 0.9488
+2026-03-15 00:42:20 | INFO | [Epoch 025] loss=0.002830 lr=0.000084 time=0.54s
+2026-03-15 00:42:20 | INFO | Validation — loss: 0.4392 - Accuracy: 0.8489 - F1score: 0.7957 - Recall: 0.7645 - Precision 0.9016
+2026-03-15 00:42:21 | INFO | [Epoch 026] loss=0.001992 lr=0.000083 time=0.58s
+2026-03-15 00:42:22 | INFO | Validation — loss: 0.3007 - Accuracy: 0.8845 - F1score: 0.8508 - Recall: 0.8205 - Precision 0.922
+2026-03-15 00:42:22 | INFO | [Epoch 027] loss=0.001341 lr=0.000082 time=0.52s
+2026-03-15 00:42:23 | INFO | Validation — loss: 0.1335 - Accuracy: 0.9379 - F1score: 0.9249 - Recall: 0.9071 - Precision 0.9508
+2026-03-15 00:42:24 | INFO | [Epoch 028] loss=0.001244 lr=0.000081 time=0.51s
+2026-03-15 00:42:24 | INFO | Validation — loss: 0.1190 - Accuracy: 0.9533 - F1score: 0.9445 - Recall: 0.9326 - Precision 0.9596
+2026-03-15 00:42:24 | INFO | Early stopping at epoch 28. Best loss: 0.984200
+2026-03-15 00:42:25 | INFO | Training complete.
+2026-03-15 00:42:25 | INFO | Best result: {'acc': 0.9864, 'precision': 0.989, 'recall': 0.9797, 'f1': 0.9842, 'conf_mat': array([[3062,    6],
+       [  55, 1371]])}
+2026-03-15 00:42:25 | INFO | === Run 8/1 | seed=0 | fold=fold_07.csv ===
+2026-03-15 00:42:25 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_07.csv
+2026-03-15 00:42:25 | INFO | Model.forward signature: (data)
+2026-03-15 00:42:31 | INFO | [LOSO] Train size: 610, Val size: 4384, Test size: 4384
+2026-03-15 00:42:31 | INFO | Train batches per epoch: 9
+2026-03-15 00:42:31 | INFO | [Epoch 000] loss=0.646578 lr=0.000100 time=0.50s
+2026-03-15 00:42:32 | INFO | Validation — loss: 0.6858 - Accuracy: 0.6975 - F1score: 0.4109 - Recall: 0.5 - Precision 0.3488
+2026-03-15 00:42:32 | INFO | ---------- New best model found at epoch 0 with F1=0.410900------------
+2026-03-15 00:42:32 | INFO | [Epoch 001] loss=0.477900 lr=0.000100 time=0.51s
+2026-03-15 00:42:33 | INFO | Validation — loss: 0.8004 - Accuracy: 0.6975 - F1score: 0.4109 - Recall: 0.5 - Precision 0.3488
+2026-03-15 00:42:34 | INFO | [Epoch 002] loss=0.359068 lr=0.000100 time=0.50s
+2026-03-15 00:42:35 | INFO | Validation — loss: 1.6533 - Accuracy: 0.6975 - F1score: 0.4109 - Recall: 0.5 - Precision 0.3488
+2026-03-15 00:42:35 | INFO | [Epoch 003] loss=0.295341 lr=0.000100 time=0.52s
+2026-03-15 00:42:36 | INFO | Validation — loss: 2.7896 - Accuracy: 0.6975 - F1score: 0.4109 - Recall: 0.5 - Precision 0.3488
+2026-03-15 00:42:36 | INFO | [Epoch 004] loss=0.249358 lr=0.000099 time=0.52s
+2026-03-15 00:42:37 | INFO | Validation — loss: 0.9956 - Accuracy: 0.6975 - F1score: 0.4109 - Recall: 0.5 - Precision 0.3488
+2026-03-15 00:42:38 | INFO | [Epoch 005] loss=0.204458 lr=0.000099 time=0.61s
+2026-03-15 00:42:39 | INFO | Validation — loss: 2.2780 - Accuracy: 0.6975 - F1score: 0.4109 - Recall: 0.5 - Precision 0.3488
+2026-03-15 00:42:39 | INFO | [Epoch 006] loss=0.196412 lr=0.000099 time=0.55s
+2026-03-15 00:42:40 | INFO | Validation — loss: 1.4692 - Accuracy: 0.6975 - F1score: 0.4109 - Recall: 0.5 - Precision 0.3488
+2026-03-15 00:42:41 | INFO | [Epoch 007] loss=0.137622 lr=0.000098 time=0.56s
+2026-03-15 00:42:42 | INFO | Validation — loss: 0.3848 - Accuracy: 0.7044 - F1score: 0.4347 - Recall: 0.5113 - Precision 0.8512
+2026-03-15 00:42:42 | INFO | ---------- New best model found at epoch 7 with F1=0.434700------------
+2026-03-15 00:42:42 | INFO | [Epoch 008] loss=0.105322 lr=0.000098 time=0.55s
+2026-03-15 00:42:43 | INFO | Validation — loss: 0.1384 - Accuracy: 1.0 - F1score: 1.0 - Recall: 1.0 - Precision 1.0
+2026-03-15 00:42:43 | INFO | ---------- New best model found at epoch 8 with F1=1.000000------------
+2026-03-15 00:42:44 | INFO | [Epoch 009] loss=0.091512 lr=0.000098 time=0.57s
+2026-03-15 00:42:45 | INFO | Validation — loss: 0.0956 - Accuracy: 0.9843 - F1score: 0.9812 - Recall: 0.9763 - Precision 0.9864
+2026-03-15 00:42:45 | INFO | [Epoch 010] loss=0.112728 lr=0.000097 time=0.58s
+2026-03-15 00:42:46 | INFO | Validation — loss: 1.0487 - Accuracy: 0.3857 - F1score: 0.3547 - Recall: 0.5597 - Precision 0.665
+2026-03-15 00:42:47 | INFO | [Epoch 011] loss=0.081535 lr=0.000097 time=0.53s
+2026-03-15 00:42:48 | INFO | Validation — loss: 1.1376 - Accuracy: 0.4286 - F1score: 0.4103 - Recall: 0.5904 - Precision 0.6731
+2026-03-15 00:42:48 | INFO | [Epoch 012] loss=0.061213 lr=0.000096 time=0.55s
+2026-03-15 00:42:49 | INFO | Validation — loss: 1.4596 - Accuracy: 0.3953 - F1score: 0.3675 - Recall: 0.5665 - Precision 0.6667
+2026-03-15 00:42:49 | INFO | [Epoch 013] loss=0.038846 lr=0.000095 time=0.52s
+2026-03-15 00:42:50 | INFO | Validation — loss: 0.4209 - Accuracy: 0.8415 - F1score: 0.8321 - Recall: 0.8864 - Precision 0.8281
+2026-03-15 00:42:51 | INFO | [Epoch 014] loss=0.042261 lr=0.000095 time=0.57s
+2026-03-15 00:42:52 | INFO | Validation — loss: 0.1746 - Accuracy: 0.9206 - F1score: 0.9118 - Recall: 0.9431 - Precision 0.8961
+2026-03-15 00:42:52 | INFO | [Epoch 015] loss=0.041674 lr=0.000094 time=0.51s
+2026-03-15 00:42:53 | INFO | Validation — loss: 0.6656 - Accuracy: 0.8365 - F1score: 0.8272 - Recall: 0.8828 - Precision 0.8245
+2026-03-15 00:42:54 | INFO | [Epoch 016] loss=0.027856 lr=0.000093 time=0.53s
+2026-03-15 00:42:55 | INFO | Validation — loss: 0.7686 - Accuracy: 0.8264 - F1score: 0.8175 - Recall: 0.8756 - Precision 0.8177
+2026-03-15 00:42:55 | INFO | [Epoch 017] loss=0.023531 lr=0.000092 time=0.52s
+2026-03-15 00:42:56 | INFO | Validation — loss: 0.6383 - Accuracy: 0.8328 - F1score: 0.8236 - Recall: 0.8802 - Precision 0.822
+2026-03-15 00:42:56 | INFO | [Epoch 018] loss=0.018021 lr=0.000091 time=0.53s
+2026-03-15 00:42:57 | INFO | Validation — loss: 0.8439 - Accuracy: 0.8255 - F1score: 0.8166 - Recall: 0.8749 - Precision 0.8171
+2026-03-15 00:42:58 | INFO | [Epoch 019] loss=0.010088 lr=0.000091 time=0.53s
+2026-03-15 00:42:59 | INFO | Validation — loss: 0.8002 - Accuracy: 0.7849 - F1score: 0.7777 - Recall: 0.8458 - Precision 0.7922
+2026-03-15 00:42:59 | INFO | [Epoch 020] loss=0.006247 lr=0.000090 time=0.57s
+2026-03-15 00:43:00 | INFO | Validation — loss: 0.5290 - Accuracy: 0.8469 - F1score: 0.8374 - Recall: 0.8903 - Precision 0.832
+2026-03-15 00:43:01 | INFO | [Epoch 021] loss=0.006541 lr=0.000089 time=0.54s
+2026-03-15 00:43:02 | INFO | Validation — loss: 0.6250 - Accuracy: 0.8344 - F1score: 0.8252 - Recall: 0.8813 - Precision 0.8231
+2026-03-15 00:43:02 | INFO | [Epoch 022] loss=0.006985 lr=0.000088 time=0.60s
+2026-03-15 00:43:03 | INFO | Validation — loss: 0.3730 - Accuracy: 0.8764 - F1score: 0.8665 - Recall: 0.9114 - Precision 0.8549
+2026-03-15 00:43:04 | INFO | [Epoch 023] loss=0.006584 lr=0.000087 time=0.54s
+2026-03-15 00:43:04 | INFO | Validation — loss: 0.5228 - Accuracy: 0.8415 - F1score: 0.8321 - Recall: 0.8864 - Precision 0.8281
+2026-03-15 00:43:04 | INFO | Early stopping at epoch 23. Best loss: 1.000000
+2026-03-15 00:43:04 | INFO | Training complete.
+2026-03-15 00:43:04 | INFO | Best result: {'acc': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1': 1.0, 'conf_mat': array([[3058,    0],
+       [   0, 1326]])}
+2026-03-15 00:43:04 | INFO | === Run 9/1 | seed=0 | fold=fold_08.csv ===
+2026-03-15 00:43:04 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_08.csv
+2026-03-15 00:43:05 | INFO | Model.forward signature: (data)
+2026-03-15 00:43:11 | INFO | [LOSO] Train size: 612, Val size: 4251, Test size: 4251
+2026-03-15 00:43:11 | INFO | Train batches per epoch: 9
+2026-03-15 00:43:11 | INFO | [Epoch 000] loss=0.643272 lr=0.000100 time=0.56s
+2026-03-15 00:43:12 | INFO | Validation — loss: 0.6833 - Accuracy: 0.7036 - F1score: 0.413 - Recall: 0.5 - Precision 0.3518
+2026-03-15 00:43:12 | INFO | ---------- New best model found at epoch 0 with F1=0.413000------------
+2026-03-15 00:43:13 | INFO | [Epoch 001] loss=0.469592 lr=0.000100 time=0.50s
+2026-03-15 00:43:13 | INFO | Validation — loss: 0.6227 - Accuracy: 0.7036 - F1score: 0.413 - Recall: 0.5 - Precision 0.3518
+2026-03-15 00:43:14 | INFO | [Epoch 002] loss=0.368889 lr=0.000100 time=0.57s
+2026-03-15 00:43:15 | INFO | Validation — loss: 1.4658 - Accuracy: 0.7036 - F1score: 0.413 - Recall: 0.5 - Precision 0.3518
+2026-03-15 00:43:15 | INFO | [Epoch 003] loss=0.297620 lr=0.000100 time=0.48s
+2026-03-15 00:43:16 | INFO | Validation — loss: 0.6327 - Accuracy: 0.7036 - F1score: 0.413 - Recall: 0.5 - Precision 0.3518
+2026-03-15 00:43:17 | INFO | [Epoch 004] loss=0.249170 lr=0.000099 time=0.53s
+2026-03-15 00:43:17 | INFO | Validation — loss: 1.7431 - Accuracy: 0.7036 - F1score: 0.413 - Recall: 0.5 - Precision 0.3518
+2026-03-15 00:43:18 | INFO | [Epoch 005] loss=0.210514 lr=0.000099 time=0.54s
+2026-03-15 00:43:19 | INFO | Validation — loss: 4.6292 - Accuracy: 0.7036 - F1score: 0.413 - Recall: 0.5 - Precision 0.3518
+2026-03-15 00:43:19 | INFO | [Epoch 006] loss=0.170362 lr=0.000099 time=0.63s
+2026-03-15 00:43:20 | INFO | Validation — loss: 3.6744 - Accuracy: 0.7036 - F1score: 0.413 - Recall: 0.5 - Precision 0.3518
+2026-03-15 00:43:21 | INFO | [Epoch 007] loss=0.124686 lr=0.000098 time=0.52s
+2026-03-15 00:43:22 | INFO | Validation — loss: 4.7834 - Accuracy: 0.7036 - F1score: 0.413 - Recall: 0.5 - Precision 0.3518
+2026-03-15 00:43:22 | INFO | [Epoch 008] loss=0.101508 lr=0.000098 time=0.55s
+2026-03-15 00:43:23 | INFO | Validation — loss: 0.6227 - Accuracy: 0.7358 - F1score: 0.5207 - Recall: 0.5551 - Precision 0.8532
+2026-03-15 00:43:23 | INFO | ---------- New best model found at epoch 8 with F1=0.520700------------
+2026-03-15 00:43:24 | INFO | [Epoch 009] loss=0.097097 lr=0.000098 time=0.59s
+2026-03-15 00:43:25 | INFO | Validation — loss: 0.3229 - Accuracy: 0.9235 - F1score: 0.9133 - Recall: 0.939 - Precision 0.8978
+2026-03-15 00:43:25 | INFO | ---------- New best model found at epoch 9 with F1=0.913300------------
+2026-03-15 00:43:25 | INFO | [Epoch 010] loss=0.075981 lr=0.000097 time=0.52s
+2026-03-15 00:43:26 | INFO | Validation — loss: 0.5498 - Accuracy: 0.8358 - F1score: 0.7585 - Recall: 0.7258 - Precision 0.8962
+2026-03-15 00:43:27 | INFO | [Epoch 011] loss=0.075825 lr=0.000097 time=0.55s
+2026-03-15 00:43:27 | INFO | Validation — loss: 0.2942 - Accuracy: 0.876 - F1score: 0.8273 - Recall: 0.7909 - Precision 0.9251
+2026-03-15 00:43:28 | INFO | [Epoch 012] loss=0.066311 lr=0.000096 time=0.52s
+2026-03-15 00:43:29 | INFO | Validation — loss: 0.4291 - Accuracy: 0.8758 - F1score: 0.8269 - Recall: 0.7905 - Precision 0.925
+2026-03-15 00:43:29 | INFO | [Epoch 013] loss=0.058768 lr=0.000095 time=0.63s
+2026-03-15 00:43:30 | INFO | Validation — loss: 0.2437 - Accuracy: 0.9087 - F1score: 0.8786 - Recall: 0.846 - Precision 0.9426
+2026-03-15 00:43:31 | INFO | [Epoch 014] loss=0.031556 lr=0.000095 time=0.55s
+2026-03-15 00:43:32 | INFO | Validation — loss: 0.4508 - Accuracy: 0.8579 - F1score: 0.7965 - Recall: 0.7603 - Precision 0.916
+2026-03-15 00:43:32 | INFO | [Epoch 015] loss=0.028545 lr=0.000094 time=0.52s
+2026-03-15 00:43:33 | INFO | Validation — loss: 0.4566 - Accuracy: 0.8476 - F1score: 0.7781 - Recall: 0.7429 - Precision 0.911
+2026-03-15 00:43:34 | INFO | [Epoch 016] loss=0.030821 lr=0.000093 time=0.55s
+2026-03-15 00:43:34 | INFO | Validation — loss: 0.8486 - Accuracy: 0.506 - F1score: 0.5046 - Recall: 0.581 - Precision 0.5743
+2026-03-15 00:43:35 | INFO | [Epoch 017] loss=0.029375 lr=0.000092 time=0.51s
+2026-03-15 00:43:36 | INFO | Validation — loss: 1.3418 - Accuracy: 0.7556 - F1score: 0.5752 - Recall: 0.5877 - Precision 0.8711
+2026-03-15 00:43:36 | INFO | [Epoch 018] loss=0.019652 lr=0.000091 time=0.52s
+2026-03-15 00:43:37 | INFO | Validation — loss: 1.4996 - Accuracy: 0.7594 - F1score: 0.5853 - Recall: 0.594 - Precision 0.8726
+2026-03-15 00:43:38 | INFO | [Epoch 019] loss=0.019733 lr=0.000091 time=0.56s
+2026-03-15 00:43:38 | INFO | Validation — loss: 0.7645 - Accuracy: 0.8311 - F1score: 0.7524 - Recall: 0.7211 - Precision 0.8835
+2026-03-15 00:43:39 | INFO | [Epoch 020] loss=0.014682 lr=0.000090 time=0.57s
+2026-03-15 00:43:40 | INFO | Validation — loss: 1.2757 - Accuracy: 0.7735 - F1score: 0.6262 - Recall: 0.6208 - Precision 0.8589
+2026-03-15 00:43:40 | INFO | [Epoch 021] loss=0.018754 lr=0.000089 time=0.52s
+2026-03-15 00:43:41 | INFO | Validation — loss: 1.0358 - Accuracy: 0.5469 - F1score: 0.5235 - Recall: 0.5474 - Precision 0.5396
+2026-03-15 00:43:42 | INFO | [Epoch 022] loss=0.011402 lr=0.000088 time=0.54s
+2026-03-15 00:43:43 | INFO | Validation — loss: 0.6975 - Accuracy: 0.8412 - F1score: 0.7676 - Recall: 0.7338 - Precision 0.9027
+2026-03-15 00:43:43 | INFO | [Epoch 023] loss=0.012538 lr=0.000087 time=0.53s
+2026-03-15 00:43:44 | INFO | Validation — loss: 1.0853 - Accuracy: 0.4771 - F1score: 0.4693 - Recall: 0.5129 - Precision 0.511
+2026-03-15 00:43:44 | INFO | [Epoch 024] loss=0.016464 lr=0.000086 time=0.55s
+2026-03-15 00:43:45 | INFO | Validation — loss: 1.0929 - Accuracy: 0.7897 - F1score: 0.6601 - Recall: 0.6452 - Precision 0.8849
+2026-03-15 00:43:45 | INFO | Early stopping at epoch 24. Best loss: 0.913300
+2026-03-15 00:43:45 | INFO | Training complete.
+2026-03-15 00:43:45 | INFO | Best result: {'acc': 0.9235, 'precision': 0.8978, 'recall': 0.939, 'f1': 0.9133, 'conf_mat': array([[2695,  296],
+       [  29, 1231]])}
+2026-03-15 00:43:45 | INFO | === Run 10/1 | seed=0 | fold=fold_09.csv ===
+2026-03-15 00:43:45 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_09.csv
+2026-03-15 00:43:45 | INFO | Model.forward signature: (data)
+2026-03-15 00:43:51 | INFO | [LOSO] Train size: 610, Val size: 4396, Test size: 4396
+2026-03-15 00:43:51 | INFO | Train batches per epoch: 9
+2026-03-15 00:43:52 | INFO | [Epoch 000] loss=0.645271 lr=0.000100 time=0.60s
+2026-03-15 00:43:53 | INFO | Validation — loss: 0.6838 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:43:53 | INFO | ---------- New best model found at epoch 0 with F1=0.410800------------
+2026-03-15 00:43:53 | INFO | [Epoch 001] loss=0.493745 lr=0.000100 time=0.60s
+2026-03-15 00:43:54 | INFO | Validation — loss: 0.6810 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:43:54 | INFO | [Epoch 002] loss=0.394682 lr=0.000100 time=0.50s
+2026-03-15 00:43:55 | INFO | Validation — loss: 2.5632 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:43:56 | INFO | [Epoch 003] loss=0.346353 lr=0.000100 time=0.49s
+2026-03-15 00:43:57 | INFO | Validation — loss: 3.1626 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:43:57 | INFO | [Epoch 004] loss=0.312466 lr=0.000099 time=0.51s
+2026-03-15 00:43:58 | INFO | Validation — loss: 1.6790 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:43:58 | INFO | [Epoch 005] loss=0.285383 lr=0.000099 time=0.51s
+2026-03-15 00:43:59 | INFO | Validation — loss: 2.8404 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:44:00 | INFO | [Epoch 006] loss=0.289498 lr=0.000099 time=0.51s
+2026-03-15 00:44:01 | INFO | Validation — loss: 6.8987 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:44:01 | INFO | [Epoch 007] loss=0.266867 lr=0.000098 time=0.69s
+2026-03-15 00:44:02 | INFO | Validation — loss: 6.2279 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:44:03 | INFO | [Epoch 008] loss=0.278107 lr=0.000098 time=0.61s
+2026-03-15 00:44:04 | INFO | Validation — loss: 2.6892 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:44:05 | INFO | [Epoch 009] loss=0.248031 lr=0.000098 time=0.66s
+2026-03-15 00:44:05 | INFO | Validation — loss: 2.8673 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:44:06 | INFO | [Epoch 010] loss=0.253639 lr=0.000097 time=0.63s
+2026-03-15 00:44:07 | INFO | Validation — loss: 0.6312 - Accuracy: 0.775 - F1score: 0.635 - Recall: 0.6285 - Precision 0.878
+2026-03-15 00:44:07 | INFO | ---------- New best model found at epoch 10 with F1=0.635000------------
+2026-03-15 00:44:07 | INFO | [Epoch 011] loss=0.262669 lr=0.000097 time=0.54s
+2026-03-15 00:44:08 | INFO | Validation — loss: 0.6462 - Accuracy: 0.7662 - F1score: 0.6136 - Recall: 0.6138 - Precision 0.8744
+2026-03-15 00:44:09 | INFO | [Epoch 012] loss=0.274850 lr=0.000096 time=0.55s
+2026-03-15 00:44:10 | INFO | Validation — loss: 0.2395 - Accuracy: 0.9434 - F1score: 0.9294 - Recall: 0.9096 - Precision 0.9576
+2026-03-15 00:44:10 | INFO | ---------- New best model found at epoch 12 with F1=0.929400------------
+2026-03-15 00:44:10 | INFO | [Epoch 013] loss=0.248027 lr=0.000095 time=0.54s
+2026-03-15 00:44:11 | INFO | Validation — loss: 0.2887 - Accuracy: 0.9545 - F1score: 0.9461 - Recall: 0.9457 - Precision 0.9465
+2026-03-15 00:44:11 | INFO | ---------- New best model found at epoch 13 with F1=0.946100------------
+2026-03-15 00:44:12 | INFO | [Epoch 014] loss=0.246421 lr=0.000095 time=0.59s
+2026-03-15 00:44:13 | INFO | Validation — loss: 0.9044 - Accuracy: 0.7621 - F1score: 0.6035 - Recall: 0.6071 - Precision 0.8728
+2026-03-15 00:44:13 | INFO | [Epoch 015] loss=0.234524 lr=0.000094 time=0.52s
+2026-03-15 00:44:14 | INFO | Validation — loss: 0.5166 - Accuracy: 0.8078 - F1score: 0.7069 - Recall: 0.6826 - Precision 0.8919
+2026-03-15 00:44:15 | INFO | [Epoch 016] loss=0.227801 lr=0.000093 time=0.59s
+2026-03-15 00:44:15 | INFO | Validation — loss: 0.2554 - Accuracy: 0.9281 - F1score: 0.9097 - Recall: 0.8883 - Precision 0.9421
+2026-03-15 00:44:16 | INFO | [Epoch 017] loss=0.231391 lr=0.000092 time=0.55s
+2026-03-15 00:44:17 | INFO | Validation — loss: 0.3688 - Accuracy: 0.8519 - F1score: 0.7913 - Recall: 0.7571 - Precision 0.9074
+2026-03-15 00:44:17 | INFO | [Epoch 018] loss=0.242095 lr=0.000091 time=0.57s
+2026-03-15 00:44:18 | INFO | Validation — loss: 0.5275 - Accuracy: 0.7939 - F1score: 0.7608 - Recall: 0.7663 - Precision 0.7563
+2026-03-15 00:44:19 | INFO | [Epoch 019] loss=0.241239 lr=0.000091 time=0.55s
+2026-03-15 00:44:20 | INFO | Validation — loss: 0.4348 - Accuracy: 0.8692 - F1score: 0.8194 - Recall: 0.784 - Precision 0.921
+2026-03-15 00:44:20 | INFO | [Epoch 020] loss=0.239048 lr=0.000090 time=0.53s
+2026-03-15 00:44:21 | INFO | Validation — loss: 0.6134 - Accuracy: 0.7573 - F1score: 0.7145 - Recall: 0.7161 - Precision 0.7131
+2026-03-15 00:44:22 | INFO | [Epoch 021] loss=0.227196 lr=0.000089 time=0.52s
+2026-03-15 00:44:22 | INFO | Validation — loss: 0.2677 - Accuracy: 0.9832 - F1score: 0.9804 - Recall: 0.9879 - Precision 0.9737
+2026-03-15 00:44:22 | INFO | ---------- New best model found at epoch 21 with F1=0.980400------------
+2026-03-15 00:44:23 | INFO | [Epoch 022] loss=0.226299 lr=0.000088 time=0.52s
+2026-03-15 00:44:24 | INFO | Validation — loss: 0.2372 - Accuracy: 0.9752 - F1score: 0.9701 - Recall: 0.9627 - Precision 0.9786
+2026-03-15 00:44:24 | INFO | [Epoch 023] loss=0.226614 lr=0.000087 time=0.54s
+2026-03-15 00:44:25 | INFO | Validation — loss: 0.2493 - Accuracy: 0.9254 - F1score: 0.9058 - Recall: 0.8829 - Precision 0.9415
+2026-03-15 00:44:26 | INFO | [Epoch 024] loss=0.231602 lr=0.000086 time=0.54s
+2026-03-15 00:44:27 | INFO | Validation — loss: 0.2319 - Accuracy: 0.9202 - F1score: 0.897 - Recall: 0.8681 - Precision 0.9486
+2026-03-15 00:44:27 | INFO | [Epoch 025] loss=0.227442 lr=0.000084 time=0.52s
+2026-03-15 00:44:28 | INFO | Validation — loss: 0.4725 - Accuracy: 0.796 - F1score: 0.6821 - Recall: 0.663 - Precision 0.8868
+2026-03-15 00:44:28 | INFO | [Epoch 026] loss=0.222971 lr=0.000083 time=0.56s
+2026-03-15 00:44:29 | INFO | Validation — loss: 0.2261 - Accuracy: 0.9882 - F1score: 0.986 - Recall: 0.9868 - Precision 0.9852
+2026-03-15 00:44:29 | INFO | ---------- New best model found at epoch 26 with F1=0.986000------------
+2026-03-15 00:44:30 | INFO | [Epoch 027] loss=0.230970 lr=0.000082 time=0.48s
+2026-03-15 00:44:31 | INFO | Validation — loss: 0.7039 - Accuracy: 0.4354 - F1score: 0.4353 - Recall: 0.5201 - Precision 0.5205
+2026-03-15 00:44:31 | INFO | [Epoch 028] loss=0.223481 lr=0.000081 time=0.55s
+2026-03-15 00:44:32 | INFO | Validation — loss: 0.2360 - Accuracy: 0.9693 - F1score: 0.9632 - Recall: 0.9574 - Precision 0.9695
+2026-03-15 00:44:33 | INFO | [Epoch 029] loss=0.231898 lr=0.000080 time=0.50s
+2026-03-15 00:44:33 | INFO | Validation — loss: 0.2390 - Accuracy: 0.9434 - F1score: 0.9295 - Recall: 0.9101 - Precision 0.957
+2026-03-15 00:44:34 | INFO | [Epoch 030] loss=0.230452 lr=0.000078 time=0.54s
+2026-03-15 00:44:35 | INFO | Validation — loss: 0.3477 - Accuracy: 0.7671 - F1score: 0.6159 - Recall: 0.6153 - Precision 0.8748
+2026-03-15 00:44:35 | INFO | [Epoch 031] loss=0.226567 lr=0.000077 time=0.52s
+2026-03-15 00:44:36 | INFO | Validation — loss: 0.6874 - Accuracy: 0.7004 - F1score: 0.422 - Recall: 0.5053 - Precision 0.8497
+2026-03-15 00:44:37 | INFO | [Epoch 032] loss=0.228286 lr=0.000076 time=0.53s
+2026-03-15 00:44:37 | INFO | Validation — loss: 0.3199 - Accuracy: 0.8301 - F1score: 0.7506 - Recall: 0.7194 - Precision 0.902
+2026-03-15 00:44:38 | INFO | [Epoch 033] loss=0.221158 lr=0.000074 time=0.55s
+2026-03-15 00:44:39 | INFO | Validation — loss: 0.2183 - Accuracy: 0.9852 - F1score: 0.9823 - Recall: 0.9775 - Precision 0.9875
+2026-03-15 00:44:39 | INFO | [Epoch 034] loss=0.224357 lr=0.000073 time=0.51s
+2026-03-15 00:44:40 | INFO | Validation — loss: 0.3132 - Accuracy: 0.9609 - F1score: 0.9552 - Recall: 0.9719 - Precision 0.9428
+2026-03-15 00:44:41 | INFO | [Epoch 035] loss=0.209744 lr=0.000072 time=0.53s
+2026-03-15 00:44:42 | INFO | Validation — loss: 0.2330 - Accuracy: 0.9823 - F1score: 0.979 - Recall: 0.9786 - Precision 0.9794
+2026-03-15 00:44:42 | INFO | [Epoch 036] loss=0.228929 lr=0.000070 time=0.67s
+2026-03-15 00:44:43 | INFO | Validation — loss: 0.3206 - Accuracy: 0.9097 - F1score: 0.89 - Recall: 0.8798 - Precision 0.9027
+2026-03-15 00:44:44 | INFO | [Epoch 037] loss=0.224125 lr=0.000069 time=0.55s
+2026-03-15 00:44:45 | INFO | Validation — loss: 0.3554 - Accuracy: 0.8542 - F1score: 0.797 - Recall: 0.7637 - Precision 0.901
+2026-03-15 00:44:46 | INFO | [Epoch 038] loss=0.218658 lr=0.000067 time=0.70s
+2026-03-15 00:44:46 | INFO | Validation — loss: 0.2448 - Accuracy: 0.9381 - F1score: 0.9224 - Recall: 0.9008 - Precision 0.9546
+2026-03-15 00:44:47 | INFO | [Epoch 039] loss=0.222727 lr=0.000066 time=0.58s
+2026-03-15 00:44:48 | INFO | Validation — loss: 0.2302 - Accuracy: 0.9618 - F1score: 0.9538 - Recall: 0.9445 - Precision 0.9645
+2026-03-15 00:44:48 | INFO | [Epoch 040] loss=0.225057 lr=0.000064 time=0.52s
+2026-03-15 00:44:49 | INFO | Validation — loss: 0.2320 - Accuracy: 0.9575 - F1score: 0.948 - Recall: 0.9346 - Precision 0.9648
+2026-03-15 00:44:50 | INFO | [Epoch 041] loss=0.218401 lr=0.000063 time=0.53s
+2026-03-15 00:44:51 | INFO | Validation — loss: 0.2476 - Accuracy: 0.9359 - F1score: 0.9193 - Recall: 0.8968 - Precision 0.9535
+2026-03-15 00:44:51 | INFO | Early stopping at epoch 41. Best loss: 0.986000
+2026-03-15 00:44:51 | INFO | Training complete.
+2026-03-15 00:44:51 | INFO | Best result: {'acc': 0.9882, 'precision': 0.9852, 'recall': 0.9868, 'f1': 0.986, 'conf_mat': array([[3035,   30],
+       [  22, 1309]])}
+2026-03-15 00:44:51 | INFO | === Run 11/1 | seed=0 | fold=fold_10.csv ===
+2026-03-15 00:44:51 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_10.csv
+2026-03-15 00:44:51 | INFO | Model.forward signature: (data)
+2026-03-15 00:44:57 | INFO | [LOSO] Train size: 611, Val size: 4375, Test size: 4375
+2026-03-15 00:44:57 | INFO | Train batches per epoch: 9
+2026-03-15 00:44:58 | INFO | [Epoch 000] loss=0.644879 lr=0.000100 time=0.54s
+2026-03-15 00:44:59 | INFO | Validation — loss: 0.6742 - Accuracy: 0.7097 - F1score: 0.4151 - Recall: 0.5 - Precision 0.3549
+2026-03-15 00:44:59 | INFO | ---------- New best model found at epoch 0 with F1=0.415100------------
+2026-03-15 00:45:00 | INFO | [Epoch 001] loss=0.484119 lr=0.000100 time=0.61s
+2026-03-15 00:45:01 | INFO | Validation — loss: 0.6054 - Accuracy: 0.7097 - F1score: 0.4151 - Recall: 0.5 - Precision 0.3549
+2026-03-15 00:45:01 | INFO | [Epoch 002] loss=0.384977 lr=0.000100 time=0.54s
+2026-03-15 00:45:02 | INFO | Validation — loss: 0.6250 - Accuracy: 0.7097 - F1score: 0.4151 - Recall: 0.5 - Precision 0.3549
+2026-03-15 00:45:03 | INFO | [Epoch 003] loss=0.311539 lr=0.000100 time=0.56s
+2026-03-15 00:45:04 | INFO | Validation — loss: 0.6658 - Accuracy: 0.7097 - F1score: 0.4151 - Recall: 0.5 - Precision 0.3549
+2026-03-15 00:45:04 | INFO | [Epoch 004] loss=0.249836 lr=0.000099 time=0.54s
+2026-03-15 00:45:05 | INFO | Validation — loss: 0.7296 - Accuracy: 0.2903 - F1score: 0.225 - Recall: 0.5 - Precision 0.1451
+2026-03-15 00:45:05 | INFO | [Epoch 005] loss=0.222487 lr=0.000099 time=0.55s
+2026-03-15 00:45:06 | INFO | Validation — loss: 1.0425 - Accuracy: 0.7097 - F1score: 0.4151 - Recall: 0.5 - Precision 0.3549
+2026-03-15 00:45:07 | INFO | [Epoch 006] loss=0.165557 lr=0.000099 time=0.58s
+2026-03-15 00:45:08 | INFO | Validation — loss: 0.7105 - Accuracy: 0.2782 - F1score: 0.24 - Recall: 0.2234 - Precision 0.2719
+2026-03-15 00:45:08 | INFO | [Epoch 007] loss=0.134539 lr=0.000098 time=0.54s
+2026-03-15 00:45:09 | INFO | Validation — loss: 0.8239 - Accuracy: 0.7097 - F1score: 0.4151 - Recall: 0.5 - Precision 0.3549
+2026-03-15 00:45:10 | INFO | [Epoch 008] loss=0.112928 lr=0.000098 time=0.52s
+2026-03-15 00:45:11 | INFO | Validation — loss: 3.2824 - Accuracy: 0.7097 - F1score: 0.4151 - Recall: 0.5 - Precision 0.3549
+2026-03-15 00:45:11 | INFO | [Epoch 009] loss=0.134259 lr=0.000098 time=0.54s
+2026-03-15 00:45:12 | INFO | Validation — loss: 2.0047 - Accuracy: 0.7097 - F1score: 0.4151 - Recall: 0.5 - Precision 0.3549
+2026-03-15 00:45:12 | INFO | [Epoch 010] loss=0.085852 lr=0.000097 time=0.54s
+2026-03-15 00:45:13 | INFO | Validation — loss: 1.6442 - Accuracy: 0.7097 - F1score: 0.4151 - Recall: 0.5 - Precision 0.3549
+2026-03-15 00:45:14 | INFO | [Epoch 011] loss=0.066150 lr=0.000097 time=0.59s
+2026-03-15 00:45:15 | INFO | Validation — loss: 0.9494 - Accuracy: 0.7337 - F1score: 0.4974 - Recall: 0.5413 - Precision 0.8636
+2026-03-15 00:45:15 | INFO | ---------- New best model found at epoch 11 with F1=0.497400------------
+2026-03-15 00:45:15 | INFO | [Epoch 012] loss=0.050606 lr=0.000096 time=0.52s
+2026-03-15 00:45:16 | INFO | Validation — loss: 1.8975 - Accuracy: 0.7122 - F1score: 0.4243 - Recall: 0.5043 - Precision 0.8558
+2026-03-15 00:45:17 | INFO | [Epoch 013] loss=0.044444 lr=0.000095 time=0.56s
+2026-03-15 00:45:18 | INFO | Validation — loss: 0.4267 - Accuracy: 0.8571 - F1score: 0.7911 - Recall: 0.7539 - Precision 0.9162
+2026-03-15 00:45:18 | INFO | ---------- New best model found at epoch 13 with F1=0.791100------------
+2026-03-15 00:45:18 | INFO | [Epoch 014] loss=0.036858 lr=0.000095 time=0.54s
+2026-03-15 00:45:19 | INFO | Validation — loss: 0.1393 - Accuracy: 0.9287 - F1score: 0.9061 - Recall: 0.8772 - Precision 0.9543
+2026-03-15 00:45:19 | INFO | ---------- New best model found at epoch 14 with F1=0.906100------------
+2026-03-15 00:45:19 | INFO | [Epoch 015] loss=0.027708 lr=0.000094 time=0.50s
+2026-03-15 00:45:20 | INFO | Validation — loss: 0.0202 - Accuracy: 0.9954 - F1score: 0.9944 - Recall: 0.9921 - Precision 0.9968
+2026-03-15 00:45:20 | INFO | ---------- New best model found at epoch 15 with F1=0.994400------------
+2026-03-15 00:45:21 | INFO | [Epoch 016] loss=0.016136 lr=0.000093 time=0.54s
+2026-03-15 00:45:22 | INFO | Validation — loss: 0.1730 - Accuracy: 0.9154 - F1score: 0.8866 - Recall: 0.8543 - Precision 0.9468
+2026-03-15 00:45:22 | INFO | [Epoch 017] loss=0.017987 lr=0.000092 time=0.57s
+2026-03-15 00:45:23 | INFO | Validation — loss: 0.1274 - Accuracy: 0.9422 - F1score: 0.9251 - Recall: 0.9004 - Precision 0.9623
+2026-03-15 00:45:24 | INFO | [Epoch 018] loss=0.022035 lr=0.000091 time=0.56s
+2026-03-15 00:45:25 | INFO | Validation — loss: 0.8703 - Accuracy: 0.8283 - F1score: 0.7362 - Recall: 0.7043 - Precision 0.9026
+2026-03-15 00:45:25 | INFO | [Epoch 019] loss=0.012790 lr=0.000091 time=0.63s
+2026-03-15 00:45:26 | INFO | Validation — loss: 0.2881 - Accuracy: 0.8811 - F1score: 0.8327 - Recall: 0.7953 - Precision 0.9283
+2026-03-15 00:45:27 | INFO | [Epoch 020] loss=0.012909 lr=0.000090 time=0.63s
+2026-03-15 00:45:28 | INFO | Validation — loss: 0.3077 - Accuracy: 0.8768 - F1score: 0.8254 - Recall: 0.7878 - Precision 0.926
+2026-03-15 00:45:28 | INFO | [Epoch 021] loss=0.018722 lr=0.000089 time=0.59s
+2026-03-15 00:45:29 | INFO | Validation — loss: 0.5321 - Accuracy: 0.8555 - F1score: 0.7882 - Recall: 0.7512 - Precision 0.9154
+2026-03-15 00:45:30 | INFO | [Epoch 022] loss=0.010339 lr=0.000088 time=0.49s
+2026-03-15 00:45:31 | INFO | Validation — loss: 0.0140 - Accuracy: 0.9982 - F1score: 0.9978 - Recall: 0.9969 - Precision 0.9987
+2026-03-15 00:45:31 | INFO | ---------- New best model found at epoch 22 with F1=0.997800------------
+2026-03-15 00:45:31 | INFO | [Epoch 023] loss=0.009258 lr=0.000087 time=0.53s
+2026-03-15 00:45:32 | INFO | Validation — loss: 0.5819 - Accuracy: 0.8585 - F1score: 0.7936 - Recall: 0.7563 - Precision 0.9169
+2026-03-15 00:45:33 | INFO | [Epoch 024] loss=0.009972 lr=0.000086 time=0.53s
+2026-03-15 00:45:33 | INFO | Validation — loss: 0.6448 - Accuracy: 0.8569 - F1score: 0.7907 - Recall: 0.7535 - Precision 0.9161
+2026-03-15 00:45:34 | INFO | [Epoch 025] loss=0.005395 lr=0.000084 time=0.53s
+2026-03-15 00:45:35 | INFO | Validation — loss: 0.0346 - Accuracy: 0.987 - F1score: 0.984 - Recall: 0.9776 - Precision 0.991
+2026-03-15 00:45:35 | INFO | [Epoch 026] loss=0.006429 lr=0.000083 time=0.56s
+2026-03-15 00:45:36 | INFO | Validation — loss: 0.2165 - Accuracy: 0.9038 - F1score: 0.8689 - Recall: 0.8343 - Precision 0.9403
+2026-03-15 00:45:37 | INFO | [Epoch 027] loss=0.007343 lr=0.000082 time=0.53s
+2026-03-15 00:45:37 | INFO | Validation — loss: 0.4771 - Accuracy: 0.8711 - F1score: 0.8157 - Recall: 0.778 - Precision 0.9231
+2026-03-15 00:45:38 | INFO | [Epoch 028] loss=0.011467 lr=0.000081 time=0.55s
+2026-03-15 00:45:39 | INFO | Validation — loss: 1.3472 - Accuracy: 0.7861 - F1score: 0.6427 - Recall: 0.6315 - Precision 0.8842
+2026-03-15 00:45:39 | INFO | [Epoch 029] loss=0.006967 lr=0.000080 time=0.62s
+2026-03-15 00:45:40 | INFO | Validation — loss: 0.4223 - Accuracy: 0.8706 - F1score: 0.8149 - Recall: 0.7772 - Precision 0.9229
+2026-03-15 00:45:41 | INFO | [Epoch 030] loss=0.005133 lr=0.000078 time=0.57s
+2026-03-15 00:45:42 | INFO | Validation — loss: 0.9198 - Accuracy: 0.8293 - F1score: 0.738 - Recall: 0.7059 - Precision 0.903
+2026-03-15 00:45:42 | INFO | [Epoch 031] loss=0.003349 lr=0.000077 time=0.57s
+2026-03-15 00:45:43 | INFO | Validation — loss: 0.6460 - Accuracy: 0.856 - F1score: 0.789 - Recall: 0.752 - Precision 0.9157
+2026-03-15 00:45:44 | INFO | [Epoch 032] loss=0.003241 lr=0.000076 time=0.56s
+2026-03-15 00:45:45 | INFO | Validation — loss: 0.2449 - Accuracy: 0.9024 - F1score: 0.8668 - Recall: 0.8319 - Precision 0.9396
+2026-03-15 00:45:45 | INFO | [Epoch 033] loss=0.002481 lr=0.000074 time=0.55s
+2026-03-15 00:45:46 | INFO | Validation — loss: 0.3538 - Accuracy: 0.8807 - F1score: 0.8319 - Recall: 0.7945 - Precision 0.928
+2026-03-15 00:45:47 | INFO | [Epoch 034] loss=0.002159 lr=0.000073 time=0.59s
+2026-03-15 00:45:47 | INFO | Validation — loss: 0.1932 - Accuracy: 0.9097 - F1score: 0.878 - Recall: 0.8445 - Precision 0.9436
+2026-03-15 00:45:48 | INFO | [Epoch 035] loss=0.004338 lr=0.000072 time=0.61s
+2026-03-15 00:45:49 | INFO | Validation — loss: 0.0893 - Accuracy: 0.96 - F1score: 0.9493 - Recall: 0.9311 - Precision 0.9733
+2026-03-15 00:45:49 | INFO | [Epoch 036] loss=0.004800 lr=0.000070 time=0.51s
+2026-03-15 00:45:50 | INFO | Validation — loss: 0.1007 - Accuracy: 0.9525 - F1score: 0.9392 - Recall: 0.9181 - Precision 0.9686
+2026-03-15 00:45:51 | INFO | [Epoch 037] loss=0.003169 lr=0.000069 time=0.51s
+2026-03-15 00:45:52 | INFO | Validation — loss: 0.1444 - Accuracy: 0.9365 - F1score: 0.9171 - Recall: 0.8906 - Precision 0.9589
+2026-03-15 00:45:52 | INFO | Early stopping at epoch 37. Best loss: 0.997800
+2026-03-15 00:45:52 | INFO | Training complete.
+2026-03-15 00:45:52 | INFO | Best result: {'acc': 0.9982, 'precision': 0.9987, 'recall': 0.9969, 'f1': 0.9978, 'conf_mat': array([[3105,    0],
+       [   8, 1262]])}
+2026-03-15 00:45:52 | INFO | === Run 12/1 | seed=0 | fold=fold_11.csv ===
+2026-03-15 00:45:52 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_11.csv
+2026-03-15 00:45:52 | INFO | Model.forward signature: (data)
+2026-03-15 00:45:57 | INFO | [LOSO] Train size: 610, Val size: 4393, Test size: 4393
+2026-03-15 00:45:57 | INFO | Train batches per epoch: 9
+2026-03-15 00:45:58 | INFO | [Epoch 000] loss=0.646695 lr=0.000100 time=0.50s
+2026-03-15 00:45:59 | INFO | Validation — loss: 0.6734 - Accuracy: 0.7023 - F1score: 0.4125 - Recall: 0.5 - Precision 0.3511
+2026-03-15 00:45:59 | INFO | ---------- New best model found at epoch 0 with F1=0.412500------------
+2026-03-15 00:45:59 | INFO | [Epoch 001] loss=0.497414 lr=0.000100 time=0.53s
+2026-03-15 00:46:00 | INFO | Validation — loss: 0.9227 - Accuracy: 0.7023 - F1score: 0.4125 - Recall: 0.5 - Precision 0.3511
+2026-03-15 00:46:01 | INFO | [Epoch 002] loss=0.381743 lr=0.000100 time=0.52s
+2026-03-15 00:46:02 | INFO | Validation — loss: 3.9935 - Accuracy: 0.7023 - F1score: 0.4125 - Recall: 0.5 - Precision 0.3511
+2026-03-15 00:46:02 | INFO | [Epoch 003] loss=0.320479 lr=0.000100 time=0.48s
+2026-03-15 00:46:03 | INFO | Validation — loss: 3.2428 - Accuracy: 0.7023 - F1score: 0.4125 - Recall: 0.5 - Precision 0.3511
+2026-03-15 00:46:03 | INFO | [Epoch 004] loss=0.285188 lr=0.000099 time=0.54s
+2026-03-15 00:46:04 | INFO | Validation — loss: 0.8720 - Accuracy: 0.7023 - F1score: 0.4125 - Recall: 0.5 - Precision 0.3511
+2026-03-15 00:46:05 | INFO | [Epoch 005] loss=0.264259 lr=0.000099 time=0.68s
+2026-03-15 00:46:06 | INFO | Validation — loss: 1.7328 - Accuracy: 0.7023 - F1score: 0.4125 - Recall: 0.5 - Precision 0.3511
+2026-03-15 00:46:07 | INFO | [Epoch 006] loss=0.294631 lr=0.000099 time=0.64s
+2026-03-15 00:46:08 | INFO | Validation — loss: 3.3130 - Accuracy: 0.7023 - F1score: 0.4125 - Recall: 0.5 - Precision 0.3511
+2026-03-15 00:46:08 | INFO | [Epoch 007] loss=0.229673 lr=0.000098 time=0.60s
+2026-03-15 00:46:09 | INFO | Validation — loss: 0.6742 - Accuracy: 0.7023 - F1score: 0.4125 - Recall: 0.5 - Precision 0.3511
+2026-03-15 00:46:10 | INFO | [Epoch 008] loss=0.192741 lr=0.000098 time=0.56s
+2026-03-15 00:46:10 | INFO | Validation — loss: 0.5559 - Accuracy: 0.7023 - F1score: 0.4125 - Recall: 0.5 - Precision 0.3511
+2026-03-15 00:46:11 | INFO | [Epoch 009] loss=0.170510 lr=0.000098 time=0.51s
+2026-03-15 00:46:12 | INFO | Validation — loss: 0.5091 - Accuracy: 0.7075 - F1score: 0.4311 - Recall: 0.5088 - Precision 0.853
+2026-03-15 00:46:12 | INFO | ---------- New best model found at epoch 9 with F1=0.431100------------
+2026-03-15 00:46:12 | INFO | [Epoch 010] loss=0.132636 lr=0.000097 time=0.54s
+2026-03-15 00:46:13 | INFO | Validation — loss: 0.3050 - Accuracy: 0.8814 - F1score: 0.8367 - Recall: 0.8008 - Precision 0.9278
+2026-03-15 00:46:13 | INFO | ---------- New best model found at epoch 10 with F1=0.836700------------
+2026-03-15 00:46:14 | INFO | [Epoch 011] loss=0.114016 lr=0.000097 time=0.52s
+2026-03-15 00:46:15 | INFO | Validation — loss: 0.1222 - Accuracy: 0.9843 - F1score: 0.9811 - Recall: 0.9778 - Precision 0.9845
+2026-03-15 00:46:15 | INFO | ---------- New best model found at epoch 11 with F1=0.981100------------
+2026-03-15 00:46:15 | INFO | [Epoch 012] loss=0.095314 lr=0.000096 time=0.55s
+2026-03-15 00:46:16 | INFO | Validation — loss: 0.1459 - Accuracy: 0.9597 - F1score: 0.9534 - Recall: 0.9698 - Precision 0.941
+2026-03-15 00:46:17 | INFO | [Epoch 013] loss=0.067726 lr=0.000095 time=0.56s
+2026-03-15 00:46:18 | INFO | Validation — loss: 0.6179 - Accuracy: 0.6581 - F1score: 0.6567 - Recall: 0.7566 - Precision 0.7327
+2026-03-15 00:46:18 | INFO | [Epoch 014] loss=0.045240 lr=0.000095 time=0.53s
+2026-03-15 00:46:19 | INFO | Validation — loss: 0.1543 - Accuracy: 0.9488 - F1score: 0.9415 - Recall: 0.9635 - Precision 0.9266
+2026-03-15 00:46:19 | INFO | [Epoch 015] loss=0.035629 lr=0.000094 time=0.49s
+2026-03-15 00:46:20 | INFO | Validation — loss: 0.1022 - Accuracy: 0.9654 - F1score: 0.9599 - Recall: 0.9754 - Precision 0.9479
+2026-03-15 00:46:21 | INFO | [Epoch 016] loss=0.034048 lr=0.000093 time=0.56s
+2026-03-15 00:46:22 | INFO | Validation — loss: 0.6188 - Accuracy: 0.6972 - F1score: 0.6941 - Recall: 0.7844 - Precision 0.7479
+2026-03-15 00:46:22 | INFO | [Epoch 017] loss=0.027211 lr=0.000092 time=0.50s
+2026-03-15 00:46:23 | INFO | Validation — loss: 0.0482 - Accuracy: 0.9838 - F1score: 0.9808 - Recall: 0.985 - Precision 0.977
+2026-03-15 00:46:24 | INFO | [Epoch 018] loss=0.037956 lr=0.000091 time=0.55s
+2026-03-15 00:46:24 | INFO | Validation — loss: 2.1750 - Accuracy: 0.3059 - F1score: 0.2424 - Recall: 0.5058 - Precision 0.6501
+2026-03-15 00:46:25 | INFO | [Epoch 019] loss=0.051362 lr=0.000091 time=0.52s
+2026-03-15 00:46:26 | INFO | Validation — loss: 1.1859 - Accuracy: 0.4382 - F1score: 0.4239 - Recall: 0.6 - Precision 0.6732
+2026-03-15 00:46:26 | INFO | [Epoch 020] loss=0.033194 lr=0.000090 time=0.52s
+2026-03-15 00:46:27 | INFO | Validation — loss: 0.0626 - Accuracy: 0.977 - F1score: 0.9731 - Recall: 0.9834 - Precision 0.9643
+2026-03-15 00:46:28 | INFO | [Epoch 021] loss=0.024008 lr=0.000089 time=0.54s
+2026-03-15 00:46:29 | INFO | Validation — loss: 0.7658 - Accuracy: 0.6877 - F1score: 0.685 - Recall: 0.7776 - Precision 0.744
+2026-03-15 00:46:29 | INFO | [Epoch 022] loss=0.020852 lr=0.000088 time=0.55s
+2026-03-15 00:46:30 | INFO | Validation — loss: 0.8225 - Accuracy: 0.6633 - F1score: 0.6618 - Recall: 0.7603 - Precision 0.7347
+2026-03-15 00:46:31 | INFO | [Epoch 023] loss=0.022699 lr=0.000087 time=0.55s
+2026-03-15 00:46:32 | INFO | Validation — loss: 0.2922 - Accuracy: 0.8957 - F1score: 0.8854 - Recall: 0.9258 - Precision 0.8703
+2026-03-15 00:46:32 | INFO | [Epoch 024] loss=0.009127 lr=0.000086 time=0.51s
+2026-03-15 00:46:33 | INFO | Validation — loss: 0.1432 - Accuracy: 0.9481 - F1score: 0.9405 - Recall: 0.9604 - Precision 0.9265
+2026-03-15 00:46:33 | INFO | [Epoch 025] loss=0.007144 lr=0.000084 time=0.51s
+2026-03-15 00:46:34 | INFO | Validation — loss: 0.2977 - Accuracy: 0.8901 - F1score: 0.8796 - Recall: 0.9217 - Precision 0.8652
+2026-03-15 00:46:35 | INFO | [Epoch 026] loss=0.005125 lr=0.000083 time=0.55s
+2026-03-15 00:46:36 | INFO | Validation — loss: 0.1235 - Accuracy: 0.9533 - F1score: 0.9465 - Recall: 0.9668 - Precision 0.9323
+2026-03-15 00:46:36 | INFO | Early stopping at epoch 26. Best loss: 0.981100
+2026-03-15 00:46:36 | INFO | Training complete.
+2026-03-15 00:46:36 | INFO | Best result: {'acc': 0.9843, 'precision': 0.9845, 'recall': 0.9778, 'f1': 0.9811, 'conf_mat': array([[3066,   19],
+       [  50, 1258]])}
+2026-03-15 00:46:36 | INFO | === Run 13/1 | seed=0 | fold=fold_12.csv ===
+2026-03-15 00:46:36 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_12.csv
+2026-03-15 00:46:37 | INFO | Model.forward signature: (data)
+2026-03-15 00:46:42 | INFO | [LOSO] Train size: 611, Val size: 4337, Test size: 4337
+2026-03-15 00:46:42 | INFO | Train batches per epoch: 9
+2026-03-15 00:46:43 | INFO | [Epoch 000] loss=0.641791 lr=0.000100 time=0.51s
+2026-03-15 00:46:44 | INFO | Validation — loss: 0.6807 - Accuracy: 0.7095 - F1score: 0.415 - Recall: 0.5 - Precision 0.3547
+2026-03-15 00:46:44 | INFO | ---------- New best model found at epoch 0 with F1=0.415000------------
+2026-03-15 00:46:45 | INFO | [Epoch 001] loss=0.473291 lr=0.000100 time=0.57s
+2026-03-15 00:46:46 | INFO | Validation — loss: 0.6452 - Accuracy: 0.7095 - F1score: 0.415 - Recall: 0.5 - Precision 0.3547
+2026-03-15 00:46:47 | INFO | [Epoch 002] loss=0.326075 lr=0.000100 time=0.69s
+2026-03-15 00:46:48 | INFO | Validation — loss: 1.1126 - Accuracy: 0.7095 - F1score: 0.415 - Recall: 0.5 - Precision 0.3547
+2026-03-15 00:46:48 | INFO | [Epoch 003] loss=0.229924 lr=0.000100 time=0.59s
+2026-03-15 00:46:49 | INFO | Validation — loss: 2.2119 - Accuracy: 0.7095 - F1score: 0.415 - Recall: 0.5 - Precision 0.3547
+2026-03-15 00:46:50 | INFO | [Epoch 004] loss=0.164718 lr=0.000099 time=0.57s
+2026-03-15 00:46:51 | INFO | Validation — loss: 1.6791 - Accuracy: 0.7095 - F1score: 0.415 - Recall: 0.5 - Precision 0.3547
+2026-03-15 00:46:51 | INFO | [Epoch 005] loss=0.114240 lr=0.000099 time=0.56s
+2026-03-15 00:46:52 | INFO | Validation — loss: 1.3675 - Accuracy: 0.7095 - F1score: 0.415 - Recall: 0.5 - Precision 0.3547
+2026-03-15 00:46:52 | INFO | [Epoch 006] loss=0.103205 lr=0.000099 time=0.51s
+2026-03-15 00:46:53 | INFO | Validation — loss: 2.8239 - Accuracy: 0.7095 - F1score: 0.415 - Recall: 0.5 - Precision 0.3547
+2026-03-15 00:46:54 | INFO | [Epoch 007] loss=0.095542 lr=0.000098 time=0.63s
+2026-03-15 00:46:55 | INFO | Validation — loss: 2.7818 - Accuracy: 0.7095 - F1score: 0.415 - Recall: 0.5 - Precision 0.3547
+2026-03-15 00:46:55 | INFO | [Epoch 008] loss=0.078234 lr=0.000098 time=0.57s
+2026-03-15 00:46:56 | INFO | Validation — loss: 3.3694 - Accuracy: 0.7095 - F1score: 0.415 - Recall: 0.5 - Precision 0.3547
+2026-03-15 00:46:57 | INFO | [Epoch 009] loss=0.092485 lr=0.000098 time=0.50s
+2026-03-15 00:46:58 | INFO | Validation — loss: 0.9440 - Accuracy: 0.715 - F1score: 0.4351 - Recall: 0.5095 - Precision 0.8567
+2026-03-15 00:46:58 | INFO | ---------- New best model found at epoch 9 with F1=0.435100------------
+2026-03-15 00:46:58 | INFO | [Epoch 010] loss=0.051274 lr=0.000097 time=0.59s
+2026-03-15 00:46:59 | INFO | Validation — loss: 0.6746 - Accuracy: 0.7883 - F1score: 0.6486 - Recall: 0.6357 - Precision 0.8851
+2026-03-15 00:46:59 | INFO | ---------- New best model found at epoch 10 with F1=0.648600------------
+2026-03-15 00:47:00 | INFO | [Epoch 011] loss=0.033879 lr=0.000097 time=0.51s
+2026-03-15 00:47:01 | INFO | Validation — loss: 1.0930 - Accuracy: 0.41 - F1score: 0.3922 - Recall: 0.5842 - Precision 0.665
+2026-03-15 00:47:01 | INFO | [Epoch 012] loss=0.021594 lr=0.000096 time=0.51s
+2026-03-15 00:47:02 | INFO | Validation — loss: 2.0617 - Accuracy: 0.3011 - F1score: 0.2417 - Recall: 0.5075 - Precision 0.6468
+2026-03-15 00:47:02 | INFO | [Epoch 013] loss=0.017997 lr=0.000095 time=0.56s
+2026-03-15 00:47:03 | INFO | Validation — loss: 2.0512 - Accuracy: 0.3442 - F1score: 0.3053 - Recall: 0.5379 - Precision 0.6535
+2026-03-15 00:47:04 | INFO | [Epoch 014] loss=0.011021 lr=0.000095 time=0.58s
+2026-03-15 00:47:05 | INFO | Validation — loss: 0.3447 - Accuracy: 0.8621 - F1score: 0.8502 - Recall: 0.9024 - Precision 0.8389
+2026-03-15 00:47:05 | INFO | ---------- New best model found at epoch 14 with F1=0.850200------------
+2026-03-15 00:47:06 | INFO | [Epoch 015] loss=0.010497 lr=0.000094 time=0.56s
+2026-03-15 00:47:06 | INFO | Validation — loss: 0.8375 - Accuracy: 0.6998 - F1score: 0.6955 - Recall: 0.7884 - Precision 0.7459
+2026-03-15 00:47:07 | INFO | [Epoch 016] loss=0.008661 lr=0.000093 time=0.51s
+2026-03-15 00:47:08 | INFO | Validation — loss: 0.5580 - Accuracy: 0.7837 - F1score: 0.7745 - Recall: 0.8476 - Precision 0.7866
+2026-03-15 00:47:08 | INFO | [Epoch 017] loss=0.005198 lr=0.000092 time=0.53s
+2026-03-15 00:47:09 | INFO | Validation — loss: 0.1529 - Accuracy: 0.947 - F1score: 0.9318 - Recall: 0.909 - Precision 0.9649
+2026-03-15 00:47:09 | INFO | ---------- New best model found at epoch 17 with F1=0.931800------------
+2026-03-15 00:47:10 | INFO | [Epoch 018] loss=0.006161 lr=0.000091 time=0.52s
+2026-03-15 00:47:11 | INFO | Validation — loss: 2.5202 - Accuracy: 0.3528 - F1score: 0.3172 - Recall: 0.5439 - Precision 0.6549
+2026-03-15 00:47:11 | INFO | [Epoch 019] loss=0.004331 lr=0.000091 time=0.52s
+2026-03-15 00:47:12 | INFO | Validation — loss: 2.0544 - Accuracy: 0.4552 - F1score: 0.4464 - Recall: 0.616 - Precision 0.6739
+2026-03-15 00:47:13 | INFO | [Epoch 020] loss=0.002476 lr=0.000090 time=0.51s
+2026-03-15 00:47:13 | INFO | Validation — loss: 1.0111 - Accuracy: 0.6645 - F1score: 0.6622 - Recall: 0.7636 - Precision 0.732
+2026-03-15 00:47:14 | INFO | [Epoch 021] loss=0.003152 lr=0.000089 time=0.58s
+2026-03-15 00:47:15 | INFO | Validation — loss: 1.3591 - Accuracy: 0.6189 - F1score: 0.6183 - Recall: 0.7314 - Precision 0.7163
+2026-03-15 00:47:15 | INFO | [Epoch 022] loss=0.002313 lr=0.000088 time=0.53s
+2026-03-15 00:47:16 | INFO | Validation — loss: 2.2886 - Accuracy: 0.4397 - F1score: 0.4283 - Recall: 0.6051 - Precision 0.6707
+2026-03-15 00:47:17 | INFO | [Epoch 023] loss=0.003034 lr=0.000087 time=0.54s
+2026-03-15 00:47:18 | INFO | Validation — loss: 0.2631 - Accuracy: 0.8983 - F1score: 0.8869 - Recall: 0.9279 - Precision 0.8703
+2026-03-15 00:47:18 | INFO | [Epoch 024] loss=0.016687 lr=0.000086 time=0.55s
+2026-03-15 00:47:19 | INFO | Validation — loss: 0.3168 - Accuracy: 0.8773 - F1score: 0.8622 - Recall: 0.8957 - Precision 0.8469
+2026-03-15 00:47:20 | INFO | [Epoch 025] loss=0.052638 lr=0.000084 time=0.51s
+2026-03-15 00:47:20 | INFO | Validation — loss: 5.5472 - Accuracy: 0.2905 - F1score: 0.2251 - Recall: 0.5 - Precision 0.1453
+2026-03-15 00:47:21 | INFO | [Epoch 026] loss=0.035935 lr=0.000083 time=0.59s
+2026-03-15 00:47:22 | INFO | Validation — loss: 0.1315 - Accuracy: 0.935 - F1score: 0.9235 - Recall: 0.9371 - Precision 0.9127
+2026-03-15 00:47:22 | INFO | [Epoch 027] loss=0.022569 lr=0.000082 time=0.52s
+2026-03-15 00:47:23 | INFO | Validation — loss: 0.2234 - Accuracy: 0.911 - F1score: 0.8995 - Recall: 0.9333 - Precision 0.8824
+2026-03-15 00:47:24 | INFO | [Epoch 028] loss=0.016545 lr=0.000081 time=0.51s
+2026-03-15 00:47:25 | INFO | Validation — loss: 1.4325 - Accuracy: 0.5753 - F1score: 0.5753 - Recall: 0.7007 - Precision 0.7031
+2026-03-15 00:47:25 | INFO | [Epoch 029] loss=0.022620 lr=0.000080 time=0.50s
+2026-03-15 00:47:26 | INFO | Validation — loss: 2.9707 - Accuracy: 0.3265 - F1score: 0.2798 - Recall: 0.5253 - Precision 0.6507
+2026-03-15 00:47:26 | INFO | [Epoch 030] loss=0.014260 lr=0.000078 time=0.58s
+2026-03-15 00:47:27 | INFO | Validation — loss: 2.6783 - Accuracy: 0.3332 - F1score: 0.2895 - Recall: 0.5301 - Precision 0.6517
+2026-03-15 00:47:28 | INFO | [Epoch 031] loss=0.006172 lr=0.000077 time=0.69s
+2026-03-15 00:47:29 | INFO | Validation — loss: 2.0899 - Accuracy: 0.4621 - F1score: 0.4543 - Recall: 0.6209 - Precision 0.6753
+2026-03-15 00:47:29 | INFO | [Epoch 032] loss=0.004348 lr=0.000076 time=0.60s
+2026-03-15 00:47:30 | INFO | Validation — loss: 2.5106 - Accuracy: 0.3975 - F1score: 0.3765 - Recall: 0.5754 - Precision 0.6627
+2026-03-15 00:47:30 | INFO | Early stopping at epoch 32. Best loss: 0.931800
+2026-03-15 00:47:31 | INFO | Training complete.
+2026-03-15 00:47:31 | INFO | Best result: {'acc': 0.947, 'precision': 0.9649, 'recall': 0.909, 'f1': 0.9318, 'conf_mat': array([[3076,    1],
+       [ 229, 1031]])}
+2026-03-15 00:47:31 | INFO | === Run 14/1 | seed=0 | fold=fold_13.csv ===
+2026-03-15 00:47:31 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_13.csv
+2026-03-15 00:47:31 | INFO | Model.forward signature: (data)
+2026-03-15 00:47:37 | INFO | [LOSO] Train size: 611, Val size: 4359, Test size: 4359
+2026-03-15 00:47:37 | INFO | Train batches per epoch: 9
+2026-03-15 00:47:38 | INFO | [Epoch 000] loss=0.644911 lr=0.000100 time=0.55s
+2026-03-15 00:47:38 | INFO | Validation — loss: 0.6800 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:47:38 | INFO | ---------- New best model found at epoch 0 with F1=0.410800------------
+2026-03-15 00:47:39 | INFO | [Epoch 001] loss=0.471393 lr=0.000100 time=0.51s
+2026-03-15 00:47:40 | INFO | Validation — loss: 0.6236 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:47:40 | INFO | [Epoch 002] loss=0.343345 lr=0.000100 time=0.54s
+2026-03-15 00:47:41 | INFO | Validation — loss: 0.9624 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:47:42 | INFO | [Epoch 003] loss=0.273216 lr=0.000100 time=0.53s
+2026-03-15 00:47:43 | INFO | Validation — loss: 2.5238 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:47:43 | INFO | [Epoch 004] loss=0.238382 lr=0.000099 time=0.53s
+2026-03-15 00:47:44 | INFO | Validation — loss: 9.5107 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:47:45 | INFO | [Epoch 005] loss=0.217428 lr=0.000099 time=0.56s
+2026-03-15 00:47:45 | INFO | Validation — loss: 2.2698 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:47:46 | INFO | [Epoch 006] loss=0.178330 lr=0.000099 time=0.50s
+2026-03-15 00:47:47 | INFO | Validation — loss: 2.8527 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:47:47 | INFO | [Epoch 007] loss=0.161238 lr=0.000098 time=0.54s
+2026-03-15 00:47:48 | INFO | Validation — loss: 0.6274 - Accuracy: 0.8442 - F1score: 0.8348 - Recall: 0.8881 - Precision 0.83
+2026-03-15 00:47:48 | INFO | ---------- New best model found at epoch 7 with F1=0.834800------------
+2026-03-15 00:47:49 | INFO | [Epoch 008] loss=0.155889 lr=0.000098 time=0.52s
+2026-03-15 00:47:50 | INFO | Validation — loss: 1.8739 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:47:50 | INFO | [Epoch 009] loss=0.104414 lr=0.000098 time=0.53s
+2026-03-15 00:47:51 | INFO | Validation — loss: 1.3968 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:47:51 | INFO | [Epoch 010] loss=0.069045 lr=0.000097 time=0.56s
+2026-03-15 00:47:52 | INFO | Validation — loss: 0.5752 - Accuracy: 0.735 - F1score: 0.5313 - Recall: 0.5625 - Precision 0.8623
+2026-03-15 00:47:53 | INFO | [Epoch 011] loss=0.058162 lr=0.000097 time=0.52s
+2026-03-15 00:47:54 | INFO | Validation — loss: 1.3015 - Accuracy: 0.2936 - F1score: 0.227 - Recall: 0.4848 - Precision 0.1482
+2026-03-15 00:47:54 | INFO | [Epoch 012] loss=0.053085 lr=0.000096 time=0.52s
+2026-03-15 00:47:55 | INFO | Validation — loss: 0.7340 - Accuracy: 0.7628 - F1score: 0.6061 - Recall: 0.6088 - Precision 0.8697
+2026-03-15 00:47:56 | INFO | [Epoch 013] loss=0.042051 lr=0.000095 time=0.55s
+2026-03-15 00:47:56 | INFO | Validation — loss: 0.8918 - Accuracy: 0.7426 - F1score: 0.5685 - Recall: 0.5827 - Precision 0.8005
+2026-03-15 00:47:57 | INFO | [Epoch 014] loss=0.029655 lr=0.000095 time=0.57s
+2026-03-15 00:47:58 | INFO | Validation — loss: 1.0982 - Accuracy: 0.7467 - F1score: 0.5638 - Recall: 0.5818 - Precision 0.8668
+2026-03-15 00:47:58 | INFO | [Epoch 015] loss=0.026664 lr=0.000094 time=0.54s
+2026-03-15 00:47:59 | INFO | Validation — loss: 0.4061 - Accuracy: 0.8809 - F1score: 0.8428 - Recall: 0.8133 - Precision 0.906
+2026-03-15 00:47:59 | INFO | ---------- New best model found at epoch 15 with F1=0.842800------------
+2026-03-15 00:48:00 | INFO | [Epoch 016] loss=0.029658 lr=0.000093 time=0.58s
+2026-03-15 00:48:01 | INFO | Validation — loss: 0.6607 - Accuracy: 0.7488 - F1score: 0.6702 - Recall: 0.6587 - Precision 0.7027
+2026-03-15 00:48:01 | INFO | [Epoch 017] loss=0.049767 lr=0.000092 time=0.52s
+2026-03-15 00:48:02 | INFO | Validation — loss: 0.7741 - Accuracy: 0.7706 - F1score: 0.6363 - Recall: 0.6287 - Precision 0.8336
+2026-03-15 00:48:03 | INFO | [Epoch 018] loss=0.029499 lr=0.000091 time=0.49s
+2026-03-15 00:48:03 | INFO | Validation — loss: 2.7162 - Accuracy: 0.6972 - F1score: 0.4108 - Recall: 0.5 - Precision 0.3486
+2026-03-15 00:48:04 | INFO | [Epoch 019] loss=0.014302 lr=0.000091 time=0.51s
+2026-03-15 00:48:05 | INFO | Validation — loss: 1.3046 - Accuracy: 0.7272 - F1score: 0.5085 - Recall: 0.5496 - Precision 0.8594
+2026-03-15 00:48:05 | INFO | [Epoch 020] loss=0.012376 lr=0.000090 time=0.51s
+2026-03-15 00:48:06 | INFO | Validation — loss: 1.0201 - Accuracy: 0.7587 - F1score: 0.6027 - Recall: 0.6058 - Precision 0.8402
+2026-03-15 00:48:07 | INFO | [Epoch 021] loss=0.007440 lr=0.000089 time=0.55s
+2026-03-15 00:48:07 | INFO | Validation — loss: 1.0964 - Accuracy: 0.7598 - F1score: 0.5979 - Recall: 0.6034 - Precision 0.8719
+2026-03-15 00:48:08 | INFO | [Epoch 022] loss=0.007668 lr=0.000088 time=0.52s
+2026-03-15 00:48:09 | INFO | Validation — loss: 0.6824 - Accuracy: 0.7825 - F1score: 0.7123 - Recall: 0.696 - Precision 0.7555
+2026-03-15 00:48:09 | INFO | [Epoch 023] loss=0.004432 lr=0.000087 time=0.61s
+2026-03-15 00:48:10 | INFO | Validation — loss: 1.4378 - Accuracy: 0.3203 - F1score: 0.3202 - Recall: 0.3764 - Precision 0.3778
+2026-03-15 00:48:11 | INFO | [Epoch 024] loss=0.003651 lr=0.000086 time=0.55s
+2026-03-15 00:48:12 | INFO | Validation — loss: 1.0788 - Accuracy: 0.6554 - F1score: 0.5537 - Recall: 0.5532 - Precision 0.5655
+2026-03-15 00:48:13 | INFO | [Epoch 025] loss=0.004194 lr=0.000084 time=0.61s
+2026-03-15 00:48:14 | INFO | Validation — loss: 0.9327 - Accuracy: 0.7454 - F1score: 0.6381 - Recall: 0.6284 - Precision 0.7094
+2026-03-15 00:48:14 | INFO | [Epoch 026] loss=0.005127 lr=0.000083 time=0.62s
+2026-03-15 00:48:15 | INFO | Validation — loss: 1.0770 - Accuracy: 0.7607 - F1score: 0.6092 - Recall: 0.6101 - Precision 0.8368
+2026-03-15 00:48:16 | INFO | [Epoch 027] loss=0.005279 lr=0.000082 time=0.57s
+2026-03-15 00:48:17 | INFO | Validation — loss: 1.0656 - Accuracy: 0.7697 - F1score: 0.6383 - Recall: 0.63 - Precision 0.8206
+2026-03-15 00:48:17 | INFO | [Epoch 028] loss=0.005120 lr=0.000081 time=0.55s
+2026-03-15 00:48:18 | INFO | Validation — loss: 0.7777 - Accuracy: 0.6529 - F1score: 0.6177 - Recall: 0.6315 - Precision 0.6163
+2026-03-15 00:48:19 | INFO | [Epoch 029] loss=0.004104 lr=0.000080 time=0.55s
+2026-03-15 00:48:19 | INFO | Validation — loss: 0.9846 - Accuracy: 0.7857 - F1score: 0.66 - Recall: 0.6464 - Precision 0.8812
+2026-03-15 00:48:20 | INFO | [Epoch 030] loss=0.003362 lr=0.000078 time=0.61s
+2026-03-15 00:48:21 | INFO | Validation — loss: 0.9457 - Accuracy: 0.654 - F1score: 0.5953 - Recall: 0.5966 - Precision 0.5943
+2026-03-15 00:48:21 | INFO | Early stopping at epoch 30. Best loss: 0.842800
+2026-03-15 00:48:21 | INFO | Training complete.
+2026-03-15 00:48:21 | INFO | Best result: {'acc': 0.8809, 'precision': 0.906, 'recall': 0.8133, 'f1': 0.8428, 'conf_mat': array([[2993,   46],
+       [ 473,  847]])}
+2026-03-15 00:48:21 | INFO | === Run 15/1 | seed=0 | fold=fold_14.csv ===
+2026-03-15 00:48:21 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv
+2026-03-15 00:48:21 | INFO | Model.forward signature: (data)
+2026-03-15 00:48:27 | INFO | [LOSO] Train size: 610, Val size: 4398, Test size: 4398
+2026-03-15 00:48:27 | INFO | Train batches per epoch: 9
+2026-03-15 00:48:28 | INFO | [Epoch 000] loss=0.641755 lr=0.000100 time=0.60s
+2026-03-15 00:48:29 | INFO | Validation — loss: 0.6722 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:29 | INFO | ---------- New best model found at epoch 0 with F1=0.410100------------
+2026-03-15 00:48:29 | INFO | [Epoch 001] loss=0.476922 lr=0.000100 time=0.53s
+2026-03-15 00:48:30 | INFO | Validation — loss: 0.6523 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:31 | INFO | [Epoch 002] loss=0.311670 lr=0.000100 time=0.61s
+2026-03-15 00:48:31 | INFO | Validation — loss: 1.4240 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:32 | INFO | [Epoch 003] loss=0.253433 lr=0.000100 time=0.54s
+2026-03-15 00:48:33 | INFO | Validation — loss: 1.6634 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:33 | INFO | [Epoch 004] loss=0.146317 lr=0.000099 time=0.54s
+2026-03-15 00:48:34 | INFO | Validation — loss: 1.3239 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:35 | INFO | [Epoch 005] loss=0.097610 lr=0.000099 time=0.54s
+2026-03-15 00:48:36 | INFO | Validation — loss: 1.7535 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:36 | INFO | [Epoch 006] loss=0.065917 lr=0.000099 time=0.49s
+2026-03-15 00:48:37 | INFO | Validation — loss: 3.0342 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:37 | INFO | [Epoch 007] loss=0.058896 lr=0.000098 time=0.53s
+2026-03-15 00:48:38 | INFO | Validation — loss: 3.1722 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:39 | INFO | [Epoch 008] loss=0.044124 lr=0.000098 time=0.56s
+2026-03-15 00:48:40 | INFO | Validation — loss: 2.0447 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:40 | INFO | [Epoch 009] loss=0.169682 lr=0.000098 time=0.53s
+2026-03-15 00:48:41 | INFO | Validation — loss: 1.2975 - Accuracy: 0.6951 - F1score: 0.4101 - Recall: 0.5 - Precision 0.3475
+2026-03-15 00:48:42 | INFO | [Epoch 010] loss=0.134831 lr=0.000097 time=0.51s
+2026-03-15 00:48:42 | INFO | Validation — loss: 0.2865 - Accuracy: 0.8222 - F1score: 0.7375 - Recall: 0.7084 - Precision 0.8982
+2026-03-15 00:48:42 | INFO | ---------- New best model found at epoch 10 with F1=0.737500------------
+2026-03-15 00:48:43 | INFO | [Epoch 011] loss=0.087364 lr=0.000097 time=0.62s
+2026-03-15 00:48:44 | INFO | Validation — loss: 0.0378 - Accuracy: 0.9993 - F1score: 0.9992 - Recall: 0.9995 - Precision 0.9989
+2026-03-15 00:48:44 | INFO | ---------- New best model found at epoch 11 with F1=0.999200------------
+2026-03-15 00:48:44 | INFO | [Epoch 012] loss=0.047337 lr=0.000096 time=0.50s
+2026-03-15 00:48:45 | INFO | Validation — loss: 0.0253 - Accuracy: 0.9911 - F1score: 0.9896 - Recall: 0.9936 - Precision 0.9859
+2026-03-15 00:48:46 | INFO | [Epoch 013] loss=0.033408 lr=0.000095 time=0.52s
+2026-03-15 00:48:47 | INFO | Validation — loss: 0.0959 - Accuracy: 0.9618 - F1score: 0.9564 - Recall: 0.9725 - Precision 0.9443
+2026-03-15 00:48:47 | INFO | [Epoch 014] loss=0.025571 lr=0.000095 time=0.54s
+2026-03-15 00:48:48 | INFO | Validation — loss: 0.1215 - Accuracy: 0.9493 - F1score: 0.9427 - Recall: 0.9635 - Precision 0.9287
+2026-03-15 00:48:49 | INFO | [Epoch 015] loss=0.021164 lr=0.000094 time=0.52s
+2026-03-15 00:48:49 | INFO | Validation — loss: 0.2904 - Accuracy: 0.9095 - F1score: 0.9006 - Recall: 0.9349 - Precision 0.8856
+2026-03-15 00:48:50 | INFO | [Epoch 016] loss=0.016977 lr=0.000093 time=0.56s
+2026-03-15 00:48:51 | INFO | Validation — loss: 0.1178 - Accuracy: 0.9541 - F1score: 0.9479 - Recall: 0.967 - Precision 0.9345
+2026-03-15 00:48:52 | INFO | [Epoch 017] loss=0.013428 lr=0.000092 time=0.81s
+2026-03-15 00:48:53 | INFO | Validation — loss: 0.1821 - Accuracy: 0.9347 - F1score: 0.927 - Recall: 0.9531 - Precision 0.9119
+2026-03-15 00:48:53 | INFO | [Epoch 018] loss=0.008168 lr=0.000091 time=0.58s
+2026-03-15 00:48:54 | INFO | Validation — loss: 0.0448 - Accuracy: 0.9843 - F1score: 0.9818 - Recall: 0.9887 - Precision 0.9755
+2026-03-15 00:48:55 | INFO | [Epoch 019] loss=0.006096 lr=0.000091 time=0.64s
+2026-03-15 00:48:56 | INFO | Validation — loss: 0.2240 - Accuracy: 0.9229 - F1score: 0.9145 - Recall: 0.9446 - Precision 0.8991
+2026-03-15 00:48:56 | INFO | [Epoch 020] loss=0.007554 lr=0.000090 time=0.57s
+2026-03-15 00:48:57 | INFO | Validation — loss: 0.0375 - Accuracy: 0.9861 - F1score: 0.9838 - Recall: 0.99 - Precision 0.9782
+2026-03-15 00:48:58 | INFO | [Epoch 021] loss=0.004045 lr=0.000089 time=0.54s
+2026-03-15 00:48:59 | INFO | Validation — loss: 0.0156 - Accuracy: 0.9934 - F1score: 0.9923 - Recall: 0.9953 - Precision 0.9894
+2026-03-15 00:48:59 | INFO | [Epoch 022] loss=0.010745 lr=0.000088 time=0.54s
+2026-03-15 00:49:00 | INFO | Validation — loss: 0.3479 - Accuracy: 0.9018 - F1score: 0.8926 - Recall: 0.9293 - Precision 0.8782
+2026-03-15 00:49:01 | INFO | [Epoch 023] loss=0.015914 lr=0.000087 time=0.52s
+2026-03-15 00:49:01 | INFO | Validation — loss: 0.0002 - Accuracy: 1.0 - F1score: 1.0 - Recall: 1.0 - Precision 1.0
+2026-03-15 00:49:01 | INFO | ---------- New best model found at epoch 23 with F1=1.000000------------
+2026-03-15 00:49:02 | INFO | [Epoch 024] loss=0.028720 lr=0.000086 time=0.50s
+2026-03-15 00:49:03 | INFO | Validation — loss: 0.2238 - Accuracy: 0.9077 - F1score: 0.8987 - Recall: 0.9336 - Precision 0.8838
+2026-03-15 00:49:03 | INFO | [Epoch 025] loss=0.022077 lr=0.000084 time=0.51s
+2026-03-15 00:49:04 | INFO | Validation — loss: 0.5940 - Accuracy: 0.7738 - F1score: 0.7675 - Recall: 0.8373 - Precision 0.787
+2026-03-15 00:49:05 | INFO | [Epoch 026] loss=0.030450 lr=0.000083 time=0.50s
+2026-03-15 00:49:05 | INFO | Validation — loss: 0.0162 - Accuracy: 0.9934 - F1score: 0.9923 - Recall: 0.9953 - Precision 0.9894
+2026-03-15 00:49:06 | INFO | [Epoch 027] loss=0.015420 lr=0.000082 time=0.60s
+2026-03-15 00:49:07 | INFO | Validation — loss: 0.0834 - Accuracy: 0.9741 - F1score: 0.9701 - Recall: 0.9814 - Precision 0.9608
+2026-03-15 00:49:07 | INFO | [Epoch 028] loss=0.014870 lr=0.000081 time=0.56s
+2026-03-15 00:49:08 | INFO | Validation — loss: 0.0366 - Accuracy: 0.9875 - F1score: 0.9854 - Recall: 0.991 - Precision 0.9803
+2026-03-15 00:49:09 | INFO | [Epoch 029] loss=0.006244 lr=0.000080 time=0.54s
+2026-03-15 00:49:10 | INFO | Validation — loss: 0.0200 - Accuracy: 0.992 - F1score: 0.9907 - Recall: 0.9943 - Precision 0.9873
+2026-03-15 00:49:10 | INFO | [Epoch 030] loss=0.008709 lr=0.000078 time=0.64s
+2026-03-15 00:49:11 | INFO | Validation — loss: 0.1767 - Accuracy: 0.942 - F1score: 0.9348 - Recall: 0.9583 - Precision 0.9201
+2026-03-15 00:49:12 | INFO | [Epoch 031] loss=0.002262 lr=0.000077 time=0.55s
+2026-03-15 00:49:12 | INFO | Validation — loss: 0.0774 - Accuracy: 0.9741 - F1score: 0.9701 - Recall: 0.9814 - Precision 0.9608
+2026-03-15 00:49:13 | INFO | [Epoch 032] loss=0.002960 lr=0.000076 time=0.56s
+2026-03-15 00:49:14 | INFO | Validation — loss: 0.0886 - Accuracy: 0.9702 - F1score: 0.9658 - Recall: 0.9786 - Precision 0.9555
+2026-03-15 00:49:14 | INFO | [Epoch 033] loss=0.001494 lr=0.000074 time=0.53s
+2026-03-15 00:49:16 | INFO | Validation — loss: 0.1694 - Accuracy: 0.9429 - F1score: 0.9358 - Recall: 0.9589 - Precision 0.9212
+2026-03-15 00:49:16 | INFO | [Epoch 034] loss=0.002758 lr=0.000073 time=0.54s
+2026-03-15 00:49:17 | INFO | Validation — loss: 0.0850 - Accuracy: 0.9727 - F1score: 0.9686 - Recall: 0.9804 - Precision 0.9589
+2026-03-15 00:49:18 | INFO | [Epoch 035] loss=0.001758 lr=0.000072 time=0.53s
+2026-03-15 00:49:18 | INFO | Validation — loss: 0.0416 - Accuracy: 0.9861 - F1score: 0.9838 - Recall: 0.99 - Precision 0.9782
+2026-03-15 00:49:19 | INFO | [Epoch 036] loss=0.003942 lr=0.000070 time=0.56s
+2026-03-15 00:49:20 | INFO | Validation — loss: 0.0915 - Accuracy: 0.9714 - F1score: 0.967 - Recall: 0.9794 - Precision 0.9571
+2026-03-15 00:49:20 | INFO | [Epoch 037] loss=0.001454 lr=0.000069 time=0.51s
+2026-03-15 00:49:21 | INFO | Validation — loss: 0.0754 - Accuracy: 0.9768 - F1score: 0.9732 - Recall: 0.9833 - Precision 0.9647
+2026-03-15 00:49:22 | INFO | [Epoch 038] loss=0.001546 lr=0.000067 time=0.56s
+2026-03-15 00:49:23 | INFO | Validation — loss: 0.0755 - Accuracy: 0.9766 - F1score: 0.9729 - Recall: 0.9832 - Precision 0.9643
+2026-03-15 00:49:23 | INFO | Early stopping at epoch 38. Best loss: 1.000000
+2026-03-15 00:49:23 | INFO | Training complete.
+2026-03-15 00:49:23 | INFO | Best result: {'acc': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1': 1.0, 'conf_mat': array([[3057,    0],
+       [   0, 1341]])}

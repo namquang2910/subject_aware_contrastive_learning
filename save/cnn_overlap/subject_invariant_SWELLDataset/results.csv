@@ -1,0 +1,62 @@
+best_path,best_loss,best_epoch
+./save/cnn_overlap/subject_invariant_SWELLDataset/encoder_best_.pt,6.985385894775391,397
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_0.pt,0.675560712814331,0,0.4054,0.6819
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_1.pt,0.6711623668670654,0,0.4141,0.7069
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_2.pt,0.6732186079025269,0,0.4136,0.7054
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_3.pt,0.6745067834854126,0,0.4143,0.7074
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_4.pt,0.6727168560028076,0,0.4094,0.6931
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_5.pt,0.6728353500366211,0,0.4154,0.7106
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_6.pt,0.6737825274467468,0,0.4057,0.6827
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_7.pt,0.6734488010406494,0,0.4109,0.6975
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_8.pt,0.6725119352340698,0,0.413,0.7036
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_9.pt,0.49831700325012207,22,1.0,1.0
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_10.pt,0.6731860637664795,0,0.4151,0.7097
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_11.pt,0.6718438863754272,0,0.4125,0.7023
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_12.pt,0.673662543296814,0,0.415,0.7095
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_13.pt,0.6681622266769409,0,0.4108,0.6972
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_14.pt,0.6727975606918335,0,0.4101,0.6951
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_0.pt,0.6752191185951233,0,0.4054,0.6819
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_1.pt,0.6707631349563599,0,0.4141,0.7069
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_2.pt,0.6728372573852539,0,0.4136,0.7054
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_3.pt,0.674107551574707,0,0.4143,0.7074
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_4.pt,0.6722707748413086,0,0.4094,0.6931
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_5.pt,0.6724438071250916,0,0.4154,0.7106
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_6.pt,0.673474907875061,0,0.4057,0.6827
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_7.pt,0.6730588674545288,0,0.4109,0.6975
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_8.pt,0.6721001863479614,0,0.413,0.7036
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_9.pt,0.672405481338501,0,0.4108,0.6972
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_10.pt,0.6727679371833801,0,0.4151,0.7097
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_11.pt,0.6714613437652588,0,0.4125,0.7023
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_12.pt,0.6732726097106934,0,0.415,0.7095
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_13.pt,0.6676879525184631,0,0.4108,0.6972
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_14.pt,0.6725014448165894,0,0.4101,0.6951
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_0.pt,"tensor(0.0326, device='cuda:0')",16,0.5506,0.5516
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_1.pt,"tensor(0.0124, device='cuda:0')",21,0.7539,0.7687
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_2.pt,"tensor(0.0510, device='cuda:0')",13,0.6366,0.7777
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_3.pt,"tensor(0.0157, device='cuda:0')",36,0.9088,0.9302
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_4.pt,"tensor(0.0190, device='cuda:0')",16,0.6335,0.6509
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_5.pt,"tensor(0.0057, device='cuda:0')",19,0.5059,0.7371
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_6.pt,"tensor(0.0296, device='cuda:0')",28,0.9841,0.9862
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_7.pt,"tensor(0.0805, device='cuda:0')",8,0.9808,0.9836
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_8.pt,"tensor(0.0079, device='cuda:0')",19,0.8553,0.8932
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_9.pt,"tensor(0.0889, device='cuda:0')",8,0.9486,0.9584
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_10.pt,"tensor(0.0496, device='cuda:0')",12,1.0,1.0
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_11.pt,"tensor(0.0335, device='cuda:0')",12,0.936,0.9438
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_12.pt,"tensor(0.0340, device='cuda:0')",18,0.979,0.9827
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_13.pt,"tensor(0.0358, device='cuda:0')",11,0.9695,0.9748
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_14.pt,"tensor(0.0311, device='cuda:0')",17,1.0,1.0
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_0.pt,"tensor(0.6397, device='cuda:0')",0,0.4054,0.6819
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_1.pt,"tensor(0.0418, device='cuda:0')",10,0.8004,0.8406
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_2.pt,"tensor(0.0570, device='cuda:0')",11,0.5379,0.7436
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_3.pt,"tensor(0.0418, device='cuda:0')",14,0.8952,0.9206
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_4.pt,"tensor(0.0826, device='cuda:0')",10,0.5738,0.7062
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_5.pt,"tensor(0.0046, device='cuda:0')",19,0.6259,0.7586
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_6.pt,"tensor(0.0259, device='cuda:0')",26,0.9985,0.9987
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_7.pt,"tensor(0.0798, device='cuda:0')",8,1.0,1.0
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_8.pt,"tensor(0.0678, device='cuda:0')",8,0.8788,0.8894
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_9.pt,"tensor(0.0821, device='cuda:0')",8,0.9716,0.9766
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_10.pt,"tensor(0.0331, device='cuda:0')",22,1.0,1.0
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_11.pt,"tensor(0.0996, device='cuda:0')",8,0.8414,0.8835
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_12.pt,"tensor(0.0183, device='cuda:0')",22,0.9826,0.9857
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_13.pt,"tensor(0.0385, device='cuda:0')",10,0.9815,0.9846
+./save/cnn_overlap/subject_invariant_SWELLDataset/finetuned_best_14.pt,"tensor(0.0705, device='cuda:0')",9,1.0,1.0

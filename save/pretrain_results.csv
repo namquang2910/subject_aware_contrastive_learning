@@ -1,2 +1,3 @@
 Best_pretraining Loss,Best_subject Loss,Best_contrastive Loss,Model_type,Best_model_path
 3.521409273147583,0.0,0.0,contrastive,./save/pretrain/contrastive/cnn_subject_3label/cnn_subject_3label_SWELLDataset_Mar_12_2026_23-24-18/encoder_best.pt
+4.106454849243164,0.0,0.0,subject_specific,./save/pretrain/subject_specific/subject_specific/cnn_subject_3label/cnn_subject_3label_SWELLDataset_Mar_14_2026_09-17-55/encoder_best.pt

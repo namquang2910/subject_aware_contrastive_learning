@@ -1,7 +1,0 @@
-best_path,best_loss,best_epoch
-./save/moe_dual_branch/moe_dual_branch_WESADDataset/encoder_best_.pt,5.950178146362305,393
-./save/moe_dual_branch/moe_dual_branch_WESADDataset/finetuned_best_0.pt,0.08990506827831268,1,0.9843,0.9867
-./save/moe_dual_branch/moe_dual_branch_WESADDataset/finetuned_best_1.pt,0.0001554113841848448,13,0.8245,0.8438
-./save/moe_dual_branch/moe_dual_branch_WESADDataset/finetuned_best_2.pt,0.0013074276503175497,11,0.8862,0.9027
-./save/moe_dual_branch/moe_dual_branch_WESADDataset/finetuned_best_3.pt,0.0007061028154566884,23,0.6097,0.7714
-./save/moe_dual_branch/moe_dual_branch_WESADDataset/finetuned_best_4.pt,0.0009799590334296227,10,0.7875,0.8326

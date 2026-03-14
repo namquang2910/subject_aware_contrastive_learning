@@ -68,15 +68,17 @@
     },
 
     "model_args": {
-      "model_type": "moe_dual_branch",
-      "encoder_args": {
+      "base_encoder": "moe",
+      "base_encoder_args": {
         "input_dim": 1280,
-        "stem_channels": 64,
+        "kernel_size": 10,
+        "dropout_prob": 0.1,
+        "stride": 1,
         "output_dim": 64,
-        "dropout": 0.1,
+        "projection_output": 32,
         "router_temperature": 1.0
       },
-      "projection_output": 32,
+      "model_type": "moe_dual_branch",
       "num_subjects": null,
       "grl_lambda": 1.0,
       "lambda_inv":  1.0,
@@ -93,7 +95,7 @@
     "optim_args": {
       "lr": 0.001,
       "min_lr": 0.0001,
-      "batch_size": 256,
+      "batch_size": 512,
       "num_workers": 8,
       "epochs": 400,
       "weight_decay": 0.001,
@@ -101,7 +103,7 @@
       "adam_beta2": 0.999,
       "adam_epsilon": 1e-08,
       "use_lr_scheduler": true,
-      "warm_up": 10,
+      "warm_up": 100,
       "apply_early_stopping": false,
       "early_stopping_higher_better": false,
       "patience": 15
@@ -134,12 +136,15 @@
     },
 
     "model_args": {
+      "base_encoder": "moe",
       "model_type": "moe_finetune",
-      "encoder_args": {
+      "base_encoder_args": {
         "input_dim": 1280,
-        "stem_channels": 64,
+        "kernel_size": 10,
         "output_dim": 64,
-        "dropout": 0.1,
+        "stride": 1,
+        "dropout_prob": 0.0,
+        "projection_output": 32,
         "router_temperature": 1.0
       },
       "num_class": 1,
@@ -155,16 +160,16 @@
     },
 
     "optim_args": {
-      "lr": 0.0001,
+      "lr": 0.001,
       "min_lr": 0.00001,
       "epochs": 100,
       "batch_size": 64,
       "num_workers": 8,
-      "weight_decay": 0.01,
+      "weight_decay": 0.0001,
       "use_lr_scheduler": true,
       "warm_up": 5,
       "apply_early_stopping": true,
-      "early_stopping_higher_better": false,
+      "early_stopping_higher_better": true,
       "patience": 25
     }
   }

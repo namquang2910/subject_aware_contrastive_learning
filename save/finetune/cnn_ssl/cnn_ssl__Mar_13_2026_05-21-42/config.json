@@ -9,20 +9,20 @@
             "include_labels": "true",
             "split": "train",
             "sub_sample_frac": 0.01,
-            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_07.csv"
+            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv"
         },
         "val_dataset_args": {
             "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
             "include_labels": "true",
             "split": "val",
             "sub_sample_frac": 1.0,
-            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_07.csv"
+            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv"
         },
         "test_dataset_args": {
             "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
             "include_labels": "true",
             "split": "test",
-            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_07.csv",
+            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv",
             "sub_sample_frac": 1.0
         }
     },
@@ -62,6 +62,6 @@
         "save_freq": 40,
         "print_freq": 1
     },
-    "run_num": 7,
+    "run_num": 14,
     "output_dir": "./save/finetune/cnn_ssl/cnn_ssl__Mar_13_2026_05-21-42"
 }

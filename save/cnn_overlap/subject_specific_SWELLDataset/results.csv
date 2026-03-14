@@ -1,0 +1,33 @@
+best_path,best_loss,best_epoch
+./save/cnn_overlap/subject_specific_SWELLDataset/encoder_best_.pt,4.284482479095459,392
+
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_0.pt,"tensor(0.0274, device='cuda:0')",16,0.5471,0.552
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_1.pt,"tensor(0.0110, device='cuda:0')",23,0.7712,0.7867
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_2.pt,"tensor(0.0591, device='cuda:0')",13,0.563,0.7489
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_3.pt,"tensor(0.0799, device='cuda:0')",13,0.8747,0.9061
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_4.pt,"tensor(0.0148, device='cuda:0')",21,0.689,0.7103
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_5.pt,"tensor(0.6182, device='cuda:0')",0,0.4154,0.7106
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_6.pt,"tensor(0.0711, device='cuda:0')",26,0.9969,0.9973
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_7.pt,"tensor(0.0784, device='cuda:0')",8,1.0,1.0
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_8.pt,"tensor(0.0475, device='cuda:0')",9,0.8814,0.9106
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_9.pt,"tensor(0.1918, device='cuda:0')",5,1.0,1.0
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_10.pt,"tensor(0.0842, device='cuda:0')",9,1.0,1.0
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_11.pt,"tensor(0.0371, device='cuda:0')",11,0.9404,0.9481
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_12.pt,"tensor(0.0103, device='cuda:0')",21,0.9703,0.9751
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_13.pt,"tensor(0.0600, device='cuda:0')",13,0.9443,0.955
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_14.pt,"tensor(0.0648, device='cuda:0')",11,1.0,1.0
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_0.pt,"tensor(0.1102, device='cuda:0')",9,0.4499,0.4528
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_1.pt,"tensor(0.0043, device='cuda:0')",28,0.7484,0.7601
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_2.pt,"tensor(0.0349, device='cuda:0')",23,0.5895,0.719
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_3.pt,"tensor(0.0232, device='cuda:0')",20,0.8801,0.9106
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_4.pt,"tensor(0.0448, device='cuda:0')",13,0.6185,0.6402
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_5.pt,"tensor(0.0178, device='cuda:0')",13,0.5894,0.7624
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_6.pt,"tensor(0.0306, device='cuda:0')",26,0.9872,0.9889
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_7.pt,"tensor(0.0798, device='cuda:0')",10,0.9917,0.9929
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_8.pt,"tensor(0.0416, device='cuda:0')",10,0.7857,0.8518
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_9.pt,"tensor(0.0531, device='cuda:0')",10,0.9962,0.9968
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_10.pt,"tensor(0.0043, device='cuda:0')",34,1.0,1.0
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_11.pt,"tensor(0.0197, device='cuda:0')",15,0.9804,0.9834
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_12.pt,"tensor(0.0080, device='cuda:0')",25,0.9567,0.965
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_13.pt,"tensor(0.0342, device='cuda:0')",22,0.8822,0.9092
+./save/cnn_overlap/subject_specific_SWELLDataset/finetuned_best_14.pt,"tensor(0.0387, device='cuda:0')",15,1.0,1.0

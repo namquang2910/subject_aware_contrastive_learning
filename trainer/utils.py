@@ -13,6 +13,7 @@ from datasets.psy_dataset import PsyDataset
 from datasets.swell_dataset import SWELLDataset
 from collections import defaultdict
 from loss.cl_loss import NCELoss
+from models.moe_dual_branch import (MoEPretrainModel, MoEFinetuneModel)
 
 class EarlyStopping:
     """Early-stopper on a scalar metric (lower is better)."""
@@ -108,26 +109,21 @@ def create_model(cfg, device):
     "moe_dual_branch"  →  MoEPretrainModel   (pretraining)
     "moe_finetune"     →  MoEFinetuneModel   (fine-tuning)
     """
-    from models.moe_dual_branch import (
-        MoEDualBranchEncoder, MoEPretrainModel, MoEFinetuneModel
-    )
-    from models import contrastive_model, finetune_builder, subject_invariant_model, subject_specific_model
-    from models.utils import get_base_encoder
 
     model_type = cfg["model_args"].get("model_type", "contrastive")
+    enc_name = cfg["model_args"]["base_encoder"]
+    enc_args = cfg["model_args"]["base_encoder_args"]
+    encoder  = get_base_encoder(enc_name, enc_args)
+    projection_output = cfg["model_args"].get("projection_output", 32)
 
     # ── MoE dual-branch pretraining ───────────────────────────────────────
     if model_type == "moe_dual_branch":
-        enc_args = cfg["model_args"]["encoder_args"]
-        encoder  = MoEDualBranchEncoder(**enc_args)
-
         # num_subjects is injected by PreTrainer._build_dataloader()
         num_subjects = cfg["dataset_args"]["num_subjects"]
 
         model = MoEPretrainModel(
-            encoder        = encoder,
+            moe_encoder    = encoder,
             num_subjects   = num_subjects,
-            projection_output = cfg["model_args"].get("projection_output", 32),
             grl_lambda     = cfg["model_args"].get("grl_lambda", 1.0),
             lambda_inv     = cfg["model_args"].get("lambda_inv",  1.0),
             lambda_spec    = cfg["model_args"].get("lambda_spec", 1.0),
@@ -140,11 +136,8 @@ def create_model(cfg, device):
 
     # ── MoE fine-tuning ───────────────────────────────────────────────────
     if model_type == "moe_finetune":
-        enc_args = cfg["model_args"]["encoder_args"]
-        encoder  = MoEDualBranchEncoder(**enc_args)
-
         model = MoEFinetuneModel(
-            encoder        = encoder,
+            moe_encoder    = encoder,
             num_class      = cfg["model_args"].get("num_class", 1),
             model_path     = cfg["model_args"].get("model_path", None),
             freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
@@ -155,11 +148,6 @@ def create_model(cfg, device):
         return model
 
     # ── existing model types (unchanged) ─────────────────────────────────
-    enc_name = cfg["model_args"]["base_encoder"]
-    enc_args = cfg["model_args"]["base_encoder_args"]
-    encoder  = get_base_encoder(enc_name, enc_args)
-
-    projection_output = cfg["model_args"].get("projection_output", 32)
 
     if model_type == "contrastive":
         return contrastive_model.ContrastiveModel(

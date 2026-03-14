@@ -61,7 +61,7 @@ class Trainer:
         self.epochs = int(opt_cfg["epochs"])
         self.optimizer = optim.AdamW(
             [
-                {"params": encoder_param, "lr": opt_cfg["lr"]},
+                {"params": encoder_param, "lr": opt_cfg["lr"]/10},
                 {"params": classifier_params, "lr": opt_cfg["lr"]},
             ],
             lr=opt_cfg["lr"],

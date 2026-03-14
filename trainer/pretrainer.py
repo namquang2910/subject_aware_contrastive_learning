@@ -19,8 +19,8 @@ class PreTrainer(Trainer):
         self.pretrain_output_dir = self.cfg["logging_args"]["pretrain_output_dir"]
         self._build_dataloader()
         self._build_model(cfg['pretrain_args'])
-        self._build_optimizer()
         self._wrap_ddp()
+        self._build_optimizer()
         self._build_early_stopper()
       
 
@@ -54,7 +54,7 @@ class PreTrainer(Trainer):
 
         self.warm_up_epochs = None
         if self.optim_args.get("use_lr_scheduler", False):
-            self.warm_up_epochs = self.optim_args.get("warm_up")
+            self.warm_up_epochs = self.optim_args.get("warm_up", None)
             if self.warm_up_epochs is None and self.rank == 0:
                 self.logger.warning("'warm_up' not specified in optimizer config.")
             self.scheduler = CosineAnnealingLR(
@@ -94,7 +94,7 @@ class PreTrainer(Trainer):
                 self.output['best_path'] = os.path.join(self.pretrain_output_dir, f"encoder_best_{self.fold}.pt")
                 self._save_checkpoint(self.output['best_path'])
 
-            if should_stop:
+            if should_stop and self.rank == 0:
                 self.logger.info(f"Early stopping at epoch {epoch}. Best: {self.early_stopper.best:.6f}")
                 break
 

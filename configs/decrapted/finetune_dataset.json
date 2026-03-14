@@ -37,7 +37,7 @@
         },
         "num_class": 1,
         "freeze_encoder": false,
-        "model_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/save/pretrain/contrastive/cnn_subject_3label/cnn_subject_3label_SWELLDataset_Mar_12_2026_23-24-18/encoder_best.pt"
+        "model_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/save/cnn_overlap_new/subject_specific_SWELLDataset/encoder_best_.pt"
     },
     "optim_args": {
         "lr": 0.001,
@@ -45,7 +45,7 @@
         "batch_size": 64,
         "num_workers": 4,
         "epochs": 100,
-        "weight_decay": 0.01,
+        "weight_decay": 0.0001,
         "adam_beta1": 0.9,
         "adam_beta2": 0.999,
         "adam_epsilon": 1e-08,

@@ -19,3 +19,16 @@ f1_score,accuracy,seeds,Output_path
 0.7948,0.8343800000000001,[0],./save/cnn_overlap_5fold/subject_invariant_SWELLDataset/
 0.8184400000000001,0.86744,[0],./save/moe_dual_branch/moe_dual_branch_WESADDataset/
 0.8412200000000001,0.8679,[0],./save/moe_dual_branch/moe_dual_branch_WESADDataset/
+0.87486,0.8912133333333332,[0],./save/moe_dual_branch/moe_dual_branch_WESADDataset/
+0.8529066666666666,0.8842733333333334,[0],./save/cnn_overlap/contrastive_SWELLDataset/
+0.8395800000000001,0.8800466666666666,[0],./save/cnn_overlap/subject_specific_SWELLDataset/
+0.8428399999999999,0.8759266666666666,[0],./save/cnn_overlap/subject_invariant_SWELLDataset/
+
+0.8697066666666667,0.9118999999999999,[0],./save/cnn_overlap/contrastive_SWELLDataset/
+0.8855533333333334,0.9005866666666668,[0],./save/moe_dual_branch/moe_dual_branch_WESADDataset/
+0.8303933333333332,0.8622066666666667,[0],./save/cnn_overlap/subject_specific_SWELLDataset/
+0.8328666666666666,0.8913333333333333,[0],./save/cnn_overlap/subject_invariant_SWELLDataset/
+0.8137333333333334,0.8714666666666668,[0],./save/cnn_overlap_new/contrastive_SWELLDataset/
+0.7826333333333334,0.8550266666666667,[0],./save/cnn_overlap_new/subject_specific_SWELLDataset/
+0.8353800000000001,0.8860333333333333,[0],./save/cnn_overlap_new/subject_specific_SWELLDataset/
+0.8041400000000002,0.8442000000000001,[0],./save/cnn_overlap_new/subject_invariant_SWELLDataset/

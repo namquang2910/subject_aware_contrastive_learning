@@ -5,7 +5,7 @@
   "dataset_args": {
     "data_name": "SWELLDataset",
     "train_dataset": {
-      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL_1280_320",
+      "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320",
       "include_labels": true,
       "data_views": {
         "x1": {

@@ -1,0 +1,67 @@
+{
+    "seed": 0,
+    "exp_name": "cnn_ssl",
+    "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval",
+    "dataset_args": {
+        "evaluation_type": "loso",
+        "train_dataset_args": {
+            "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
+            "include_labels": "true",
+            "split": "train",
+            "sub_sample_frac": 0.01,
+            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv"
+        },
+        "val_dataset_args": {
+            "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
+            "include_labels": "true",
+            "split": "val",
+            "sub_sample_frac": 1.0,
+            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv"
+        },
+        "test_dataset_args": {
+            "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
+            "include_labels": "true",
+            "split": "test",
+            "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_14.csv",
+            "sub_sample_frac": 1.0
+        }
+    },
+    "model_args": {
+        "base_encoder": "cnn",
+        "base_encoder_args": {
+            "input_dim": 1280,
+            "kernel_size": 10,
+            "dropout_prob": 0.0,
+            "stride": 1,
+            "output_dim": 64
+        },
+        "num_class": 1,
+        "freeze_encoder": false,
+        "model_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/save/cnn_overlap/contrastive_SWELLDataset/encoder_best_.pt"
+    },
+    "optim_args": {
+        "lr": 0.0001,
+        "min_lr": 1e-06,
+        "batch_size": 64,
+        "num_workers": 4,
+        "epochs": 100,
+        "weight_decay": 0.0001,
+        "adam_beta1": 0.9,
+        "adam_beta2": 0.999,
+        "adam_epsilon": 1e-08,
+        "use_lr_scheduler": true,
+        "apply_early_stopping": true,
+        "early_stopping_is_higher": true,
+        "warm_up": 0,
+        "min_delta": 0,
+        "patience": 15
+    },
+    "logging_args": {
+        "base_output_dir": "./save/finetune",
+        "results_file": "./save/finetune_results.csv",
+        "save_freq": 40,
+        "print_freq": 1
+    },
+    "run_num": 14,
+    "output_dir": "./save/finetune/cnn_ssl/cnn_ssl__Mar_13_2026_15-28-48"
+}

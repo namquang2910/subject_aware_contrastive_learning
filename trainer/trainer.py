@@ -24,7 +24,9 @@ class Trainer:
         self.fold = fold
         self.device = device
         self.optim_args = None
+        self.train_sampler = None
         self.output_dir = cfg["logging_args"]["output_dir"]
+        self.logger.info(f"Setting the seed to {seed} ")
         set_seed(seed)
         
         self.output = {"best_path": None,
@@ -43,6 +45,7 @@ class Trainer:
         loss_fn = get_loss(training_cfg["loss"]["name"], training_cfg["loss"]["loss_args"])
         self.model = create_model(training_cfg, self.device)
         self.model.set_loss_fn(loss_fn)
+        self.logging(f"Model forward {self.model}")
         self.model.to(self.device)
 
     def _wrap_ddp(self):
@@ -58,15 +61,13 @@ class Trainer:
         self.model.to(self.device)
 
         # Convert BatchNorm → SyncBatchNorm (only for multi-GPU training)
-        if self.device.type == "cuda":
-            self.model = nn.SyncBatchNorm.convert_sync_batchnorm(self.model)
+        self.model = nn.SyncBatchNorm.convert_sync_batchnorm(self.model)
 
         # Wrap with DDP
         self.model = nn.parallel.DistributedDataParallel(
             self.model,
             device_ids=[self.device.index] if self.device.type == "cuda" else None,
             output_device=self.device.index if self.device.type == "cuda" else None,
-            find_unused_parameters=False,   # change to True only if needed
             broadcast_buffers=True,
         )
     def _build_early_stopper(self):
@@ -108,7 +109,7 @@ class Trainer:
         start = time.time()
 
         for _, data in enumerate(self.train_loader):
-            self.optimizer.zero_grad()
+            self.model.zero_grad()
             result = self.model(data)
             result["total_loss"].backward()
             self.optimizer.step()
@@ -118,7 +119,7 @@ class Trainer:
         avg_losses = meter.average()
 
         # Sync total loss across ranks
-        if self.distributed:
+        if self.distributed :
             t = avg_losses["total_loss"].clone().to(self.device)
             dist.all_reduce(t, op=dist.ReduceOp.SUM)
             avg_losses["total_loss"] = (t / self.world_size).item()
@@ -127,8 +128,14 @@ class Trainer:
             self.scheduler.step()
 
         if self.rank == 0 and epoch % self.print_freq == 0:
-            lr = self.optimizer.param_groups[0]["lr"]
+            lr_str = ""
+            for i, pg in enumerate(self.optimizer.param_groups):
+                lr_str += f"Lr{i}={pg['lr']:.6f}"
             loss_str = ", ".join(f"{k}={v:.6f}" for k, v in avg_losses.items())
-            self.logger.info(f"[Epoch {epoch:03d}] {loss_str}, lr={lr:.6f}, time={time.time()-start:.2f}s")
+            self.logger.info(f"[Epoch {epoch:03d}] {loss_str}, {lr_str}, time={time.time()-start:.2f}s")
 
         return avg_losses
+    
+    def logging(self, str):
+        if self.rank == 0:
+            self.logger.info(str)

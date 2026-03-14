@@ -1,3 +1,0 @@
-2026-03-12 23:21:44 | INFO | === Run 1/1 | seed=0 ===
-2026-03-12 23:21:44 | INFO | Output dir: ./save/pretrain/contrastive/cnn_subject_3label/cnn_subject_3label_SWELLDataset_Mar_12_2026_23-21-38
-2026-03-12 23:22:01 | INFO | Model.forward signature: (batch)

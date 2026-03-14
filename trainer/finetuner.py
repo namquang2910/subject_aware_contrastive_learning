@@ -26,10 +26,9 @@ class Finetuner(Trainer):
         self._build_optimizer()
         self._wrap_ddp()
         self._build_early_stopper()
+        print(self.cfg['finetune_args']['model_args']['model_path'])
 
-
-        if self.rank == 0:
-            save_config_file(cfg, self.finetune_output_dir)
+        save_config_file(cfg, self.finetune_output_dir)
 
     # ------------------------------------------------------------------
     # Setup helpers
@@ -38,6 +37,7 @@ class Finetuner(Trainer):
     def _build_optimizer(self):
         self.epochs = int(self.optim_args["epochs"])
         encoder_params, classifier_params = self.model.get_parameters()
+        print(self.optim_args)
         self.optimizer = optim.AdamW(
             [
                 {"params": encoder_params, "lr": self.optim_args["lr"] / 10},
@@ -52,7 +52,7 @@ class Finetuner(Trainer):
         self.warm_up_epochs = None
         if self.optim_args.get("use_lr_scheduler", False):
             self.warm_up_epochs = self.optim_args.get("warm_up")
-            if self.warm_up_epochs is None and self.rank == 0:
+            if self.warm_up_epochs is None:
                 self.logger.warning("'warm_up' not specified in optimizer config.")
             self.scheduler = CosineAnnealingLR(
                 self.optimizer,
@@ -68,11 +68,7 @@ class Finetuner(Trainer):
         val_ds = get_dataset(ds_args["val_dataset_args"])
         test_ds = get_dataset(ds_args["test_dataset_args"])
 
-        self.train_sampler = DistributedSampler(
-            train_ds, num_replicas=self.world_size, rank=self.rank,
-            shuffle=True, drop_last=True)
-        
-        self.train_loader = self._make_loader(train_ds, shuffle=False, drop_last=True, sampler=self.train_sampler)
+        self.train_loader = self._make_loader(train_ds, shuffle=True, drop_last=True, sampler=None)
         self.val_loader = self._make_loader(val_ds, shuffle=False, drop_last=False)
         self.test_loader = self._make_loader(test_ds, shuffle=False, drop_last=False)
     
@@ -85,10 +81,7 @@ class Finetuner(Trainer):
             avg_losses = self.train_one_epoch(epoch)
             _, result = self.validate(self.val_loader)
 
-            should_stop, improved = (
-                self.early_stopper.step(result["f1"]) if self.rank == 0
-                else (False, False)
-            )
+            should_stop, improved = self.early_stopper.step(result["f1"]) 
 
             # Broadcast early-stopping decisions to all ranks
             if self.distributed:
@@ -98,7 +91,7 @@ class Finetuner(Trainer):
                 dist.broadcast(flags, src=0)
                 should_stop, improved = bool(flags[0].item()), bool(flags[1].item())
 
-            if self.rank == 0 and improved:
+            if improved:
                 self.logger.info(f"Best model logged {result['f1']}")
                 print(f"Best model logged {result['f1']}")
                 self.output['best_f1'] = result["f1"]
@@ -108,15 +101,12 @@ class Finetuner(Trainer):
                 self.output['best_path'] = os.path.join(self.finetune_output_dir, f"finetuned_best_{self.fold}.pt")
                 self._save_checkpoint(self.output['best_path'])
             if should_stop:
-                if self.rank == 0:
-                    self.logger.info(f"Early stopping at epoch {epoch}. Best: {self.early_stopper.best:.6f}")
+                self.logger.info(f"Early stopping at epoch {epoch}. Best: {self.early_stopper.best:.6f}")
                 break
 
-        if self.rank == 0:
-            self.logger.info("Training complete.")
-            self.logger.info(f"Best checkpoint: {self.output['best_path']}")
-        if self.distributed:
-            dist.barrier()
+        self.logger.info("Training complete.")
+        self.logger.info(f"Best checkpoint: {self.output['best_path']}")
+    
         return self.output
 
     def validate(self, dataloader, return_cm=False):
@@ -134,17 +124,11 @@ class Finetuner(Trainer):
                     loss /= self.world_size
                 total_loss += loss.item()
 
-                y_hat = (torch.sigmoid(result["y_hat"]) >= 0.5).long().view(-1)
-                y = batch["y"].view(-1).long()
+                y_hat = (torch.sigmoid(result["y_hat"]) >= 0.5).long().view(-1).to(self.device)
+                y = batch["y"].view(-1).long().to(self.device)  # also fix the stray dot here: `.long().` → `.long()`
 
-                if self.distributed:
-                    y_hat = y_hat.to(self.device)
-                    y = y.to(self.device)
-                    y_hat = self._gather_tensor(y_hat)
-                    y = self._gather_tensor(y)
-
-                all_preds.append(y_hat)   # ← was missing
-                all_labels.append(y)      # ← was missing
+                all_preds.append(y_hat)
+                all_labels.append(y)
 
         avg_loss = total_loss / max(1, len(dataloader))
         result = compute_metrics(torch.cat(all_labels), torch.cat(all_preds))
@@ -161,11 +145,3 @@ class Finetuner(Trainer):
 
         return avg_loss, result
     
-    def _gather_tensor(self, tensor):
-        if not self.distributed:
-            return tensor
-
-        tensor = tensor.contiguous()
-        tensors = [torch.zeros_like(tensor) for _ in range(self.world_size)]
-        dist.all_gather(tensors, tensor)
-        return torch.cat(tensors, dim=0)
