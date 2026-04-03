@@ -1,0 +1,6 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.681,0.6967,0.610470324754715,2,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset/finetune/StressIDDataset/finetuned_best_0.pt
+0.5613,0.5716,0.06649043622116248,39,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset/finetune/StressIDDataset/finetuned_best_1.pt
+0.6276,0.6736,0.2560524900754293,15,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset/finetune/StressIDDataset/finetuned_best_2.pt
+0.5798,0.5815,0.15273004164919257,26,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset/finetune/StressIDDataset/finetuned_best_3.pt
+0.639,0.6528,0.17545828549191356,23,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset/finetune/StressIDDataset/finetuned_best_4.pt

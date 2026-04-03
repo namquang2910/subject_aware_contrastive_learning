@@ -1,0 +1,17 @@
+best_path,best_loss,best_epoch
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/encoder_best_.pt,6.371513366699219,394
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_0.pt,0.21591584384441376,18,0.5991,0.6241
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_1.pt,0.2939450740814209,13,0.6341,0.6764
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_2.pt,0.18192234635353088,18,0.6065,0.7519
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_3.pt,0.43589991331100464,9,0.87,0.8883
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_4.pt,0.446533203125,8,0.5908,0.6032
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_5.pt,0.16836336255073547,19,0.8526,0.869
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_6.pt,0.14879314601421356,21,0.9742,0.9775
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_7.pt,0.4427686631679535,8,1.0,1.0
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_8.pt,0.11777418851852417,25,0.9344,0.9482
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_9.pt,0.44257745146751404,8,0.9932,0.9943
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_10.pt,0.40701645612716675,10,1.0,1.0
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_11.pt,0.28130802512168884,13,0.9872,0.9893
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_12.pt,0.22359542548656464,16,0.9756,0.9795
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_13.pt,0.3874303996562958,10,0.9403,0.95
+./save/moe_dual_n_expert/moe_dual_n_pretrain_SWELLDataset/finetuned_best_14.pt,0.4287525415420532,9,1.0,1.0

@@ -1,0 +1,2 @@
+best_path,best_loss,best_epoch
+./save/Mmoe_dual_6splits_expert/mmoe_n_pretrain_SWELLDataset/pretrain/encoder_best_.pt,6.840677261352539,391

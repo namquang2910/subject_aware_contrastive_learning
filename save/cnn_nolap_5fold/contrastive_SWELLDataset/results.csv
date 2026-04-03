@@ -1,7 +1,0 @@
-best_path,best_loss,best_epoch
-./save/cnn_overlap_5fold/contrastive_SWELLDataset/encoder_best_.pt,1.9540200233459473,384
-./save/cnn_overlap_5fold/contrastive_SWELLDataset/finetuned_best_0.pt,0.06737132370471954,0,0.7865,0.8036
-./save/cnn_overlap_5fold/contrastive_SWELLDataset/finetuned_best_1.pt,0.0022072638384997845,14,0.8078,0.8278
-./save/cnn_overlap_5fold/contrastive_SWELLDataset/finetuned_best_2.pt,0.0003477300051599741,5,0.88,0.9056
-./save/cnn_overlap_5fold/contrastive_SWELLDataset/finetuned_best_3.pt,0.004513127729296684,1,0.5988,0.7672
-./save/cnn_overlap_5fold/contrastive_SWELLDataset/finetuned_best_4.pt,0.0008200638694688678,3,0.6908,0.7564

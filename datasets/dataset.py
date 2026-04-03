@@ -8,7 +8,7 @@ import os
 import numpy as np
 import pandas as pd
 from torch.utils.data import Dataset
-
+from tqdm import tqdm
 from datasets.transform import Composer
 import torch.distributed as dist
 
@@ -18,7 +18,7 @@ class DatasetWrapper(Dataset):
     Class for base dataset that wraps Pytorch dataset.
     """
     def __init__(self, dataset_path, y_dim=None,  split=None, split_file=None, sub_sample_frac=None,
-                 data_views=None, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None):
+                 data_views=None, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None,data_name=None):
         """
         :param dataset_path: path to folder containing sub-directories with subject data
         :param y_dim: the dimension of the target variable; (None for unlabelled data)
@@ -99,7 +99,6 @@ class DatasetWrapper(Dataset):
         # filter split_df by the selected split to get the entries that belong to the split
         split_df = split_df[split_df["split"] == self.split]
         self.keep_ids = split_df[self.split_key].values
-
     def read_data(self):
         data_df = self.get_data_df()
         if self.split is not None:
@@ -115,13 +114,12 @@ class DatasetWrapper(Dataset):
     def get_data_df(self):
         df_list = []
         # loop through subfolders
-        for sub_dir in sorted(os.listdir(self.dataset_path)):
+        for sub_dir in tqdm(sorted(os.listdir(self.dataset_path))):
             if sub_dir.startswith('.'):
                 continue
             subject_id = self._sub_dir_to_sub_id(sub_dir)
             if self.split_key is not None and self.split_key == "subject_id" and subject_id not in self.keep_ids:
                 continue
-            print(f"reading data for subject {subject_id}")
             subject_dir = os.path.join(self.dataset_path, sub_dir)
             subject_df = self.read_subject_data(subject_dir)
             subject_df["subject_id"] = [subject_id] * len(subject_df)

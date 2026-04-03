@@ -25,7 +25,7 @@ class Trainer:
         self.device = device
         self.optim_args = None
         self.train_sampler = None
-        self.output_dir = cfg["logging_args"]["output_dir"]
+        #self.output_dir = cfg["logging_args"]["output_dir"]
         self.logger.info(f"Setting the seed to {seed} ")
         set_seed(seed)
         
@@ -36,7 +36,7 @@ class Trainer:
         self.print_freq = int(cfg["logging_args"]["print_freq"])
         self.save_freq = int(cfg["logging_args"]["save_freq"])
 
-        save_config_file(cfg, self.output_dir)
+        #save_config_file(cfg, self.output_dir)
 
     def _build_model(self, training_cfg):
         """
@@ -119,8 +119,9 @@ class Trainer:
         avg_losses = meter.average()
 
         # Sync total loss across ranks
-        if self.distributed :
-            t = avg_losses["total_loss"].clone().to(self.device)
+       # In train_one_epoch, fix the distributed sync
+        if self.distributed:
+            t = torch.tensor(avg_losses["total_loss"], device=self.device)
             dist.all_reduce(t, op=dist.ReduceOp.SUM)
             avg_losses["total_loss"] = (t / self.world_size).item()
 
@@ -131,7 +132,10 @@ class Trainer:
             lr_str = ""
             for i, pg in enumerate(self.optimizer.param_groups):
                 lr_str += f"Lr{i}={pg['lr']:.6f}"
-            loss_str = ", ".join(f"{k}={v:.6f}" for k, v in avg_losses.items())
+            loss_str = ", ".join(
+                f"{k}={v:.4f}" if k == "g1" else f"{k}={v:.6f}" 
+                for k, v in avg_losses.items()
+            )
             self.logger.info(f"[Epoch {epoch:03d}] {loss_str}, {lr_str}, time={time.time()-start:.2f}s")
 
         return avg_losses

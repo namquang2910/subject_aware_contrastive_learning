@@ -118,8 +118,7 @@
  "loss":{
   "name": "NCE",
   "loss_args": {
-    "temperature": 0.1,
-    "maximize_loss": false
+    "temperature": 0.1
     }
   },
   "optim_args": {

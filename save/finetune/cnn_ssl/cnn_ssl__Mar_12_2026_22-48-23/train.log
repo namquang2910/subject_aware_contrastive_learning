@@ -1,5 +1,0 @@
-2026-03-12 22:48:23 | INFO | === Run 1/1 | seed=0 | fold=fold_00.csv ===
-2026-03-12 22:48:23 | INFO | Loading split file /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/LOSO_testval/fold_00.csv
-2026-03-12 22:48:25 | INFO | Model.forward signature: (data)
-2026-03-12 22:48:31 | INFO | [LOSO] Train size: 609, Val size: 4496, Test size: 4496
-2026-03-12 22:48:31 | INFO | Train batches per epoch: 9

@@ -1,6 +1,6 @@
 {
   "seeds": [0],
-  "exp_name": "cnn_subject_3label",
+  "exp_name": "moe_old_run",
 
   "dataset_args": {
     "data_name": "SWELLDataset",
@@ -104,7 +104,7 @@
   },
 
   "model_args": {
-    "base_encoder": "cnn",
+    "base_encoder": "moe",
     "base_encoder_args": {
       "input_dim": 1280,
       "kernel_size": 10,
@@ -112,7 +112,7 @@
       "dropout_prob": 0.1,
       "output_dim": 64
     },
-    "model_type": "contrastive",
+    "model_type": "moe_dual_branch",
     "projection_output": 32
   },
   "loss":{

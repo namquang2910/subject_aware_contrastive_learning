@@ -1,7 +1,0 @@
-2026-03-14 09:14:04 | INFO | === Run 1/1 | seed=0 ===
-2026-03-14 09:14:04 | INFO | Output dir: ./save/pretrain/subject_specific/subject_specific/cnn_subject_3label/cnn_subject_3label_SWELLDataset_Mar_14_2026_09-13-59
-2026-03-14 09:14:38 | INFO | Model.forward signature: (batch)
-2026-03-14 09:15:25 | INFO | [Epoch 000] total_loss=8.313976, lr=0.000100
-2026-03-14 09:16:04 | INFO | [Epoch 001] total_loss=8.140635, lr=0.000100
-2026-03-14 09:16:42 | INFO | [Epoch 002] total_loss=8.006929, lr=0.000100
-2026-03-14 09:17:20 | INFO | [Epoch 003] total_loss=7.923440, lr=0.000100

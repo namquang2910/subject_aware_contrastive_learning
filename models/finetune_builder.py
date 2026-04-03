@@ -86,7 +86,7 @@ class EncoderClassifierModel(Model):
         self._check_loss_fn()  # confirm that loss function has been set
 
         x = data['x'].to(self.device, non_blocking=True).float()
-        y = data['y'].to(self.device, non_blocking=True).float()
+        y = data['y'].to(self.device, non_blocking=True).long()
 
         x = x.unsqueeze(1).float()  # add channel dim
 

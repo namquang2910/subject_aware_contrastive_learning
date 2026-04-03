@@ -3,30 +3,16 @@ Utility functions to support model training
 """
 import json
 import time
-import random
-import os 
-import torch
 import numpy as np
 import logging
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
-
-import random
 from torch.utils.data import Sampler
 import random
 import os 
-import json
-from models import contrastive_model, finetune_builder, subject_invariant_model, subject_specific_model
 import torch
-import numpy as np
-import logging
+import torch.distributed as dist
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
-from models.utils import get_base_encoder
-import random
-from datasets.wesad_dataset import WESADDataset
-from datasets.psy_dataset import PsyDataset
-from datasets.swell_dataset import SWELLDataset
-from collections import defaultdict
-from loss.cl_loss import NCELoss
+import csv
+
 
 class EarlyStopping:
     """Early-stopper on a scalar metric (lower is better)."""
@@ -70,62 +56,13 @@ def set_seed(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
 
-def create_timestamped_subdir(base_dir, exp_name="", dataset = ""):
-    os.makedirs(base_dir, exist_ok=True)
-    ts = time.strftime("%b_%d_%Y_%H-%M-%S", time.localtime())
-    tag = f"{exp_name}_{dataset}_{ts}"
-    path = os.path.join(base_dir, exp_name, tag)
-    os.makedirs(path, exist_ok=True)
-    return path
 
 def save_config_file(config_dict, output_dir):
     with open(os.path.join(output_dir, "config.json"), "w") as f:
         json.dump(config_dict, f, indent=4)
-
-def setup_logger(output_dir):
-    """Logs to both console and file: output_dir/train.log"""
-    log_path = os.path.join(output_dir, "train.log")
-    logger = logging.getLogger("train")
-    logger.setLevel(logging.INFO)
-    logger.handlers.clear()
-
-    fmt = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s", "%Y-%m-%d %H:%M:%S")
-
-    # File
-    fh = logging.FileHandler(log_path)
-    fh.setLevel(logging.INFO)
-    fh.setFormatter(fmt)
-    logger.addHandler(fh)
-
-    # Console
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.INFO)
-    ch.setFormatter(fmt)
-    logger.addHandler(ch)
-
-    # Make sure 3rd-party libs don’t spam DEBUG
-    logging.getLogger().setLevel(logging.WARNING)
-    return logger
-
-
+  
 
 def compute_metrics(y_true, y_hat):
-    """
-    Compute accuracy, precision, recall, F1-score, and confusion matrix.
-
-    Args:
-        y_true (Tensor or np.ndarray): Ground-truth labels.
-        y_hat  (Tensor or np.ndarray): Predicted labels (class indices).
-
-    Returns:
-        dict: {
-            'acc': float,
-            'precision': float,
-            'recall': float,
-            'f1': float,
-            'conf_mat': np.ndarray
-        }
-    """
     # --- Ensure CPU numpy arrays ---
     if isinstance(y_true, torch.Tensor):
         y_true = y_true.detach().cpu().numpy()
@@ -150,41 +87,7 @@ def compute_metrics(y_true, y_hat):
     }
 
 
-
-
-"""
-Utility functions to support model training
-"""
-import json
-import time
-import random
-import csv
-import os 
-from models import contrastive_model, subject_invariant_model, subject_specific_model
-import torch
-import numpy as np
-import logging
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
-from models.utils import get_base_encoder
-import random
-from torch.utils.data import Sampler
-from datasets.wesad_dataset import WESADDataset
-from datasets.psy_dataset import PsyDataset
-from datasets.swell_dataset import SWELLDataset
-from collections import defaultdict
-import torch.distributed as dist
-
 def broadcast_rank(obj, rank):
-    """
-    Broadcast a Python object from rank 0 to all ranks.
-
-    Args:
-        obj: Object to broadcast (only required on rank 0, others can pass None)
-        rank: Current process rank
-
-    Returns:
-        The broadcasted object (same on all ranks)
-    """
     if not dist.is_available() or not dist.is_initialized():
         return obj  # single-process fallback
 
@@ -231,9 +134,9 @@ def save_results(results: dict, file_path):
             writer.writerow(headers)
         writer.writerow(rows)
         
-def create_experiment(base_dir, model_type = "", exp_name="", dataset="", mode="", allow_exist=False):
-    tag = f"{model_type}_{dataset}" if model_type != "" or dataset != "" else ""
-    out = os.path.join(base_dir, exp_name,tag, mode)
+def create_experiment(base_dir, model_type = "", exp_name="", dataset="", mode="",finetune_dataset = None, seed=None, allow_exist=False):
+    tag = f"{model_type}_{dataset}_{seed}" if model_type != "" or dataset != "" else ""
+    out = os.path.join(base_dir, exp_name,tag, mode) if finetune_dataset is None else os.path.join(base_dir, exp_name,tag, mode, finetune_dataset)
     
     if os.path.exists(out):
         if allow_exist:
@@ -245,10 +148,9 @@ def create_experiment(base_dir, model_type = "", exp_name="", dataset="", mode="
         os.makedirs(out, exist_ok=True)
     return out
 
-def setup_logger(output_dir):
-    """Logs to both console and file: output_dir/train.log"""
+def setup_logger(output_dir, name="train"):  # add a name param
     log_path = os.path.join(output_dir, "train.log")
-    logger = logging.getLogger("train")
+    logger = logging.getLogger(name)          # use the name
     logger.setLevel(logging.INFO)
     logger.handlers.clear()
 
@@ -269,5 +171,4 @@ def setup_logger(output_dir):
     # Make sure 3rd-party libs don’t spam DEBUG
     logging.getLogger().setLevel(logging.WARNING)
     return logger
-
 

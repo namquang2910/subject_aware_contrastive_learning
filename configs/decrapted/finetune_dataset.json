@@ -27,7 +27,7 @@
         }
     },
     "model_args": {        
-        "base_encoder": "cnn",
+        "base_encoder": "moe",
         "base_encoder_args": {
             "input_dim": 1280,
             "kernel_size": 10,
@@ -37,7 +37,7 @@
         },
         "num_class": 1,
         "freeze_encoder": false,
-        "model_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/save/cnn_overlap_new/subject_specific_SWELLDataset/encoder_best_.pt"
+        "model_path": "./save/pretrain/moe_dual_branch/moe_old_run/moe_old_run_SWELLDataset_Mar_19_2026_14-23-41/encoder_best.pt"
     },
     "optim_args": {
         "lr": 0.001,
@@ -50,7 +50,7 @@
         "adam_beta2": 0.999,
         "adam_epsilon": 1e-08,
         "use_lr_scheduler": true,
-        "apply_early_stopping": true,
+        "apply_early_stopping": false,
         "early_stopping_is_higher": true,
         "warm_up": 0,
         "min_delta": 0,

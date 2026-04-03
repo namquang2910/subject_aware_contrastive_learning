@@ -10,10 +10,14 @@ from models.utils import get_base_encoder
 import random
 from datasets.wesad_dataset import WESADDataset
 from datasets.psy_dataset import PsyDataset
-from datasets.swell_dataset import SWELLDataset
+from datasets.swell_stressid_dataset import SWELL_STRESSID_Dataset
 from collections import defaultdict
 from loss.cl_loss import NCELoss
 from models.moe_dual_branch import (MoEPretrainModel, MoEFinetuneModel)
+#from models.moe_subject_model import SubjectMoEPretrainModel, Sub
+from models.moe_n_branch import MoENExpertPretrainModel, MoENExpertFinetuneModel
+from models.moe_n_branch_split import MoEDualNExpertPretrainModel
+from models.mmoe_n_branch import MMoEDualNExpertPretrainModel
 
 class EarlyStopping:
     """Early-stopper on a scalar metric (lower is better)."""
@@ -60,12 +64,17 @@ class LossMeter:
     def update(self, loss_dict):
         for k, v in loss_dict.items():
             if v is not None:
-                self.totals[k] += v.detach()
+                # handle both scalar tensors and plain floats
+                if isinstance(v, torch.Tensor):
+                    self.totals[k] += v.detach().item()
+                else:
+                    self.totals[k] += float(v)
         self.count += 1
 
     def average(self):
         return {k: v / max(1, self.count) for k, v in self.totals.items()}
 
+        
 class DummyLogger:
     """Logger that does nothing on non-zero ranks."""
 
@@ -115,21 +124,60 @@ def create_model(cfg, device):
     enc_args = cfg["model_args"]["base_encoder_args"]
     encoder  = get_base_encoder(enc_name, enc_args)
     projection_output = cfg["model_args"].get("projection_output", 32)
+    num_subjects = cfg["dataset_args"].get("num_subjects", 0)
 
+    if model_type == "mmoe_n_pretrain":
+        num_subjects = cfg["dataset_args"]["num_subjects"]
+        model = MMoEDualNExpertPretrainModel(
+            moe_encoder    = encoder,
+            grl_lambda     = cfg["model_args"].get("grl_lambda",    1.0),
+            lambda_expert  = cfg["model_args"].get("lambda_expert", 1.0),
+            lambda_shared  = cfg["model_args"].get("lambda_shared", 1.0),
+            lambda_orth    = cfg["model_args"].get("lambda_orth",   0.1),
+            device         = device,
+        )
+        return model
+    if model_type == "moe_dual_n_pretrain":
+        num_subjects = cfg["dataset_args"]["num_subjects"]
+        model = MoEDualNExpertPretrainModel(
+            moe_encoder    = encoder,
+            grl_lambda     = cfg["model_args"].get("grl_lambda",    1.0),
+            lambda_expert  = cfg["model_args"].get("lambda_expert", 1.0),
+            lambda_shared  = cfg["model_args"].get("lambda_shared", 1.0),
+            lambda_orth    = cfg["model_args"].get("lambda_orth",   0.1),
+            device         = device,
+        )
+        return model
+    if model_type == "moe_n_pretrain":
+        model = MoENExpertPretrainModel(
+            moe_encoder    = encoder,
+            grl_lambda     = cfg["model_args"].get("grl_lambda",    1.0),
+            lambda_expert  = cfg["model_args"].get("lambda_expert", 1.0),
+            lambda_shared  = cfg["model_args"].get("lambda_shared", 1.0),
+            lambda_orth    = cfg["model_args"].get("lambda_orth",   0.1),
+            device         = device,
+        )
+        return model
+    
+    if model_type == "moe_n_finetune":
+        model = MoENExpertFinetuneModel(
+            moe_encoder    = encoder,
+            num_class      = cfg["model_args"].get("num_class",      1),
+            model_path     = cfg["model_args"].get("model_path",     None),
+            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
+            freeze_stem    = cfg["model_args"].get("freeze_stem",    False),
+            freeze_experts = cfg["model_args"].get("freeze_experts", None),
+            freeze_router  = cfg["model_args"].get("freeze_router",  False),
+            device         = device,
+        )
+        return model
     # ── MoE dual-branch pretraining ───────────────────────────────────────
     if model_type == "moe_dual_branch":
-        # num_subjects is injected by PreTrainer._build_dataloader()
-        num_subjects = cfg["dataset_args"]["num_subjects"]
-
         model = MoEPretrainModel(
             moe_encoder    = encoder,
-            num_subjects   = num_subjects,
             grl_lambda     = cfg["model_args"].get("grl_lambda", 1.0),
             lambda_inv     = cfg["model_args"].get("lambda_inv",  1.0),
             lambda_spec    = cfg["model_args"].get("lambda_spec", 1.0),
-            lambda_subj    = cfg["model_args"].get("lambda_subj", 1.0),
-            lambda_adv     = cfg["model_args"].get("lambda_adv",  0.5),
-            lambda_orth    = cfg["model_args"].get("lambda_orth", 0.1),
             device         = device,
         )
         return model
@@ -181,13 +229,15 @@ def create_model(cfg, device):
         raise ValueError(f"Unknown model_type: {model_type}")
 
 def get_dataset(ds_args):
-    data_name = ds_args.pop("data_name", None)
+    data_name = ds_args.get("data_name", None)
     if data_name =="WESADDataset":
         return WESADDataset(**ds_args)
     elif data_name == "PsychioNet":
         return PsyDataset(**ds_args)
     elif data_name == "SWELLDataset":
-        return SWELLDataset(**ds_args)
+        return SWELL_STRESSID_Dataset(**ds_args)
+    elif data_name == "StressIDDataset":
+        return SWELL_STRESSID_Dataset(**ds_args)
 
 
 def get_loss(name: str, loss_args: dict):
@@ -203,10 +253,9 @@ def set_seed(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
 
-def setup_logger(output_dir):
-    """Logs to both console and file: output_dir/train.log"""
+def setup_logger(output_dir, name="train"):  # add a name param
     log_path = os.path.join(output_dir, "train.log")
-    logger = logging.getLogger("train")
+    logger = logging.getLogger(name)          # use the name
     logger.setLevel(logging.INFO)
     logger.handlers.clear()
 
