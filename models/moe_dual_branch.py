@@ -22,7 +22,6 @@ class MoEPretrainModel(Model):
     ):
         super().__init__(device= device)
         self.device        = device
-        self.grl_lambda    = grl_lambda
         self.lambda_inv    = lambda_inv
         self.lambda_spec   = lambda_spec
         self.lambda_shared = lambda_shared
@@ -37,7 +36,7 @@ class MoEPretrainModel(Model):
 
     def forward(self, batch):
         assert self.loss_fn is not None, "Call set_loss_fn() before forward()."
-
+        
         x1   = batch['x1']['x'].to(self.device, non_blocking=True).float()
         x2   = batch['x2']['x'].to(self.device, non_blocking=True).float()
         subj = batch['subject_id_int'].to(self.device, non_blocking=True).long()
@@ -110,7 +109,7 @@ class MoEFinetuneModel(nn.Module):
         self.encoder = moe_encoder
 
         P = moe_encoder.projection_output
-        self.classifier = nn.Linear(P, num_class)
+        self.classifier = nn.Linear(P*2, num_class)
 
         if model_path:
             self._load_encoder(model_path)

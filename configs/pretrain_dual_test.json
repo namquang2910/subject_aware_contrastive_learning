@@ -1,5 +1,5 @@
 {
-  "exp_name": "moe_dual_branch_concat",
+  "exp_name": "moe_dual_branch_test",
   "mode": "pretrain_finetune",
   "seeds": [0],
   "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO",

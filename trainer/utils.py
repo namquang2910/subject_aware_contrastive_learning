@@ -11,13 +11,12 @@ import random
 from datasets.wesad_dataset import WESADDataset
 from datasets.psy_dataset import PsyDataset
 from datasets.swell_stressid_dataset import SWELL_STRESSID_Dataset
+from datasets.verbio_dataset import VERBIODataset, VERBIODataset
 from collections import defaultdict
 from loss.cl_loss import NCELoss
 from models.moe_dual_branch import (MoEPretrainModel, MoEFinetuneModel)
 #from models.moe_subject_model import SubjectMoEPretrainModel, Sub
 from models.moe_n_branch import MoENExpertPretrainModel, MoENExpertFinetuneModel
-from models.moe_n_branch_split import MoEDualNExpertPretrainModel
-from models.mmoe_n_branch import MMoEDualNExpertPretrainModel
 
 class EarlyStopping:
     """Early-stopper on a scalar metric (lower is better)."""
@@ -126,28 +125,6 @@ def create_model(cfg, device):
     projection_output = cfg["model_args"].get("projection_output", 32)
     num_subjects = cfg["dataset_args"].get("num_subjects", 0)
 
-    if model_type == "mmoe_n_pretrain":
-        num_subjects = cfg["dataset_args"]["num_subjects"]
-        model = MMoEDualNExpertPretrainModel(
-            moe_encoder    = encoder,
-            grl_lambda     = cfg["model_args"].get("grl_lambda",    1.0),
-            lambda_expert  = cfg["model_args"].get("lambda_expert", 1.0),
-            lambda_shared  = cfg["model_args"].get("lambda_shared", 1.0),
-            lambda_orth    = cfg["model_args"].get("lambda_orth",   0.1),
-            device         = device,
-        )
-        return model
-    if model_type == "moe_dual_n_pretrain":
-        num_subjects = cfg["dataset_args"]["num_subjects"]
-        model = MoEDualNExpertPretrainModel(
-            moe_encoder    = encoder,
-            grl_lambda     = cfg["model_args"].get("grl_lambda",    1.0),
-            lambda_expert  = cfg["model_args"].get("lambda_expert", 1.0),
-            lambda_shared  = cfg["model_args"].get("lambda_shared", 1.0),
-            lambda_orth    = cfg["model_args"].get("lambda_orth",   0.1),
-            device         = device,
-        )
-        return model
     if model_type == "moe_n_pretrain":
         model = MoENExpertPretrainModel(
             moe_encoder    = encoder,
@@ -175,7 +152,6 @@ def create_model(cfg, device):
     if model_type == "moe_dual_branch":
         model = MoEPretrainModel(
             moe_encoder    = encoder,
-            grl_lambda     = cfg["model_args"].get("grl_lambda", 1.0),
             lambda_inv     = cfg["model_args"].get("lambda_inv",  1.0),
             lambda_spec    = cfg["model_args"].get("lambda_spec", 1.0),
             device         = device,
@@ -238,7 +214,8 @@ def get_dataset(ds_args):
         return SWELL_STRESSID_Dataset(**ds_args)
     elif data_name == "StressIDDataset":
         return SWELL_STRESSID_Dataset(**ds_args)
-
+    elif data_name == "VERBIODataset":
+        return VERBIODataset(**ds_args)
 
 def get_loss(name: str, loss_args: dict):
     if name == "NCE":

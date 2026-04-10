@@ -11,6 +11,7 @@ from torch.utils.data import Dataset
 from tqdm import tqdm
 from datasets.transform import Composer
 import torch.distributed as dist
+from sklearn.model_selection import train_test_split
 
 
 class DatasetWrapper(Dataset):
@@ -107,9 +108,16 @@ class DatasetWrapper(Dataset):
 
     def maybe_sub_sample_data(self):
         print(f"sub sample frac is {self.sub_sample_frac}")
-        if self.sub_sample_frac is not None:
-            self.data_df = self.data_df.sample(frac=self.sub_sample_frac)
-            print(f"Sampled {len(self.data_df)} examples")
+        if self.sub_sample_frac is not None and self.sub_sample_frac < 1.0:
+            self.data_df, _ = train_test_split(
+                self.data_df,
+                train_size=self.sub_sample_frac,
+                stratify=self.data_df['y'],  # preserves label distribution
+                random_state=42
+            )
+        if self.sub_sample_frac == 1.0:
+            self.data_df = self.data_df.sample(frac=1.0, random_state=42)
+        print(f"Sampled {len(self.data_df)} examples")
      
     def get_data_df(self):
         df_list = []
@@ -152,10 +160,13 @@ class DatasetWrapper(Dataset):
             print(f"Label {val} count: {count} = {count * 100 / len(self.data_df)}%")
 
     def _create_data_view(self, item, view_name, apply_transform):
-        x_trf = copy.deepcopy(item['x_base'])
+        x_base = copy.deepcopy(item['x_base'])
         if apply_transform:
-            x_trf = self.data_transformer(item)
-        item[view_name] = x_trf
+            result = self.data_transformer(item)
+            x_trf = result['x'] if isinstance(result, dict) else result
+        else:
+            x_trf = x_base
+        item[view_name] = {'x': x_trf}
         
     def read_subject_data(self, subject_dir):
         raise NotImplementedError

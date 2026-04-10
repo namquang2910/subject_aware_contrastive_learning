@@ -20,6 +20,7 @@ DATASET_DIC = {'WESADDataset':'/home/s223149341/SSL-invariance-Subject_Project_m
                'SWELLDataset':'/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320',
                'PsychioNet': '/home/s223149341/SSL-invariance-Subject_Project_model/data/PhysioNet2017/physionet2017_unlabelled_10_5.parquet',
                "STRESSIDDataset": '/home/s223149341/SSL-invariance-Subject_Project_model/data/STRESS_ID/STRESS_ID_1280_64',
+               "VERBIODataset": '/home/s223149341/SSL-invariance-Subject_Project_model/data/verbio_1280_64'
                }
 
 def resolve_args(args, cfg):
@@ -38,17 +39,24 @@ def resolve_args(args, cfg):
 
     # Resolve Dataset Split (Cross-dataset must use full dataset)
     split = cfg['pretrain_args']['dataset_args']['train_dataset_args']['split']
+    
     if split is not None:
         raise ValueError("This is the cross-dataset setting. Please set 'split=None' for full dataset training.")
-    return cfg
     
+    if args.finetune_fraction is not None:
+        print(f"Setting finetune dataset fraction to {args.finetune_fraction}")
+        cfg['finetune_args']["dataset_args"]['train_dataset_args']['sub_sample_frac'] = args.finetune_fraction
+        
+    return cfg
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config_path", type=str, required=True)
     parser.add_argument("--resume_finetune", type=int, default=-1 , help="continue to finetune from a previous pretrain run")
     parser.add_argument("--model_type", type=str, required=True, choices=["contrastive", "subject_specific", "subject_invariant", "moe_dual_branch", "mmoe_n_pretrain",  "moe_n_pretrain", "moe_dual_n_pretrain"], help="model type for pretraining, contrastive or subject_specific")
     parser.add_argument("--model_path", type=str, default=None , help="Path to model for finetune")
-    parser.add_argument("--dataset", type=str, default=None , choices=["WESADDataset", "SWELLDataset", "PsychioNet", "PsychioNet_z", "STRESSIDDataset"], help="Pretrain dataset")
+    parser.add_argument("--dataset", type=str, default=None , choices=["WESADDataset", "SWELLDataset", "PsychioNet", "PsychioNet_z", "STRESSIDDataset", "VERBIODataset"], help="Pretrain dataset")
+    parser.add_argument("--finetune_fraction", type=float, default=None , help="continue to finetune from a previous pretrain run")
     args = parser.parse_args()
 
     with open(args.config_path) as f:
@@ -70,6 +78,8 @@ def main():
         for seed in seeds:
             seed_results = {
                 "seed": seed,
+                "f1": [],
+                "acc": [],
             }
             if args.resume_finetune >= 0:
                 allow_exit = True
@@ -145,35 +155,39 @@ def main():
             seed_results = {'f1_score': np.mean(seed_results['f1']), 
                           'accuracy': np.mean(seed_results['acc']), 
                           "seed": seed, 
+                          "fraction": cfg_run['finetune_args']["dataset_args"]['train_dataset_args'].get('sub_sample_frac', None),
                           "Pretrain_output": pretrain_output_dir, 
                           "Finetune_output": finetune_output_dir }
+            path = os.path.join(BASE_OUTPUT, "results.json")
             if rank == 0:             
                 save_results(
-                all_seed_results,
-                os.path.join(BASE_OUTPUT, "results.json")
+                seed_results,
+                path
             )
+            
+            print(f"Saving seedresults for seed {seed} in to {path}")
             all_seed_results.append(seed_results)
         # ---------------- CROSS-SEED AVG ---------------- #
+        if len(seeds) > 1:
+            final_results = {
+                "mean_f1_across_seeds":
+                    np.mean([s["f1_score"] for s in all_seed_results]),
+                "std_f1_across_seeds":
+                    np.std([s["f1_score"] for s in all_seed_results]),
+                "mean_acc_across_seeds":
+                    np.mean([s["accuracy"] for s in all_seed_results]),
+                "std_acc_across_seeds":
+                    np.std([s["accuracy"] for s in all_seed_results]),
 
-        final_results = {
-            "mean_f1_across_seeds":
-                np.mean([s["mean_f1"] for s in all_seed_results]),
-            "std_f1_across_seeds":
-                np.std([s["mean_f1"] for s in all_seed_results]),
-            "mean_acc_across_seeds":
-                np.mean([s["mean_acc"] for s in all_seed_results]),
-            "std_acc_across_seeds":
-                np.std([s["mean_acc"] for s in all_seed_results]),
+                "seeds": seeds
+            }
 
-            "seeds": seeds
-        }
+            if rank == 0:
 
-        if rank == 0:
-
-            save_results(
-                final_results,
-                os.path.join(BASE_OUTPUT, "summary_results.json")
-            )
+                save_results(
+                    final_results,
+                    os.path.join(BASE_OUTPUT, "summary_results.csv")
+                )
     except Exception as e:
         if rank == 0 and pretrain_output_dir is not None and os.path.exists(pretrain_output_dir):
             print(f"Error occurred: {e}. Removing output directory: {pretrain_output_dir}")

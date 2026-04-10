@@ -1,0 +1,16 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.6377,0.641,0.051071494817733765,38,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_0.pt
+0.7459,0.7689,0.018553752452135086,61,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_1.pt
+0.9915,0.9929,0.14261935651302338,24,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_2.pt
+0.9248,0.9415,0.0575999841094017,39,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_3.pt
+0.5966,0.6279,0.014738323166966438,77,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_4.pt
+0.922,0.9343,0.02948218211531639,50,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_5.pt
+0.9995,0.9996,0.18952956795692444,20,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_6.pt
+1.0,1.0,0.22343844175338745,18,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_7.pt
+0.9747,0.9793,0.07744035869836807,31,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_8.pt
+0.993,0.9941,0.11869946122169495,26,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_9.pt
+0.9817,0.9851,0.028764065355062485,49,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_10.pt
+0.8693,0.88,0.10121653974056244,31,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_11.pt
+0.9503,0.9601,0.018379144370555878,65,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_12.pt
+0.8262,0.8672,0.15426018834114075,24,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_13.pt
+1.0,1.0,0.23638863861560822,17,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_2/finetune/WESADDataset/finetuned_best_14.pt

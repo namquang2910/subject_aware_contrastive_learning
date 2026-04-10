@@ -93,3 +93,5 @@ Run train_dp model for finetune
 0.6177400000000001,0.63524,[0],./save/dual_branch_no_scale/moe_dual_branch_WESADDataset/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset/finetune/StressIDDataset
 0.59856,0.62952,[0],./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset/pretrain,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset/finetune/StressIDDataset
 0.6070800000subject_aware_contrastive_learning/save/Mmoe_dual_6splits_expert000001,0.63838,[0],./save/dual_branch_no_scale/moe_dual_branch_PsychioNet/pretrain,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet/finetune/StressIDDataset
+
+# Run on 5% 10%

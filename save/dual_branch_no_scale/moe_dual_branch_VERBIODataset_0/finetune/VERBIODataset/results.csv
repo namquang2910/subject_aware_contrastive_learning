@@ -1,0 +1,6 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.8089,0.8092,0.012763546779751778,98,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/VERBIODataset/finetuned_best_0.pt
+0.7982,0.7993,0.013743001967668533,94,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/VERBIODataset/finetuned_best_1.pt
+0.9026,0.9054,0.011814064346253872,99,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/VERBIODataset/finetuned_best_2.pt
+0.6633,0.6674,0.012584589421749115,99,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/VERBIODataset/finetuned_best_3.pt
+0.7631,0.7634,0.01297685131430626,99,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/VERBIODataset/finetuned_best_4.pt

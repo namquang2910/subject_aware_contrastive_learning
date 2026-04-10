@@ -9,13 +9,36 @@ NPROC=2
 
 echo "Running Dual Branch Subject-aware contrastive learning for dataset WESAD..."
 
+
 torchrun \
   --nproc_per_node ${NPROC} \
   --master_port ${PORT} \
   single_train.py \
   --config_path "${WESAD_CONFIG}" \
   --model_type moe_dual_branch \
-  --dataset "WESADDataset" 
+  --dataset "WESADDataset" \
+  --resume_finetune 0 \
+  --finetune_fraction 0.05
+
+torchrun \
+  --nproc_per_node ${NPROC} \
+  --master_port ${PORT} \
+  single_train.py \
+  --config_path "${WESAD_CONFIG}" \
+  --model_type moe_dual_branch \
+  --dataset "WESADDataset" \
+  --resume_finetune 0 \
+  --finetune_fraction 0.1
+
+torchrun \
+  --nproc_per_node ${NPROC} \
+  --master_port ${PORT} \
+  single_train.py \
+  --config_path "${WESAD_CONFIG}" \
+  --model_type moe_dual_branch \
+  --dataset "WESADDataset" \
+  --resume_finetune 0 \
+  --finetune_fraction 1.0
 
 torchrun \
   --nproc_per_node ${NPROC} \
@@ -24,15 +47,27 @@ torchrun \
   --config_path "${SWELL_CONFIG}" \
   --model_type moe_dual_branch \
   --dataset "WESADDataset" \
-  --resume_finetune 0
-  
+  --resume_finetune 0 \
+  --finetune_fraction 0.05
+
 torchrun \
   --nproc_per_node ${NPROC} \
   --master_port ${PORT} \
   single_train.py \
-  --config_path "${STRESSID_CONFIG}" \
+  --config_path "${SWELL_CONFIG}" \
   --model_type moe_dual_branch \
   --dataset "WESADDataset" \
-  --resume_finetune 0
+  --resume_finetune 0 \
+  --finetune_fraction 0.1
+
+torchrun \
+  --nproc_per_node ${NPROC} \
+  --master_port ${PORT} \
+  single_train.py \
+  --config_path "${SWELL_CONFIG}" \
+  --model_type moe_dual_branch \
+  --dataset "WESADDataset" \
+  --resume_finetune 0 \
+  --finetune_fraction 1.0
 
 echo "All runs completed."

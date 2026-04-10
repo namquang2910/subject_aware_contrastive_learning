@@ -1,0 +1,4 @@
+Head,ARI,NMI,Silhouette
+Invariant Head (z_inv),0.759,0.873,0.108
+Subject-Specific Head (z_spec),0.999,0.999,0.773
+Concat Head (h_out),0.755,0.879,0.117

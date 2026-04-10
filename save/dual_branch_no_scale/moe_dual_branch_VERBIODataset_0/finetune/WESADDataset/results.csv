@@ -1,0 +1,16 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.9789,0.9815,0.006393576040863991,57,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_0.pt
+0.5066,0.7126,0.004942740313708782,20,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_1.pt
+0.6173,0.7728,0.04179070144891739,8,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_2.pt
+0.9001,0.9242,0.005008514970541,45,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_3.pt
+0.7267,0.7657,0.5937924385070801,0,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_4.pt
+0.7362,0.7624,0.014457613229751587,14,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_5.pt
+0.9823,0.9844,0.04207410663366318,8,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_6.pt
+0.843,0.8526,0.015994876623153687,15,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_7.pt
+0.6727,0.7869,0.004081354476511478,21,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_8.pt
+0.9917,0.9929,0.0010077191982418299,57,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_9.pt
+0.5475,0.7502,0.114593505859375,4,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_10.pt
+0.9723,0.977,0.05829555541276932,6,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_11.pt
+0.9561,0.9631,0.018620125949382782,43,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_12.pt
+0.886,0.9025,0.015547769144177437,13,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_13.pt
+1.0,1.0,0.2942928075790405,2,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/WESADDataset/finetuned_best_14.pt

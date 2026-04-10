@@ -1,0 +1,16 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.8855,0.8935,0.020068060606718063,58,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_0.pt
+0.6717,0.7053,0.0391814261674881,41,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_1.pt
+0.9294,0.9448,0.08294874429702759,30,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_2.pt
+0.9938,0.9949,0.03596542030572891,50,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_3.pt
+0.7508,0.7795,0.16421765089035034,20,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_4.pt
+0.7746,0.8184,0.20209261775016785,17,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_5.pt
+0.9967,0.9971,0.10789097845554352,35,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_6.pt
+0.9739,0.9779,0.0879698395729065,36,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_7.pt
+0.9975,0.9979,0.47071683406829834,5,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_8.pt
+0.9927,0.9939,0.09442710131406784,35,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_9.pt
+0.9383,0.9518,0.39062386751174927,8,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_10.pt
+0.9677,0.9727,0.08443620800971985,30,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_11.pt
+0.9808,0.9843,0.0483056977391243,61,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_12.pt
+0.9123,0.9243,0.07524538040161133,62,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_13.pt
+1.0,1.0,0.23734012246131897,15,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/finetune/WESADDataset/finetuned_best_14.pt

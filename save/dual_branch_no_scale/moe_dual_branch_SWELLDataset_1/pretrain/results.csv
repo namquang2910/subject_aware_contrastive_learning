@@ -1,0 +1,2 @@
+best_path,best_loss,best_epoch
+./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_1/pretrain/encoder_best_.pt,10.106603622436523,586

@@ -1,0 +1,2 @@
+best_path,best_loss,best_epoch
+./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_2/pretrain/encoder_best_.pt,4.1588592529296875,599

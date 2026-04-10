@@ -111,6 +111,7 @@ class Trainer:
         for _, data in enumerate(self.train_loader):
             self.model.zero_grad()
             result = self.model(data)
+            
             result["total_loss"].backward()
             self.optimizer.step()
             result.pop("y_hat", None) #remove y_hat

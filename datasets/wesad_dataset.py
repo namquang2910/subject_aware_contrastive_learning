@@ -9,7 +9,7 @@ from datasets.dataset import DatasetWrapper
 
 
 class WESADDataset(DatasetWrapper):
-    def __init__(self, dataset_path, include_labels, split=None, split_file=None, sub_sample_frac=None, 
+    def __init__(self, dataset_path, include_labels=None, split=None, split_file=None, sub_sample_frac=None, 
                  data_views=None, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None,
                  data_name=None):
         """
@@ -24,7 +24,7 @@ class WESADDataset(DatasetWrapper):
         :param transform_dict: List of names of transforms to apply to signals if working with the transformed view
         :param transform_global: arguments to use when applying data transforms
         """
-        self.include_labels = include_labels
+        self.include_labels = include_labels if include_labels is not None else False
         self.num_subjects = 15
         y_dim = 1 if self.include_labels else None
         super().__init__(dataset_path, y_dim, split, split_file, sub_sample_frac, 

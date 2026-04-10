@@ -1,7 +1,7 @@
 {
   "exp_name": "dual_branch_no_scale",
   "mode": "pretrain_finetune",
-  "seeds": [1,2],
+  "seeds": [0],
   "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO",
 
   "logging_args": {
@@ -19,7 +19,7 @@
       "train_dataset_args": {
         "data_name": null,
         "dataset_path": null,
-        "include_labels": true,
+        "include_labels": "true",
         "split": null,
         "sub_sample_frac": 1.0,
         "data_views": {
@@ -111,11 +111,11 @@
   "finetune_args": {
     "dataset_args": {
       "train_dataset_args": {
-         "data_name": "WESADDataset",
+        "data_name": "WESADDataset",
         "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
         "include_labels": "true",
         "split": "train",
-        "sub_sample_frac": 0.01
+        "sub_sample_frac": 1.0
       },
       "val_dataset_args": {
         "data_name": "WESADDataset",
@@ -165,7 +165,7 @@
       "num_workers": 8,
       "weight_decay": 0.0001,
       "use_lr_scheduler": true,
-      "warm_up": 50,
+      "warm_up": 20,
       "apply_early_stopping": false,
       "early_stopping_higher_better": true,
       "patience": 30
