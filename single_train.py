@@ -126,9 +126,9 @@ def main():
                 cfg_run['finetune_args']["model_args"]["model_path"] = best_path
                 save_results(pretrain_out, os.path.join(pretrain_output_dir, "results.csv")) if rank == 0 else None
                 
-                if world_size > 1:
-                    dist.barrier()  # ← ADD THIS: ensure both ranks sync before finetuner init
-
+            if world_size > 1:
+                dist.barrier()
+                
             split_fold = cfg["split_path"]
             folds = sorted(p for p in os.listdir(split_fold) if p.endswith(".csv"))
             for run_id, _ in enumerate(folds):

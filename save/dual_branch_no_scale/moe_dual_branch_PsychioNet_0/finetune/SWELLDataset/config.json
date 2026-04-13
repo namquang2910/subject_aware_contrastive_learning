@@ -166,7 +166,7 @@
                 "include_labels": "true",
                 "split": "train",
                 "sub_sample_frac": 1.0,
-                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO/fold_07.csv"
+                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO/fold_24.csv"
             },
             "val_dataset_args": {
                 "data_name": "SWELLDataset",
@@ -174,7 +174,7 @@
                 "include_labels": "true",
                 "split": "val",
                 "sub_sample_frac": 1.0,
-                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO/fold_07.csv"
+                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO/fold_24.csv"
             },
             "test_dataset_args": {
                 "data_name": "SWELLDataset",
@@ -182,7 +182,7 @@
                 "include_labels": "true",
                 "split": "test",
                 "sub_sample_frac": 1.0,
-                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO/fold_07.csv"
+                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO/fold_24.csv"
             }
         },
         "model_args": {

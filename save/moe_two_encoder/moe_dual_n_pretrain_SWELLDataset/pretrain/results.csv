@@ -1,2 +1,0 @@
-best_path,best_loss,best_epoch
-./save/moe_two_encoder/moe_dual_n_pretrain_SWELLDataset/pretrain/encoder_best_.pt,6.393280029296875,393

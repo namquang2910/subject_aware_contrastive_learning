@@ -18,26 +18,6 @@ torchrun \
   --model_type moe_dual_branch \
   --dataset "WESADDataset" \
   --resume_finetune 0 \
-  --finetune_fraction 0.05
-
-torchrun \
-  --nproc_per_node ${NPROC} \
-  --master_port ${PORT} \
-  single_train.py \
-  --config_path "${WESAD_CONFIG}" \
-  --model_type moe_dual_branch \
-  --dataset "WESADDataset" \
-  --resume_finetune 0 \
-  --finetune_fraction 0.1
-
-torchrun \
-  --nproc_per_node ${NPROC} \
-  --master_port ${PORT} \
-  single_train.py \
-  --config_path "${WESAD_CONFIG}" \
-  --model_type moe_dual_branch \
-  --dataset "WESADDataset" \
-  --resume_finetune 0 \
   --finetune_fraction 1.0
 
 torchrun \
