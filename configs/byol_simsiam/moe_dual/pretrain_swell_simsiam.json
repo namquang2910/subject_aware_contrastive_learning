@@ -1,8 +1,8 @@
 {
-  "exp_name": "dual_subject_minmax",
+  "exp_name": "Simsiam",
   "mode": "pretrain_finetune",
   "seeds": [0],
-  "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_SWELL_False",
+  "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO",
 
   "logging_args": {
     "base_output_dir": "./save",
@@ -19,7 +19,7 @@
       "train_dataset_args": {
         "data_name": null,
         "dataset_path": null,
-        "include_labels": true,
+        "include_labels": "true",
         "split": null,
         "sub_sample_frac": 1.0,
         "data_views": {
@@ -66,42 +66,33 @@
     },
 
     "model_args": {
-      "base_encoder": "moe",
+      "base_encoder": "cnn",
       "base_encoder_args": {
         "input_dim": 1280,
         "kernel_size": 10,
         "dropout_prob": 0.1,
-        "stride": 1,
-        "output_dim": 64,
-        "projection_output": 32,
-        "router_temperature": 1.0
+        "stride": 1
       },
-      "model_type": "moe_dual_branch",
-      "num_subjects": null,
-      "grl_lambda": 1.0,
-      "lambda_inv":  1.0,
-      "lambda_spec": 1.0,
-      "lambda_adv":  0.5,
-      "lambda_orth": 0.1
+      "model_type": "simsiam"
     },
 
     "loss": {
-      "name": "NCE",
-      "loss_args": { "temperature": 0.1 }
+      "name": "NegCosine",
+      "loss_args": {}
     },
 
     "optim_args": {
-      "lr": 0.001,
-      "min_lr": 0.0001,
+      "lr": 0.0001,
+      "min_lr": 0.00001,
       "batch_size": 512,
       "num_workers": 8,
-      "epochs": 400,
+      "epochs": 600,
       "weight_decay": 0.01,
       "adam_beta1": 0.9,
       "adam_beta2": 0.999,
       "adam_epsilon": 1e-08,
       "use_lr_scheduler": true,
-      "warm_up": 100,
+      "warm_up": 200,
       "apply_early_stopping": false,
       "early_stopping_higher_better": false,
       "patience": 15
@@ -111,22 +102,22 @@
   "finetune_args": {
     "dataset_args": {
       "train_dataset_args": {
-         "data_name": "WESADDataset",
-        "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_minmax",
+         "data_name": "SWELLDataset",
+        "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320_3label",
         "include_labels": "true",
         "split": "train",
         "sub_sample_frac": 0.01
       },
       "val_dataset_args": {
         "data_name": "SWELLDataset",
-        "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320_minmax",
+        "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320_3label",
         "include_labels": "true",
         "split": "val",
         "sub_sample_frac": 1.0
       },
       "test_dataset_args": {
         "data_name": "SWELLDataset",
-        "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320_minmax",
+        "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320_3label",
         "include_labels": "true",
         "split": "test",
         "sub_sample_frac": 1.0
@@ -134,21 +125,15 @@
     },
 
     "model_args": {
-      "base_encoder": "moe",
-      "model_type": "moe_finetune",
+      "base_encoder": "cnn",
       "base_encoder_args": {
         "input_dim": 1280,
         "kernel_size": 10,
-        "output_dim": 64,
-        "stride": 1,
-        "dropout_prob": 0.0,
-        "projection_output": 32,
-        "router_temperature": 1.0
+        "dropout_prob": 0.1,
+        "stride": 1
       },
+      "model_type": "simsiam_finetune",
       "num_class": 1,
-      "freeze_encoder": false,
-      "freeze_inv": false,
-      "freeze_spec": false,
       "model_path": ""
     },
 
@@ -158,17 +143,17 @@
     },
 
     "optim_args": {
-      "lr": 0.0001,
-      "min_lr": 0.00001,
+      "lr": 0.001,
+      "min_lr": 0.0001,
       "epochs": 100,
       "batch_size": 64,
       "num_workers": 8,
-      "weight_decay": 0.00001,
+      "weight_decay": 0.001,
       "use_lr_scheduler": true,
-      "warm_up": 5,
+      "warm_up": 0,
       "apply_early_stopping": true,
       "early_stopping_higher_better": true,
-      "patience": 20
+      "patience": 30
     }
   }
 }

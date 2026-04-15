@@ -1,5 +1,5 @@
 {
-  "exp_name": "moe_two_encoder",
+  "exp_name": "dual_branch_no_scale",
   "mode": "pretrain_finetune",
   "seeds": [0],
   "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO",
@@ -17,9 +17,9 @@
   "pretrain_args": {
     "dataset_args": {
       "train_dataset_args": {
-        "data_name": "SWELLDataset",
-        "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320",
-        "include_labels": true,
+        "data_name": null,
+        "dataset_path": null,
+        "include_labels": "true",
         "split": null,
         "sub_sample_frac": 1.0,
         "data_views": {
@@ -37,14 +37,14 @@
           "Identity": {},
           "JumpArtifactStochastic":         { "shift_factor_min": 0.01, "shift_factor_max": 0.10 },
           "LooseSensorArtifactStochastic":  { "width_min": 10, "width_max": 30 },
-          "TemporalCutoutStochastic":       { "cutout_size_min": 10, "cutout_size_max": 40 },
           "HighFrequencyNoiseStochastic":   { "sigma_scale_min": 0.1, "sigma_scale_max": 1.0 },
           "Flip": {},
           "AmplitudeWarpingStochastic":     { "sigma_min": 0.01, "sigma_max": 0.05, "knot_min": 0, "knot_max": 4 },
           "BandpassFilterStochastic":       { "lowcut_hz_min": 0.5,  "lowcut_hz_max": 1.5,  "highcut_hz_min": 40.0, "highcut_hz_max": 100.0 },
           "BandstopFilterStochastic":       { "remove_freq_min": 0.75, "remove_freq_max": 1.0 },
           "LowPassFilterStochastic":        { "highcut_hz_min": 20.0, "highcut_hz_max": 40.0 },
-          "HighPassFilterStochastic":       { "lowcut_hz_min": 0.05, "lowcut_hz_max": 0.25 }
+          "HighPassFilterStochastic":       { "lowcut_hz_min": 0.05, "lowcut_hz_max": 0.25 },
+          "TemporalCutoutStochastic":       { "cutout_size_min": 10, "cutout_size_max": 40 }
         },
         "transform_global_core": {
           "apply_probabilities": {
@@ -56,9 +56,7 @@
             "LowPassFilterStochastic":            0.4,
             "HighPassFilterStochastic":           0.4,
             "TimeWarpingStochastic":              0.4,
-            "TimeShiftStochastic":                0.5,
-            "PermuteStochastic":                  0.2
-          }
+            "TimeShiftStochastic":                0.5          }
         },
         "transform_global_artifact": {
           "n_transforms": 2,
@@ -68,7 +66,7 @@
     },
 
     "model_args": {
-      "base_encoder": "moe_n",
+      "base_encoder": "moe",
       "base_encoder_args": {
         "input_dim": 1280,
         "kernel_size": 10,
@@ -76,10 +74,9 @@
         "stride": 1,
         "output_dim": 64,
         "projection_output": 32,
-        "router_temperature": 1.0,
-        "num_experts": 6
+        "router_temperature": 1.0
       },
-      "model_type": "moe_dual_n_pretrain",
+      "model_type": "moe_dual_branch",
       "num_subjects": null,
       "grl_lambda": 1.0,
       "lambda_inv":  1.0,
@@ -98,13 +95,13 @@
       "min_lr": 0.0001,
       "batch_size": 512,
       "num_workers": 8,
-      "epochs": 400,
-      "weight_decay": 0.001,
+      "epochs": 600,
+      "weight_decay": 0.01,
       "adam_beta1": 0.9,
       "adam_beta2": 0.999,
       "adam_epsilon": 1e-08,
       "use_lr_scheduler": true,
-      "warm_up": 100,
+      "warm_up": 200,
       "apply_early_stopping": false,
       "early_stopping_higher_better": false,
       "patience": 15
@@ -118,7 +115,7 @@
         "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
         "include_labels": "true",
         "split": "train",
-        "sub_sample_frac": 0.01
+        "sub_sample_frac": 1.0
       },
       "val_dataset_args": {
         "data_name": "WESADDataset",
@@ -137,8 +134,8 @@
     },
 
     "model_args": {
-      "base_encoder": "moe_n",
-      "model_type": "moe_n_finetune",
+      "base_encoder": "moe",
+      "model_type": "moe_finetune",
       "base_encoder_args": {
         "input_dim": 1280,
         "kernel_size": 10,
@@ -146,8 +143,7 @@
         "stride": 1,
         "dropout_prob": 0.0,
         "projection_output": 32,
-        "router_temperature": 1.0,
-        "num_experts": 6
+        "router_temperature": 1.0
       },
       "num_class": 1,
       "freeze_encoder": false,
@@ -162,17 +158,17 @@
     },
 
     "optim_args": {
-      "lr": 0.001,
-      "min_lr": 0.00001,
+      "lr": 0.0001,
+      "min_lr": 0.000001,
       "epochs": 100,
       "batch_size": 64,
       "num_workers": 8,
-      "weight_decay": 0.0001,
+      "weight_decay": 0.001,
       "use_lr_scheduler": true,
-      "warm_up": 5,
+      "warm_up": 0,
       "apply_early_stopping": true,
       "early_stopping_higher_better": true,
-      "patience": 20
+      "patience": 30
     }
   }
 }

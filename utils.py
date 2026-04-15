@@ -14,78 +14,10 @@ from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_sc
 import csv
 
 
-class EarlyStopping:
-    """Early-stopper on a scalar metric (lower is better)."""
-    def __init__(self, min_delta=1e-3, patience=15, is_higher = True,enabled=True):
-        self.enabled = bool(enabled)
-        self.is_higher = bool(is_higher)
-        self.min_delta = float(min_delta)
-        self.patience = int(patience)
-        self.best = None
-        self.patience_counter = 0
-
-    def step(self, value: float):
-        """Update with latest value; return (should_stop: bool, improved: bool)."""
-        improved = False
-        if self.best is None:
-            self.best = value
-            return (False, True)
-
-        if (self.best - value) > self.min_delta if not self.is_higher else (value - self.best) > self.min_delta:
-            self.best = value
-            self.patience_counter = 0
-            improved = True
-        else:
-            self.patience_counter += 1
-
-        if not self.enabled:
-            return (False, improved)
-        
-        return (self.patience_counter >= self.patience, improved)
-
-    def _best_loss_update(self, loss):
-        if loss < self.best_loss:
-            self.patience_counter = 0
-            self.best_loss = loss
-            return True
-        return False
-
-def set_seed(seed):
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-
-
 def save_config_file(config_dict, output_dir):
     with open(os.path.join(output_dir, "config.json"), "w") as f:
         json.dump(config_dict, f, indent=4)
   
-
-def compute_metrics(y_true, y_hat):
-    # --- Ensure CPU numpy arrays ---
-    if isinstance(y_true, torch.Tensor):
-        y_true = y_true.detach().cpu().numpy()
-    if isinstance(y_hat, torch.Tensor):
-        y_hat = y_hat.detach().cpu().numpy()
-
-    # --- Compute metrics ---
-    acc = accuracy_score(y_true, y_hat)
-    precision = precision_score(y_true, y_hat, average='macro', zero_division=0)
-    recall = recall_score(y_true, y_hat, average='macro', zero_division=0)
-    f1 = f1_score(y_true, y_hat, average='macro', zero_division=0)
-
-    # --- Confusion matrix ---
-    conf_mat = confusion_matrix(y_true, y_hat)
-
-    return {
-        'acc': round(acc, 4),
-        'precision': round(precision, 4),
-        'recall': round(recall, 4),
-        'f1': round(f1, 4),
-        'conf_mat': conf_mat
-    }
-
 
 def broadcast_rank(obj, rank):
     if not dist.is_available() or not dist.is_initialized():

@@ -48,7 +48,7 @@ class Finetuner(Trainer):
         classifier_params, encoder_params = self.model.get_parameters()
         self.optimizer = optim.AdamW(
             [
-                {"params": encoder_params,    "lr": self.optim_args["lr"]},
+                {"params": encoder_params,    "lr": self.optim_args["lr"]/10},
                 {"params": classifier_params, "lr": self.optim_args["lr"]},
             ],
             lr=self.optim_args["lr"],
@@ -77,6 +77,7 @@ class Finetuner(Trainer):
         print(f"Train dataset size: {len(train_ds)}")
         val_ds   = get_dataset(ds_args["val_dataset_args"])
         test_ds  = get_dataset(ds_args["test_dataset_args"])
+        
         self.train_sampler = DistributedSampler(
             train_ds, num_replicas=self.world_size, rank=self.rank,
             shuffle=True, drop_last=True)

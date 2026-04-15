@@ -15,8 +15,9 @@ from datasets.verbio_dataset import VERBIODataset, VERBIODataset
 from collections import defaultdict
 from loss.cl_loss import NCELoss
 from models.moe_dual_branch import (MoEPretrainModel, MoEFinetuneModel)
-#from models.moe_subject_model import SubjectMoEPretrainModel, Sub
-from models.moe_n_branch import MoENExpertPretrainModel, MoENExpertFinetuneModel
+from models.byol_model import BYOLFinetuneModel, BYOLPretrainModel
+from models.simsiam_model import SimSiamFinetuneModel, SimSiamPretrainModel
+from loss.neg_cosine import NegCosine
 
 class EarlyStopping:
     """Early-stopper on a scalar metric (lower is better)."""
@@ -125,29 +126,6 @@ def create_model(cfg, device):
     projection_output = cfg["model_args"].get("projection_output", 32)
     num_subjects = cfg["dataset_args"].get("num_subjects", 0)
 
-    if model_type == "moe_n_pretrain":
-        model = MoENExpertPretrainModel(
-            moe_encoder    = encoder,
-            grl_lambda     = cfg["model_args"].get("grl_lambda",    1.0),
-            lambda_expert  = cfg["model_args"].get("lambda_expert", 1.0),
-            lambda_shared  = cfg["model_args"].get("lambda_shared", 1.0),
-            lambda_orth    = cfg["model_args"].get("lambda_orth",   0.1),
-            device         = device,
-        )
-        return model
-    
-    if model_type == "moe_n_finetune":
-        model = MoENExpertFinetuneModel(
-            moe_encoder    = encoder,
-            num_class      = cfg["model_args"].get("num_class",      1),
-            model_path     = cfg["model_args"].get("model_path",     None),
-            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
-            freeze_stem    = cfg["model_args"].get("freeze_stem",    False),
-            freeze_experts = cfg["model_args"].get("freeze_experts", None),
-            freeze_router  = cfg["model_args"].get("freeze_router",  False),
-            device         = device,
-        )
-        return model
     # ── MoE dual-branch pretraining ───────────────────────────────────────
     if model_type == "moe_dual_branch":
         model = MoEPretrainModel(
@@ -201,6 +179,41 @@ def create_model(cfg, device):
             device         = device,
             freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
         )
+    # Ablation studies models
+    elif model_type == "byol":
+            model = BYOLPretrainModel(
+                base_encoder      = encoder,
+                ema_decay         = cfg["model_args"].get("ema_decay",         0.99),
+                device            = device,
+            )
+            return model
+
+    elif model_type == "byol_finetune":
+        model = BYOLFinetuneModel(
+            base_encoder   = encoder,
+            num_class      = cfg["model_args"].get("num_class",      1),
+            model_path     = cfg["model_args"].get("model_path",     None),
+            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
+            device         = device,
+        )
+        return model
+
+    elif model_type == "simsiam":
+        model = SimSiamPretrainModel(
+            base_encoder      = encoder,
+            device            = device,
+        )
+        return model
+
+    elif model_type == "simsiam_finetune":
+        model = SimSiamFinetuneModel(
+            base_encoder   = encoder,
+            num_class      = cfg["model_args"].get("num_class",      1),
+            model_path     = cfg["model_args"].get("model_path",     None),
+            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
+            device         = device,
+        )
+        return model
     else:
         raise ValueError(f"Unknown model_type: {model_type}")
 
@@ -222,6 +235,8 @@ def get_loss(name: str, loss_args: dict):
         return NCELoss(**loss_args)
     elif name == "BCE":
         return torch.nn.BCEWithLogitsLoss()
+    elif name =="NegCosine":
+        return NegCosine()
     raise ValueError(f"Unknown loss: {name}")
 
 def set_seed(seed):
@@ -229,30 +244,6 @@ def set_seed(seed):
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
-
-def setup_logger(output_dir, name="train"):  # add a name param
-    log_path = os.path.join(output_dir, "train.log")
-    logger = logging.getLogger(name)          # use the name
-    logger.setLevel(logging.INFO)
-    logger.handlers.clear()
-
-    fmt = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s", "%Y-%m-%d %H:%M:%S")
-
-    # File
-    fh = logging.FileHandler(log_path)
-    fh.setLevel(logging.INFO)
-    fh.setFormatter(fmt)
-    logger.addHandler(fh)
-
-    # Console
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.INFO)
-    ch.setFormatter(fmt)
-    logger.addHandler(ch)
-
-    # Make sure 3rd-party libs don’t spam DEBUG
-    logging.getLogger().setLevel(logging.WARNING)
-    return logger
 
 def save_config_file(config_dict, output_dir):
     with open(os.path.join(output_dir, "config.json"), "w") as f:

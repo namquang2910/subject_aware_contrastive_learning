@@ -5,7 +5,7 @@ WESAD_CONFIG="/home/s223149341/SSL-invariance-Subject_Project_model/subject_awar
 SWELL_CONFIG="/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/pretrain_dual_branch/no_scale/pretrain_swell.json"
 STRESSID_CONFIG="/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/pretrain_dual_branch/no_scale/pretrain_stressid.json"
 PORT=23503
-NPROC=2
+NPROC=4
 
 echo "Running Dual Branch Subject-aware contrastive learning for dataset PsychioNet..."
 

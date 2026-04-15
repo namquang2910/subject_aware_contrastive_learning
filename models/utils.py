@@ -5,7 +5,6 @@ from models.net.DeepCNN import DeepCNN
 from models.net.CNNEncoder import CNNEncoder
 from models.net.moe_encoder import MoEDualBranchEncoder
 from models.net.convnextv1 import convnext_stiny
-from models.net.moe_n_encoder import MoENExpertEncoder
 
 
 def get_base_encoder(name, args):
@@ -17,5 +16,3 @@ def get_base_encoder(name, args):
         return convnext_stiny(**args)
     elif name == 'moe':
         return MoEDualBranchEncoder(**args)
-    elif name == 'moe_n':
-        return MoENExpertEncoder(**args)

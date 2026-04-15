@@ -25,18 +25,17 @@ class Trainer:
         self.device = device
         self.optim_args = None
         self.train_sampler = None
-        #self.output_dir = cfg["logging_args"]["output_dir"]
         self.logger.info(f"Setting the seed to {seed} ")
         set_seed(seed)
-        
+        self.ema = True if cfg['pretrain_args'].get("model_type") == 'byol' else False
+
         self.output = {"best_path": None,
                        "best_loss": None,
                        "best_epoch": None}
+        
         self.results_file = self.cfg["logging_args"]["results_file"]
         self.print_freq = int(cfg["logging_args"]["print_freq"])
         self.save_freq = int(cfg["logging_args"]["save_freq"])
-
-        #save_config_file(cfg, self.output_dir)
 
     def _build_model(self, training_cfg):
         """
@@ -69,6 +68,7 @@ class Trainer:
             device_ids=[self.device.index] if self.device.type == "cuda" else None,
             output_device=self.device.index if self.device.type == "cuda" else None,
             broadcast_buffers=True,
+            find_unused_parameters=True,
         )
     def _build_early_stopper(self):
         self.early_stopper = EarlyStopping(
@@ -114,6 +114,10 @@ class Trainer:
             
             result["total_loss"].backward()
             self.optimizer.step()
+            
+            if self.ema:
+                self.model.update_moving_average() 
+            
             result.pop("y_hat", None) #remove y_hat
             meter.update(result)
 
@@ -121,6 +125,7 @@ class Trainer:
 
         # Sync total loss across ranks
        # In train_one_epoch, fix the distributed sync
+        print(avg_losses)
         if self.distributed:
             t = torch.tensor(avg_losses["total_loss"], device=self.device)
             dist.all_reduce(t, op=dist.ReduceOp.SUM)

@@ -39,3 +39,7 @@ Run 10%
 0.78722,0.78894,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_VERBIODataset_0/finetune/VERBIODataset
 0.7833466666666667,0.8158799999999999,0,1.0,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset
 0.726096,0.7595119999999999,0,1.0,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/SWELLDataset
+
+0.7754200000000001,0.82344,0,1.0,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset
+0.41173999999999994,0.7000066666666667,0,0.01,./save/BYOL/byol_PsychioNet_0/pretrain,./save/BYOL/byol_PsychioNet_0/finetune/WESADDataset
+0.8649466666666668,0.8857799999999999,0,0.01,./save/Simsiam/simsiam_PsychioNet_0/pretrain,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset

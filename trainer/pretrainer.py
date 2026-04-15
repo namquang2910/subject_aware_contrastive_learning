@@ -22,7 +22,6 @@ class PreTrainer(Trainer):
         self._wrap_ddp()
         self._build_optimizer()
         self._build_early_stopper()
-      
 
         if self.rank == 0:
             save_config_file(cfg, self.pretrain_output_dir)
@@ -30,6 +29,7 @@ class PreTrainer(Trainer):
     def _build_dataloader(self):
             ds_args = self.cfg['pretrain_args']["dataset_args"].copy()
             train_ds = get_dataset( ds_args["train_dataset_args"])
+            
             self.cfg['pretrain_args']["dataset_args"]['num_subjects'] = train_ds.num_subjects
             self.train_sampler = DistributedSampler(
                 train_ds, num_replicas=self.world_size, rank=self.rank,

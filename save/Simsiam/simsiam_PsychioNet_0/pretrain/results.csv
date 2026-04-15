@@ -1,0 +1,2 @@
+best_path,best_loss,best_epoch
+./save/Simsiam/simsiam_PsychioNet_0/pretrain/encoder_best_.pt,-0.8981427550315857,542

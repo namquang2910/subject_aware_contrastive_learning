@@ -53,7 +53,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config_path", type=str, required=True)
     parser.add_argument("--resume_finetune", type=int, default=-1 , help="continue to finetune from a previous pretrain run")
-    parser.add_argument("--model_type", type=str, required=True, choices=["contrastive", "subject_specific", "subject_invariant", "moe_dual_branch", "mmoe_n_pretrain",  "moe_n_pretrain", "moe_dual_n_pretrain"], help="model type for pretraining, contrastive or subject_specific")
+    parser.add_argument("--model_type", type=str, required=True, choices=["contrastive", "subject_specific", "subject_invariant", "moe_dual_branch", "byol", "simsiam"], help="model type for pretraining, contrastive or subject_specific")
     parser.add_argument("--model_path", type=str, default=None , help="Path to model for finetune")
     parser.add_argument("--dataset", type=str, default=None , choices=["WESADDataset", "SWELLDataset", "PsychioNet", "PsychioNet_z", "STRESSIDDataset", "VERBIODataset"], help="Pretrain dataset")
     parser.add_argument("--finetune_fraction", type=float, default=None , help="continue to finetune from a previous pretrain run")
@@ -126,9 +126,7 @@ def main():
                 cfg_run['finetune_args']["model_args"]["model_path"] = best_path
                 save_results(pretrain_out, os.path.join(pretrain_output_dir, "results.csv")) if rank == 0 else None
                 
-            if world_size > 1:
-                dist.barrier()
-                
+            
             split_fold = cfg["split_path"]
             folds = sorted(p for p in os.listdir(split_fold) if p.endswith(".csv"))
             for run_id, _ in enumerate(folds):
