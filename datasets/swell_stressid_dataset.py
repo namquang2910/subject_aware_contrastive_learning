@@ -10,7 +10,7 @@ from datasets.dataset import DatasetWrapper
 
 class SWELL_STRESSID_Dataset(DatasetWrapper):
     def __init__(self, dataset_path, include_labels, split=None, split_file=None, sub_sample_frac=None, 
-                 data_views=None, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None,
+                 data_views=None, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None, order = "core_first",
                  data_name = None):
         """
         :param dataset_path: path to folder containing sub-directories with subject data
@@ -28,7 +28,7 @@ class SWELL_STRESSID_Dataset(DatasetWrapper):
         self.num_subjects = 25
         y_dim = 1 if self.include_labels else None
         super().__init__(dataset_path, y_dim, split, split_file, sub_sample_frac, 
-                         data_views, transform_dict_core, transform_dict_artifact, transform_global_core, transform_global_artifact, data_name)
+                         data_views, transform_dict_core, transform_dict_artifact, transform_global_core, transform_global_artifact, order, data_name)
         
     def read_data(self):
         data_df = self.get_data_df()

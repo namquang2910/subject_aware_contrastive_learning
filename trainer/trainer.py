@@ -27,8 +27,8 @@ class Trainer:
         self.train_sampler = None
         self.logger.info(f"Setting the seed to {seed} ")
         set_seed(seed)
-        self.ema = True if cfg['pretrain_args'].get("model_type") == 'byol' else False
-
+        self.ema = False
+        
         self.output = {"best_path": None,
                        "best_loss": None,
                        "best_epoch": None}
@@ -41,8 +41,10 @@ class Trainer:
         """
         training_cfg: specific the training config by passing the pretrain_args or the finetune_args
         """
+        num_epochs = training_cfg["optim_args"]["epochs"]
+        total_steps = num_epochs * len(self.train_loader)
         loss_fn = get_loss(training_cfg["loss"]["name"], training_cfg["loss"]["loss_args"])
-        self.model = create_model(training_cfg, self.device)
+        self.model = create_model(training_cfg, self.device, total_steps)
         self.model.set_loss_fn(loss_fn)
         self.logging(f"Model forward {self.model}")
         self.model.to(self.device)
@@ -107,7 +109,7 @@ class Trainer:
 
         meter = LossMeter()
         start = time.time()
-
+        last_beta = 0
         for _, data in enumerate(self.train_loader):
             self.model.zero_grad()
             result = self.model(data)
@@ -116,16 +118,18 @@ class Trainer:
             self.optimizer.step()
             
             if self.ema:
-                self.model.update_moving_average() 
+                last_beta = self.model.module.update_moving_average()
             
             result.pop("y_hat", None) #remove y_hat
             meter.update(result)
+
+        if self.rank == 0:
+            self.logging(f'Using EMA is {self.ema} with the current ema as {last_beta}')
 
         avg_losses = meter.average()
 
         # Sync total loss across ranks
        # In train_one_epoch, fix the distributed sync
-        print(avg_losses)
         if self.distributed:
             t = torch.tensor(avg_losses["total_loss"], device=self.device)
             dist.all_reduce(t, op=dist.ReduceOp.SUM)

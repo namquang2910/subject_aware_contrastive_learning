@@ -129,7 +129,7 @@
       "base_encoder_args": {
         "input_dim": 1280,
         "kernel_size": 10,
-        "dropout_prob": 0.1,
+        "dropout_prob": 0.0,
         "stride": 1
       },
       "model_type": "simsiam_finetune",
@@ -144,14 +144,14 @@
 
     "optim_args": {
       "lr": 0.001,
-      "min_lr": 0.0001,
+      "min_lr": 0.00001,
       "epochs": 100,
       "batch_size": 64,
       "num_workers": 8,
-      "weight_decay": 0.001,
+      "weight_decay": 0.00001,
       "use_lr_scheduler": true,
-      "warm_up": 0,
-      "apply_early_stopping": true,
+      "warm_up": 20,
+      "apply_early_stopping": false,
       "early_stopping_higher_better": true,
       "patience": 30
     }

@@ -19,7 +19,7 @@ class DatasetWrapper(Dataset):
     Class for base dataset that wraps Pytorch dataset.
     """
     def __init__(self, dataset_path, y_dim=None,  split=None, split_file=None, sub_sample_frac=None,
-                 data_views=None, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None,data_name=None):
+                 data_views=None, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None,order = "core_first",data_name=None):
         """
         :param dataset_path: path to folder containing sub-directories with subject data
         :param y_dim: the dimension of the target variable; (None for unlabelled data)
@@ -57,6 +57,7 @@ class DatasetWrapper(Dataset):
         self.maybe_sub_sample_data()
         # (6) set up data transformer (for applying DAs in contrastive learning pipeline)
         self.data_views = data_views
+        self.order = order
         self.transform_dict_core = transform_dict_core
         self.transform_dict_artifact = transform_dict_artifact
         self.data_transformer = None
@@ -73,7 +74,7 @@ class DatasetWrapper(Dataset):
         self.data_df['x_base'] = copy.deepcopy(self.data_df['x'])
         # (9) finally, create list of data_df rows
         self.data_list = self.data_df.to_dict(orient='records')
-
+        #print(self.data_list)
     def __len__(self):
         return len(self.data_list)
 
@@ -85,11 +86,6 @@ class DatasetWrapper(Dataset):
                 self._create_data_view(item, view_name, **view_params)
         return item
 
-    def convert_y(self, subj1, sub2):
-        if subj1 == sub2:
-            return 1
-        else:
-            return 0
     def get_data_split(self):
         split_df = pd.read_csv(self.split_file)
         # get name of column that splits are based on
@@ -175,7 +171,8 @@ class DatasetWrapper(Dataset):
         return Composer(transform_dict_core=self.transform_dict_core, 
                         transform_global_core=self.transform_global_core, 
                         transform_dict_artifact=self.transform_dict_artifact, 
-                        transform_global_artifact=self.transform_global_artifact)
+                        transform_global_artifact=self.transform_global_artifact,
+                        order = self.order)
 
     def _prep_data_for_transforms(self):
         pass

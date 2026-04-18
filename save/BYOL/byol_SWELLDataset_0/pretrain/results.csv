@@ -1,0 +1,2 @@
+best_path,best_loss,best_epoch
+./save/BYOL/byol_SWELLDataset_0/pretrain/encoder_best_.pt,-0.6355897188186646,576

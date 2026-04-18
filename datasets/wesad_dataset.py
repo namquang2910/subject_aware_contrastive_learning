@@ -11,7 +11,7 @@ from datasets.dataset import DatasetWrapper
 class WESADDataset(DatasetWrapper):
     def __init__(self, dataset_path, include_labels=None, split=None, split_file=None, sub_sample_frac=None, 
                  data_views=None, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None,
-                 data_name=None):
+                order ="core_first", data_name=None):
         """
         :param dataset_path: path to folder containing sub-directories with subject data
         :param insubject_aware_contrastive_learning/datasets/process_dataset/SWELL_WESAD_5Foldsclude_labels: if True, use labelled data; if false, use unlabelled segments
@@ -28,7 +28,7 @@ class WESADDataset(DatasetWrapper):
         self.num_subjects = 15
         y_dim = 1 if self.include_labels else None
         super().__init__(dataset_path, y_dim, split, split_file, sub_sample_frac, 
-                         data_views, transform_dict_core, transform_dict_artifact, transform_global_core, transform_global_artifact,data_name)
+                         data_views, transform_dict_core, transform_dict_artifact, transform_global_core, transform_global_artifact,order,data_name)
 
     def read_data(self):
         data_df = self.get_data_df()

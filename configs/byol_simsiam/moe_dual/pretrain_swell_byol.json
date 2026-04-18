@@ -129,7 +129,7 @@
       "base_encoder_args": {
         "input_dim": 1280,
         "kernel_size": 10,
-        "dropout_prob": 0.1,
+        "dropout_prob": 0,
         "stride": 1
       },
       "model_type": "byol_finetune",

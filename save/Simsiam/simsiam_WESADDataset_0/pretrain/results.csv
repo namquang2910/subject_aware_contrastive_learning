@@ -1,0 +1,2 @@
+best_path,best_loss,best_epoch
+./save/Simsiam/simsiam_WESADDataset_0/pretrain/encoder_best_.pt,-0.9627589583396912,542

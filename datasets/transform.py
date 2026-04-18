@@ -1147,19 +1147,25 @@ TRANSFORM_REGISTRY = {
 
 
 class Composer:
-    def __init__(self, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None):
+    def __init__(self, transform_dict_core=None, transform_dict_artifact=None, transform_global_core=None, transform_global_artifact=None, order = "core_first"):
         """
         :param transform_dict: dict where each key = transform name, value = args
         :param global_args: dict with stochastic_choice, n_transforms, etc.
         """
-        self.transform_dict_core = self.get_transforms(transform_dict_core)
-        self.transform_dict_artifact = self.get_transforms(transform_dict_artifact)
+        self.transform_dict_core = self.get_transforms(transform_dict_core) if transform_dict_core is not None else None
+        self.transform_dict_artifact = self.get_transforms(transform_dict_artifact) if transform_dict_artifact is not None else None
         self.transform_global_core = transform_global_core
         self.transform_global_artifact = transform_global_artifact
 
-        self.n_transforms = transform_global_artifact.get("n_transforms", 0)
-        self.stochastic_choice = transform_global_artifact.get("stochastic_choice", True)
-        
+        self.n_transforms = transform_global_artifact.get("n_transforms", 2) if self.transform_global_artifact is not None else 0
+        self.stochastic_choice = transform_global_artifact.get("stochastic_choice", True) if self.transform_global_artifact is not None else False
+        self.order = order
+
+        if self.transform_dict_core is not None:
+            print("Using the core transformation")
+        if self.transform_dict_artifact is not None:
+            print("Using the artifact transformation")
+
     def get_transforms(self, transform_dict):
         transforms = []
         for trf_name, trf_args in transform_dict.items():
@@ -1179,23 +1185,36 @@ class Composer:
             return transform(sample_data)
         return sample_data['x']
     
-    def __call__(self, sample_data):
-        #Applied the core transforms first
-        out = copy.deepcopy(sample_data)
-        out['x'] = out['x_base'].copy()
-        # ----- 1) Apply CORE transforms (with per-transform probabilities) -----
+    def _apply_core(self, out):
+        if self.transform_dict_core is None:
+            return out
         random.shuffle(self.transform_dict_core)
-        num_das = 0
         for trf in self.transform_dict_core:
             trf_name = trf.__class__.__name__
             prob = self.transform_global_core.get(trf_name, 0.5)
             out['x'] = self.apply_transform(out, trf, probability=prob)
-        #print(f"Number of data augmentations applied (core): {num_das}")
-        # Work on a fresh copy so original is untouched
+        return out
+
+    def _apply_artifact(self, out):
+        if self.transform_dict_artifact is None:
+            return out
         for i in range(self.n_transforms):
             trf = np.random.choice(self.transform_dict_artifact) if self.stochastic_choice else self.transform_dict_artifact[i]
             out['x'] = trf(out).copy()
-
         return out
 
+    def __call__(self, sample_data):
+        out = copy.deepcopy(sample_data)
+        out['x'] = out['x_base'].copy()
+
+        if self.order == "core_first":
+            out = self._apply_core(out)
+            out = self._apply_artifact(out)
+        elif self.order == "artifact_first":
+            out = self._apply_artifact(out)
+            out = self._apply_core(out)
+        else:
+            raise ValueError(f"Invalid order '{self.order}'. Choose 'core_first' or 'artifact_first'.")
+
+        return out
 

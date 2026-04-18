@@ -48,7 +48,7 @@ class Finetuner(Trainer):
         classifier_params, encoder_params = self.model.get_parameters()
         self.optimizer = optim.AdamW(
             [
-                {"params": encoder_params,    "lr": self.optim_args["lr"]/10},
+                {"params": encoder_params,    "lr": self.optim_args["lr"]},
                 {"params": classifier_params, "lr": self.optim_args["lr"]},
             ],
             lr=self.optim_args["lr"],
@@ -74,14 +74,14 @@ class Finetuner(Trainer):
     def _build_dataloader(self):
         ds_args = self.cfg['finetune_args']["dataset_args"]
         train_ds = get_dataset(ds_args["train_dataset_args"])
-        print(f"Train dataset size: {len(train_ds)}")
         val_ds   = get_dataset(ds_args["val_dataset_args"])
         test_ds  = get_dataset(ds_args["test_dataset_args"])
         
         self.train_sampler = DistributedSampler(
             train_ds, num_replicas=self.world_size, rank=self.rank,
-            shuffle=True, drop_last=True)
-        self.train_loader = self._make_loader(train_ds, shuffle=False,  drop_last=True,  sampler=self.train_sampler)
+            shuffle=True)
+        
+        self.train_loader = self._make_loader(train_ds, shuffle=False, sampler=self.train_sampler)
         self.val_loader   = self._make_loader(val_ds,   shuffle=False, drop_last=False)
         self.test_loader  = self._make_loader(test_ds,  shuffle=False, drop_last=False)
 
@@ -90,15 +90,14 @@ class Finetuner(Trainer):
     # ------------------------------------------------------------------
 
     def log_best_model(self, result, epoch=None, avg_loss=None):
-        self.logger.info(f"Best model updated → F1={result['f1']:.4f}")
-        self.output['best_f1']  = result["f1"]
-        self.output['best_acc'] = result["acc"]
-        if avg_loss  is not None: self.output['best_loss']  = avg_loss["total_loss"]
-        if epoch     is not None: self.output['best_epoch'] = epoch
-        self.output['best_path'] = os.path.join(
-            self.finetune_output_dir, f"finetuned_best_{self.fold}.pt"
-        )
-        self._save_checkpoint(self.output['best_path'])
+        if self.rank == 0:
+            self.logger.info(f"Best model updated → F1={result['f1']:.4f}")
+            self.output['best_f1']  = result["f1"]
+            self.output['best_acc'] = result["acc"]
+            if avg_loss  is not None: self.output['best_loss']  = avg_loss["total_loss"]
+            if epoch     is not None: self.output['best_epoch'] = epoch
+            self.output['best_path'] = os.path.join(self.finetune_output_dir, f"finetuned_best_{self.fold}.pt")
+            self._save_checkpoint(self.output['best_path'])
 
     def train(self):
         for epoch in range(self.epochs):
@@ -121,7 +120,7 @@ class Finetuner(Trainer):
             if improved:
                 self.log_best_model(result, epoch, avg_losses)
 
-            if should_stop:
+            if should_stop and self.rank == 0:
                 self.logger.info(
                     f"Early stopping at epoch {epoch}. "
                     f"Best F1: {self.early_stopper.best:.6f}"
@@ -183,12 +182,12 @@ class Finetuner(Trainer):
 
         avg_loss = total_loss / max(1, len(dataloader))
         result   = compute_metrics(torch.cat(all_labels), torch.cat(all_preds))
-
-        self.logger.info(
-            f"Validation — loss={avg_loss:.4f}, acc={result['acc']}, "
-            f"f1={result['f1']}, recall={result['recall']}, "
-            f"precision={result['precision']}"
-            + (f", conf_mat={result['conf_mat']}" if return_cm else "")
-        )
+        if self.rank == 0:
+            self.logger.info(
+                f"Validation — loss={avg_loss:.4f}, acc={result['acc']}, "
+                f"f1={result['f1']}, recall={result['recall']}, "
+                f"precision={result['precision']}"
+                + (f", conf_mat={result['conf_mat']}" if return_cm else "")
+            )
 
         return avg_loss, result

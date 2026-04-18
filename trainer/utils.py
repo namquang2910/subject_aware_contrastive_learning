@@ -109,7 +109,7 @@ def compute_metrics(y_true, y_hat):
         'conf_mat': conf_mat
     }
 
-def create_model(cfg, device):
+def create_model(cfg, device, total_steps = None):
     """
     Factory for all model types.
 
@@ -183,7 +183,7 @@ def create_model(cfg, device):
     elif model_type == "byol":
             model = BYOLPretrainModel(
                 base_encoder      = encoder,
-                ema_decay         = cfg["model_args"].get("ema_decay",         0.99),
+                total_steps      = total_steps,
                 device            = device,
             )
             return model

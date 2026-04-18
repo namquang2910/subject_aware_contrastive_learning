@@ -1,7 +1,7 @@
 import copy
 import torch
 import torch.nn as nn
-
+import math
 from models.model import Model
 
 
@@ -24,14 +24,21 @@ def _mlp(in_dim: int, hidden_dim: int, out_dim: int) -> nn.Sequential:
 
 class EMA:
     """Exponential Moving Average for target-network weights."""
+    def __init__(self, base_beta: float = 0.99, max_steps: int = None):
+        self.base_beta = base_beta
+        self.beta = base_beta
+        self.max_steps = max_steps
+        self.current_step = 0
 
-    def __init__(self, beta: float = 0.99):
-        self.beta = beta
-
+    def update_beta(self):
+        if self.max_steps is not None:
+            self.beta = 1 - (1 - self.base_beta) * ( math.cos(math.pi * self.current_step / self.max_steps) + 1) / 2
+    
     @torch.no_grad()
     def update(self, online: nn.Module, target: nn.Module):
         for o_p, t_p in zip(online.parameters(), target.parameters()):
             t_p.data = self.beta * t_p.data + (1.0 - self.beta) * o_p.data
+            
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -44,7 +51,8 @@ class BYOLPretrainModel(Model):
         base_encoder,
         projection_output: int   = 256,
         hidden_dim:        int   = 512,
-        ema_decay:         float = 0.999,
+        ema_decay:         float = 0.996,
+        total_steps:       int   = None,
         device=None,
     ):
         super().__init__(device=device)
@@ -62,7 +70,7 @@ class BYOLPretrainModel(Model):
                   *self.target_projector.parameters()):
             p.requires_grad = False
 
-        self.ema = EMA(beta=ema_decay)
+        self.ema = EMA(base_beta=ema_decay, max_steps = total_steps)
         self.projection_output = projection_output
 
     # ------------------------------------------------------------------
@@ -81,9 +89,14 @@ class BYOLPretrainModel(Model):
     # ------------------------------------------------------------------
     def update_moving_average(self):
         """Call once per step, after optimizer.step()."""
+        #Update the new beta
+        self.ema.update_beta() 
+        #Update the encoder and target
         self.ema.update(self.online_encoder,   self.target_encoder)
         self.ema.update(self.online_projector, self.target_projector)
-
+        #Update the current steps
+        self.ema.current_step += 1
+        return self.ema.beta
     # ------------------------------------------------------------------
     def get_parameters(self):
         params = (

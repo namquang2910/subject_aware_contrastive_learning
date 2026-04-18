@@ -22,6 +22,7 @@ class PreTrainer(Trainer):
         self._wrap_ddp()
         self._build_optimizer()
         self._build_early_stopper()
+        self.ema = True if cfg['pretrain_args']["model_args"].get("model_type") == 'byol' else False
 
         if self.rank == 0:
             save_config_file(cfg, self.pretrain_output_dir)

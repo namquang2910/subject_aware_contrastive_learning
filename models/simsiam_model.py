@@ -165,6 +165,5 @@ class SimSiamFinetuneModel(nn.Module):
         h     = self.encoder(x)
         y_hat = self.classifier(h)
         loss  = self.loss_fn(y_hat, self._prepare_targets(y))
-        print(x)
-        print(loss)
+
         return {"total_loss": loss, "y_hat": y_hat}

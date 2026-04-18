@@ -1,6 +1,0 @@
-best_f1,best_acc,best_loss,best_epoch,best_path
-0.6336,0.675,0.08628828823566437,29,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet/finetune/StressIDDataset/finetuned_best_0.pt
-0.5675,0.5789,0.17005079984664917,25,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet/finetune/StressIDDataset/finetuned_best_1.pt
-0.594,0.6775,0.1692829430103302,23,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet/finetune/StressIDDataset/finetuned_best_2.pt
-0.6142,0.6199,0.5860099792480469,2,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet/finetune/StressIDDataset/finetuned_best_3.pt
-0.6261,0.6406,0.1290549635887146,30,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet/finetune/StressIDDataset/finetuned_best_4.pt
