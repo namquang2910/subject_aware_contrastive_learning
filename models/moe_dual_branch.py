@@ -116,7 +116,9 @@ class MoEFinetuneModel(nn.Module):
             self._load_encoder(model_path)
         else:
             print("Supervised learning")
+
         if freeze_encoder:
+            print("Freeze the encoder")
             for p in self.encoder.parameters():
                 p.requires_grad = False
         else:
@@ -132,6 +134,19 @@ class MoEFinetuneModel(nn.Module):
             if freeze_router:
                 for p in self.encoder.router.parameters():
                     p.requires_grad = False
+    def check_frozen(self, model):
+        print("\n===== Frozen Parameter Check =====")
+        for name, param in model.named_parameters():
+            status = "FROZEN ❄️" if not param.requires_grad else "trainable 🔥"
+            print(f"{status}  {name}")
+        
+        total = sum(p.numel() for p in model.parameters())
+        frozen = sum(p.numel() for p in model.parameters() if not p.requires_grad)
+        trainable = total - frozen
+        print(f"\nTotal:     {total:,}")
+        print(f"Frozen:    {frozen:,}")
+        print(f"Trainable: {trainable:,}")
+        print("==================================\n")
 
     def _load_encoder(self, path: str):
         import os

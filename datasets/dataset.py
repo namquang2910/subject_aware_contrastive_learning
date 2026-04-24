@@ -108,8 +108,7 @@ class DatasetWrapper(Dataset):
             self.data_df, _ = train_test_split(
                 self.data_df,
                 train_size=self.sub_sample_frac,
-                stratify=self.data_df['y'],  # preserves label distribution
-                random_state=42
+                stratify=self.data_df['y']
             )
         if self.sub_sample_frac == 1.0:
             self.data_df = self.data_df.sample(frac=1.0, random_state=42)
@@ -151,9 +150,18 @@ class DatasetWrapper(Dataset):
         return sub_dir.split('_')[0]
 
     def print_label_stats(self):
+        print("\n=== Label Statistics ===")
         vals, counts = np.unique(self.data_df['y'], return_counts=True)
         for val, count in zip(vals, counts):
-            print(f"Label {val} count: {count} = {count * 100 / len(self.data_df)}%")
+            print(f"Label {val} count: {count} = {count * 100 / len(self.data_df):.2f}%")
+        
+        print("\n=== Subject Statistics ===")
+        subject_counts = self.data_df.groupby('subject_id').size()
+        print(f"Total subjects: {len(subject_counts)}")
+        
+        print("\n=== Samples Per Subject ===")
+        for subject_id, count in subject_counts.items():
+            print(f"  Subject {subject_id}: {count} samples ({count * 100 / len(self.data_df):.1f}% of total)")
 
     def _create_data_view(self, item, view_name, apply_transform):
         x_base = copy.deepcopy(item['x_base'])

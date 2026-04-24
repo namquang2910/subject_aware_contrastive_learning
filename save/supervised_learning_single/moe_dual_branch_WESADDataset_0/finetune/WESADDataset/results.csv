@@ -1,0 +1,16 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.7211,0.7293,0.03078780695796013,37,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_0.pt
+0.6993,0.7122,0.029865313321352005,33,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_1.pt
+0.6342,0.7657,0.5313103199005127,39,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_2.pt
+0.4143,0.7074,2.7359795570373535,0,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_3.pt
+0.5649,0.6284,0.10646403580904007,22,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_4.pt
+0.4522,0.6673,0.0005378229543566704,95,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_5.pt
+0.694,0.7939,2.76340389251709,0,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_6.pt
+0.9997,0.9998,2.476655960083008,0,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_7.pt
+0.8859,0.9137,0.5440015196800232,47,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_8.pt
+1.0,1.0,0.607102632522583,11,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_9.pt
+0.9967,0.9973,0.048984188586473465,34,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_10.pt
+0.8635,0.888,0.48427218198776245,67,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_11.pt
+0.9088,0.9241,0.21170291304588318,37,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_12.pt
+0.9594,0.9656,0.48870304226875305,67,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_13.pt
+1.0,1.0,0.604081928730011,11,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_14.pt

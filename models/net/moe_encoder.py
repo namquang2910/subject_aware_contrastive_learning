@@ -95,10 +95,6 @@ class MoEDualBranchEncoder(nn.Module):
         self.output_dim        = output_dim
         self.projection_output = projection_output
 
-    @property
-    def g(self) -> torch.Tensor:
-        """Learnable mix weight in (0, 1). g controls inv, (1-g) controls spec."""
-        return torch.sigmoid(self._g_logit)
 
     def forward(self, x):
         """x: [B, 1, L] or [B, L]"""

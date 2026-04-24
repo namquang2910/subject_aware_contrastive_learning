@@ -141,7 +141,8 @@ def main():
                     print(f"Updating split file for fold {run_id}: {split_file}")
                     finetune_cfg['finetune_args']["dataset_args"][split]["split_file"] = split_file
 
-                finetune_out = Finetuner(finetune_cfg, logger=finetune_logger, device=device, rank=rank, world_size=world_size, fold=run_id, seed = seed).train()
+                finetuner = Finetuner(finetune_cfg, logger=finetune_logger, device=device, rank=rank, world_size=world_size, fold=run_id, seed = seed)
+                finetune_out = finetuner.train()    
                 finetune_out = broadcast_rank(finetune_out if rank == 0 else None, rank)
                 seed_results["f1"].append(finetune_out['best_f1'])
                 seed_results["acc"].append(finetune_out['best_acc'])

@@ -190,6 +190,14 @@ def create_model(cfg, device, total_steps = None):
             device         = device,
             freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
         )
+    elif model_type == "supervised_learning_single":
+        return finetune_builder.EncoderClassifierModel(
+            base_encoder   = encoder,
+            num_class      = 1,
+            model_path     = None,
+            device         = device,
+            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
+        )
     # Ablation studies models
     elif model_type == "byol":
             model = BYOLPretrainModel(

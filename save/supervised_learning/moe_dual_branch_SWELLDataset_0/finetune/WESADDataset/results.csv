@@ -1,0 +1,6 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.7339,0.7411,0.08671128004789352,59,./save/supervised_learning/moe_dual_branch_SWELLDataset_0/finetune/WESADDataset/finetuned_best_0.pt
+0.7203,0.7742,0.0046464926563203335,41,./save/supervised_learning/moe_dual_branch_SWELLDataset_0/finetune/WESADDataset/finetuned_best_1.pt
+0.6731,0.76,0.5226618051528931,46,./save/supervised_learning/moe_dual_branch_SWELLDataset_0/finetune/WESADDataset/finetuned_best_2.pt
+0.4143,0.7074,2.7359795570373535,0,./save/supervised_learning/moe_dual_branch_SWELLDataset_0/finetune/WESADDataset/finetuned_best_3.pt
+0.5956,0.7049,0.1327541172504425,40,./save/supervised_learning/moe_dual_branch_SWELLDataset_0/finetune/WESADDataset/finetuned_best_4.pt

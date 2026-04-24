@@ -35,7 +35,11 @@ class EncoderClassifierModel(Model):
         #Freeze encoder if used for linear probe else fine tune
         self._check_freeze_model(freeze_encoder)
         # init encoder and classifier
-        self._load_model(model_path= model_path)
+        if model_path is not None:
+            print('SSL')
+            self._load_model(model_path= model_path)
+        else:
+            print("SL only")
         if add_projection_head:
             self.classifier = nn.Sequential(
                 nn.Linear(self.encoder.output_dim, projection_dim),

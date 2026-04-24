@@ -100,6 +100,11 @@ class Finetuner(Trainer):
             self._save_checkpoint(self.output['best_path'])
 
     def train(self):
+        if self.epochs == 0:
+            self.logger.info("Randomly initialized")
+            _, result = self.validate(self.test_loader)
+            self.log_best_model(result)
+            
         for epoch in range(self.epochs):
             
             avg_losses = self.train_one_epoch(epoch)
@@ -146,7 +151,7 @@ class Finetuner(Trainer):
                     state_dict = OrderedDict(
                         ("module." + k, v) for k, v in state_dict.items()
                     )
-
+                print("Loading the model")
                 self.model.load_state_dict(state_dict)
                 _, result = self.validate(self.test_loader)
                 self.log_best_model(result)

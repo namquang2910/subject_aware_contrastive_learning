@@ -1,5 +1,5 @@
 {
-  "exp_name": "supervised_learning_single",
+  "exp_name": "Random_Initialization",
   "mode": "pretrain_finetune",
   "seeds": [0],
   "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO",
@@ -134,8 +134,8 @@
     },
 
     "model_args": {
-      "base_encoder": "cnn",
-      "model_type": "supervised_learning_single",
+      "base_encoder": "moe",
+      "model_type": "supervised_learning",
       "base_encoder_args": {
            "input_dim": 1280,
             "kernel_size": 10,
@@ -144,9 +144,7 @@
             "output_dim": 64
       },
       "num_class": 1,
-      "freeze_encoder": false,
-      "freeze_inv": false,
-      "freeze_spec": false,
+      "freeze_encoder": true,
       "model_path": ""
     },
 

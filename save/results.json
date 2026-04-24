@@ -56,3 +56,12 @@ Run 10%
 0.9097333333333333,0.9287066666666667,0,0.01,./save/dual_branch_artifact_only/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_artifact_only/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
 0.9144533333333335,0.9244733333333334,0,0.01,./save/dual_branch_Aug_artifact_core/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_Aug_artifact_core/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
 0.8808399999999998,0.8981733333333335,0,0.01,./save/supervised_learning/moe_dual_branch_WESADDataset_0/pretrain,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+0.7815266666666666,0.8462200000000001,0,0.01,./save/supervised_learning/moe_dual_branch_WESADDataset_0/pretrain,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+0.23074,0.2999933333333333,0,0.01,./save/Random_Initialization/moe_dual_branch_WESADDataset_0/pretrain,./save/Random_Initialization/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+0.39327200000000007,0.6095280000000001,0,0.01,./save/Random_Initialization/moe_dual_branch_SWELLDataset_0/pretrain,./save/Random_Initialization/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset
+
+0.7862666666666667,0.8461799999999999,0,0.01,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/pretrain,./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+0.83896,0.8751933333333333,0,0.01,./save/supervised_learning/moe_dual_branch_WESADDataset_0/pretrain,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+0.691176,0.7231399999999999,0,0.01,./save/supervised_learning/moe_dual_branch_SWELLDataset_0/pretrain,./save/supervised_learning/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset
+0.555048,0.655076,0,0.01,./save/Random_Initialization/moe_dual_branch_SWELLDataset_0/pretrain,./save/Random_Initialization/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset
+0.7624466666666668,0.78734,0,0.01,./save/Random_Initialization/moe_dual_branch_WESADDataset_0/pretrain,./save/Random_Initialization/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
