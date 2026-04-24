@@ -70,7 +70,7 @@ class Trainer:
             device_ids=[self.device.index] if self.device.type == "cuda" else None,
             output_device=self.device.index if self.device.type == "cuda" else None,
             broadcast_buffers=True,
-            find_unused_parameters=True,
+            find_unused_parameters=False,
         )
     def _build_early_stopper(self):
         self.early_stopper = EarlyStopping(

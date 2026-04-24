@@ -82,8 +82,8 @@
     },
 
     "optim_args": {
-      "lr": 0.001,
-      "min_lr": 0.00001,
+      "lr": 0.0001,
+      "min_lr": 0.000001,
       "batch_size": 512,
       "num_workers": 8,
       "epochs": 600,
@@ -92,7 +92,7 @@
       "adam_beta2": 0.999,
       "adam_epsilon": 1e-08,
       "use_lr_scheduler": true,
-      "warm_up": 50,
+      "warm_up": 200,
       "apply_early_stopping": false,
       "early_stopping_higher_better": false,
       "patience": 15
@@ -148,9 +148,9 @@
       "epochs": 100,
       "batch_size": 64,
       "num_workers": 8,
-      "weight_decay": 0.00001,
+      "weight_decay": 0.0001,
       "use_lr_scheduler": true,
-      "warm_up": 20,
+      "warm_up": 50,
       "apply_early_stopping": false,
       "early_stopping_higher_better": true,
       "patience": 30

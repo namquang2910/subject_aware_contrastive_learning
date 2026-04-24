@@ -7,6 +7,7 @@ PORT=23502
 NPROC=8
 
 echo "Running Dual Branch Subject-aware contrastive learning for dataset PsychioNet..."
+
 torchrun \
   --nproc_per_node ${NPROC} \
   --master_port ${PORT} \

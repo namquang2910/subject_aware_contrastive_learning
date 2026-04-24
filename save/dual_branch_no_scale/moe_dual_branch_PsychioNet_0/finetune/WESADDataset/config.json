@@ -166,7 +166,7 @@
                 "include_labels": "true",
                 "split": "train",
                 "sub_sample_frac": 0.01,
-                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO/fold_00.csv"
+                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO/fold_14.csv"
             },
             "val_dataset_args": {
                 "data_name": "WESADDataset",
@@ -174,7 +174,7 @@
                 "include_labels": "true",
                 "split": "val",
                 "sub_sample_frac": 1.0,
-                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO/fold_00.csv"
+                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO/fold_14.csv"
             },
             "test_dataset_args": {
                 "data_name": "WESADDataset",
@@ -182,7 +182,7 @@
                 "include_labels": "true",
                 "split": "test",
                 "sub_sample_frac": 1.0,
-                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO/fold_00.csv"
+                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO/fold_14.csv"
             }
         },
         "model_args": {
@@ -213,10 +213,10 @@
             "epochs": 100,
             "batch_size": 64,
             "num_workers": 8,
-            "weight_decay": 0.001,
+            "weight_decay": 0.0001,
             "use_lr_scheduler": true,
-            "warm_up": 0,
-            "apply_early_stopping": true,
+            "warm_up": 50,
+            "apply_early_stopping": false,
             "early_stopping_higher_better": true,
             "patience": 30
         }

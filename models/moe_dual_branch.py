@@ -110,10 +110,12 @@ class MoEFinetuneModel(nn.Module):
 
         P = moe_encoder.projection_output
         self.classifier = nn.Linear(P*2, num_class)
-
+        
         if model_path:
+            print("Finetune on pretraining")
             self._load_encoder(model_path)
-
+        else:
+            print("Supervised learning")
         if freeze_encoder:
             for p in self.encoder.parameters():
                 p.requires_grad = False

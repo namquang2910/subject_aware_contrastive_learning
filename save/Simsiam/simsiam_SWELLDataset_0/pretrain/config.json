@@ -114,8 +114,7 @@
                     "n_transforms": 2,
                     "stochastic_choice": true
                 }
-            },
-            "num_subjects": 25
+            }
         },
         "model_args": {
             "base_encoder": "cnn",
@@ -194,9 +193,9 @@
             "epochs": 100,
             "batch_size": 64,
             "num_workers": 8,
-            "weight_decay": 1e-05,
+            "weight_decay": 0.0001,
             "use_lr_scheduler": true,
-            "warm_up": 20,
+            "warm_up": 50,
             "apply_early_stopping": false,
             "early_stopping_higher_better": true,
             "patience": 30

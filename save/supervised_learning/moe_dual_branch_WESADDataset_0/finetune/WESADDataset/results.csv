@@ -1,0 +1,16 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.7701,0.7751,0.03587762638926506,43,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_0.pt
+0.8183,0.8402,0.06196184456348419,26,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_1.pt
+0.7877,0.8288,0.040422990918159485,56,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_2.pt
+0.8933,0.9181,0.12821798026561737,12,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_3.pt
+0.5962,0.6865,0.0210355743765831,70,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_4.pt
+0.7292,0.7569,0.006436609663069248,45,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_5.pt
+0.9847,0.9869,0.014478272758424282,53,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_6.pt
+1.0,1.0,0.19830074906349182,9,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_7.pt
+0.9681,0.9739,0.10286010056734085,16,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_8.pt
+1.0,1.0,0.07145009189844131,21,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_9.pt
+1.0,1.0,0.016659744083881378,36,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_10.pt
+0.7074,0.7414,0.20179533958435059,8,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_11.pt
+0.9767,0.9809,0.03878401592373848,32,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_12.pt
+0.9809,0.9839,0.02941109798848629,34,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_13.pt
+1.0,1.0,0.2262379378080368,7,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_14.pt

@@ -181,7 +181,6 @@ def main():
             }
 
             if rank == 0:
-
                 save_results(
                     final_results,
                     os.path.join(BASE_OUTPUT, "summary_results.csv")

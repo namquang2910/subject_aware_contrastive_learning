@@ -151,10 +151,10 @@
       "epochs": 100,
       "batch_size": 64,
       "num_workers": 8,
-      "weight_decay": 0.001,
+      "weight_decay": 0.0001,
       "use_lr_scheduler": true,
-      "warm_up": 0,
-      "apply_early_stopping": true,
+      "warm_up": 50,
+      "apply_early_stopping": false,
       "early_stopping_higher_better": true,
       "patience": 30
     }

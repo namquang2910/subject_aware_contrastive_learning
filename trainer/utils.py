@@ -149,6 +149,17 @@ def create_model(cfg, device, total_steps = None):
         )
         return model
 
+    if model_type == "supervised_learning":
+        model = MoEFinetuneModel(
+            moe_encoder    = encoder,
+            num_class      = cfg["model_args"].get("num_class", 1),
+            model_path     = None,
+            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
+            freeze_inv     = cfg["model_args"].get("freeze_inv", False),
+            freeze_spec    = cfg["model_args"].get("freeze_spec", False),
+            device         = device,
+        )
+        return model
     # ── existing model types (unchanged) ─────────────────────────────────
 
     if model_type == "contrastive":

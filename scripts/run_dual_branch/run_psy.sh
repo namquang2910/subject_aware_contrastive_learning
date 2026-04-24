@@ -4,7 +4,7 @@ set -euo pipefail
 WESAD_CONFIG="/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/pretrain_dual_branch/moe_dual/pretrain_wesad.json"
 SWELL_CONFIG="/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/pretrain_dual_branch/moe_dual/pretrain_swell.json"
 PORT=23503
-NPROC=4
+NPROC=8
 
 echo "Running Dual Branch Subject-aware contrastive learning for dataset PsychioNet..."
 

@@ -31,7 +31,7 @@ class PreTrainer(Trainer):
             ds_args = self.cfg['pretrain_args']["dataset_args"].copy()
             train_ds = get_dataset( ds_args["train_dataset_args"])
             
-            self.cfg['pretrain_args']["dataset_args"]['num_subjects'] = train_ds.num_subjects
+            #self.cfg['pretrain_args']["dataset_args"]['num_subjects'] = train_ds.num_subjects
             self.train_sampler = DistributedSampler(
                 train_ds, num_replicas=self.world_size, rank=self.rank,
                 shuffle=True, drop_last=True)

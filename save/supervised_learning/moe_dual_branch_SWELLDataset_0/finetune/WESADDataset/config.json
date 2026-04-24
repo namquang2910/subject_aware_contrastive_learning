@@ -1,5 +1,5 @@
 {
-    "exp_name": "Simsiam",
+    "exp_name": "supervised_learning",
     "mode": "pretrain_finetune",
     "seeds": [
         0
@@ -8,8 +8,8 @@
     "logging_args": {
         "base_output_dir": "./save",
         "output_dir": null,
-        "pretrain_output_dir": "./save/Simsiam/simsiam_PsychioNet_0/pretrain",
-        "finetune_output_dir": "./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset",
+        "pretrain_output_dir": "./save/supervised_learning/moe_dual_branch_SWELLDataset_0/pretrain",
+        "finetune_output_dir": "./save/supervised_learning/moe_dual_branch_SWELLDataset_0/finetune/WESADDataset",
         "results_file": "./save/result.csv",
         "print_freq": 1,
         "save_freq": 40
@@ -17,8 +17,8 @@
     "pretrain_args": {
         "dataset_args": {
             "train_dataset_args": {
-                "data_name": "PsychioNet",
-                "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/PhysioNet2017/physionet2017_unlabelled_10_5.parquet",
+                "data_name": "SWELLDataset",
+                "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320",
                 "include_labels": "true",
                 "split": null,
                 "sub_sample_frac": 1.0,
@@ -117,22 +117,33 @@
             }
         },
         "model_args": {
-            "base_encoder": "cnn",
+            "base_encoder": "moe",
             "base_encoder_args": {
                 "input_dim": 1280,
                 "kernel_size": 10,
                 "dropout_prob": 0.1,
-                "stride": 1
+                "stride": 1,
+                "output_dim": 64,
+                "projection_output": 32,
+                "router_temperature": 1.0
             },
-            "model_type": "simsiam"
+            "model_type": "moe_dual_branch",
+            "num_subjects": null,
+            "grl_lambda": 1.0,
+            "lambda_inv": 1.0,
+            "lambda_spec": 1.0,
+            "lambda_adv": 0.5,
+            "lambda_orth": 0.1
         },
         "loss": {
-            "name": "NegCosine",
-            "loss_args": {}
+            "name": "NCE",
+            "loss_args": {
+                "temperature": 0.1
+            }
         },
         "optim_args": {
-            "lr": 0.0001,
-            "min_lr": 1e-05,
+            "lr": 0.001,
+            "min_lr": 0.0001,
             "batch_size": 512,
             "num_workers": 8,
             "epochs": 600,
@@ -175,16 +186,22 @@
             }
         },
         "model_args": {
-            "base_encoder": "cnn",
+            "base_encoder": "moe",
+            "model_type": "supervised_learning",
             "base_encoder_args": {
                 "input_dim": 1280,
                 "kernel_size": 10,
-                "dropout_prob": 0.1,
-                "stride": 1
+                "output_dim": 64,
+                "stride": 1,
+                "dropout_prob": 0.0,
+                "projection_output": 32,
+                "router_temperature": 1.0
             },
-            "model_type": "simsiam_finetune",
             "num_class": 1,
-            "model_path": "./save/Simsiam/simsiam_PsychioNet_0/pretrain/encoder_best_.pt"
+            "freeze_encoder": false,
+            "freeze_inv": false,
+            "freeze_spec": false,
+            "model_path": "./save/supervised_learning/moe_dual_branch_SWELLDataset_0/pretrain/encoder_best_.pt"
         },
         "loss": {
             "name": "BCE",
@@ -192,14 +209,14 @@
         },
         "optim_args": {
             "lr": 0.001,
-            "min_lr": 0.0001,
+            "min_lr": 1e-05,
             "epochs": 100,
             "batch_size": 64,
             "num_workers": 8,
-            "weight_decay": 0.001,
+            "weight_decay": 0.0001,
             "use_lr_scheduler": true,
-            "warm_up": 0,
-            "apply_early_stopping": true,
+            "warm_up": 50,
+            "apply_early_stopping": false,
             "early_stopping_higher_better": true,
             "patience": 30
         }
