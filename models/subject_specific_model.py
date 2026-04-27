@@ -33,7 +33,7 @@ class SubjectSpecificContrastiveModel(Model):
                                 nn.Linear(dim_mlp, self.projection_output),
                                 nn.BatchNorm1d(self.projection_output),
                                 )
-
+    #encoder -> 2 MLP projection head -> Encoder +  1 layer MLP for finetune + linear classifier
     def forward(self, batch):
         self._check_loss_fn()
         x1 = batch['x1']['x']

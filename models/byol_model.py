@@ -131,7 +131,7 @@ class BYOLPretrainModel(Model):
 #  BYOL fine-tuning  (encoder only, same classifier head as other methods)
 # ──────────────────────────────────────────────────────────────────────────────
 
-class BYOLFinetuneModel(nn.Module):
+class BYOLFinetuneModel(Model):
     """
     Loads the BYOL online encoder weights and attaches a linear classifier.
     """
@@ -144,7 +144,7 @@ class BYOLFinetuneModel(nn.Module):
         freeze_encoder: bool = False,
         device=None,
     ):
-        super().__init__()
+        super().__init__(device=device)
         self.device  = device
         self.loss_fn = None
 
@@ -157,7 +157,7 @@ class BYOLFinetuneModel(nn.Module):
         if freeze_encoder:
             for p in self.encoder.parameters():
                 p.requires_grad = False
-
+            self.check_frozen(self.encoder)
     # ------------------------------------------------------------------
     def _load_encoder(self, path: str):
         import os

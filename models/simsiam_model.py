@@ -89,7 +89,7 @@ class SimSiamPretrainModel(Model):
 #  SimSiam fine-tuning
 # ──────────────────────────────────────────────────────────────────────────────
 
-class SimSiamFinetuneModel(nn.Module):
+class SimSiamFinetuneModel(Model):
     """
     Fine-tuning with the SimSiam encoder.
 
@@ -104,7 +104,7 @@ class SimSiamFinetuneModel(nn.Module):
         freeze_encoder: bool = False,
         device=None,
     ):
-        super().__init__()
+        super().__init__(device=device)
         self.device  = device
         self.loss_fn = None
 
@@ -113,11 +113,12 @@ class SimSiamFinetuneModel(nn.Module):
 
         if model_path:
             self._load_encoder(model_path)
+            
 
         if freeze_encoder:
             for p in self.encoder.parameters():
                 p.requires_grad = False
-
+            self.check_frozen(self.encoder)
     # ------------------------------------------------------------------
     def _load_encoder(self, path: str):
         import os

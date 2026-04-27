@@ -145,7 +145,7 @@
       },
       "num_class": 1,
       "freeze_encoder": true,
-      "model_path": ""
+      "model_path": null
     },
 
     "loss": {

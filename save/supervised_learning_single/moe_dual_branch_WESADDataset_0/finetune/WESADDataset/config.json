@@ -196,9 +196,7 @@
                 "output_dim": 64
             },
             "num_class": 1,
-            "freeze_encoder": false,
-            "freeze_inv": false,
-            "freeze_spec": false,
+            "freeze_encoder": true,
             "model_path": "./save/supervised_learning_single/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt"
         },
         "loss": {

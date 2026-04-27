@@ -8,8 +8,8 @@
     "logging_args": {
         "base_output_dir": "./save",
         "output_dir": null,
-        "pretrain_output_dir": "./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset/pretrain",
-        "finetune_output_dir": "./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset/finetune/WESADDataset",
+        "pretrain_output_dir": "./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/pretrain",
+        "finetune_output_dir": "./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/finetune/WESADDataset",
         "results_file": "./save/result.csv",
         "print_freq": 1,
         "save_freq": 40
@@ -19,7 +19,7 @@
             "train_dataset_args": {
                 "data_name": "SWELLDataset",
                 "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320",
-                "include_labels": true,
+                "include_labels": "true",
                 "split": null,
                 "sub_sample_frac": 1.0,
                 "data_views": {
@@ -114,8 +114,7 @@
                     "n_transforms": 2,
                     "stochastic_choice": true
                 }
-            },
-            "num_subjects": 25
+            }
         },
         "model_args": {
             "base_encoder": "moe",
@@ -197,8 +196,10 @@
             },
             "num_class": 1,
             "freeze_encoder": false,
-            "freeze_inv": false,
-            "freeze_spec": false,
+            "freeze_stem": true,
+            "freeze_inv": true,
+            "freeze_spec": true,
+            "stem_only": true,
             "model_path": ""
         },
         "loss": {

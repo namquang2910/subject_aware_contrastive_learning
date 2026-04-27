@@ -92,11 +92,11 @@ class MoEDualBranchEncoder(nn.Module):
         )
         
 
-        self.output_dim        = output_dim
+        self.output_dim        = self.stem.output_dim
         self.projection_output = projection_output
 
 
-    def forward(self, x):
+    def forward(self, x, return_embeddings=False):
         """x: [B, 1, L] or [B, L]"""
         if x.dim() == 2:
             x = x.unsqueeze(1)
@@ -110,6 +110,7 @@ class MoEDualBranchEncoder(nn.Module):
 
         # ── 3. Router-weighted combination ────────────────────────
         #g = self.g                              # scalar in (0, 1)
-        #h_out = g * z_inv + (1 - g) * z_spec   # [B, P]
         h_out = torch.cat([z_inv, z_spec], dim=-1)
+        if return_embeddings:
+            return h, h_out, z_inv, z_spec
         return h_out, z_inv, z_spec

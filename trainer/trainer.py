@@ -47,7 +47,7 @@ class Trainer:
         self.model = create_model(training_cfg, self.device, total_steps)
         self.model.set_loss_fn(loss_fn)
         self.logging(f"Model forward {self.model}")
-        self.model.check_frozen(self.model)
+        #self.model.check_frozen(self.model)
         self.model.to(self.device)
 
     def _wrap_ddp(self):

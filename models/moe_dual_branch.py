@@ -46,7 +46,7 @@ class MoEPretrainModel(Model):
         h_out1, z_inv1, z_spec1 = self.encoder(x1)
         h_out2, z_inv2, z_spec2  = self.encoder(x2)
 
-        # Subject Invariant Expert
+        #  Invariant Expert
         L_inv = self.loss_fn(z_inv1, z_inv2)
 
         # Subject Specific Expert
@@ -74,23 +74,7 @@ class MoEPretrainModel(Model):
 # ─────────────────────────────────────────────────────────────────
 #  Fine-tuning Model
 # ─────────────────────────────────────────────────────────────────
-class MoEFinetuneModel(nn.Module):
-    """
-    Fine-tuning uses h_out — the router-weighted combination.
-
-    h_out [B, P] = g_inv·z_inv + g_spec·z_spec
-    → Linear(P → num_class) → BCE
-
-    Same classifier size as any single-encoder baseline (fair comparison).
-
-    freeze options:
-        freeze_encoder — freeze stem + router + both experts
-        freeze_stem    — freeze only the shared CNN stem
-        freeze_inv     — freeze only the invariant projection head
-        freeze_spec    — freeze only the subject-specific projection head
-        freeze_router  — freeze only the router gate
-    """
-
+class MoEFinetuneModel(Model):
     def __init__(
         self,
         moe_encoder,
@@ -100,17 +84,25 @@ class MoEFinetuneModel(nn.Module):
         freeze_stem:    bool = False,
         freeze_inv:     bool = False,
         freeze_spec:    bool = False,
-        freeze_router:  bool = False,
+        stem_only:      bool = False,
         device=None,
     ):
-        super().__init__()
+        super().__init__(device=device)
         self.device  = device
         self.loss_fn = None
         self.encoder = moe_encoder
+        self.freeze_encoder = freeze_encoder
+        self.stem_only = stem_only
 
-        P = moe_encoder.projection_output
-        self.classifier = nn.Linear(P*2, num_class)
-        
+        # ── classifier input size depends on mode ──────────────────────────
+        if stem_only:
+            P = moe_encoder.output_dim   # <-- whatever your stem outputs
+            self.classifier = nn.Linear(P, num_class)
+        else:
+            P = moe_encoder.projection_output
+            self.classifier = nn.Linear(P * 2, num_class)
+        # ───────────────────────────────────────────────────────────────────
+
         if model_path:
             print("Finetune on pretraining")
             self._load_encoder(model_path)
@@ -118,9 +110,13 @@ class MoEFinetuneModel(nn.Module):
             print("Supervised learning")
 
         if freeze_encoder:
-            print("Freeze the encoder")
             for p in self.encoder.parameters():
                 p.requires_grad = False
+            for m in self.encoder.modules():
+                if isinstance(m, (nn.BatchNorm1d, nn.BatchNorm2d)):
+                    m.track_running_stats = False
+                    m.running_mean = None
+                    m.running_var = None
         else:
             if freeze_stem:
                 for p in self.encoder.stem.parameters():
@@ -131,22 +127,8 @@ class MoEFinetuneModel(nn.Module):
             if freeze_spec:
                 for p in self.encoder.proj_spec.parameters():
                     p.requires_grad = False
-            if freeze_router:
-                for p in self.encoder.router.parameters():
-                    p.requires_grad = False
-    def check_frozen(self, model):
-        print("\n===== Frozen Parameter Check =====")
-        for name, param in model.named_parameters():
-            status = "FROZEN ❄️" if not param.requires_grad else "trainable 🔥"
-            print(f"{status}  {name}")
-        
-        total = sum(p.numel() for p in model.parameters())
-        frozen = sum(p.numel() for p in model.parameters() if not p.requires_grad)
-        trainable = total - frozen
-        print(f"\nTotal:     {total:,}")
-        print(f"Frozen:    {frozen:,}")
-        print(f"Trainable: {trainable:,}")
-        print("==================================\n")
+
+        self.check_frozen(self.encoder)
 
     def _load_encoder(self, path: str):
         import os
@@ -164,24 +146,10 @@ class MoEFinetuneModel(nn.Module):
             print(f"[MoEFinetuneModel] Missing keys: {msg.missing_keys}")
         print(f"[MoEFinetuneModel] Loaded encoder from '{path}'")
 
-    def set_loss_fn(self, loss_fn):
-        self.loss_fn = loss_fn
-
     def get_parameters(self):
         enc_params = list(self.encoder.parameters())
         cls_params = list(self.classifier.parameters())
         return cls_params, enc_params
-
-    def to(self, device):
-        self.device = device
-        return super().to(device)
-
-    def _prepare_targets(self, y):
-        if y.dtype == torch.double:
-            y = y.float()
-        if y.dim() == 1:
-            y = y[:, None].float()
-        return y.to(self.device)
 
     def forward(self, data):
         assert self.loss_fn is not None, "Call set_loss_fn() before forward()."
@@ -192,13 +160,18 @@ class MoEFinetuneModel(nn.Module):
         if x.dim() == 2:
             x = x.unsqueeze(1)
 
-        # stem → router → expert heads → combine
-        h_out, _, _ = self.encoder(x)
+        if self.stem_only:
+            # ── bypass router + projection heads entirely ──────────────────
+            h, _, _, _ = self.encoder(x, return_embeddings=True)          # raw backbone features
+            y_hat = self.classifier(h)
+        else:
+            # ── full MoE path ──────────────────────────────────────────────
+            h_out, _, _ = self.encoder(x)
+            y_hat = self.classifier(h_out)
 
-        y_hat = self.classifier(h_out)
-        loss  = self.loss_fn(y_hat, self._prepare_targets(y))
+        loss = self.loss_fn(y_hat, self._prepare_targets(y))
 
         return {
-            "total_loss"  : loss,
-            "y_hat"       : y_hat
+            "total_loss": loss,
+            "y_hat":      y_hat
         }

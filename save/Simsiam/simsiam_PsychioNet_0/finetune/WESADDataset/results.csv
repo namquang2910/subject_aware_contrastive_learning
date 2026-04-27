@@ -1,0 +1,16 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.4054,0.6819,0.6908286213874817,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_0.pt
+0.4141,0.7069,0.6909469366073608,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_1.pt
+0.4136,0.7054,0.6910558938980103,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_2.pt
+0.4143,0.7074,0.6911277770996094,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_3.pt
+0.4094,0.6931,0.6910424828529358,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_4.pt
+0.4154,0.7106,0.6910789608955383,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_5.pt
+0.4057,0.6827,0.6908983588218689,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_6.pt
+0.4109,0.6975,0.6908050179481506,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_7.pt
+0.413,0.7036,0.6913506984710693,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_8.pt
+0.4108,0.6972,0.6909067630767822,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_9.pt
+0.4151,0.7097,0.6909874677658081,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_10.pt
+0.4125,0.7023,0.6908314228057861,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_11.pt
+0.415,0.7095,0.6909054517745972,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_12.pt
+0.4108,0.6972,0.6909765005111694,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_13.pt
+0.4101,0.6951,0.6910002827644348,0,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset/finetuned_best_14.pt
