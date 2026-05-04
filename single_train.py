@@ -143,6 +143,7 @@ def main():
 
                 finetuner = Finetuner(finetune_cfg, logger=finetune_logger, device=device, rank=rank, world_size=world_size, fold=run_id, seed = seed)
                 finetune_out = finetuner.train()    
+                finetune_out['training_mode'] = cfg_run['finetune_args']["model_args"].get('training_mode', None)
                 finetune_out = broadcast_rank(finetune_out if rank == 0 else None, rank)
                 seed_results["f1"].append(finetune_out['best_f1'])
                 seed_results["acc"].append(finetune_out['best_acc'])
@@ -156,7 +157,8 @@ def main():
                           "seed": seed, 
                           "fraction": cfg_run['finetune_args']["dataset_args"]['train_dataset_args'].get('sub_sample_frac', None),
                           "Pretrain_output": pretrain_output_dir, 
-                          "Finetune_output": finetune_output_dir }
+                          "Finetune_output": finetune_output_dir,
+                          "training_mode": cfg_run['finetune_args']["model_args"].get('training_mode', None)}
             path = os.path.join(BASE_OUTPUT, "results.json")
             if rank == 0:             
                 save_results(

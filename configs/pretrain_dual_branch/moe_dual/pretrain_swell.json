@@ -31,7 +31,7 @@
           "GaussianNoiseStochastic":            { "sigma_scale_min": 0.0, "sigma_scale_max": 0.5 },
           "TimeWarpingStochastic":              { "sigma_min": 0.01, "sigma_max": 0.5, "knot_min": 1, "knot_max": 4 },
           "TimeShiftStochastic":                { "shift_len_min": 120, "shift_len_max": 240 },
-          "PermuteStochastic":                  { "n_splits_max": 4 }
+          "PermuteStochastic":                  { "n_splits_max": 4 }              
         },
         "transform_dict_artifact": {
           "Identity": {},
@@ -73,21 +73,18 @@
         "dropout_prob": 0.1,
         "stride": 1,
         "output_dim": 64,
-        "projection_output": 32,
-        "router_temperature": 1.0
+        "projection_output": 32
       },
       "model_type": "moe_dual_branch",
       "num_subjects": null,
       "grl_lambda": 1.0,
       "lambda_inv":  1.0,
-      "lambda_spec": 1.0,
-      "lambda_adv":  0.5,
-      "lambda_orth": 0.1
+      "lambda_spec": 1.0
     },
 
     "loss": {
       "name": "NCE",
-      "loss_args": { "temperature": 0.1 }
+      "loss_args": { "temperature": 0.05 }
     },
 
     "optim_args": {
@@ -102,9 +99,9 @@
       "adam_epsilon": 1e-08,
       "use_lr_scheduler": true,
       "warm_up": 200,
-      "apply_early_stopping": false,
+      "apply_early_stopping": true,
       "early_stopping_higher_better": false,
-      "patience": 15
+      "patience": 30
     }
   },
 
@@ -133,24 +130,18 @@
       }
     },
 
-    "model_args": {
-      "base_encoder": "moe",
-      "model_type": "moe_finetune",
+ "model_args": {
+      "base_encoder": "cnn",
+      "model_type": "encoder_classifier",
       "base_encoder_args": {
         "input_dim": 1280,
         "kernel_size": 10,
         "output_dim": 64,
         "stride": 1,
-        "dropout_prob": 0.0,
-        "projection_output": 32,
-        "router_temperature": 1.0
+        "dropout_prob": 0.0
       },
       "num_class": 1,
-      "freeze_encoder": false,
-      "freeze_stem": true,
-      "freeze_inv": true,
-      "freeze_spec": true,
-      "stem_only": true,
+      "training_mode": "train_linear",
       "model_path": ""
     },
 
@@ -160,14 +151,14 @@
     },
 
     "optim_args": {
-      "lr": 0.0001,
+      "lr": 0.001,
       "min_lr": 0.00001,
       "epochs": 100,
       "batch_size": 64,
       "num_workers": 8,
-      "weight_decay": 0.00001,
+      "weight_decay": 0.0001,
       "use_lr_scheduler": true,
-      "warm_up": 5,
+      "warm_up": 50,
       "apply_early_stopping": false,
       "early_stopping_higher_better": true,
       "patience": 30

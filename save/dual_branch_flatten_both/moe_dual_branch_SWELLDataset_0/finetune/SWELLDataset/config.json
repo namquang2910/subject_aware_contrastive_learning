@@ -1,0 +1,217 @@
+{
+    "exp_name": "dual_branch_flatten_both",
+    "mode": "pretrain_finetune",
+    "seeds": [
+        0
+    ],
+    "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO",
+    "logging_args": {
+        "base_output_dir": "./save",
+        "output_dir": null,
+        "pretrain_output_dir": "./save/dual_branch_flatten_both/moe_dual_branch_SWELLDataset_0/pretrain",
+        "finetune_output_dir": "./save/dual_branch_flatten_both/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset",
+        "results_file": "./save/result.csv",
+        "print_freq": 1,
+        "save_freq": 40
+    },
+    "pretrain_args": {
+        "dataset_args": {
+            "train_dataset_args": {
+                "data_name": "SWELLDataset",
+                "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320",
+                "include_labels": true,
+                "split": null,
+                "sub_sample_frac": 1.0,
+                "data_views": {
+                    "x1": {
+                        "apply_transform": true
+                    },
+                    "x2": {
+                        "apply_transform": true
+                    }
+                },
+                "transform_dict_core": {
+                    "ConstantAmplitudeScalingStochastic": {
+                        "scale_min": 0.25,
+                        "scale_max": 2.0
+                    },
+                    "GaussianNoiseStochastic": {
+                        "sigma_scale_min": 0.0,
+                        "sigma_scale_max": 0.5
+                    },
+                    "TimeWarpingStochastic": {
+                        "sigma_min": 0.01,
+                        "sigma_max": 0.5,
+                        "knot_min": 1,
+                        "knot_max": 4
+                    },
+                    "TimeShiftStochastic": {
+                        "shift_len_min": 120,
+                        "shift_len_max": 240
+                    },
+                    "PermuteStochastic": {
+                        "n_splits_max": 4
+                    }
+                },
+                "transform_dict_artifact": {
+                    "Identity": {},
+                    "JumpArtifactStochastic": {
+                        "shift_factor_min": 0.01,
+                        "shift_factor_max": 0.1
+                    },
+                    "LooseSensorArtifactStochastic": {
+                        "width_min": 10,
+                        "width_max": 30
+                    },
+                    "HighFrequencyNoiseStochastic": {
+                        "sigma_scale_min": 0.1,
+                        "sigma_scale_max": 1.0
+                    },
+                    "Flip": {},
+                    "AmplitudeWarpingStochastic": {
+                        "sigma_min": 0.01,
+                        "sigma_max": 0.05,
+                        "knot_min": 0,
+                        "knot_max": 4
+                    },
+                    "BandpassFilterStochastic": {
+                        "lowcut_hz_min": 0.5,
+                        "lowcut_hz_max": 1.5,
+                        "highcut_hz_min": 40.0,
+                        "highcut_hz_max": 100.0
+                    },
+                    "BandstopFilterStochastic": {
+                        "remove_freq_min": 0.75,
+                        "remove_freq_max": 1.0
+                    },
+                    "LowPassFilterStochastic": {
+                        "highcut_hz_min": 20.0,
+                        "highcut_hz_max": 40.0
+                    },
+                    "HighPassFilterStochastic": {
+                        "lowcut_hz_min": 0.05,
+                        "lowcut_hz_max": 0.25
+                    },
+                    "TemporalCutoutStochastic": {
+                        "cutout_size_min": 10,
+                        "cutout_size_max": 40
+                    }
+                },
+                "transform_global_core": {
+                    "apply_probabilities": {
+                        "AmplitudeWarpingStochastic": 0.5,
+                        "BandpassFilterStochastic": 0.7,
+                        "BandstopFilterStochastic": 0.4,
+                        "ConstantAmplitudeScalingStochastic": 0.5,
+                        "GaussianNoiseStochastic": 0.5,
+                        "LowPassFilterStochastic": 0.4,
+                        "HighPassFilterStochastic": 0.4,
+                        "TimeWarpingStochastic": 0.4,
+                        "TimeShiftStochastic": 0.5
+                    }
+                },
+                "transform_global_artifact": {
+                    "n_transforms": 2,
+                    "stochastic_choice": true
+                }
+            }
+        },
+        "model_args": {
+            "base_encoder": "moe",
+            "base_encoder_args": {
+                "input_dim": 1280,
+                "kernel_size": 10,
+                "dropout_prob": 0.1,
+                "stride": 1,
+                "output_dim": 64,
+                "projection_output": 32
+            },
+            "model_type": "moe_dual_branch",
+            "num_subjects": null,
+            "grl_lambda": 1.0,
+            "lambda_inv": 1.0,
+            "lambda_spec": 1.0
+        },
+        "loss": {
+            "name": "NCE",
+            "loss_args": {
+                "temperature": 0.05
+            }
+        },
+        "optim_args": {
+            "lr": 0.001,
+            "min_lr": 0.0001,
+            "batch_size": 512,
+            "num_workers": 8,
+            "epochs": 600,
+            "weight_decay": 0.01,
+            "adam_beta1": 0.9,
+            "adam_beta2": 0.999,
+            "adam_epsilon": 1e-08,
+            "use_lr_scheduler": true,
+            "warm_up": 200,
+            "apply_early_stopping": true,
+            "early_stopping_higher_better": false,
+            "patience": 30
+        }
+    },
+    "finetune_args": {
+        "dataset_args": {
+            "train_dataset_args": {
+                "data_name": "SWELLDataset",
+                "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320_3label",
+                "include_labels": "true",
+                "split": "train",
+                "sub_sample_frac": 0.01,
+                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO/fold_00.csv"
+            },
+            "val_dataset_args": {
+                "data_name": "SWELLDataset",
+                "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320_3label",
+                "include_labels": "true",
+                "split": "val",
+                "sub_sample_frac": 1.0,
+                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO/fold_00.csv"
+            },
+            "test_dataset_args": {
+                "data_name": "SWELLDataset",
+                "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320_3label",
+                "include_labels": "true",
+                "split": "test",
+                "sub_sample_frac": 1.0,
+                "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO/fold_00.csv"
+            }
+        },
+        "model_args": {
+            "base_encoder": "cnn",
+            "model_type": "encoder_classifier",
+            "base_encoder_args": {
+                "input_dim": 1280,
+                "kernel_size": 10,
+                "output_dim": 64,
+                "stride": 1,
+                "dropout_prob": 0.0
+            },
+            "num_class": 1,
+            "training_mode": "train_linear",
+            "model_path": "./save/dual_branch_flatten_both/moe_dual_branch_SWELLDataset_0/pretrain/encoder_best_.pt"
+        },
+        "loss": {
+            "name": "BCE",
+            "loss_args": {}
+        },
+        "optim_args": {
+            "lr": 0.001,
+            "min_lr": 1e-05,
+            "epochs": 100,
+            "batch_size": 64,
+            "num_workers": 8,
+            "weight_decay": 0.0001,
+            "use_lr_scheduler": true,
+            "warm_up": 50,
+            "apply_early_stopping": false,
+            "early_stopping_higher_better": true,
+            "patience": 30
+        }
+    }
+}

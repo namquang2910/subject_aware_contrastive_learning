@@ -8,25 +8,29 @@ import torch
 from models.net.utils import get_conv1d_output_dim, get_maxpool1d_output_dim
 
 
+
+
+
 class CNNEncoder(nn.Module):
     """
     CNN-based encoder.
     """
-    def __init__(self, input_dim, dropout_prob=0.1, kernel_size=7, stride=3, output_dim=256):
+    def __init__(self, input_dim, dropout_prob=0.1, kernel_size=7, stride=3, output_dim=256, use_gap = False):
         super().__init__()
         self.input_dim = input_dim
-        self.output_dim = output_dim
         self.dropout_prob = dropout_prob
         self.kernel_size = kernel_size
         self.stride = stride
         self.cnn_layers = self._get_cnn_layers()
-        self.cnn_out_dim = self._get_cnn_output_dim()
+        self.cnn_output_dim = self._get_cnn_output_dim()
         #self.gap = nn.AdaptiveAvgPool1d(1)
-        self.linear_layer = nn.Sequential(
-            nn.Linear(self.cnn_out_dim, self.output_dim),
-         #   nn.BatchNorm1d(self.output_dim),
-            nn.ReLU(),
-        )
+        # self.linear_layer = nn.Sequential(
+        #     nn.Linear(self.cnn_output_dim, output_dim),
+        #   #  nn.BatchNorm1d(output_dim),
+        #     nn.ReLU()
+        # )
+        self.last_dim = output_dim
+        self.use_gap = use_gap
 
     def forward(self, x, return_embedding=False):
         if len(x.shape) == 2:
@@ -34,10 +38,10 @@ class CNNEncoder(nn.Module):
             x = torch.reshape(x, (x.shape[0], 1, -1))
         h = self.cnn_layers(x)
         # reshape so that representations are 1D
-        #z = self.gap(h).squeeze(-1)     # [B, C]
+        #z = self.gap(h).squeeze(-1)     # [B, C] -> 256 dim -> 18K dim
         z = torch.reshape(h, (h.shape[0], -1))
         # apply linear layer
-        h = self.linear_layer(z)
+        # h = self.linear_layer(z)
         if return_embedding:
             return h, z
         return h

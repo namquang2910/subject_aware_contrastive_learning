@@ -183,7 +183,7 @@
                 "stride": 1
             },
             "model_type": "byol_finetune",
-            "num_class": 1,
+            "training_mode": "train_linear",
             "freeze_encoder": true,
             "model_path": "./save/BYOL/byol_SWELLDataset_0/pretrain/encoder_best_.pt"
         },

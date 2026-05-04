@@ -1,7 +1,7 @@
 # Ignore data and checkpoints
 *.pkl
 *.pth.tar
-*.pt
+**/finetune/**/*.pt
 **/__pycache__/
 demo/
 *.log

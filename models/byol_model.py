@@ -142,6 +142,7 @@ class BYOLFinetuneModel(Model):
         num_class:      int  = 1,
         model_path:     str  = None,
         freeze_encoder: bool = False,
+        mode = "fine_tune",  # one of "fine_tune", "train_linear", "supervised", "random_init"  
         device=None,
     ):
         super().__init__(device=device)
@@ -153,11 +154,15 @@ class BYOLFinetuneModel(Model):
 
         if model_path:
             self._load_encoder(model_path)
-
-        if freeze_encoder:
+        
+        if mode == "train_linear":
+            print("[BYOLFinetuneModel] train_linear: "
+                  "pretrained encoder frozen, training linear head only")
             for p in self.encoder.parameters():
                 p.requires_grad = False
             self.check_frozen(self.encoder)
+            
+
     # ------------------------------------------------------------------
     def _load_encoder(self, path: str):
         import os
@@ -210,8 +215,8 @@ class BYOLFinetuneModel(Model):
         if x.dim() == 2:
             x = x.unsqueeze(1)
 
-        h     = self.encoder(x)
-        y_hat = self.classifier(h)
+        h, z     = self.encoder(x, return_embedding=True)
+        y_hat = self.classifier(z)
         loss  = self.loss_fn(y_hat, self._prepare_targets(y))
 
         return {"total_loss": loss, "y_hat": y_hat}

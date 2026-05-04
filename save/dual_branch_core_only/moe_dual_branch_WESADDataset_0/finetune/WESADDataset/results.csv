@@ -18,6 +18,7 @@ best_f1,best_acc,best_loss,best_epoch,best_path
 0.7876,0.7976,0.5806218385696411,43,./save/dual_branch_core_only/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_12.pt
 0.9844,0.9869,0.5561566352844238,60,./save/dual_branch_core_only/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_13.pt
 0.9673,0.9716,0.5377535223960876,93,./save/dual_branch_core_only/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_14.pt
+
 0.5438,0.5456,0.3515107691287994,5,./save/dual_branch_core_only/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_0.pt
 0.6597,0.6748,0.01125363353639841,52,./save/dual_branch_core_only/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_1.pt
 0.951,0.9593,0.039575381018221376,21,./save/dual_branch_core_only/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_2.pt

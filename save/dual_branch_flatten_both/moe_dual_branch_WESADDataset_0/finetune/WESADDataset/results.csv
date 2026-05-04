@@ -1,0 +1,16 @@
+best_f1,best_acc,best_loss,best_epoch,best_path,training_mode
+0.5413,0.7258,0.6767879128456116,0,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_0.pt,train_linear
+0.4141,0.7069,0.6785964965820312,0,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_1.pt,train_linear
+0.735,0.8212,0.30115455389022827,38,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_2.pt,train_linear
+0.4651,0.7219,0.22955241799354553,80,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_3.pt,train_linear
+0.5033,0.6969,0.20903128385543823,91,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_4.pt,train_linear
+0.4717,0.7239,0.2558700442314148,92,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_5.pt,train_linear
+0.9802,0.9831,0.2574676275253296,74,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_6.pt,train_linear
+0.8631,0.8773,0.46374863386154175,11,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_7.pt,train_linear
+0.6797,0.7984,0.24873775243759155,79,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_8.pt,train_linear
+0.9562,0.9643,0.22541984915733337,87,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_9.pt,train_linear
+0.5958,0.7675,0.2678792476654053,56,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_10.pt,train_linear
+0.9443,0.9531,0.3314923942089081,31,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_11.pt,train_linear
+0.8004,0.8411,0.23652568459510803,81,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_12.pt,train_linear
+0.7157,0.8121,0.23625725507736206,85,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_13.pt,train_linear
+1.0,1.0,0.4375128746032715,14,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset/finetuned_best_14.pt,train_linear

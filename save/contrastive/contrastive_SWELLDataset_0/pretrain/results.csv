@@ -1,0 +1,2 @@
+best_path,best_loss,best_epoch
+./save/contrastive/contrastive_SWELLDataset_0/pretrain/encoder_best_.pt,3.723536252975464,281

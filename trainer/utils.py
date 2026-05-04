@@ -1,7 +1,7 @@
 import random
 import os 
 import json
-from models import contrastive_model, finetune_builder, subject_invariant_model, subject_specific_model
+from models import contrastive_model, finetune_builder, subject_invariant_model, subject_specific_model, EncoderClassifier, moe_dual_branch, byol_model, simsiam_model
 import torch
 import numpy as np
 import logging
@@ -142,26 +142,11 @@ def create_model(cfg, device, total_steps = None):
             moe_encoder    = encoder,
             num_class      = cfg["model_args"].get("num_class", 1),
             model_path     = cfg["model_args"].get("model_path", None),
-            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
-            freeze_stem = cfg["model_args"].get("freeze_stem", False),
-            stem_only = cfg["model_args"].get("stem_only", False),
-            freeze_inv     = cfg["model_args"].get("freeze_inv", False),
-            freeze_spec    = cfg["model_args"].get("freeze_spec", False),
+            training_mode     = cfg["model_args"].get("training_mode", "finetune"),
             device         = device,
         )
         return model
 
-    if model_type == "supervised_learning":
-        model = MoEFinetuneModel(
-            moe_encoder    = encoder,
-            num_class      = cfg["model_args"].get("num_class", 1),
-            model_path     = None,
-            freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
-            freeze_inv     = cfg["model_args"].get("freeze_inv", False),
-            freeze_spec    = cfg["model_args"].get("freeze_spec", False),
-            device         = device,
-        )
-        return model
     # ── existing model types (unchanged) ─────────────────────────────────
 
     if model_type == "contrastive":
@@ -215,6 +200,7 @@ def create_model(cfg, device, total_steps = None):
             num_class      = cfg["model_args"].get("num_class",      1),
             model_path     = cfg["model_args"].get("model_path",     None),
             freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
+            mode = cfg["model_args"].get("training_mode", "fine_tune"),
             device         = device,
         )
         return model
@@ -232,9 +218,18 @@ def create_model(cfg, device, total_steps = None):
             num_class      = cfg["model_args"].get("num_class",      1),
             model_path     = cfg["model_args"].get("model_path",     None),
             freeze_encoder = cfg["model_args"].get("freeze_encoder", False),
+            mode = cfg["model_args"].get("training_mode", "fine_tune"),
             device         = device,
         )
         return model
+    elif model_type == "encoder_classifier":
+        return EncoderClassifier.StemFinetuneModel(
+            base_encoder   = encoder,
+            num_class      = cfg["model_args"].get("num_class",      1),
+            model_path     = cfg["model_args"].get("model_path",     None),
+            device         = device,
+            training_mode = cfg["model_args"].get("training_mode", "supervised"),
+        )
     else:
         raise ValueError(f"Unknown model_type: {model_type}")
 

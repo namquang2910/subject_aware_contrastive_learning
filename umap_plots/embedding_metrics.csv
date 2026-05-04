@@ -1,0 +1,13 @@
+Dataset,Embedding,Uniformity,Label_Separability,Subject_Separability
+WESADModel,Invariant Head (z_inv),-1.807,0.93,0.649
+WESADModel,Subject-Specific Head (z_spec),-0.462,0.923,0.654
+WESADModel,Concat Head (h_out),-0.0,0.697,0.527
+WESADModel,Encoder-Only (h),-0.026,0.756,0.517
+WESADModel,Random-Init Encoder Only (z_inv_rand),-0.026,0.756,0.517
+WESADModel,Random-Init Concat (z_spec_rand),-0.0,0.697,0.527
+SWELLModel,Invariant Head (z_inv),-0.913,0.998,0.448
+SWELLModel,Subject-Specific Head (z_spec),-0.516,1.012,0.445
+SWELLModel,Concat Head (h_out),-0.041,0.98,0.533
+SWELLModel,Encoder-Only (h),-0.033,1.002,0.625
+SWELLModel,Random-Init Encoder Only (z_inv_rand),-0.033,1.002,0.625
+SWELLModel,Random-Init Concat (z_spec_rand),-0.041,0.98,0.533

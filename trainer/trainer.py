@@ -71,7 +71,7 @@ class Trainer:
             device_ids=[self.device.index] if self.device.type == "cuda" else None,
             output_device=self.device.index if self.device.type == "cuda" else None,
             broadcast_buffers=True,
-            find_unused_parameters=False,
+            find_unused_parameters=True,
         )
     def _build_early_stopper(self):
         self.early_stopper = EarlyStopping(
@@ -112,7 +112,7 @@ class Trainer:
         start = time.time()
         last_beta = 0
         for _, data in enumerate(self.train_loader):
-            self.model.zero_grad()
+            self.model.zero_grad() #update
             result = self.model(data)
             
             result["total_loss"].backward()

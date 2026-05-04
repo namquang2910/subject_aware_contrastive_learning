@@ -124,16 +124,13 @@
                 "dropout_prob": 0.1,
                 "stride": 1,
                 "output_dim": 64,
-                "projection_output": 32,
-                "router_temperature": 1.0
+                "projection_output": 32
             },
             "model_type": "moe_dual_branch",
             "num_subjects": null,
             "grl_lambda": 1.0,
             "lambda_inv": 1.0,
-            "lambda_spec": 1.0,
-            "lambda_adv": 0.5,
-            "lambda_orth": 0.1
+            "lambda_spec": 1.0
         },
         "loss": {
             "name": "NCE",
@@ -165,7 +162,7 @@
                 "dataset_path": "/home/s223149341/SSL-invariance-Subject_Project_model/data/WESAD/wesad_10_05_no_standardize",
                 "include_labels": "true",
                 "split": "train",
-                "sub_sample_frac": 0.01,
+                "sub_sample_frac": 1.0,
                 "split_file": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO/fold_14.csv"
             },
             "val_dataset_args": {
@@ -195,12 +192,10 @@
                 "stride": 1,
                 "dropout_prob": 0.0,
                 "projection_output": 32,
-                "router_temperature": 1.0
+                "use_bn": true
             },
             "num_class": 1,
-            "freeze_encoder": false,
-            "freeze_inv": false,
-            "freeze_spec": false,
+            "training_mode": "fine_tune",
             "model_path": "./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/pretrain/encoder_best_.pt"
         },
         "loss": {
@@ -208,14 +203,14 @@
             "loss_args": {}
         },
         "optim_args": {
-            "lr": 0.001,
-            "min_lr": 1e-05,
+            "lr": 0.0001,
+            "min_lr": 1e-06,
             "epochs": 100,
             "batch_size": 64,
             "num_workers": 8,
-            "weight_decay": 0.0001,
+            "weight_decay": 1e-05,
             "use_lr_scheduler": true,
-            "warm_up": 50,
+            "warm_up": 30,
             "apply_early_stopping": false,
             "early_stopping_higher_better": true,
             "patience": 30

@@ -27,7 +27,7 @@ class ContrastiveModel(Model):
         self.projection_output = projection_output
         self.encoder = copy.deepcopy(base_encoder)
         
-        dim_mlp = self.encoder.output_dim
+        dim_mlp = self.encoder.last_dim
         # separate heads for query and key branches
         self.projection_head = nn.Sequential(
                                 nn.Linear(dim_mlp, self.projection_output),

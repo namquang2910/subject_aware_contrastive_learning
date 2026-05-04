@@ -3,7 +3,7 @@ set -euo pipefail
 
 WESAD_CONFIG="/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/pretrain_dual_branch/moe_dual/pretrain_wesad.json"
 SWELL_CONFIG="/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/pretrain_dual_branch/moe_dual/pretrain_swell.json"
-PORT=23503
+PORT=23509
 NPROC=8
 
 echo "Running Dual Branch Subject-aware contrastive learning for dataset PsychioNet..."
@@ -16,6 +16,6 @@ torchrun \
   --model_type moe_dual_branch \
   --dataset "PsychioNet" \
   --resume_finetune 0\
-  --finetune_fraction 0.01
+  --finetune_fraction 1.0
 
 echo "All runs completed."

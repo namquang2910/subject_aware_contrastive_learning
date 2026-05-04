@@ -1,5 +1,5 @@
 {
-  "exp_name": "Simsiam",
+  "exp_name": "Simsiam_new",
   "mode": "pretrain_finetune",
   "seeds": [0],
   "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO",
@@ -93,9 +93,9 @@
       "adam_epsilon": 1e-08,
       "use_lr_scheduler": true,
       "warm_up": 200,
-      "apply_early_stopping": false,
+      "apply_early_stopping": true,
       "early_stopping_higher_better": false,
-      "patience": 15
+      "patience": 50
     }
   },
 
@@ -133,6 +133,7 @@
         "stride": 1
       },
       "model_type": "simsiam_finetune",
+      "training_mode": "train_linear",
       "freeze_encoder": true,
       "num_class": 1,
       "model_path": ""
@@ -151,7 +152,7 @@
       "num_workers": 8,
       "weight_decay": 0.0001,
       "use_lr_scheduler": true,
-      "warm_up": 50,
+      "warm_up": 20,
       "apply_early_stopping": false,
       "early_stopping_higher_better": true,
       "patience": 30

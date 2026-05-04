@@ -134,6 +134,7 @@
       },
       "model_type": "byol_finetune",
       "num_class": 1,
+      "training_mode": "train_linear",
       "freeze_encoder": true,
       "model_path": ""
     },
@@ -151,7 +152,7 @@
       "num_workers": 8,
       "weight_decay": 0.0001,
       "use_lr_scheduler": true,
-      "warm_up": 50,
+      "warm_up": 20,
       "apply_early_stopping": false,
       "early_stopping_higher_better": true,
       "patience": 30

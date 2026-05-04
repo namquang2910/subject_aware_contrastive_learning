@@ -43,7 +43,7 @@ class SimSiamPretrainModel(Model):
         device=None,
     ):
         super().__init__(device=device)
-        stem_dim = base_encoder.output_dim
+        stem_dim = base_encoder.last_dim
 
         self.encoder   = copy.deepcopy(base_encoder)
         self.projector = _simsiam_projector(stem_dim, hidden_dim, projection_output)
@@ -102,6 +102,7 @@ class SimSiamFinetuneModel(Model):
         num_class:      int  = 1,
         model_path:     str  = None,
         freeze_encoder: bool = False,
+        mode = "fine_tune",  # one of "fine_tune", "train_linear", "supervised", "random_init"
         device=None,
     ):
         super().__init__(device=device)
@@ -114,6 +115,10 @@ class SimSiamFinetuneModel(Model):
         if model_path:
             self._load_encoder(model_path)
             
+        if mode == "train_linear":
+            print("[SimSiamFinetuneModel] train_linear: "
+                  "pretrained encoder frozen, training linear head only")
+            freeze_encoder = True
 
         if freeze_encoder:
             for p in self.encoder.parameters():
@@ -163,8 +168,8 @@ class SimSiamFinetuneModel(Model):
         if x.dim() == 2:
             x = x.unsqueeze(1)
 
-        h     = self.encoder(x)
-        y_hat = self.classifier(h)
+        h, z     = self.encoder(x, return_embedding=True)
+        y_hat = self.classifier(z)
         loss  = self.loss_fn(y_hat, self._prepare_targets(y))
 
         return {"total_loss": loss, "y_hat": y_hat}

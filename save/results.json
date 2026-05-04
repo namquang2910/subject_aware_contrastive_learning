@@ -46,8 +46,7 @@ Run 10%
 0.644872,0.6839160000000001,0,0.01,./save/Simsiam/simsiam_PsychioNet_0/pretrain,./save/Simsiam/simsiam_PsychioNet_0/finetune/SWELLDataset
 0.85312,0.8828466666666668,0,0.01,./save/BYOL/byol_PsychioNet_0/pretrain,./save/BYOL/byol_PsychioNet_0/finetune/WESADDataset
 0.6034520000000001,0.68058,0,0.01,./save/BYOL/byol_PsychioNet_0/pretrain,./save/BYOL/byol_PsychioNet_0/finetune/SWELLDataset
-
-0.8766200000000001,0.8897266666666666,0,0.01,./save/Simsiam/simsiam_WESADDataset_0/pretrain,./save/Simsiam/simsiam_WESADDataset_0/finetune/WESADDataset
+- 0.8766200000000001,0.8897266666666666,0,0.01,./save/Simsiam/simsiam_WESADDataset_0/pretrain,./save/Simsiam/simsiam_WESADDataset_0/finetune/WESADDataset
 0.611424,0.649024,0,0.01,./save/Simsiam/simsiam_SWELLDataset_0/pretrain,./save/Simsiam/simsiam_SWELLDataset_0/finetune/SWELLDataset
 0.8407733333333334,0.8641733333333333,0,0.01,./save/BYOL/byol_WESADDataset_0/pretrain,./save/BYOL/byol_WESADDataset_0/finetune/WESADDataset
 0.634156,0.6808719999999999,0,0.01,./save/BYOL/byol_SWELLDataset_0/pretrain,./save/BYOL/byol_SWELLDataset_0/finetune/SWELLDataset
@@ -88,3 +87,63 @@ Run 10%
 0.41173999999999994,0.7000066666666667,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/finetune/WESADDataset
 0.35989600000000005,0.444932,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset
 0.8753333333333332,0.89206,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+
+0.6977066666666668,0.7682333333333333,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+0.27879600000000004,0.39393600000000006,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/SWELLDataset
+0.69244,0.7460733333333333,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+0.7381133333333333,0.7635133333333334,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+0.6615866666666667,0.7024133333333331,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset
+0.6615866666666667,0.7024133333333331,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,train_linear
+0.7381133333333333,0.7635133333333334,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,random_init
+
+0.8677866666666668,0.9002733333333334,0,0.01,./save/Simsiam/simsiam_PsychioNet_0/pretrain,./save/Simsiam/simsiam_PsychioNet_0/finetune/WESADDataset,
+0.8307199999999999,0.86646,0,0.01,./save/BYOL/byol_PsychioNet_0/pretrain,./save/BYOL/byol_PsychioNet_0/finetune/WESADDataset,
+0.6382479999999999,0.6692519999999998,0,0.01,./save/Simsiam/simsiam_PsychioNet_0/pretrain,./save/Simsiam/simsiam_PsychioNet_0/finetune/SWELLDataset,
+0.6425719999999999,0.677068,0,0.01,./save/BYOL/byol_PsychioNet_0/pretrain,./save/BYOL/byol_PsychioNet_0/finetune/SWELLDataset,
+0.8362666666666667,0.8618333333333335,0,0.01,./save/Simsiam/simsiam_SWELLDataset_0/pretrain,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset,
+0.8064,0.8403866666666667,0,0.01,./save/BYOL/byol_SWELLDataset_0/pretrain,./save/BYOL/byol_SWELLDataset_0/finetune/WESADDataset,
+- 0.6349400000000001,0.6721759999999999,0,0.01,./save/BYOL/byol_WESADDataset_0/pretrain,./save/BYOL/byol_WESADDataset_0/finetune/SWELLDataset,
+0.653284,0.692156,0,0.01,./save/Simsiam/simsiam_WESADDataset_0/pretrain,./save/Simsiam/simsiam_WESADDataset_0/finetune/SWELLDataset,
+0.45102666666666663,0.7050333333333332,0,0.01,./save/BYOL/byol_WESADDataset_0/pretrain,./save/BYOL/byol_WESADDataset_0/finetune/WESADDataset,
+0.41173999999999994,0.7000066666666667,0,0.01,./save/Simsiam/simsiam_WESADDataset_0/pretrain,./save/Simsiam/simsiam_WESADDataset_0/finetune/WESADDataset,
+
+0.5991866666666666,0.7883066666666667,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,random_init
+0.7686533333333333,0.8077533333333332,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,supervised
+0.6347799999999999,0.7236333333333334,0,0.01,./save/dual_branch_no_scale_flatten/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale_flatten/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,random_init
+0.7133,0.7633266666666666,0,0.01,./save/dual_branch_flatten/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_flatten/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,train_linear
+0.5182840000000001,0.5798000000000001,0,0.01,./save/dual_branch_flatten/moe_dual_branch_SWELLDataset_0/pretrain,./save/dual_branch_flatten/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset,random_init
+0.555656,0.602812,0,0.01,./save/dual_branch_flatten/moe_dual_branch_SWELLDataset_0/pretrain,./save/dual_branch_flatten/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset,supervised
+- 0.627164,0.673796,0,0.01,./save/dual_branch_flatten/moe_dual_branch_SWELLDataset_0/pretrain,./save//save/BYOL/byol_WESADDataset_0/finetune/SWELLDatase/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset,fine_tune
+
+0.7108466666666666,0.8130933333333333,0,0.01,./save/dual_branch_flatten/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_flatten/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,train_linear
+0.527536,0.6412720000000001,0,0.01,./save/dual_branch_flatten/moe_dual_branch_SWELLDataset_0/pretrain,./save/dual_branch_flatten/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset,train_linear
+0.7919066666666665,0.8358266666666666,0,0.01,./save/Simsiam_new/simsiam_WESADDataset_0/pretrain,./save/Simsiam_new/simsiam_WESADDataset_0/finetune/WESADDataset,train_linear
+0.8120999999999998,0.8540733333333334,0,0.01,./save/BYOL/byol_WESADDataset_0/pretrain,./save/BYOL/byol_WESADDataset_0/finetune/WESADDataset,train_linear
+- 0.8602133333333334,0.8864799999999999,0,0.01,./save/BYOL/byol_WESADDataset_0/pretrain,./save/BYOL/byol_WESADDataset_0/finetune/WESADDataset,fine_tune
+0.8064466666666666,0.8575199999999998,0,0.01,./save/Simsiam_new/simsiam_WESADDataset_0/pretrain,./save/Simsiam_new/simsiam_WESADDataset_0/finetune/WESADDataset,fine_tune
+0.643424,0.679496,0,0.01,./save/Simsiam/simsiam_SWELLDataset_0/pretrain,./save/Simsiam/simsiam_SWELLDataset_0/finetune/SWELLDataset,
+0.617912,0.6598959999999999,0,0.01,./save/BYOL/byol_SWELLDataset_0/pretrain,./save/BYOL/byol_SWELLDataset_0/finetune/SWELLDataset,
+0.6463639999999999,0.6834600000000001,0,0.01,./save/Simsiam/simsiam_SWELLDataset_0/pretrain,./save/Simsiam/simsiam_SWELLDataset_0/finetune/SWELLDataset,
+0.617956,0.655912,0,0.01,./save/BYOL/byol_SWELLDataset_0/pretrain,./save/BYOL/byol_SWELLDataset_0/finetune/SWELLDataset,
+0.7110599999999999,0.8262333333333333,0,0.01,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_flatten_both/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,train_linear
+
+0.6472919999999999,0.6848120000000002,0,0.01,./save/Simsiam/simsiam_SWELLDataset_0/pretrain,./save/Simsiam/simsiam_SWELLDataset_0/finetune/SWELLDataset,
+0.620896,0.6605159999999999,0,0.01,./save/BYOL/byol_SWELLDataset_0/pretrain,./save/BYOL/byol_SWELLDataset_0/finetune/SWELLDataset,
+
+- 0.8120999999999998,0.8540733333333334,0,0.01,./save/BYOL/byol_WESADDataset_0/pretrain,./save/BYOL/byol_WESADDataset_0/finetune/WESADDataset,train_linear
+- 0.7919066666666665,0.8358266666666666,0,0.01,./save/Simsiam_new/simsiam_WESADDataset_0/pretrain,./save/Simsiam_new/simsiam_WESADDataset_0/finetune/WESADDataset,train_linear
+- 0.561584,0.6255000000000001,0,0.01,./save/Simsiam/simsiam_SWELLDataset_0/pretrain,./save/Simsiam/simsiam_SWELLDataset_0/finetune/SWELLDataset,train_linear
+- 0.617628,0.660728,0,0.01,./save/BYOL/byol_SWELLDataset_0/pretrain,./save/BYOL/byol_SWELLDataset_0/finetune/SWELLDataset,train_linear
+0.8091266666666665,0.8500200000000001,0,1.0,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,fine_tune
+0.7451466666666666,0.8290400000000002,0,0.01,./save/supervised_learning/moe_dual_branch_WESADDataset_0/pretrain,./save/supervised_learning/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,supervised
+0.5998560000000001,0.64518,0,0.01,./save/supervised_learning/moe_dual_branch_SWELLDataset_0/pretrain,./save/supervised_learning/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset,supervised
+0.7258333333333336,0.8114666666666666,0,0.01,./save/Random/moe_dual_branch_WESADDataset_0/pretrain,./save/Random/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,random_init
+0.569268,0.615528,0,0.01,./save/Random/moe_dual_branch_SWELLDataset_0/pretrain,./save/Random/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset,random_init
+0.7258333333333336,0.8114666666666666,0,0.01,./save/Random/moe_dual_branch_WESADDataset_0/pretrain,./save/Random/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,random_init
+0.8158266666666667,0.8525066666666665,0,1.0,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset,fine_tune
+0.8217333333333333,0.8564266666666666,0,1.0,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset,fine_tune
+0.7258333333333336,0.8114666666666666,0,0.01,./save/Random/moe_dual_branch_WESADDataset_0/pretrain,./save/Random/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,random_init
+0.7228600000000001,0.8132666666666668,0,0.01,./save/Random/moe_dual_branch_WESADDataset_0/pretrain,./save/Random/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,random_init
+0.6392066666666667,0.7981333333333335,0,0.01,./save/Random/moe_dual_branch_WESADDataset_0/pretrain,./save/Random/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,random_init
+0.53622,0.6482666666666665,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,train_linear
+0.487184,0.6292719999999999,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset,train_linear
