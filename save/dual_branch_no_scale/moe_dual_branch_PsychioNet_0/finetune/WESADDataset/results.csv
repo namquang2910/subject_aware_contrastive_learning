@@ -26,6 +26,7 @@ best_f1,best_acc,best_loss,best_epoch,best_path
 0.995,0.9958,0.06716668605804443,68,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_12.pt
 0.8303,0.8669,0.07612219452857971,62,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_13.pt
 1.0,1.0,0.3906564712524414,18,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_14.pt
+
 0.8344,0.8416,0.0012766013387590647,52,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_0.pt,fine_tune
 0.7156,0.7387,0.007651147432625294,27,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_1.pt,fine_tune
 0.4918,0.7284,0.5700511932373047,0,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_2.pt,fine_tune

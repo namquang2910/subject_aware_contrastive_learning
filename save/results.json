@@ -147,3 +147,4 @@ Run 10%
 0.6392066666666667,0.7981333333333335,0,0.01,./save/Random/moe_dual_branch_WESADDataset_0/pretrain,./save/Random/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,random_init
 0.53622,0.6482666666666665,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_WESADDataset_0/finetune/WESADDataset,train_linear
 0.487184,0.6292719999999999,0,0.01,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/pretrain,./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/finetune/SWELLDataset,train_linear
+ 
