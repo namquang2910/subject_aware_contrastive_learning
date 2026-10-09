@@ -11,7 +11,8 @@ from torch.utils.data.distributed import DistributedSampler
 from trainer.utils import (
     LossMeter, EarlyStopping, 
     create_model, get_loss,
-    set_seed, save_config_file, get_dataset
+    set_seed, save_config_file, get_dataset,
+    get_evaluation_mode
 )
 
 class Trainer:
@@ -28,6 +29,7 @@ class Trainer:
         self.logger.info(f"Setting the seed to {seed} ")
         set_seed(seed)
         self.ema = False
+        self.evaluation_mode = get_evaluation_mode(self.cfg['finetune_args'])
         
         self.output = {"best_path": None,
                        "best_loss": None,
@@ -71,7 +73,7 @@ class Trainer:
             device_ids=[self.device.index] if self.device.type == "cuda" else None,
             output_device=self.device.index if self.device.type == "cuda" else None,
             broadcast_buffers=True,
-            find_unused_parameters=True,
+            find_unused_parameters=False,
         )
     def _build_early_stopper(self):
         self.early_stopper = EarlyStopping(

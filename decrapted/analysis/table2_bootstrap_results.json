@@ -1,0 +1,166 @@
+[
+  {
+    "setting": "PsychioNet-pretrained -> WESAD finetune",
+    "n_folds": 15,
+    "excluded_folds": [],
+    "SASContrast_F1_mean": 0.9099402680801422,
+    "SimSiam_F1_mean": 0.8431298561870985,
+    "SASContrast_Acc_mean": 0.9272575429643465,
+    "SimSiam_Acc_mean": 0.8828844251804543,
+    "fold_level_bootstrap": {
+      "F1": {
+        "observed_diff": 0.06681041189304371,
+        "ci_2.5": 0.001673853482139612,
+        "ci_97.5": 0.14229007518776465,
+        "p_value": 0.044,
+        "significant_0.05": true
+      },
+      "Accuracy": {
+        "observed_diff": 0.04437311778389219,
+        "ci_2.5": 0.005445735856018453,
+        "ci_97.5": 0.08811430867452531,
+        "p_value": 0.03,
+        "significant_0.05": true
+      }
+    },
+    "sample_level_bootstrap": {
+      "F1": {
+        "observed_diff": 0.06681041189304371,
+        "ci_2.5": 0.001597059086077905,
+        "ci_97.5": 0.13896693634928145,
+        "p_value": 0.044,
+        "significant_0.05": true
+      },
+      "Accuracy": {
+        "observed_diff": 0.04437311778389219,
+        "ci_2.5": 0.004752880495791276,
+        "ci_97.5": 0.08950627170958209,
+        "p_value": 0.024,
+        "significant_0.05": true
+      }
+    }
+  },
+  {
+    "setting": "PsychioNet-pretrained -> SWELL finetune",
+    "n_folds": 25,
+    "excluded_folds": [],
+    "SASContrast_F1_mean": 0.6818390611802451,
+    "SimSiam_F1_mean": 0.6056756727975959,
+    "SASContrast_Acc_mean": 0.7409916809374262,
+    "SimSiam_Acc_mean": 0.6550128114063919,
+    "fold_level_bootstrap": {
+      "F1": {
+        "observed_diff": 0.07616338838264913,
+        "ci_2.5": 0.022921130688446447,
+        "ci_97.5": 0.139076042359413,
+        "p_value": 0.004,
+        "significant_0.05": true
+      },
+      "Accuracy": {
+        "observed_diff": 0.08597886953103429,
+        "ci_2.5": 0.04653653172705063,
+        "ci_97.5": 0.129087477210366,
+        "p_value": 0.0,
+        "significant_0.05": true
+      }
+    },
+    "sample_level_bootstrap": {
+      "F1": {
+        "observed_diff": 0.07616338838264913,
+        "ci_2.5": 0.025384698289095134,
+        "ci_97.5": 0.13577853069620732,
+        "p_value": 0.004,
+        "significant_0.05": true
+      },
+      "Accuracy": {
+        "observed_diff": 0.08597886953103429,
+        "ci_2.5": 0.049157919288368004,
+        "ci_97.5": 0.13321246722881397,
+        "p_value": 0.0,
+        "significant_0.05": true
+      }
+    }
+  },
+  {
+    "setting": "WESAD-pretrained -> SWELL finetune",
+    "n_folds": 25,
+    "excluded_folds": [],
+    "SASContrast_F1_mean": 0.6685608185797443,
+    "SimSiam_F1_mean": 0.6127328028431941,
+    "SASContrast_Acc_mean": 0.7248619866474023,
+    "SimSiam_Acc_mean": 0.6728873591159679,
+    "fold_level_bootstrap": {
+      "F1": {
+        "observed_diff": 0.05582801573655016,
+        "ci_2.5": 0.018915446704484227,
+        "ci_97.5": 0.0927144316734455,
+        "p_value": 0.006,
+        "significant_0.05": true
+      },
+      "Accuracy": {
+        "observed_diff": 0.05197462753143445,
+        "ci_2.5": 0.02735065920319827,
+        "ci_97.5": 0.08054993335268586,
+        "p_value": 0.0,
+        "significant_0.05": true
+      }
+    },
+    "sample_level_bootstrap": {
+      "F1": {
+        "observed_diff": 0.05582801573655016,
+        "ci_2.5": 0.015082162101444746,
+        "ci_97.5": 0.094887347843076,
+        "p_value": 0.002,
+        "significant_0.05": true
+      },
+      "Accuracy": {
+        "observed_diff": 0.05197462753143445,
+        "ci_2.5": 0.026048393000011688,
+        "ci_97.5": 0.08087557194620476,
+        "p_value": 0.0,
+        "significant_0.05": true
+      }
+    }
+  },
+  {
+    "setting": "SWELL-pretrained -> WESAD finetune",
+    "n_folds": 15,
+    "excluded_folds": [],
+    "SASContrast_F1_mean": 0.905335238772261,
+    "SimSiam_F1_mean": 0.8237190350646719,
+    "SASContrast_Acc_mean": 0.9245823096022237,
+    "SimSiam_Acc_mean": 0.8761050541624414,
+    "fold_level_bootstrap": {
+      "F1": {
+        "observed_diff": 0.08161620370758904,
+        "ci_2.5": 0.030965465228022612,
+        "ci_97.5": 0.14298412688838474,
+        "p_value": 0.0,
+        "significant_0.05": true
+      },
+      "Accuracy": {
+        "observed_diff": 0.04847725543978221,
+        "ci_2.5": 0.016421061285230375,
+        "ci_97.5": 0.08368179083905086,
+        "p_value": 0.0,
+        "significant_0.05": true
+      }
+    },
+    "sample_level_bootstrap": {
+      "F1": {
+        "observed_diff": 0.08161620370758904,
+        "ci_2.5": 0.033586022796804296,
+        "ci_97.5": 0.13378692024816125,
+        "p_value": 0.0,
+        "significant_0.05": true
+      },
+      "Accuracy": {
+        "observed_diff": 0.04847725543978221,
+        "ci_2.5": 0.01763388672520831,
+        "ci_97.5": 0.08104128980215491,
+        "p_value": 0.004,
+        "significant_0.05": true
+      }
+    }
+  }
+]

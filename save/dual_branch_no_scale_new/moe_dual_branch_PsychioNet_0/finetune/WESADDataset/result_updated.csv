@@ -1,0 +1,16 @@
+best_f1,best_acc,best_loss,best_epoch,best_path,training_mode
+0.8923,0.9128,0.03897320479154587,8,./save/dual_branch_no_scale/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_13.pt0.7109,0.7367,0.07790235331968258,21,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_0.pt,fine_tune
+0.7819,0.8291,0.1470310742917814,13,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_1.pt,fine_tune
+0.7273,0.8219,0.02268591939814781,47,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_2.pt,fine_tune
+0.9972,0.9977,0.330755225921932,6,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_3.pt,fine_tune
+0.7947,0.8265,0.041752380367956664,28,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_4.pt,fine_tune
+0.9285,0.9402,0.023971756969235446,42,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_5.pt,fine_tune
+0.9995,0.9996,0.10176142285528936,21,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_6.pt,fine_tune
+0.9075,0.9165,0.045057975834137516,39,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_7.pt,fine_tune
+0.9882,0.9901,0.1881752461194992,3,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_8.pt
+1.0,1.0,0.09210318483804401,25,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_9.pt,fine_tune
+1.0,1.0,0.5501235158819902,1,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_10.pt,fine_tune
+0.9685,0.9738,0.2692897735457671,8,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_11.pt,fine_tune
+0.9925,0.9938,0.09025607218867854,20,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_12.pt,fine_tune
+0.9732,0.9783,0.012970078736543655,15,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_12.pt
+1.0,1.0,0.3629221116241656,5,./save/dual_branch_no_scale_new/moe_dual_branch_PsychioNet_0/finetune/WESADDataset/finetuned_best_14.pt,fine_tune

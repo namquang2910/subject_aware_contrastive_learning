@@ -1,5 +1,5 @@
 {
-  "exp_name": "BYOL",
+  "exp_name": "BYOL_new",
   "mode": "pretrain_finetune",
   "seeds": [0],
   "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO",

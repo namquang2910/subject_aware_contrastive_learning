@@ -124,16 +124,13 @@
                 "dropout_prob": 0.1,
                 "stride": 1,
                 "output_dim": 64,
-                "projection_output": 32,
-                "router_temperature": 1.0
+                "projection_output": 32
             },
             "model_type": "moe_dual_branch",
             "num_subjects": null,
             "grl_lambda": 1.0,
             "lambda_inv": 1.0,
-            "lambda_spec": 1.0,
-            "lambda_adv": 0.5,
-            "lambda_orth": 0.1
+            "lambda_spec": 1.0
         },
         "loss": {
             "name": "NCE",
@@ -193,17 +190,11 @@
                 "kernel_size": 10,
                 "output_dim": 64,
                 "stride": 1,
-                "dropout_prob": 0.0,
-                "projection_output": 32,
-                "router_temperature": 1.0
+                "dropout_prob": 0.0
             },
             "num_class": 1,
-            "freeze_encoder": false,
-            "freeze_stem": true,
-            "freeze_inv": true,
-            "freeze_spec": true,
-            "stem_only": true,
-            "model_path": "./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/pretrain/encoder_best_.pt"
+            "model_path": "./save/dual_branch_no_scale/moe_dual_branch_SWELLDataset_0/pretrain/encoder_best_.pt",
+            "training_mode": "fine_tune"
         },
         "loss": {
             "name": "BCE",
@@ -217,7 +208,7 @@
             "num_workers": 8,
             "weight_decay": 0.0001,
             "use_lr_scheduler": true,
-            "warm_up": 50,
+            "warm_up": 20,
             "apply_early_stopping": false,
             "early_stopping_higher_better": true,
             "patience": 30

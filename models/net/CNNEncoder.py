@@ -23,13 +23,13 @@ class CNNEncoder(nn.Module):
         self.stride = stride
         self.cnn_layers = self._get_cnn_layers()
         self.cnn_output_dim = self._get_cnn_output_dim()
-        #self.gap = nn.AdaptiveAvgPool1d(1)
-        # self.linear_layer = nn.Sequential(
-        #     nn.Linear(self.cnn_output_dim, output_dim),
-        #   #  nn.BatchNorm1d(output_dim),
-        #     nn.ReLU()
-        # )
-        self.last_dim = output_dim
+        
+        self.linear_layer = nn.Sequential(
+            nn.Linear(self.cnn_output_dim, output_dim),
+          #  nn.BatchNorm1d(output_dim),
+            nn.ReLU()
+        )
+        self.last_dim = self.output_dim = output_dim
         self.use_gap = use_gap
 
     def forward(self, x, return_embedding=False):
@@ -41,7 +41,7 @@ class CNNEncoder(nn.Module):
         #z = self.gap(h).squeeze(-1)     # [B, C] -> 256 dim -> 18K dim
         z = torch.reshape(h, (h.shape[0], -1))
         # apply linear layer
-        # h = self.linear_layer(z)
+        h = self.linear_layer(z)
         if return_embedding:
             return h, z
         return h

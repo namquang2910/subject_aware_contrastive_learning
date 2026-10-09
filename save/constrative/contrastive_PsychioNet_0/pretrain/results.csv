@@ -1,0 +1,2 @@
+best_path,best_loss,best_epoch
+./save/constrative/contrastive_PsychioNet_0/pretrain/encoder_best_.pt,1.360764741897583,589

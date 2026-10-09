@@ -6,10 +6,10 @@ from collections import OrderedDict
 from torch.utils.data import DataLoader
 from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch.utils.data.distributed import DistributedSampler
-
+import numpy as np
 from trainer.trainer import Trainer
 from trainer.utils import (compute_metrics, get_dataset, set_seed, save_config_file)
-
+import pandas as pd
 
 class Finetuner(Trainer):
     def __init__(self, cfg, logger, device, rank=0, world_size=1, seed=1, fold=1):
@@ -21,7 +21,9 @@ class Finetuner(Trainer):
         log_cfg = cfg["logging_args"]
         self.print_freq = int(log_cfg["print_freq"])
         self.save_freq  = int(log_cfg["save_freq"])
-
+        self.subject_wise_eval = (self.evaluation_mode == "subject_wise")
+        print(f"Subject wise evaluation {self.subject_wise_eval}")
+        self.loss_fn = cfg['finetune_args']['loss']['name']
         # Initialise output dict so best_path always exists
         self.output = {
             'best_f1':   0.0,
@@ -49,7 +51,7 @@ class Finetuner(Trainer):
         self.optimizer = optim.AdamW(
             [
                 {"params": encoder_params,    "lr": self.optim_args["lr"]},
-                {"params": classifier_params, "lr": self.optim_args["lr"]},
+                {"params": classifier_params, "lr": self.optim_args["lr"]/10},
             ],
             lr=self.optim_args["lr"],
             weight_decay=self.optim_args.get("weight_decay", 0.0),
@@ -76,14 +78,21 @@ class Finetuner(Trainer):
         train_ds = get_dataset(ds_args["train_dataset_args"])
         val_ds   = get_dataset(ds_args["val_dataset_args"])
         test_ds  = get_dataset(ds_args["test_dataset_args"])
-        
+        print(
+            f"[Rank {self.rank}] train_dataset = {train_ds}, "
+            f"type = {type(train_ds)}"
+        )
+
+        if train_ds is not None:
+            print(f"[Rank {self.rank}] train_dataset length = {len(train_ds)}")
+            
         self.train_sampler = DistributedSampler(
             train_ds, num_replicas=self.world_size, rank=self.rank,
             shuffle=True)
         
-        self.train_loader = self._make_loader(train_ds, shuffle=False, sampler=self.train_sampler)
-        self.val_loader   = self._make_loader(val_ds,   shuffle=False, drop_last=False)
-        self.test_loader  = self._make_loader(test_ds,  shuffle=False, drop_last=False)
+        self.train_loader = self._make_loader(train_ds, shuffle=False, sampler=self.train_sampler, drop_last = True)
+        self.val_loader   = self._make_loader(val_ds,   shuffle=False, drop_last=True)
+        self.test_loader  = self._make_loader(test_ds,  shuffle=False, drop_last=True)
 
     # ------------------------------------------------------------------
     # Training
@@ -97,6 +106,12 @@ class Finetuner(Trainer):
             if avg_loss  is not None: self.output['best_loss']  = avg_loss["total_loss"]
             if epoch     is not None: self.output['best_epoch'] = epoch
             self.output['best_path'] = os.path.join(self.finetune_output_dir, f"finetuned_best_{self.fold}.pt")
+            result_df = pd.DataFrame({"label": result["y"].cpu().numpy(), "pred": result["y_hat"].cpu().numpy()})
+            file_existed = os.path.exists(os.path.join(self.finetune_output_dir, f"finetuned_best_{self.fold}.csv"))
+            if file_existed:
+                result_df.to_csv(os.path.join(self.finetune_output_dir, f"finetuned_best_{self.fold}_updated.csv"), index=False)
+            else:
+                result_df.to_csv(os.path.join(self.finetune_output_dir, f"finetuned_best_{self.fold}.csv"), index=False)
             self._save_checkpoint(self.output['best_path'])
 
     def train(self):
@@ -163,6 +178,12 @@ class Finetuner(Trainer):
         self.logger.info(f"Best checkpoint: {self.output['best_path']}")
         return self.output
 
+    def get_prediction(self, y, yhat):
+        if self.loss_fn == "BCE":
+            return (torch.sigmoid(yhat) >= 0.5).long().view(-1).to(self.device)
+        elif self.loss_fn == "CE":
+            return torch.argmax(yhat, dim=1).view(-1).to(self.device)
+
     def validate(self, dataloader, return_cm=False):
         self.model.eval()
         total_loss = 0.0
@@ -173,20 +194,40 @@ class Finetuner(Trainer):
                 result = self.model(batch)
                 loss   = result["total_loss"]
 
+                if self.subject_wise_eval:
+                    # Subject-wise evaluation
+                    subject_ids = batch["subject_id_int"].view(-1).cpu().numpy()
+                    unique_subjects = np.unique(subject_ids)
+                    subject_preds = []
+                    subject_labels = []
+                    for subject in unique_subjects:
+                        subject_mask = (subject_ids == subject)
+                        subject_y_hat = result["y_hat"][subject_mask]
+                        subject_y = batch["y"][subject_mask]
+                        # Majority voting for predictions
+                        subject_pred = self.get_prediction(subject_y, subject_y_hat)
+                        majority_vote = torch.mode(subject_pred).values.item()
+                        subject_preds.append(majority_vote)
+                        subject_labels.append(subject_y[0].item())  # Assuming all labels are the same for a subject
+                    y_hat = torch.tensor(subject_preds, device=self.device)
+                    y = torch.tensor(subject_labels, device=self.device)
+                else:
+                    y_hat = self.get_prediction(batch["y"], result["y_hat"])
+                    y = batch["y"].view(-1).long().to(self.device)
+
+                all_preds.append(y_hat)
+                all_labels.append(y)
                 if self.distributed:
                     dist.all_reduce(loss, op=dist.ReduceOp.SUM)
                     loss /= self.world_size
 
                 total_loss += loss.item()
 
-                y_hat = (torch.sigmoid(result["y_hat"]) >= 0.5).long().view(-1).to(self.device)
-                y     = batch["y"].view(-1).long().to(self.device)
-
-                all_preds.append(y_hat)
-                all_labels.append(y)
 
         avg_loss = total_loss / max(1, len(dataloader))
         result   = compute_metrics(torch.cat(all_labels), torch.cat(all_preds))
+        result["y_hat"] = torch.cat(all_preds)
+        result["y"]     = torch.cat(all_labels)
         if self.rank == 0:
             self.logger.info(
                 f"Validation — loss={avg_loss:.4f}, acc={result['acc']}, "

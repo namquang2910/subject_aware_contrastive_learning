@@ -20,7 +20,8 @@ DATASET_DIC = {'WESADDataset':'/home/s223149341/SSL-invariance-Subject_Project_m
                'SWELLDataset':'/home/s223149341/SSL-invariance-Subject_Project_model/data/SWELL/SWELL_1280_320',
                'PsychioNet': '/home/s223149341/SSL-invariance-Subject_Project_model/data/PhysioNet2017/physionet2017_unlabelled_10_5.parquet',
                "STRESSIDDataset": '/home/s223149341/SSL-invariance-Subject_Project_model/data/STRESS_ID/STRESS_ID_1280_64',
-               "VERBIODataset": '/home/s223149341/SSL-invariance-Subject_Project_model/data/verbio_1280_64'
+               "VERBIODataset": '/home/s223149341/SSL-invariance-Subject_Project_model/data/verbio_1280_64',
+               "MDDDataset": '/home/s223149341/SSL-invariance-Subject_Project_model/data/MDD/MDD_1280_64',
                }
 
 def resolve_args(args, cfg):
@@ -28,8 +29,6 @@ def resolve_args(args, cfg):
     if args.dataset is not None:
         if args.dataset not in DATASET_DIC:
             raise ValueError(f"Dataset {args.dataset} not found. ")
-        if args.dataset == "PsychioNet_z":
-            args.dataset = "PsychioNet"  # Use the same dataset class for both, but with different paths
         cfg['pretrain_args']['dataset_args']['train_dataset_args']['data_name'] = args.dataset
         cfg['pretrain_args']['dataset_args']['train_dataset_args']['dataset_path'] = DATASET_DIC[args.dataset]
 
@@ -55,10 +54,10 @@ def main():
     parser.add_argument("--resume_finetune", type=int, default=-1 , help="continue to finetune from a previous pretrain run")
     parser.add_argument("--model_type", type=str, required=True, choices=["contrastive", "subject_specific", "subject_invariant", "moe_dual_branch", "byol", "simsiam"], help="model type for pretraining, contrastive or subject_specific")
     parser.add_argument("--model_path", type=str, default=None , help="Path to model for finetune")
-    parser.add_argument("--dataset", type=str, default=None , choices=["WESADDataset", "SWELLDataset", "PsychioNet", "PsychioNet_z", "STRESSIDDataset", "VERBIODataset"], help="Pretrain dataset")
+    parser.add_argument("--dataset", type=str, default=None , choices=["WESADDataset", "SWELLDataset", "PsychioNet", "MDDDataset", "STRESSIDDataset", "VERBIODataset"], help="Pretrain dataset")
     parser.add_argument("--finetune_fraction", type=float, default=None , help="continue to finetune from a previous pretrain run")
     args = parser.parse_args()
-
+ 
     with open(args.config_path) as f:
         cfg = json.load(f)
     allow_exit = False

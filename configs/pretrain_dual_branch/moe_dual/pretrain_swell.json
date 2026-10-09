@@ -1,5 +1,5 @@
 {
-  "exp_name": "dual_branch_no_scale",
+  "exp_name": "dual_branch_no_scale_new",
   "mode": "pretrain_finetune",
   "seeds": [0],
   "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/SWELL_LOSO",
@@ -131,8 +131,8 @@
     },
 
  "model_args": {
-      "base_encoder": "cnn",
-      "model_type": "encoder_classifier",
+      "base_encoder": "moe",
+      "model_type": "moe_finetune",
       "base_encoder_args": {
         "input_dim": 1280,
         "kernel_size": 10,
@@ -141,8 +141,8 @@
         "dropout_prob": 0.0
       },
       "num_class": 1,
-      "training_mode": "train_linear",
-      "model_path": ""
+      "model_path": "",
+      "training_mode": "fine_tune"
     },
 
     "loss": {
@@ -158,7 +158,7 @@
       "num_workers": 8,
       "weight_decay": 0.0001,
       "use_lr_scheduler": true,
-      "warm_up": 50,
+      "warm_up": 5,
       "apply_early_stopping": false,
       "early_stopping_higher_better": true,
       "patience": 30

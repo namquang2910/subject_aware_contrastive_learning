@@ -133,8 +133,8 @@
         "stride": 1
       },
       "model_type": "simsiam_finetune",
-      "training_mode": "train_linear",
-      "freeze_encoder": true,
+      "training_mode": "fine_tune",
+      "freeze_encoder": false,
       "num_class": 1,
       "model_path": ""
     },

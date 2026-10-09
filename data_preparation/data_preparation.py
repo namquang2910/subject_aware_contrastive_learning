@@ -15,7 +15,7 @@ import argparse
 from pathlib import Path
 from pathlib import Path
 import pickle
-
+import warnings
 import wfdb
 import pytz
 import numpy as np
@@ -26,7 +26,7 @@ from datetime import datetime as dt
 from others_preparation import load_all_subjects
 from psy_preparation import load_all_physionet
 from verbio_preparation import load_all_verbio_subjects
-
+from ptbxl_preparation import load_all_ptbxl
 DOWNSAMPLE_SR  = 128
 
 # Per-dataset defaults
@@ -61,7 +61,14 @@ DATASET_DEFAULTS = {
         "data_sr":        None,
         "label_sets":      [0, 1], #0 for relax, 1 for ppt,
         "path_to_subject": "/home/s223149341/SSL-invariance-Subject_Project_model/data/VerBIO_v2/PRE/participant_id.csv"
-    }
+    },
+        "ptbxl": {
+        "segment_length": 1280,   
+        "segment_stride": 1,
+        "data_sr":        500,   
+        "label_sets":      None,  # No labels for pretraining
+    },
+
 }
 
 
@@ -77,7 +84,7 @@ def parse_args():
 
     parser.add_argument(
         "--dataset", required=True,
-        choices=["wesad", "swell", "physionet2017", "stressid", "verbio"],
+        choices=["wesad", "swell", "physionet2017", "stressid", "verbio", "ptbxl"],
         help="Dataset to process.",
     )
     parser.add_argument(
@@ -99,7 +106,10 @@ def parse_args():
         help="Stride between consecutive segments. "
              "Dataset defaults: wesad=64, swell=320, physionet2017=64.",
     )
-
+    parser.add_argument(
+        "--lead", type=str, default=None,
+        help="ECG lead to use for PTB-XL dataset.",
+    )
     return parser.parse_args()
 
 
@@ -112,6 +122,8 @@ def main():
                      else defaults["segment_length"]
     segment_stride = args.segment_stride if args.segment_stride is not None \
                      else defaults["segment_stride"]
+    lead = args.lead if args.lead is not None else None
+    warnings.warn("Using lead {} for PTB-XL dataset.".format(lead))
 
     if args.output_dir is not None:
         output_dir = args.output_dir
@@ -137,6 +149,8 @@ def main():
 
     elif args.dataset == "verbio":
         load_all_verbio_subjects(args.data_dir, output_dir, segment_length, segment_stride)
+    elif args.dataset == "ptbxl":
+        load_all_ptbxl(args.data_dir, output_dir, segment_length, segment_stride, lead=lead)
 
 if __name__ == "__main__":
     main()

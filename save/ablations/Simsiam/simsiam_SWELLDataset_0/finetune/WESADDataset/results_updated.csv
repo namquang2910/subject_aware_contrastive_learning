@@ -1,0 +1,16 @@
+best_f1,best_acc,best_loss,best_epoch,best_path
+0.7487,0.7956,0.15053409172428978,10,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_0.pt,fine_tune
+0.6932,0.7304,0.043105695189701185,31,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_1.pt,fine_tune
+0.4204,0.7054,0.010011211619712412,35,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_2.pt,fine_tune
+0.5864,0.7619,0.05812215473916796,26,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_3.pt,fine_tune
+0.6232,0.7028,0.008280670477284325,25,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_4.pt,fine_tune
+0.7887,0.8408,0.09491231416662534,12,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_5.pt,fine_tune
+0.9925,0.9935,0.03663225213272704,23,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_6.pt,fine_tune
+1.0,1.0,0.2623308317528831,9,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_7.pt,fine_tune
+0.8062,0.8563,0.13776624037159813,10,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_8.pt,fine_tune
+0.9997,0.9998,0.12732378352019522,16,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_9.pt,fine_tune
+1.0,1.0,0.04226645910077625,19,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_10.pt,fine_tune
+0.93,0.9404,0.025426466431882646,28,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_11.pt,fine_tune
+0.9487,0.9578,0.09686405004726516,12,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_12.pt,fine_tune
+0.8179,0.8568,0.039364734664559364,29,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_13.pt,fine_tune
+1.0,1.0,0.10726251949866612,13,./save/Simsiam/simsiam_SWELLDataset_0/finetune/WESADDataset/finetuned_best_14.pt,fine_tune

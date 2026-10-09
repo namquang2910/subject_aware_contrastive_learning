@@ -1,0 +1,1541 @@
+========================================
+Job ID:       24597
+Node:         g46-1gpu-1
+GPUs:         0
+Start time:   Mon Aug  3 03:48:01 AM AEST 2026
+========================================
+Mon Aug  3 03:48:02 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.274.02             Driver Version: 535.274.02   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA L40S                    Off | 00000000:03:00.0 Off |                    0 |
+| N/A   32C    P0              83W / 350W |      0MiB / 46068MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+========================================
+Starting z_inv-only ablation (wesad_wesad, resuming from any completed folds)...
+========================================
+Device: cuda
+[wesad_wesad] no completed h_out baseline found -- training h_out AND z_inv-only both fresh, from /home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/finetune/WESADDataset  (15 folds)
+[wesad_wesad] resuming: 1 fold(s) already completed, continuing from fold 1
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 425 = 69.56%
+Label 1 count: 186 = 30.44%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 53 samples (8.7% of total)
+  Subject S11: 45 samples (7.4% of total)
+  Subject S13: 56 samples (9.2% of total)
+  Subject S14: 40 samples (6.5% of total)
+  Subject S15: 44 samples (7.2% of total)
+  Subject S16: 35 samples (5.7% of total)
+  Subject S17: 48 samples (7.9% of total)
+  Subject S2: 42 samples (6.9% of total)
+  Subject S3: 27 samples (4.4% of total)
+  Subject S4: 38 samples (6.2% of total)
+  Subject S5: 40 samples (6.5% of total)
+  Subject S6: 45 samples (7.4% of total)
+  Subject S7: 50 samples (8.2% of total)
+  Subject S8: 48 samples (7.9% of total)
+sub sample frac is 1.0
+Sampled 4336 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 70.69%
+Label 1 count: 1271 = 29.31%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S9: 4336 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4336 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 70.69%
+Label 1 count: 1271 = 29.31%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S9: 4336 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 425 = 69.56%
+Label 1 count: 186 = 30.44%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 53 samples (8.7% of total)
+  Subject S11: 45 samples (7.4% of total)
+  Subject S13: 56 samples (9.2% of total)
+  Subject S14: 40 samples (6.5% of total)
+  Subject S15: 44 samples (7.2% of total)
+  Subject S16: 35 samples (5.7% of total)
+  Subject S17: 48 samples (7.9% of total)
+  Subject S2: 42 samples (6.9% of total)
+  Subject S3: 27 samples (4.4% of total)
+  Subject S4: 38 samples (6.2% of total)
+  Subject S5: 40 samples (6.5% of total)
+  Subject S6: 45 samples (7.4% of total)
+  Subject S7: 50 samples (8.2% of total)
+  Subject S8: 48 samples (7.9% of total)
+sub sample frac is 1.0
+Sampled 4336 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 70.69%
+Label 1 count: 1271 = 29.31%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S9: 4336 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4336 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 70.69%
+Label 1 count: 1271 = 29.31%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S9: 4336 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 1: z_inv-only F1=0.6403 acc=0.6430  |  h_out F1=0.7783 acc=0.8024  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 422 = 69.07%
+Label 1 count: 189 = 30.93%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 46 samples (7.5% of total)
+  Subject S11: 40 samples (6.5% of total)
+  Subject S13: 45 samples (7.4% of total)
+  Subject S14: 41 samples (6.7% of total)
+  Subject S15: 47 samples (7.7% of total)
+  Subject S16: 41 samples (6.7% of total)
+  Subject S17: 36 samples (5.9% of total)
+  Subject S2: 36 samples (5.9% of total)
+  Subject S3: 47 samples (7.7% of total)
+  Subject S4: 44 samples (7.2% of total)
+  Subject S5: 41 samples (6.7% of total)
+  Subject S7: 59 samples (9.7% of total)
+  Subject S8: 38 samples (6.2% of total)
+  Subject S9: 50 samples (8.2% of total)
+sub sample frac is 1.0
+Sampled 4345 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 70.54%
+Label 1 count: 1280 = 29.46%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S6: 4345 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4345 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 70.54%
+Label 1 count: 1280 = 29.46%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S6: 4345 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 422 = 69.07%
+Label 1 count: 189 = 30.93%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 46 samples (7.5% of total)
+  Subject S11: 40 samples (6.5% of total)
+  Subject S13: 45 samples (7.4% of total)
+  Subject S14: 41 samples (6.7% of total)
+  Subject S15: 47 samples (7.7% of total)
+  Subject S16: 41 samples (6.7% of total)
+  Subject S17: 36 samples (5.9% of total)
+  Subject S2: 36 samples (5.9% of total)
+  Subject S3: 47 samples (7.7% of total)
+  Subject S4: 44 samples (7.2% of total)
+  Subject S5: 41 samples (6.7% of total)
+  Subject S7: 59 samples (9.7% of total)
+  Subject S8: 38 samples (6.2% of total)
+  Subject S9: 50 samples (8.2% of total)
+sub sample frac is 1.0
+Sampled 4345 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 70.54%
+Label 1 count: 1280 = 29.46%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S6: 4345 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4345 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 70.54%
+Label 1 count: 1280 = 29.46%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S6: 4345 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 2: z_inv-only F1=0.6406 acc=0.7825  |  h_out F1=0.5698 acc=0.7549  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 612 examples
+
+=== Label Statistics ===
+Label 0 count: 437 = 71.41%
+Label 1 count: 175 = 28.59%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 52 samples (8.5% of total)
+  Subject S11: 39 samples (6.4% of total)
+  Subject S13: 42 samples (6.9% of total)
+  Subject S14: 43 samples (7.0% of total)
+  Subject S15: 49 samples (8.0% of total)
+  Subject S16: 36 samples (5.9% of total)
+  Subject S17: 47 samples (7.7% of total)
+  Subject S2: 54 samples (8.8% of total)
+  Subject S3: 32 samples (5.2% of total)
+  Subject S5: 45 samples (7.4% of total)
+  Subject S6: 54 samples (8.8% of total)
+  Subject S7: 43 samples (7.0% of total)
+  Subject S8: 37 samples (6.0% of total)
+  Subject S9: 39 samples (6.4% of total)
+sub sample frac is 1.0
+Sampled 4272 examples
+
+=== Label Statistics ===
+Label 0 count: 3022 = 70.74%
+Label 1 count: 1250 = 29.26%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S4: 4272 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4272 examples
+
+=== Label Statistics ===
+Label 0 count: 3022 = 70.74%
+Label 1 count: 1250 = 29.26%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S4: 4272 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 612 examples
+
+=== Label Statistics ===
+Label 0 count: 437 = 71.41%
+Label 1 count: 175 = 28.59%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 52 samples (8.5% of total)
+  Subject S11: 39 samples (6.4% of total)
+  Subject S13: 42 samples (6.9% of total)
+  Subject S14: 43 samples (7.0% of total)
+  Subject S15: 49 samples (8.0% of total)
+  Subject S16: 36 samples (5.9% of total)
+  Subject S17: 47 samples (7.7% of total)
+  Subject S2: 54 samples (8.8% of total)
+  Subject S3: 32 samples (5.2% of total)
+  Subject S5: 45 samples (7.4% of total)
+  Subject S6: 54 samples (8.8% of total)
+  Subject S7: 43 samples (7.0% of total)
+  Subject S8: 37 samples (6.0% of total)
+  Subject S9: 39 samples (6.4% of total)
+sub sample frac is 1.0
+Sampled 4272 examples
+
+=== Label Statistics ===
+Label 0 count: 3022 = 70.74%
+Label 1 count: 1250 = 29.26%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S4: 4272 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4272 examples
+
+=== Label Statistics ===
+Label 0 count: 3022 = 70.74%
+Label 1 count: 1250 = 29.26%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S4: 4272 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 3: z_inv-only F1=0.9310 acc=0.9462  |  h_out F1=0.9636 acc=0.9707  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 416 = 68.20%
+Label 1 count: 194 = 31.80%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 50 samples (8.2% of total)
+  Subject S11: 35 samples (5.7% of total)
+  Subject S13: 37 samples (6.1% of total)
+  Subject S14: 43 samples (7.0% of total)
+  Subject S16: 43 samples (7.0% of total)
+  Subject S17: 58 samples (9.5% of total)
+  Subject S2: 39 samples (6.4% of total)
+  Subject S3: 46 samples (7.5% of total)
+  Subject S4: 46 samples (7.5% of total)
+  Subject S5: 37 samples (6.1% of total)
+  Subject S6: 48 samples (7.9% of total)
+  Subject S7: 41 samples (6.7% of total)
+  Subject S8: 46 samples (7.5% of total)
+  Subject S9: 41 samples (6.7% of total)
+sub sample frac is 1.0
+Sampled 4408 examples
+
+=== Label Statistics ===
+Label 0 count: 3055 = 69.31%
+Label 1 count: 1353 = 30.69%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S15: 4408 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4408 examples
+
+=== Label Statistics ===
+Label 0 count: 3055 = 69.31%
+Label 1 count: 1353 = 30.69%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S15: 4408 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 416 = 68.20%
+Label 1 count: 194 = 31.80%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 50 samples (8.2% of total)
+  Subject S11: 35 samples (5.7% of total)
+  Subject S13: 37 samples (6.1% of total)
+  Subject S14: 43 samples (7.0% of total)
+  Subject S16: 43 samples (7.0% of total)
+  Subject S17: 58 samples (9.5% of total)
+  Subject S2: 39 samples (6.4% of total)
+  Subject S3: 46 samples (7.5% of total)
+  Subject S4: 46 samples (7.5% of total)
+  Subject S5: 37 samples (6.1% of total)
+  Subject S6: 48 samples (7.9% of total)
+  Subject S7: 41 samples (6.7% of total)
+  Subject S8: 46 samples (7.5% of total)
+  Subject S9: 41 samples (6.7% of total)
+sub sample frac is 1.0
+Sampled 4408 examples
+
+=== Label Statistics ===
+Label 0 count: 3055 = 69.31%
+Label 1 count: 1353 = 30.69%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S15: 4408 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4408 examples
+
+=== Label Statistics ===
+Label 0 count: 3055 = 69.31%
+Label 1 count: 1353 = 30.69%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S15: 4408 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 4: z_inv-only F1=0.7761 acc=0.8183  |  h_out F1=0.7428 acc=0.7584  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 612 examples
+
+=== Label Statistics ===
+Label 0 count: 432 = 70.59%
+Label 1 count: 180 = 29.41%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 51 samples (8.3% of total)
+  Subject S11: 38 samples (6.2% of total)
+  Subject S13: 35 samples (5.7% of total)
+  Subject S14: 45 samples (7.4% of total)
+  Subject S15: 54 samples (8.8% of total)
+  Subject S16: 43 samples (7.0% of total)
+  Subject S17: 43 samples (7.0% of total)
+  Subject S3: 50 samples (8.2% of total)
+  Subject S4: 34 samples (5.6% of total)
+  Subject S5: 49 samples (8.0% of total)
+  Subject S6: 43 samples (7.0% of total)
+  Subject S7: 48 samples (7.8% of total)
+  Subject S8: 33 samples (5.4% of total)
+  Subject S9: 46 samples (7.5% of total)
+sub sample frac is 1.0
+Sampled 4184 examples
+
+=== Label Statistics ===
+Label 0 count: 2973 = 71.06%
+Label 1 count: 1211 = 28.94%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S2: 4184 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4184 examples
+
+=== Label Statistics ===
+Label 0 count: 2973 = 71.06%
+Label 1 count: 1211 = 28.94%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S2: 4184 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 612 examples
+
+=== Label Statistics ===
+Label 0 count: 432 = 70.59%
+Label 1 count: 180 = 29.41%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 51 samples (8.3% of total)
+  Subject S11: 38 samples (6.2% of total)
+  Subject S13: 35 samples (5.7% of total)
+  Subject S14: 45 samples (7.4% of total)
+  Subject S15: 54 samples (8.8% of total)
+  Subject S16: 43 samples (7.0% of total)
+  Subject S17: 43 samples (7.0% of total)
+  Subject S3: 50 samples (8.2% of total)
+  Subject S4: 34 samples (5.6% of total)
+  Subject S5: 49 samples (8.0% of total)
+  Subject S6: 43 samples (7.0% of total)
+  Subject S7: 48 samples (7.8% of total)
+  Subject S8: 33 samples (5.4% of total)
+  Subject S9: 46 samples (7.5% of total)
+sub sample frac is 1.0
+Sampled 4184 examples
+
+=== Label Statistics ===
+Label 0 count: 2973 = 71.06%
+Label 1 count: 1211 = 28.94%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S2: 4184 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4184 examples
+
+=== Label Statistics ===
+Label 0 count: 2973 = 71.06%
+Label 1 count: 1211 = 28.94%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S2: 4184 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 5: z_inv-only F1=0.8653 acc=0.8824  |  h_out F1=0.7757 acc=0.8339  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 609 examples
+
+=== Label Statistics ===
+Label 0 count: 441 = 72.41%
+Label 1 count: 168 = 27.59%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 48 samples (7.9% of total)
+  Subject S11: 39 samples (6.4% of total)
+  Subject S13: 47 samples (7.7% of total)
+  Subject S14: 50 samples (8.2% of total)
+  Subject S15: 36 samples (5.9% of total)
+  Subject S16: 37 samples (6.1% of total)
+  Subject S2: 40 samples (6.6% of total)
+  Subject S3: 37 samples (6.1% of total)
+  Subject S4: 43 samples (7.1% of total)
+  Subject S5: 45 samples (7.4% of total)
+  Subject S6: 44 samples (7.2% of total)
+  Subject S7: 44 samples (7.2% of total)
+  Subject S8: 54 samples (8.9% of total)
+  Subject S9: 45 samples (7.4% of total)
+sub sample frac is 1.0
+Sampled 4494 examples
+
+=== Label Statistics ===
+Label 0 count: 3068 = 68.27%
+Label 1 count: 1426 = 31.73%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S17: 4494 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4494 examples
+
+=== Label Statistics ===
+Label 0 count: 3068 = 68.27%
+Label 1 count: 1426 = 31.73%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S17: 4494 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 609 examples
+
+=== Label Statistics ===
+Label 0 count: 441 = 72.41%
+Label 1 count: 168 = 27.59%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 48 samples (7.9% of total)
+  Subject S11: 39 samples (6.4% of total)
+  Subject S13: 47 samples (7.7% of total)
+  Subject S14: 50 samples (8.2% of total)
+  Subject S15: 36 samples (5.9% of total)
+  Subject S16: 37 samples (6.1% of total)
+  Subject S2: 40 samples (6.6% of total)
+  Subject S3: 37 samples (6.1% of total)
+  Subject S4: 43 samples (7.1% of total)
+  Subject S5: 45 samples (7.4% of total)
+  Subject S6: 44 samples (7.2% of total)
+  Subject S7: 44 samples (7.2% of total)
+  Subject S8: 54 samples (8.9% of total)
+  Subject S9: 45 samples (7.4% of total)
+sub sample frac is 1.0
+Sampled 4494 examples
+
+=== Label Statistics ===
+Label 0 count: 3068 = 68.27%
+Label 1 count: 1426 = 31.73%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S17: 4494 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4494 examples
+
+=== Label Statistics ===
+Label 0 count: 3068 = 68.27%
+Label 1 count: 1426 = 31.73%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S17: 4494 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 6: z_inv-only F1=0.9811 acc=0.9835  |  h_out F1=0.9759 acc=0.9791  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 424 = 69.51%
+Label 1 count: 186 = 30.49%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 48 samples (7.9% of total)
+  Subject S11: 38 samples (6.2% of total)
+  Subject S13: 47 samples (7.7% of total)
+  Subject S14: 36 samples (5.9% of total)
+  Subject S15: 36 samples (5.9% of total)
+  Subject S17: 48 samples (7.9% of total)
+  Subject S2: 46 samples (7.5% of total)
+  Subject S3: 42 samples (6.9% of total)
+  Subject S4: 50 samples (8.2% of total)
+  Subject S5: 46 samples (7.5% of total)
+  Subject S6: 44 samples (7.2% of total)
+  Subject S7: 38 samples (6.2% of total)
+  Subject S8: 48 samples (7.9% of total)
+  Subject S9: 43 samples (7.0% of total)
+sub sample frac is 1.0
+Sampled 4384 examples
+
+=== Label Statistics ===
+Label 0 count: 3058 = 69.75%
+Label 1 count: 1326 = 30.25%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S16: 4384 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4384 examples
+
+=== Label Statistics ===
+Label 0 count: 3058 = 69.75%
+Label 1 count: 1326 = 30.25%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S16: 4384 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 424 = 69.51%
+Label 1 count: 186 = 30.49%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 48 samples (7.9% of total)
+  Subject S11: 38 samples (6.2% of total)
+  Subject S13: 47 samples (7.7% of total)
+  Subject S14: 36 samples (5.9% of total)
+  Subject S15: 36 samples (5.9% of total)
+  Subject S17: 48 samples (7.9% of total)
+  Subject S2: 46 samples (7.5% of total)
+  Subject S3: 42 samples (6.9% of total)
+  Subject S4: 50 samples (8.2% of total)
+  Subject S5: 46 samples (7.5% of total)
+  Subject S6: 44 samples (7.2% of total)
+  Subject S7: 38 samples (6.2% of total)
+  Subject S8: 48 samples (7.9% of total)
+  Subject S9: 43 samples (7.0% of total)
+sub sample frac is 1.0
+Sampled 4384 examples
+
+=== Label Statistics ===
+Label 0 count: 3058 = 69.75%
+Label 1 count: 1326 = 30.25%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S16: 4384 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4384 examples
+
+=== Label Statistics ===
+Label 0 count: 3058 = 69.75%
+Label 1 count: 1326 = 30.25%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S16: 4384 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 7: z_inv-only F1=0.9224 acc=0.9307  |  h_out F1=0.9803 acc=0.9831  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 612 examples
+
+=== Label Statistics ===
+Label 0 count: 442 = 72.22%
+Label 1 count: 170 = 27.78%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 50 samples (8.2% of total)
+  Subject S11: 35 samples (5.7% of total)
+  Subject S13: 48 samples (7.8% of total)
+  Subject S14: 40 samples (6.5% of total)
+  Subject S15: 42 samples (6.9% of total)
+  Subject S16: 41 samples (6.7% of total)
+  Subject S17: 52 samples (8.5% of total)
+  Subject S2: 44 samples (7.2% of total)
+  Subject S4: 42 samples (6.9% of total)
+  Subject S5: 38 samples (6.2% of total)
+  Subject S6: 45 samples (7.4% of total)
+  Subject S7: 46 samples (7.5% of total)
+  Subject S8: 42 samples (6.9% of total)
+  Subject S9: 47 samples (7.7% of total)
+sub sample frac is 1.0
+Sampled 4251 examples
+
+=== Label Statistics ===
+Label 0 count: 2991 = 70.36%
+Label 1 count: 1260 = 29.64%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S3: 4251 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4251 examples
+
+=== Label Statistics ===
+Label 0 count: 2991 = 70.36%
+Label 1 count: 1260 = 29.64%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S3: 4251 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 612 examples
+
+=== Label Statistics ===
+Label 0 count: 442 = 72.22%
+Label 1 count: 170 = 27.78%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 50 samples (8.2% of total)
+  Subject S11: 35 samples (5.7% of total)
+  Subject S13: 48 samples (7.8% of total)
+  Subject S14: 40 samples (6.5% of total)
+  Subject S15: 42 samples (6.9% of total)
+  Subject S16: 41 samples (6.7% of total)
+  Subject S17: 52 samples (8.5% of total)
+  Subject S2: 44 samples (7.2% of total)
+  Subject S4: 42 samples (6.9% of total)
+  Subject S5: 38 samples (6.2% of total)
+  Subject S6: 45 samples (7.4% of total)
+  Subject S7: 46 samples (7.5% of total)
+  Subject S8: 42 samples (6.9% of total)
+  Subject S9: 47 samples (7.7% of total)
+sub sample frac is 1.0
+Sampled 4251 examples
+
+=== Label Statistics ===
+Label 0 count: 2991 = 70.36%
+Label 1 count: 1260 = 29.64%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S3: 4251 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4251 examples
+
+=== Label Statistics ===
+Label 0 count: 2991 = 70.36%
+Label 1 count: 1260 = 29.64%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S3: 4251 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 8: z_inv-only F1=0.9256 acc=0.9417  |  h_out F1=0.9823 acc=0.9854  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 412 = 67.54%
+Label 1 count: 198 = 32.46%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 48 samples (7.9% of total)
+  Subject S11: 38 samples (6.2% of total)
+  Subject S13: 47 samples (7.7% of total)
+  Subject S15: 36 samples (5.9% of total)
+  Subject S16: 38 samples (6.2% of total)
+  Subject S17: 56 samples (9.2% of total)
+  Subject S2: 38 samples (6.2% of total)
+  Subject S3: 39 samples (6.4% of total)
+  Subject S4: 41 samples (6.7% of total)
+  Subject S5: 39 samples (6.4% of total)
+  Subject S6: 63 samples (10.3% of total)
+  Subject S7: 39 samples (6.4% of total)
+  Subject S8: 41 samples (6.7% of total)
+  Subject S9: 47 samples (7.7% of total)
+sub sample frac is 1.0
+Sampled 4396 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 69.72%
+Label 1 count: 1331 = 30.28%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S14: 4396 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4396 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 69.72%
+Label 1 count: 1331 = 30.28%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S14: 4396 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 412 = 67.54%
+Label 1 count: 198 = 32.46%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 48 samples (7.9% of total)
+  Subject S11: 38 samples (6.2% of total)
+  Subject S13: 47 samples (7.7% of total)
+  Subject S15: 36 samples (5.9% of total)
+  Subject S16: 38 samples (6.2% of total)
+  Subject S17: 56 samples (9.2% of total)
+  Subject S2: 38 samples (6.2% of total)
+  Subject S3: 39 samples (6.4% of total)
+  Subject S4: 41 samples (6.7% of total)
+  Subject S5: 39 samples (6.4% of total)
+  Subject S6: 63 samples (10.3% of total)
+  Subject S7: 39 samples (6.4% of total)
+  Subject S8: 41 samples (6.7% of total)
+  Subject S9: 47 samples (7.7% of total)
+sub sample frac is 1.0
+Sampled 4396 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 69.72%
+Label 1 count: 1331 = 30.28%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S14: 4396 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4396 examples
+
+=== Label Statistics ===
+Label 0 count: 3065 = 69.72%
+Label 1 count: 1331 = 30.28%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S14: 4396 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 9: z_inv-only F1=1.0000 acc=1.0000  |  h_out F1=1.0000 acc=1.0000  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 427 = 69.89%
+Label 1 count: 184 = 30.11%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 44 samples (7.2% of total)
+  Subject S11: 50 samples (8.2% of total)
+  Subject S13: 42 samples (6.9% of total)
+  Subject S14: 28 samples (4.6% of total)
+  Subject S15: 37 samples (6.1% of total)
+  Subject S16: 40 samples (6.5% of total)
+  Subject S17: 50 samples (8.2% of total)
+  Subject S2: 43 samples (7.0% of total)
+  Subject S3: 46 samples (7.5% of total)
+  Subject S4: 49 samples (8.0% of total)
+  Subject S6: 44 samples (7.2% of total)
+  Subject S7: 54 samples (8.8% of total)
+  Subject S8: 34 samples (5.6% of total)
+  Subject S9: 50 samples (8.2% of total)
+sub sample frac is 1.0
+Sampled 4375 examples
+
+=== Label Statistics ===
+Label 0 count: 3105 = 70.97%
+Label 1 count: 1270 = 29.03%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S5: 4375 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4375 examples
+
+=== Label Statistics ===
+Label 0 count: 3105 = 70.97%
+Label 1 count: 1270 = 29.03%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S5: 4375 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 427 = 69.89%
+Label 1 count: 184 = 30.11%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 44 samples (7.2% of total)
+  Subject S11: 50 samples (8.2% of total)
+  Subject S13: 42 samples (6.9% of total)
+  Subject S14: 28 samples (4.6% of total)
+  Subject S15: 37 samples (6.1% of total)
+  Subject S16: 40 samples (6.5% of total)
+  Subject S17: 50 samples (8.2% of total)
+  Subject S2: 43 samples (7.0% of total)
+  Subject S3: 46 samples (7.5% of total)
+  Subject S4: 49 samples (8.0% of total)
+  Subject S6: 44 samples (7.2% of total)
+  Subject S7: 54 samples (8.8% of total)
+  Subject S8: 34 samples (5.6% of total)
+  Subject S9: 50 samples (8.2% of total)
+sub sample frac is 1.0
+Sampled 4375 examples
+
+=== Label Statistics ===
+Label 0 count: 3105 = 70.97%
+Label 1 count: 1270 = 29.03%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S5: 4375 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4375 examples
+
+=== Label Statistics ===
+Label 0 count: 3105 = 70.97%
+Label 1 count: 1270 = 29.03%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S5: 4375 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 10: z_inv-only F1=1.0000 acc=1.0000  |  h_out F1=1.0000 acc=1.0000  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 419 = 68.69%
+Label 1 count: 191 = 31.31%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 48 samples (7.9% of total)
+  Subject S11: 38 samples (6.2% of total)
+  Subject S14: 47 samples (7.7% of total)
+  Subject S15: 36 samples (5.9% of total)
+  Subject S16: 38 samples (6.2% of total)
+  Subject S17: 56 samples (9.2% of total)
+  Subject S2: 38 samples (6.2% of total)
+  Subject S3: 39 samples (6.4% of total)
+  Subject S4: 41 samples (6.7% of total)
+  Subject S5: 39 samples (6.4% of total)
+  Subject S6: 63 samples (10.3% of total)
+  Subject S7: 38 samples (6.2% of total)
+  Subject S8: 40 samples (6.6% of total)
+  Subject S9: 49 samples (8.0% of total)
+sub sample frac is 1.0
+Sampled 4393 examples
+
+=== Label Statistics ===
+Label 0 count: 3085 = 70.23%
+Label 1 count: 1308 = 29.77%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S13: 4393 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4393 examples
+
+=== Label Statistics ===
+Label 0 count: 3085 = 70.23%
+Label 1 count: 1308 = 29.77%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S13: 4393 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 419 = 68.69%
+Label 1 count: 191 = 31.31%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 48 samples (7.9% of total)
+  Subject S11: 38 samples (6.2% of total)
+  Subject S14: 47 samples (7.7% of total)
+  Subject S15: 36 samples (5.9% of total)
+  Subject S16: 38 samples (6.2% of total)
+  Subject S17: 56 samples (9.2% of total)
+  Subject S2: 38 samples (6.2% of total)
+  Subject S3: 39 samples (6.4% of total)
+  Subject S4: 41 samples (6.7% of total)
+  Subject S5: 39 samples (6.4% of total)
+  Subject S6: 63 samples (10.3% of total)
+  Subject S7: 38 samples (6.2% of total)
+  Subject S8: 40 samples (6.6% of total)
+  Subject S9: 49 samples (8.0% of total)
+sub sample frac is 1.0
+Sampled 4393 examples
+
+=== Label Statistics ===
+Label 0 count: 3085 = 70.23%
+Label 1 count: 1308 = 29.77%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S13: 4393 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4393 examples
+
+=== Label Statistics ===
+Label 0 count: 3085 = 70.23%
+Label 1 count: 1308 = 29.77%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S13: 4393 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 11: z_inv-only F1=0.9724 acc=0.9770  |  h_out F1=0.9811 acc=0.9841  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 432 = 70.70%
+Label 1 count: 179 = 29.30%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 53 samples (8.7% of total)
+  Subject S11: 45 samples (7.4% of total)
+  Subject S13: 56 samples (9.2% of total)
+  Subject S14: 40 samples (6.5% of total)
+  Subject S15: 44 samples (7.2% of total)
+  Subject S16: 35 samples (5.7% of total)
+  Subject S17: 48 samples (7.9% of total)
+  Subject S2: 38 samples (6.2% of total)
+  Subject S3: 31 samples (5.1% of total)
+  Subject S4: 39 samples (6.4% of total)
+  Subject S5: 46 samples (7.5% of total)
+  Subject S6: 52 samples (8.5% of total)
+  Subject S8: 43 samples (7.0% of total)
+  Subject S9: 41 samples (6.7% of total)
+sub sample frac is 1.0
+Sampled 4337 examples
+
+=== Label Statistics ===
+Label 0 count: 3077 = 70.95%
+Label 1 count: 1260 = 29.05%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S7: 4337 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4337 examples
+
+=== Label Statistics ===
+Label 0 count: 3077 = 70.95%
+Label 1 count: 1260 = 29.05%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S7: 4337 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 432 = 70.70%
+Label 1 count: 179 = 29.30%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 53 samples (8.7% of total)
+  Subject S11: 45 samples (7.4% of total)
+  Subject S13: 56 samples (9.2% of total)
+  Subject S14: 40 samples (6.5% of total)
+  Subject S15: 44 samples (7.2% of total)
+  Subject S16: 35 samples (5.7% of total)
+  Subject S17: 48 samples (7.9% of total)
+  Subject S2: 38 samples (6.2% of total)
+  Subject S3: 31 samples (5.1% of total)
+  Subject S4: 39 samples (6.4% of total)
+  Subject S5: 46 samples (7.5% of total)
+  Subject S6: 52 samples (8.5% of total)
+  Subject S8: 43 samples (7.0% of total)
+  Subject S9: 41 samples (6.7% of total)
+sub sample frac is 1.0
+Sampled 4337 examples
+
+=== Label Statistics ===
+Label 0 count: 3077 = 70.95%
+Label 1 count: 1260 = 29.05%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S7: 4337 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4337 examples
+
+=== Label Statistics ===
+Label 0 count: 3077 = 70.95%
+Label 1 count: 1260 = 29.05%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S7: 4337 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 12: z_inv-only F1=0.9626 acc=0.9684  |  h_out F1=0.9619 acc=0.9677  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 453 = 74.14%
+Label 1 count: 158 = 25.86%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 49 samples (8.0% of total)
+  Subject S11: 37 samples (6.1% of total)
+  Subject S13: 38 samples (6.2% of total)
+  Subject S14: 47 samples (7.7% of total)
+  Subject S15: 43 samples (7.0% of total)
+  Subject S16: 37 samples (6.1% of total)
+  Subject S17: 50 samples (8.2% of total)
+  Subject S2: 35 samples (5.7% of total)
+  Subject S3: 41 samples (6.7% of total)
+  Subject S4: 48 samples (7.9% of total)
+  Subject S5: 53 samples (8.7% of total)
+  Subject S6: 45 samples (7.4% of total)
+  Subject S7: 39 samples (6.4% of total)
+  Subject S9: 49 samples (8.0% of total)
+sub sample frac is 1.0
+Sampled 4359 examples
+
+=== Label Statistics ===
+Label 0 count: 3039 = 69.72%
+Label 1 count: 1320 = 30.28%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S8: 4359 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4359 examples
+
+=== Label Statistics ===
+Label 0 count: 3039 = 69.72%
+Label 1 count: 1320 = 30.28%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S8: 4359 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 611 examples
+
+=== Label Statistics ===
+Label 0 count: 453 = 74.14%
+Label 1 count: 158 = 25.86%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 49 samples (8.0% of total)
+  Subject S11: 37 samples (6.1% of total)
+  Subject S13: 38 samples (6.2% of total)
+  Subject S14: 47 samples (7.7% of total)
+  Subject S15: 43 samples (7.0% of total)
+  Subject S16: 37 samples (6.1% of total)
+  Subject S17: 50 samples (8.2% of total)
+  Subject S2: 35 samples (5.7% of total)
+  Subject S3: 41 samples (6.7% of total)
+  Subject S4: 48 samples (7.9% of total)
+  Subject S5: 53 samples (8.7% of total)
+  Subject S6: 45 samples (7.4% of total)
+  Subject S7: 39 samples (6.4% of total)
+  Subject S9: 49 samples (8.0% of total)
+sub sample frac is 1.0
+Sampled 4359 examples
+
+=== Label Statistics ===
+Label 0 count: 3039 = 69.72%
+Label 1 count: 1320 = 30.28%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S8: 4359 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4359 examples
+
+=== Label Statistics ===
+Label 0 count: 3039 = 69.72%
+Label 1 count: 1320 = 30.28%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S8: 4359 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 13: z_inv-only F1=0.9782 acc=0.9819  |  h_out F1=0.9739 acc=0.9784  (retrained here)
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 434 = 71.15%
+Label 1 count: 176 = 28.85%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 51 samples (8.4% of total)
+  Subject S13: 41 samples (6.7% of total)
+  Subject S14: 44 samples (7.2% of total)
+  Subject S15: 40 samples (6.6% of total)
+  Subject S16: 30 samples (4.9% of total)
+  Subject S17: 48 samples (7.9% of total)
+  Subject S2: 43 samples (7.0% of total)
+  Subject S3: 47 samples (7.7% of total)
+  Subject S4: 43 samples (7.0% of total)
+  Subject S5: 33 samples (5.4% of total)
+  Subject S6: 53 samples (8.7% of total)
+  Subject S7: 48 samples (7.9% of total)
+  Subject S8: 48 samples (7.9% of total)
+  Subject S9: 41 samples (6.7% of total)
+sub sample frac is 1.0
+Sampled 4398 examples
+
+=== Label Statistics ===
+Label 0 count: 3057 = 69.51%
+Label 1 count: 1341 = 30.49%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S11: 4398 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4398 examples
+
+=== Label Statistics ===
+Label 0 count: 3057 = 69.51%
+Label 1 count: 1341 = 30.49%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S11: 4398 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+Setting random seed to 0
+sub sample frac is 0.01
+Sampled 610 examples
+
+=== Label Statistics ===
+Label 0 count: 434 = 71.15%
+Label 1 count: 176 = 28.85%
+
+=== Subject Statistics ===
+Total subjects: 14
+
+=== Samples Per Subject ===
+  Subject S10: 51 samples (8.4% of total)
+  Subject S13: 41 samples (6.7% of total)
+  Subject S14: 44 samples (7.2% of total)
+  Subject S15: 40 samples (6.6% of total)
+  Subject S16: 30 samples (4.9% of total)
+  Subject S17: 48 samples (7.9% of total)
+  Subject S2: 43 samples (7.0% of total)
+  Subject S3: 47 samples (7.7% of total)
+  Subject S4: 43 samples (7.0% of total)
+  Subject S5: 33 samples (5.4% of total)
+  Subject S6: 53 samples (8.7% of total)
+  Subject S7: 48 samples (7.9% of total)
+  Subject S8: 48 samples (7.9% of total)
+  Subject S9: 41 samples (6.7% of total)
+sub sample frac is 1.0
+Sampled 4398 examples
+
+=== Label Statistics ===
+Label 0 count: 3057 = 69.51%
+Label 1 count: 1341 = 30.49%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S11: 4398 samples (100.0% of total)
+sub sample frac is 1.0
+Sampled 4398 examples
+
+=== Label Statistics ===
+Label 0 count: 3057 = 69.51%
+Label 1 count: 1341 = 30.49%
+
+=== Subject Statistics ===
+Total subjects: 1
+
+=== Samples Per Subject ===
+  Subject S11: 4398 samples (100.0% of total)
+[MoEFinetuneModel] Loaded encoder from './save/dual_branch_no_scale_new/moe_dual_branch_WESADDataset_0/pretrain/encoder_best_.pt'
+[MoEFinetuneModel] fine_tune: all layers trainable
+[MoEFinetuneModel] Sanity check passed: all layers trainable
+  fold 14: z_inv-only F1=1.0000 acc=1.0000  |  h_out F1=1.0000 acc=1.0000  (retrained here)
+
+[wesad_wesad] SUMMARY (n=15 folds)
+  h_out      : F1=0.8790 +/- 0.1663   acc=0.9002 +/- 0.1424
+  z_inv-only : F1=0.8831 +/- 0.1371   acc=0.9005 +/- 0.1218
+  mean delta (z_inv-only - h_out): F1=+0.0041  acc=+0.0002
+
+======================================================================
+FINAL SUMMARY ACROSS RUNS
+======================================================================
+wesad_wesad: h_out F1=0.8790  z_inv-only F1=0.8831  delta=+0.0041
+Done: Mon Aug  3 04:04:04 AM AEST 2026

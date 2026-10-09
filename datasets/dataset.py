@@ -87,7 +87,7 @@ class DatasetWrapper(Dataset):
         return item
 
     def get_data_split(self):
-        split_df = pd.read_csv(self.split_file)
+        split_df = pd.read_csv(self.split_file, dtype={"subject_id": str})
         # get name of column that splits are based on
         self.split_key = [col for col in split_df.columns if col != "split"]
         # if length is one, convert to value
@@ -96,6 +96,7 @@ class DatasetWrapper(Dataset):
         # filter split_df by the selected split to get the entries that belong to the split
         split_df = split_df[split_df["split"] == self.split]
         self.keep_ids = split_df[self.split_key].values
+
     def read_data(self):
         data_df = self.get_data_df()
         if self.split is not None:
@@ -103,17 +104,16 @@ class DatasetWrapper(Dataset):
         return data_df
 
     def maybe_sub_sample_data(self):
-        print(f"sub sample frac is {self.sub_sample_frac}")
         if self.sub_sample_frac is not None and self.sub_sample_frac < 1.0:
-            self.data_df, _ = train_test_split(
-                self.data_df,
-                train_size=self.sub_sample_frac,
-                stratify=self.data_df['y']
-            )
+                    self.data_df, _ = train_test_split(
+                        self.data_df,
+                        train_size=self.sub_sample_frac,
+                        stratify=self.data_df['y']
+                    )
         if self.sub_sample_frac == 1.0:
             self.data_df = self.data_df.sample(frac=1.0, random_state=42)
         print(f"Sampled {len(self.data_df)} examples")
-     
+        
     def get_data_df(self):
         df_list = []
         # loop through subfolders

@@ -1,5 +1,5 @@
 {
-  "exp_name": "Simsiam_new",
+  "exp_name": "Simsiam",
   "mode": "pretrain_finetune",
   "seeds": [0],
   "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO",
@@ -133,8 +133,8 @@
         "stride": 1
       },
       "model_type": "simsiam_finetune",
-      "training_mode": "train_linear",
-      "freeze_encoder": true,
+      "training_mode": "fine_tune",
+      "freeze_encoder": false,
       "num_class": 1,
       "model_path": ""
     },

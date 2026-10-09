@@ -169,7 +169,7 @@ class SimSiamFinetuneModel(Model):
             x = x.unsqueeze(1)
 
         h, z     = self.encoder(x, return_embedding=True)
-        y_hat = self.classifier(z)
+        y_hat = self.classifier(h)
         loss  = self.loss_fn(y_hat, self._prepare_targets(y))
 
         return {"total_loss": loss, "y_hat": y_hat}

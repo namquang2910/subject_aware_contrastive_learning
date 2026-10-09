@@ -10,7 +10,7 @@ from models.utils import get_base_encoder
 import random
 from datasets.wesad_dataset import WESADDataset
 from datasets.psy_dataset import PsyDataset
-from datasets.swell_stressid_dataset import SWELL_STRESSID_Dataset
+from datasets.other_dataset import OTHER_Dataset
 from datasets.verbio_dataset import VERBIODataset, VERBIODataset
 from collections import defaultdict
 from loss.cl_loss import NCELoss
@@ -239,12 +239,13 @@ def get_dataset(ds_args):
         return WESADDataset(**ds_args)
     elif data_name == "PsychioNet":
         return PsyDataset(**ds_args)
-    elif data_name == "SWELLDataset":
-        return SWELL_STRESSID_Dataset(**ds_args)
-    elif data_name == "StressIDDataset":
-        return SWELL_STRESSID_Dataset(**ds_args)
+    elif data_name in ["SWELLDataset", "StressIDDataset", "MDDDataset"]:
+        print(f"Using OTHER_Dataset for {data_name}")
+        return OTHER_Dataset(**ds_args)
     elif data_name == "VERBIODataset":
         return VERBIODataset(**ds_args)
+    else:
+        raise ValueError(f"Unknown dataset: {data_name}")
 
 def get_loss(name: str, loss_args: dict):
     if name == "NCE":
@@ -253,13 +254,28 @@ def get_loss(name: str, loss_args: dict):
         return torch.nn.BCEWithLogitsLoss()
     elif name =="NegCosine":
         return NegCosine()
-    raise ValueError(f"Unknown loss: {name}")
+    elif name == "CE":
+        return torch.nn.CrossEntropyLoss()
+    else:
+        raise ValueError(f"Unknown loss: {name}")
+
+def get_evaluation_mode(cfg):
+    eval_args = cfg.get("evaluation_args", {})
+    mode = eval_args.get("mode", "segment_wise")
+    logging.info(f"Evaluation mode: {mode}")
+    print(f"Evaluation mode: {mode}")
+    if mode not in ["segment_wise", "subject_wise"]:
+        raise ValueError(f"Unknown evaluation mode: {mode}")
+    return mode
 
 def set_seed(seed):
+    print("Setting random seed to", seed)
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
 
 def save_config_file(config_dict, output_dir):
     with open(os.path.join(output_dir, "config.json"), "w") as f:

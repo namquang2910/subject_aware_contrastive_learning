@@ -3,8 +3,8 @@ set -euo pipefail
 
 WESAD_CONFIG="/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/byol_simsiam/moe_dual/pretrain_wesad_byol.json"
 SWELL_CONFIG="/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/configs/byol_simsiam/moe_dual/pretrain_swell_byol.json"
-PORT=23501
-NPROC=4
+PORT=23502
+NPROC=2
 
 echo "Running Dual Branch Subject-aware contrastive learning for dataset PsychioNet..."
 
@@ -15,7 +15,7 @@ torchrun \
   single_train.py \
   --config_path "${WESAD_CONFIG}" \
   --model_type byol \
-  --dataset "WESADDataset" \
+  --dataset "SWELLDataset" \
   --resume_finetune 0\
   --finetune_fraction 0.01
 
@@ -25,7 +25,7 @@ torchrun \
   single_train.py \
   --config_path "${SWELL_CONFIG}" \
   --model_type byol \
-  --dataset "SWELLDataset" \
+  --dataset "WESADDataset" \
   --resume_finetune 0\
   --finetune_fraction 0.01
 
@@ -39,7 +39,9 @@ torchrun \
   single_train.py \
   --config_path "${WESAD_CONFIG}" \
   --model_type simsiam \
-  --dataset "WESADDataset" 
+  --dataset "SWELLDataset" \
+  --resume_finetune 0\
+  --finetune_fraction 0.01
 
 torchrun \
   --nproc_per_node ${NPROC} \
@@ -47,6 +49,8 @@ torchrun \
   single_train.py \
   --config_path "${SWELL_CONFIG}" \
   --model_type simsiam \
-  --dataset "SWELLDataset" 
+  --dataset "WESADDataset" \
+  --resume_finetune 0\
+  --finetune_fraction 0.01
 
 echo "All runs completed."

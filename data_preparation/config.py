@@ -32,6 +32,12 @@ DATASET_DEFAULTS = {
         "data_sr":        512,
         "label_sets":      [0, 1], #0 for relax, 1 for ppt,
         "path_to_subject": "/home/s223149341/SSL-invariance-Subject_Project_model/data/VerBIO_v2/PRE/participant_id.csv"
-    }
+    },
+    "ptbxl": {
+        "segment_length": 1280,   
+        "segment_stride": 1,
+        "data_sr":        500,   
+        "label_sets":      None,  # No labels for pretraining
+    },
 }
 

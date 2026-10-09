@@ -1,5 +1,5 @@
 {
-  "exp_name": "BYOL",
+  "exp_name": "BYOL_new",
   "mode": "pretrain_finetune",
   "seeds": [0],
   "split_path": "/home/s223149341/SSL-invariance-Subject_Project_model/subject_aware_contrastive_learning/datasets/process_dataset/WESAD_LOSO",
@@ -134,8 +134,8 @@
       },
       "model_type": "byol_finetune",
       "num_class": 1,
-      "training_mode": "train_linear",
-      "freeze_encoder": true,
+      "training_mode": "fine_tune",
+      "freeze_encoder": false,
       "model_path": ""
     },
 

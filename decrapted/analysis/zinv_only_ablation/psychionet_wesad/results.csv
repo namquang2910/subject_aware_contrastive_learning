@@ -1,0 +1,2 @@
+fold,zinv_only_f1,zinv_only_acc,h_out_f1,h_out_acc,f1_delta_zinv_minus_hout,acc_delta_zinv_minus_hout
+0,0.5219,0.5276,0.7103,0.7129,-0.1884,-0.18530000000000002

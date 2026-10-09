@@ -1,0 +1,6 @@
+run,eval_dataset,cramers_v_subject_stress,nmi_subject_stress,chi2_p_value
+WESAD-pretrained -> eval WESAD,WESADDataset,0.02,0.0001,0.9999938230106495
+SWELL-pretrained -> eval SWELL,SWELLDataset,0.22,0.0141,3.0074483831749054e-117
+SWELL-pretrained -> eval WESAD,WESADDataset,0.02,0.0001,0.9999938230106495
+PsychioNet-pretrained -> eval WESAD,WESADDataset,0.02,0.0001,0.9999938230106495
+PsychioNet-pretrained -> eval SWELL,SWELLDataset,0.22,0.0141,3.0074483831749054e-117
